@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+</head>
+<body>
+    <header>
+    <button id="voltar" class="">
+        <img src="voltarseta.png" alt="Seta para voltar">
+    </button>
+    <img src="logo.png" alt="Logo da empresa" id="logo">
+    <a id="space"></a>
+</header>
+
+    <form action="POST" id="cadastro">
+        <fieldset id="fieldset">
+            <h1 id="titulo">Cadastro</h1>
+            <label for="nome" class="tituloInput">Nome Completo:</label><br>
+            <input type="text" name="nome" id="nome" class="input" placeholder="Albert Flores" required><br>
+
+            <label for="email" class="tituloInput">Email:</label><br>
+            <input type="email" name="email" id="email" class="input" placeholder="deanna.curtis@example.com" required><br>
+
+            <label for="senha" class="tituloInput">Senha:</label><br>
+            <input type="password" name="senha" id="senha" class="input" placeholder="●●●●●●●●" required><br>
+
+            <label for="data" class="tituloInput">Data de nascimento:</label><br>
+            <input type="date" name="data" id="data" class="input" required><br>
+
+            <input type="submit" value="Cadastrar-se" id="botaoCadastrar"><br>
+            <p id="login">Já possui uma conta? <a href="login.html">Entre</a></p>
+        </fieldset>
+    </form>
+</body>
+</html>

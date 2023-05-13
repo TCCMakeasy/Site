@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../estilo/OpenSans.ttf");
+}
+body {
+  background-color: #343888;
+  font-family: "Open Sans";
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+#voltar {
+  background-color: #343888;
+  margin-left: 10px;
+  border: none;
+}
+#logo {
+  width: 30rem;
+  margin-left: -7rem;
+}
+#fieldset {
+  width: 24rem;
+  margin: 2rem auto;
+  border: 0.17rem solid #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+#cadastro {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #ffffff;
+}
+#titulo {
+  margin: 0rem auto 1rem;
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+.input {
+  width: 20rem;
+  height: 1.2rem;
+  font-weight: lighter;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.tituloInput {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+#botaoCadastrar {
+  width: 11.5rem;
+  height: 2.7rem;
+  margin: 2rem auto 0rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #ef1dac;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+#botaoCadastrar:hover {
+  background-color: #b41883;
+  transition: 0.5s;
+}
+
+#login {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+#login a {
+  color: #001d5b;
+  text-decoration: none;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  #logo {
+    width: 20rem;
+    margin-left: 0rem;
+  }
+}
