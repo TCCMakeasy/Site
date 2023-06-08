@@ -25,12 +25,18 @@ header {
 
 #logo {
   width: 30rem;
-  margin-left: -6rem;
+  margin-left: -7rem;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #fieldsetLogin {
   width: 24rem;
-  margin: 4.5rem auto;
+  margin: 4.5rem 2rem 0.5rem;
   border: 0.17rem solid #ffffff;
   border-radius: 10px;
   padding: 10px;
@@ -88,6 +94,7 @@ header {
 #loginHref {
   font-size: 0.9rem;
   font-weight: 600;
+  margin-bottom: 1.2rem;
 }
 
 #loginHref a {
@@ -100,8 +107,15 @@ header {
   transition: 0.5s;
 }
 @media (max-width: 768px) {
-  #logo {
+
+  #fieldsetLogin {
     width: 20rem;
+  }
+  .inputLogin {
+    width: 18rem;
+  }
+  #logo {
+    width: 15rem;
     margin-left: 0rem;
   }
   header {
@@ -109,6 +123,5 @@ header {
   }	
   #voltar {
     margin-left: 0rem;
-    width: 7rem;
   }
 }
