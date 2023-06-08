@@ -24,16 +24,23 @@ header {
   width: 30rem;
   margin-left: -7rem;
 }
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #fieldsetCad {
   width: 24rem;
-  margin: 2rem auto;
+  margin: 2rem auto 0.5rem;
   border: 0.17rem solid #ffffff;
   border-radius: 10px;
   padding: 10px;
 }
 #fieldsetLogin {
   width: 24rem;
-  margin: 4.5rem auto;
+  margin: 4.5rem auto 0.5rem;
   border: 0.17rem solid #ffffff;
   border-radius: 10px;
   padding: 10px;
@@ -115,16 +122,32 @@ header {
   text-decoration: none;
   font-weight: 800;
 }
+
+#loginHref a:hover {
+  color: #001122;
+  transition: 0.5s;
+}
 @media (max-width: 768px) {
+  #fieldsetLogin {
+    width: 90%;
+  }
+  .inputLogin {
+    width: 18rem;
+  }
+  .inputCad {
+    width: 18rem;
+  }
+  #fieldsetCad {
+    width: 90%;
+  }
   #logo {
-    width: 20rem;
+    width: 15rem;
     margin-left: 0rem;
   }
   header {
     margin-top: 0;
   }	
   #voltar {
-  margin-left: 0rem;
-  width: 7rem;
-}
+    width: 5rem;
+  }
 }
