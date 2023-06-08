@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans.ttf");
+}
+body {
+  background-color: #343888;
+  font-family: "Open Sans";
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+#voltar {
+  display: block;
+  background-color: #343888;
+  margin-left: 10px;
+  border: none;
+  color: #ef1dac;
+  font-weight: 700;
+}
+
+#logo {
+  width: 30rem;
+  margin-left: -6rem;
+}
+
+#fieldsetLogin {
+  width: 24rem;
+  margin: 4.5rem auto;
+  border: 0.17rem solid #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#cadastro {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+#tituloLogin {
+  margin: 1rem auto 1.7rem;
+  font-size: 2.7rem;
+  font-weight: 700;
+}
+
+.inputLogin {
+  width: 20rem;
+  height: 1.2rem;
+  font-weight: lighter;
+  margin: 1rem auto 2rem;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tituloInputLogin {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#botaoSubmit {
+  width: 11.5rem;
+  height: 2.7rem;
+  margin: 1.5rem auto 0rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #ef1dac;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  cursor: pointer;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#botaoSubmit:hover {
+  background-color: #c41b8e;
+  transition: 0.5s;
+}
+
+#loginHref {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#loginHref a {
+  color: #001d5b;
+  text-decoration: none;
+  font-weight: 800;
+}
+#loginHref a:hover {
+  color: #001122;
+  transition: 0.5s;
+}
+@media (max-width: 768px) {
+  #logo {
+    width: 20rem;
+    margin-left: 0rem;
+  }
+  header {
+    margin-top: 0;
+  }	
+  #voltar {
+    margin-left: 0rem;
+    width: 7rem;
+  }
+}
