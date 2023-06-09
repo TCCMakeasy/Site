@@ -28,7 +28,7 @@ header {
   margin-left: -7rem;
 }
 
-main{
+main {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,7 @@ main{
   width: 20rem;
   height: 1.2rem;
   font-weight: lighter;
-  margin: 1rem auto 2rem;
+  margin: 1rem;
   border-radius: 10px;
   border: none;
   padding: 10px;
@@ -107,21 +107,23 @@ main{
   transition: 0.5s;
 }
 @media (max-width: 768px) {
-
   #fieldsetLogin {
-    width: 20rem;
+    width: 80%;
   }
   .inputLogin {
-    width: 18rem;
+    width: 90%;
   }
   #logo {
-    width: 15rem;
-    margin-left: 0rem;
+    width: 70%;
+    margin-left: 0.2rem;
   }
   header {
     margin-top: 0;
-  }	
+  }
   #voltar {
-    margin-left: 0rem;
+    width: 70%;
+  }
+  #span {
+    display: none;
   }
 }
