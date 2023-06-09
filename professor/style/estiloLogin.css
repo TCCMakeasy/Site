@@ -36,7 +36,7 @@ main {
 
 #fieldsetLogin {
   width: 24rem;
-  margin: 4.5rem 2rem 0.5rem;
+  margin: 4.5rem auto 0.5rem;
   border: 0.17rem solid #ffffff;
   border-radius: 10px;
   padding: 10px;
@@ -59,7 +59,8 @@ main {
   width: 20rem;
   height: 1.2rem;
   font-weight: lighter;
-  margin: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   border-radius: 10px;
   border: none;
   padding: 10px;
