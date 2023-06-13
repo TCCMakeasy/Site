@@ -27,13 +27,13 @@ section{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 #container > *{
+    margin: 2rem 4rem;
     width: 100%;
 }
 
 /* IFRAME */
 
 #iframe{
-    margin: 1rem 4rem;
     color: white;
     display: flex;
     flex-direction: column;
@@ -58,7 +58,6 @@ section{
     flex-wrap: wrap;
     align-items: center;
     text-align: center;
-    margin: 1rem;
 }
 .professor{
     background-color: var(--corPrimaria);
@@ -86,4 +85,24 @@ section{
     font-size: 1.25rem;
     margin: 1rem;
     font-weight: 700;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: 1rem;
+  scrollbar-color: var(--corPrimaria) var(--corSecundaria);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--corSecundaria);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--corPrimaria);
+  border-radius: 20px;
 }
