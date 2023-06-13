@@ -15,6 +15,15 @@ body{
     padding: 0;
     font-family: "Open Sans", sans-serif;
 }
+.fotoPerfil{
+    margin-top: 2rem;
+}
+#imgUsuario{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 1px solid rgb(0, 0, 0);
+}
 #menu{
     width: 20rem;
     min-height: 100%;
@@ -24,7 +33,7 @@ body{
     align-items: center;
     text-align: center;
     color: white;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
 }
 nav{
@@ -32,9 +41,10 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 12rem;
 }
 .navButton{
+    margin-top: 1.2rem;
     text-decoration: none;
     color: white;
 }
@@ -44,6 +54,26 @@ nav{
 }
 footer{
     background-color: var(--corSecundaria);
+    height: 5.2rem;
+    width: 100%;
+    position: absolute;
     bottom: 0;
     font-size: 13px;
+}
+#sair{
+    color: var(--vermelhoMakeasy);
+}
+.redesSociais > a{
+    display: inline-block;
+    margin: 0 0.2rem;
+    height: 2rem;
+    width: 2rem;
+    border-radius:10%;
+    background-color: var(--corPrimaria);
+}
+#whatsapp{
+    background-color: #25D366;
+}
+.bi{
+    margin-top: 25%;
 }
