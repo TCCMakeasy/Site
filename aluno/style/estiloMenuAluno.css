@@ -1,7 +1,8 @@
 :root{
     --corPrimaria: #343888;
-    --corSecundaria: #000628;
-    --rosaMakeasy: #343888;
+    --corSecundaria: #5b6dd0;
+    --roxoEscuro: #000628;
+    --rosaMakeasy: #EF1DAC;
     --azulMakeasy: #001D5B;
     --verdeMakeasy: #7CDA24;
     --vermelhoMakeasy: #E02B20;
@@ -58,7 +59,7 @@ nav{
     width: 15rem;
 }
 footer{
-    background-color: var(--corSecundaria);
+    background-color: var(--roxoEscuro);
     height: 5.2rem;
     width: 100%;
     position: absolute;
