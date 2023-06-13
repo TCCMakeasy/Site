@@ -28,7 +28,7 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: calc(40% + 6vw);
+    margin-top: calc(50% + 7vh);
 }
 .navButton{
     margin-top: 1.2rem;
