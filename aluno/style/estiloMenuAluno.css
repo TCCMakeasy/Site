@@ -1,20 +1,6 @@
-:root{
-    --corPrimaria: #343888;
-    --corSecundaria: #5b6dd0;
-    --roxoEscuro: #000628;
-    --rosaMakeasy: #EF1DAC;
-    --azulMakeasy: #001D5B;
-    --verdeMakeasy: #7CDA24;
-    --vermelhoMakeasy: #E02B20;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/OpenSans.ttf");
-}
 body{
     margin: 0;
     padding: 0;
-    font-family: "Open Sans", sans-serif;
 }
 .fotoPerfil{
     margin-top: 3rem;

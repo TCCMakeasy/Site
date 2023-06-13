@@ -16,7 +16,7 @@ section{
 #title{
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin: 0 auto 2rem;
 }
 #container{
     display: flex;
@@ -25,4 +25,33 @@ section{
     background-color: var(--corSecundaria);
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+#container > *{
+    margin: 1rem 4rem;
+    width: 100%;
+}
+
+/* IFRAME */
+
+#iframe{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#pesquisar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#inputPesquisa{
+    width: 75vw;
+    height: 2rem;
+    border: none;
+    margin: 1rem;
+    padding: 0 1rem;
+    font-size: 1rem;
 }
