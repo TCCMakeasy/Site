@@ -1,0 +1,49 @@
+:root{
+    --corPrimaria: #343888;
+    --corSecundaria: #000628;
+    --rosaMakeasy: #343888;
+    --azulMakeasy: #001D5B;
+    --verdeMakeasy: #7CDA24;
+    --vermelhoMakeasy: #E02B20;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans.ttf");
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+}
+#menu{
+    width: 20rem;
+    min-height: 100%;
+    background-color: var(--corPrimaria);
+    display: block;
+    position: fixed;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.navButton{
+    text-decoration: none;
+    color: white;
+}
+#logo{
+    margin: 2rem;
+    width: 15rem;
+}
+footer{
+    background-color: var(--corSecundaria);
+    bottom: 0;
+    font-size: 13px;
+}
