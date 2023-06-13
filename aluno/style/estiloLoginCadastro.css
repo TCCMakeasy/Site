@@ -1,10 +1,5 @@
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/OpenSans.ttf");
-}
 body {
   background-color: #343888;
-  font-family: "Open Sans";
 }
 header {
   display: flex;
