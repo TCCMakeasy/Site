@@ -33,7 +33,7 @@ body{
     align-items: center;
     text-align: center;
     color: white;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 20px;
 }
 nav{
@@ -41,12 +41,17 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 12rem;
+    margin-top: calc(40% + 9vw);
 }
 .navButton{
     margin-top: 1.2rem;
     text-decoration: none;
     color: white;
+}
+.navSelected{
+    margin-top: 1.2rem;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
 }
 #logo{
     margin: 2rem;
