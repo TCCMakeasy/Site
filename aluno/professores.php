@@ -15,7 +15,7 @@
         <section>
         <h1 id="title">Professores</h1>
             <div id="container">
-                <iframe src="professoresDisponiveis.php" frameborder="0"></iframe>
+                <iframe src="./includes/professoresDisponiveis.php" frameborder="0"></iframe>
             </div>
         </section>
     </main>
