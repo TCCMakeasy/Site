@@ -1,71 +1,76 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
-.fotoPerfil{
-    margin-top: 3rem;
+.fotoPerfil {
+  margin-top: 3rem;
+  margin-bottom: calc(20vw - 22vh);
 }
-#imgUsuario{
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    border: 1px solid rgb(0, 0, 0);
+#imgUsuario {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 1px solid rgb(0, 0, 0);
 }
-#menu{
-    width: 20rem;
-    min-height: 100%;
-    background-color: var(--corPrimaria);
-    display: block;
-    position: fixed;
-    align-items: center;
-    text-align: center;
-    color: white;
-    font-weight: 700;
-    font-size: 20px;
+#menu {
+  width: 22rem;
+  min-height: 100%;
+  background-color: var(--corPrimaria);
+  display: block;
+  position: fixed;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
 }
-nav{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: calc(50% + 7vh);
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.navButton{
-    margin-top: 1.2rem;
-    text-decoration: none;
-    color: white;
+.navButton {
+  margin-top: 1.7rem;
+  text-decoration: none;
+  color: white;
 }
-.navSelected{
-    margin-top: 1.2rem;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
+#logo {
+  margin: 2rem;
+  width: 15rem;
 }
-#logo{
-    margin: 2rem;
-    width: 15rem;
+footer {
+  background-color: var(--roxoEscuro);
+  height: 5.2rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  font-size: 13px;
 }
-footer{
-    background-color: var(--roxoEscuro);
-    height: 5.2rem;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    font-size: 13px;
+#sair {
+  color: var(--vermelhoMakeasy);
 }
-#sair{
-    color: var(--vermelhoMakeasy);
+.redesSociais > a {
+  display: inline-block;
+  margin: 0 0.2rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 10%;
+  background-color: var(--corPrimaria);
 }
-.redesSociais > a{
-    display: inline-block;
-    margin: 0 0.2rem;
-    height: 2rem;
-    width: 2rem;
-    border-radius:10%;
-    background-color: var(--corPrimaria);
+.redesSociais > a:hover {
+  background-color: var(--azulMakeasy);
+  transition: 0.3s;
+  box-shadow: 0 0 0 1.2px var(--corPrimaria) inset;
 }
-#whatsapp{
-    background-color: #25D366;
+#whatsapp {
+  background-color: #25d366;
 }
-.bi{
-    margin-top: 25%;
+#whatsapp:hover {
+  background-color: #128c7e;
+  transition: 0.3s;
+  box-shadow: 0 0 0 1.2px #25d366 inset;
+}
+.bi {
+  margin-top: 25%;
 }

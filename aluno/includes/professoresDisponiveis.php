@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../style/estiloProfessores.css">
     <title>Professores Disponíveis</title>
 </head>
+
 <body id="iframe">
     <div id="pesquisar">
         <h1 id="pesquisarTitulo">Pesquisar:</h1>
@@ -17,9 +19,10 @@
     <ul id="professores">
         <li class="professor">
             <img src="../images/usuario.png" alt="Foto do professor" class="imgProfessor">
-            <a id="nomeProfessor">Nome do Professor</a>
-            <a id="saibaMais">Saiba Mais</a>
+            <h1 id="nomeProfessor">Nome do Professor</h1>
+            <a id="saibaMais" href="google.com">Saiba Mais</a>
         </li>
     </ul>
 </body>
+
 </html>
