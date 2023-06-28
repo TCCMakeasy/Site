@@ -115,3 +115,16 @@ section{
   background-color: var(--corPrimaria);
   border-radius: 20px;
 }
+
+@media (max-width: 768px){
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+    main{
+        margin-left: 0;
+    }
+    section{
+        width: 100%;
+    }
+}
