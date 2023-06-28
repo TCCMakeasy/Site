@@ -7,7 +7,7 @@
     <nav>
         <a href="" class="navButton">Informações</a>
         <a href="" class="navButton">Horário</a>
-        <a href="" class="navButton">Professores</a>
+        <a href="./professores.php" class="navButton">Professores</a>
         <a href="" class="navButton">Mensagens</a>
         <a href="" class="navButton" id="sair">Sair</a>
     </nav>
