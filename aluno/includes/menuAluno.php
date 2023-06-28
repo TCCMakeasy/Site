@@ -1,15 +1,27 @@
 <aside id="menu">
     <img src="./images/logo.png" alt="Logo da empresa" id="logo">
-    <div class="fotoPerfil">
+    <div class=" fotoPerfil">
         <img src="./images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeAluno" id="nomeMenuAluno">Aluno</p>
     </div>
     <nav>
-        <a href="" class="navButton">Informações</a>
-        <a href="" class="navButton">Horário</a>
-        <a href="./professores.php" class="navButton">Professores</a>
-        <a href="" class="navButton">Mensagens</a>
-        <a href="" class="navButton" id="sair">Sair</a>
+        <ul>
+            <li>
+                <a href="" class="navButton">Informações</a>
+            </li>
+            <li>
+                <a href="" class="navButton">Horário</a>
+            </li>
+            <li>
+                <a href="./professores.php" class="navButton">Professores</a>
+            </li>
+            <li>
+                <a href="" class="navButton">Mensagens</a>
+            </li>
+            <li>
+                <a href="" class="navButton" id="sair">Sair</a>
+            </li>
+        </ul>
     </nav>
     <footer>
         <p>Makeasy 2023 | Desenvolvido por TDE</p>
@@ -37,3 +49,11 @@
         </div>
     </footer>
 </aside>
+<header id="mobile-menu">
+    <button id="abrirFecharMenu" onclick="menuShow()">
+        <svg width="38" height="29" viewBox="0 0 38 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35 23.5617C35.7704 23.562 36.5112 23.8117 37.0688 24.2591C37.6264 24.7065 37.958 25.3173 37.995 25.9648C38.0321 26.6124 37.7716 27.2471 37.2677 27.7375C36.7637 28.2278 36.0548 28.5363 35.288 28.5988L35 28.6106H3C2.22957 28.6103 1.48881 28.3606 0.931227 27.9132C0.373643 27.4658 0.041976 26.855 0.00495148 26.2075C-0.032073 25.5599 0.228384 24.9252 0.732351 24.4348C1.23632 23.9444 1.94516 23.636 2.712 23.5735L3 23.5617H35ZM35 11.7808C35.7956 11.7808 36.5587 12.0468 37.1213 12.5202C37.6839 12.9937 38 13.6358 38 14.3053C38 14.9748 37.6839 15.6169 37.1213 16.0904C36.5587 16.5638 35.7956 16.8298 35 16.8298H3C2.20435 16.8298 1.44129 16.5638 0.87868 16.0904C0.316071 15.6169 0 14.9748 0 14.3053C0 13.6358 0.316071 12.9937 0.87868 12.5202C1.44129 12.0468 2.20435 11.7808 3 11.7808H35ZM35 0C35.7956 0 36.5587 0.26597 37.1213 0.739399C37.6839 1.21283 38 1.85494 38 2.52447C38 3.194 37.6839 3.8361 37.1213 4.30953C36.5587 4.78296 35.7956 5.04893 35 5.04893H3C2.20435 5.04893 1.44129 4.78296 0.87868 4.30953C0.316071 3.8361 0 3.194 0 2.52447C0 1.85494 0.316071 1.21283 0.87868 0.739399C1.44129 0.26597 2.20435 0 3 0H35Z" fill="white" />
+        </svg>
+    </button>
+    <input type="checkbox" name="menuResponsivo" id="toogle">
+</header>

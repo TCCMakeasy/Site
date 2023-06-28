@@ -4,7 +4,13 @@ body {
 }
 .fotoPerfil {
   margin-top: 3rem;
-  margin-bottom: calc(20vw - 22vh);
+  margin-bottom: 14vh;
+}
+#toogle {
+  display: none;
+}
+#abrirFecharMenu {
+  display: none;
 }
 #imgUsuario {
   width: 7rem;
@@ -13,16 +19,21 @@ body {
   border: 1px solid rgb(0, 0, 0);
 }
 #menu {
-  width: 22rem;
-  min-height: 100%;
-  background-color: var(--corPrimaria);
   display: block;
+  width: 22rem;
+  height: 100%;
+  margin-top: 0;
+  background-color: var(--corPrimaria);
   position: fixed;
   align-items: center;
   text-align: center;
   color: white;
   font-weight: 700;
   font-size: 22px;
+  transform: 0.5s;
+}
+#mobile-menu {
+  display: none;
 }
 nav {
   display: flex;
@@ -30,8 +41,14 @@ nav {
   justify-content: center;
   align-items: center;
 }
+nav ul {
+  padding: 0;
+}
+nav ul li {
+  margin-top: 1rem;
+  list-style-type: none;
+}
 .navButton {
-  margin-top: 1.7rem;
   text-decoration: none;
   color: white;
 }
@@ -73,4 +90,26 @@ footer {
 }
 .bi {
   margin-top: 25%;
+}
+
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background-color: var(--corPrimaria);
+  }
+  #menu {
+    display: none;
+  }
+  #abrirFecharMenu {
+    display: block;
+    margin: 1.5rem 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 }
