@@ -108,6 +108,7 @@ footer {
   }
   .menu-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
   }
   #abrirFecharMenu {
@@ -117,7 +118,16 @@ footer {
     border: none;
     cursor: pointer;
   }
+  #notification {
+    display: block;
+    margin: 1.5rem 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
   #titleResponsive {
+    color: white;
+    font-size: 1.5rem;
   }	
   #title{
     display: none;
