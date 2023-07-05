@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.fotoPerfil {
+#fotoPerfil {
   margin-top: 3rem;
   margin-bottom: 14vh;
 }
@@ -20,7 +20,7 @@ body {
 }
 #menu {
   display: block;
-  width: 22rem;
+  width: calc((98% + 380px)/2 - 40%);
   height: 100%;
   margin-top: 0;
   background-color: var(--corPrimaria);
@@ -92,7 +92,7 @@ footer {
   margin-top: 25%;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #mobile-menu {
     display: block;
     position: fixed;
