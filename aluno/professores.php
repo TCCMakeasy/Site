@@ -9,10 +9,9 @@
     <link rel="stylesheet" type="text/css" href="style/estiloPadrao.css">
     <link rel="stylesheet" type="text/css" href="style/estiloMenuAluno.css">
     <link rel="stylesheet" type="text/css" href="style/estiloProfessores.css">
-    <script src="./js/menuOpenClose.js"></script>
 </head>
 
-<body>
+<body id="bodyProfessores">
     <?php include_once "includes/menuAluno.php"; ?>
     <main>
         <section>
@@ -23,5 +22,5 @@
         </section>
     </main>
 </body>
-
+<script src="./js/menuOpenClose.js"></script>
 </html>

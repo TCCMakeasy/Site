@@ -53,7 +53,7 @@ nav ul li {
   color: white;
 }
 #logo {
-  margin: 2rem;
+  margin: 1rem;
   width: 15rem;
 }
 footer {
@@ -92,7 +92,8 @@ footer {
   margin-top: 25%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+  
   #mobile-menu {
     display: block;
     position: fixed;
@@ -105,11 +106,20 @@ footer {
   #menu {
     display: none;
   }
+  .menu-container {
+    display: flex;
+    align-items: center;
+  }
   #abrirFecharMenu {
     display: block;
     margin: 1.5rem 1rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
+  }
+  #titleResponsive {
+  }	
+  #title{
+    display: none;
   }
 }
