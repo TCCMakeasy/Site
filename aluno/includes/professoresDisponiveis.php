@@ -22,6 +22,21 @@
             <h1 id="nomeProfessor">Nome do Professor</h1>
             <a id="saibaMais" href="google.com">Saiba Mais</a>
         </li>
+        <li class="professor">
+            <img src="../images/usuario.png" alt="Foto do professor" class="imgProfessor">
+            <h1 id="nomeProfessor">Nome do Professor</h1>
+            <a id="saibaMais" href="google.com">Saiba Mais</a>
+        </li>
+        <li class="professor">
+            <img src="../images/usuario.png" alt="Foto do professor" class="imgProfessor">
+            <h1 id="nomeProfessor">Nome do Professor</h1>
+            <a id="saibaMais" href="google.com">Saiba Mais</a>
+        </li>
+        <li class="professor">
+            <img src="../images/usuario.png" alt="Foto do professor" class="imgProfessor">
+            <h1 id="nomeProfessor">Nome do Professor</h1>
+            <a id="saibaMais" href="google.com">Saiba Mais</a>
+        </li>
     </ul>
 </body>
 

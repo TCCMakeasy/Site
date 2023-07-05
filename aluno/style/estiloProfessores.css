@@ -1,13 +1,15 @@
-body{
-    display:inline-block;
-}
 main{
-    margin-left: 22rem;
+    margin-left: calc((98% + 380px) / 2 - 40%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 section{
     display: flex;
+    width: 98%;
     height: 100vh;
-    width: calc(100vw - 22rem);
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -57,15 +59,18 @@ section{
 #professores{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0;
+    margin: 1rem 0;
 }
 .professor{
     background-color: var(--corPrimaria);
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
+    width: calc(20% + 3rem);
     height: 22rem;
     margin: 1rem 2rem;
     border: 1px solid black;
@@ -116,7 +121,7 @@ section{
   border-radius: 20px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1024px){
     body{
         height: 100vh;
         width: 100vw;
@@ -126,5 +131,20 @@ section{
     }
     section{
         width: 100%;
+    }
+    .professor{
+        width: 33%;
+    }
+    #professores{
+        margin-left: -2rem;
+    }
+}
+@media (max-width: 768px){
+    .professor{
+        width:40%;
+        margin: 0.5rem;
+    }
+    #professores{
+        margin-left: -2rem;
     }
 }
