@@ -14,7 +14,7 @@
     <div id="pesquisar">
         <h1 id="pesquisarTitulo">Pesquisar:</h1>
         <input type="text" id="inputPesquisa">
-        <a href=""><img src="../images/filtroIco.png" alt="Filtro de pesquisa"></a>
+        <a href=""><img src="../images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
     </div>
     <ul id="professores">
         <li class="professor">
