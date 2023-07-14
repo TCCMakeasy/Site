@@ -17,7 +17,7 @@
                 <a href="./professores.php" class="navButton">Professores</a>
             </li>
             <li>
-                <a href="" class="navButton">Mensagens</a>
+                <a id="openNotify" class="navButton">Mensagens</a>
             </li>
             <li>
                 <a href="" class="navButton" id="sair">Sair</a>

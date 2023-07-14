@@ -16,11 +16,58 @@
         <section>
             <h1 id="title">Professores</h1>
             <div id="container">
-                <iframe src="./includes/professoresDisponíveis.php" frameborder="0"></iframe>
-            </div>
+                    <div id="pesquisar">
+                        <h1 id="pesquisarTitulo">Pesquisar:</h1>
+                        <input type="text" id="inputPesquisa">
+                        <a href=""><img src="images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
+                    </div>
+                    <ul id="professores">
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                        <li class="professor">
+                            <img src="images/usuario.png" alt="Foto do professor" class="imgProfessor">
+                            <h1 id="nomeProfessor">Nome do Professor</h1>
+                            <a id="saibaMais" href="google.com">Saiba Mais</a>
+                        </li>
+                    </ul>
+                </div>
         </section>
     </main>
 </body>
-<script src="./js/menuOpenClose.js"></script>
+<script src="/aluno/js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
+
 </html>
