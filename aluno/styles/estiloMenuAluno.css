@@ -119,7 +119,7 @@ footer {
     border: none;
     cursor: pointer;
   }
-  #notification {
+  .notification {
     display: block;
     margin: 1.5rem 1rem;
     background-color: transparent;

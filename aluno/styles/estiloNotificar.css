@@ -1,18 +1,17 @@
 #notificações{
+    padding: 0;
     width: 70%;
     height: 80%;
     position: fixed;
     background-color: var(--corPrimaria);
     border: 3px solid #000;
     border-radius: 8px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 1;
     overflow-y: scroll;
 }	
+
 
 #notificações::backdrop{
     background-color: rgba(0, 0, 0, 0.6);
@@ -43,7 +42,7 @@
 }
 .separaItens{
     font-size: 4rem;
-    transform: translate(0, -10%);
+    transform: translate(0, -9%);
     font-weight: 100;
     color: #000;
 }
