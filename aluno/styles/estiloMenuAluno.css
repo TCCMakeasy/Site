@@ -51,6 +51,7 @@ nav ul li {
 .navButton {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 #logo {
   margin: 1rem;
@@ -99,7 +100,7 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 5rem;
     background-color: var(--corPrimaria);
   }
