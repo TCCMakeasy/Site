@@ -22,4 +22,5 @@
     </main>
 </body>
 <script src="./js/menuOpenClose.js"></script>
+<?php include_once "includes/modalNotificar.php"; ?>
 </html>
