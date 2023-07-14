@@ -1,11 +1,11 @@
 :root{
-    --corPrimaria: #343888;
-    --corSecundaria: #5b6dd0;
-    --roxoEscuro: #000628;
-    --rosaMakeasy: #EF1DAC;
-    --azulMakeasy: #001D5B;
-    --verdeMakeasy: #7CDA24;
-    --vermelhoMakeasy: #E02B20;
+    --corPrimaria: rgba(52, 56, 136, 1);
+    --corSecundaria: rgba(91, 109, 208, 1);
+    --roxoEscuro: rgba(0, 6, 40, 1);
+    --rosaMakeasy: rgba(239, 29, 172, 1);
+    --azulMakeasy: rgba(0,29,91,1.0);
+    --verdeMakeasy: rgba(124,218,36,1.0);
+    --vermelhoMakeasy: rgba(224,43,32,1.0);
 }
 @font-face {
   font-family: "Open Sans";
