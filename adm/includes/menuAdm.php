@@ -15,10 +15,19 @@
                 <a href="" class="navButton">Horário</a>
             </li>
             <li>
-                <a href="./professores.php" class="navButton">Professores</a>
+                <a href="./natan_alunos.php" class="navButton">Alunos</a>
+            </li>
+            <li>
+                <a href="" class="navButton">Usuários</a>
             </li>
             <li>
                 <a id="openNotify" class="navButton">Mensagens</a>
+            </li>
+            <li>
+                <a href="" class="navButton">Financeiro</a>
+            </li>
+            <li>
+                <a href="" class="navButton">Denúncias</a>
             </li>
             <li>
                 <a href="" class="navButton" id="sair">Sair</a>

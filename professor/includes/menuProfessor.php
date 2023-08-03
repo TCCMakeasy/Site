@@ -1,9 +1,9 @@
-<link rel="stylesheet" type="text/css" href="../aluno/styles/estiloMenuAluno.css">
+<link rel="stylesheet" type="text/css" href="../Professor/styles/estiloMenuProfessor.css">
 <aside id="menu">
-    <img src="../aluno/images/logo.png" alt="Logo da empresa" id="logo">
+    <img src="../professor/images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoPerfil">
-        <img src="../aluno/images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
-        <p class="nomeAluno" id="nomeMenuAluno">Aluno</p>
+        <img src="../professor/images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
+        <p class="nomeProfessor" id="nomeMenuProfessor">Professor</p>
     </div>
     <div id="scroll">
     <nav>
@@ -15,7 +15,10 @@
                 <a href="" class="navButton">Horário</a>
             </li>
             <li>
-                <a href="./professores.php" class="navButton">Professores</a>
+                <a href="./Alunos.php" class="navButton">Alunos</a>
+            </li>
+            <li>
+                <a href="" class="navButton">Financeiro</a>
             </li>
             <li>
                 <a id="openNotify" class="navButton">Mensagens</a>

@@ -36,10 +36,6 @@ body {
   display: none;
 }
 nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 nav ul {
   padding: 0;
@@ -47,6 +43,14 @@ nav ul {
 nav ul li {
   margin-top: 1rem;
   list-style-type: none;
+}
+
+#scroll{
+  overflow-y: scroll;
+  position: fixed;
+  bottom: 0;
+  min-width: calc((98% + 380px)/2 - 40%);
+  height: 20rem;
 }
 .navButton {
   text-decoration: none;
@@ -61,7 +65,7 @@ footer {
   background-color: var(--roxoEscuro);
   height: 5.2rem;
   width: 100%;
-  position: absolute;
+  position:absolute;
   bottom: 0;
   font-size: 13px;
 }
