@@ -1,9 +1,9 @@
-<link rel="stylesheet" type="text/css" href="../aluno/styles/estiloMenuAluno.css">
+<link rel="stylesheet" type="text/css" href="./styles/estiloMenuAluno.css">
 <aside id="menu">
-    <img src="../aluno/images/logo.png" alt="Logo da empresa" id="logo">
+    <img src="./images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoPerfil">
-        <img src="../aluno/images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
-        <p class="nomeAluno" id="nomeMenuAluno">Aluno</p>
+        <img src="./images/nathan.png" alt="Imagem de usuário" id="imgUsuario">
+        <p class="nomeAluno" id="nomeMenuAluno">Nathan</p>
     </div>
     <div id="scroll">
     <nav>

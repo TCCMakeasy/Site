@@ -51,7 +51,7 @@ section{
     padding: 0 1rem;
     font-size: 1.3rem;
 }
-#alunos{
+#aluno{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

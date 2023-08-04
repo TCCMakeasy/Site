@@ -36,10 +36,6 @@ body {
   display: none;
 }
 nav {
-  margin-top: 2rem;
-  position: fixed;
-  min-width: calc((98% + 380px)/2 - 40%);
-  height: 20rem;
 }
 nav ul {
   padding: 0;
