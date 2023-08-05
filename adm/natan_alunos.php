@@ -15,7 +15,7 @@
         <section>
             <h1 id="title">Alunos</h1>
             <div id="container">
-                <ul id="aluno">
+                <ul id="cu">
                     <li class="aluno">
                         <img src="./images/usuario.png" alt="Foto do Aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
