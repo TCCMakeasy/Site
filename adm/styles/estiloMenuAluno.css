@@ -19,18 +19,20 @@ body {
   border: 1px solid rgb(0, 0, 0);
 }
 #menu {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: calc((98% + 380px)/2 - 40%);
   height: 100%;
   margin-top: 0;
   background-color: var(--corPrimaria);
   position: fixed;
-  align-items: center;
   text-align: center;
+  align-items: center;
+  justify-content: space-between;
   color: white;
   font-weight: 700;
   font-size: 22px;
-  transform: 0.5s;
+  transition: 0.5s;
 }
 #mobile-menu {
   display: none;
@@ -46,11 +48,11 @@ nav ul li {
 }
 
 #scroll{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   overflow-y: scroll;
-  position: fixed;
-  bottom: 0;
-  min-width: calc((98% + 380px)/2 - 40%);
-  height: 20rem;
+  width: 100%;
 }
 .navButton {
   text-decoration: none;
@@ -62,11 +64,11 @@ nav ul li {
   width: 15rem;
 }
 footer {
+  display: flex;
+  flex-direction: column;
   background-color: var(--roxoEscuro);
   height: 5.2rem;
   width: 100%;
-  position:absolute;
-  bottom: 0;
   font-size: 13px;
 }
 #sair {
