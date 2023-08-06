@@ -3,8 +3,8 @@ body {
   padding: 0;
 }
 #fotoPerfil {
-  margin-top: 3rem;
-  margin-bottom: 14vh;
+  margin-top: 1rem;
+  margin-bottom: calc(14vh - 3rem);
 }
 #toogle {
   display: none;
@@ -31,13 +31,15 @@ body {
   justify-content: space-between;
   color: white;
   font-weight: 700;
-  font-size: 22px;
+  font-size: calc(14px + (22 - 14) * ((100vw - 400px) / (1920 - 400)));
   transition: 0.5s;
 }
 #mobile-menu {
   display: none;
 }
 nav {
+  overflow-y: auto;
+  margin-bottom: 1rem;
 }
 nav ul {
   padding: 0;
@@ -51,7 +53,7 @@ nav ul li {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 100%;
 }
 .navButton {

@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="./styles/estiloMenuAluno.css">
+<link rel="stylesheet" type="text/css" href="./styles/estiloMenuAdmin.css">
 <aside id="menu">
     <img src="./images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoPerfil">
