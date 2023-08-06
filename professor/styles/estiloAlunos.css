@@ -86,7 +86,6 @@ section{
     height: 2.5rem;
     position: fixed;
     bottom: 3rem;
-
     background-color: var(--verdeMakeasy);
     border: 1px solid #000;
     border-radius: 10px;
@@ -164,6 +163,12 @@ section{
     }
     *::-webkit-scrollbar {
         width: 10px;
-      }
+    }
+    #adicionarAluno{
+        width: 11rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        bottom: 1.5rem;
+    }
 
 }
