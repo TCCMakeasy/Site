@@ -54,7 +54,6 @@
     cursor: pointer;
     border: none;
 }
-
 @media (max-width: 768px){
     #notificações{
         width: 100%;
