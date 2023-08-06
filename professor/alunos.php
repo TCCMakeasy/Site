@@ -16,11 +16,6 @@
         <section>
             <h1 id="title">Alunos</h1>
             <div id="container">
-                    <div id="pesquisar">
-                        <h1 id="pesquisarTitulo">Pesquisar:</h1>
-                        <input type="text" id="inputPesquisa">
-                        <a href=""><img src="./images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
-                    </div>
                     <ul id="alunos">
                         <li class="aluno">
                             <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
@@ -63,6 +58,7 @@
                             <a id="saibaMais" href="google.com">Saiba Mais</a>
                         </li>
                     </ul>
+                    <button id="adicionarAluno">Adicionar Aluno</button>
                 </div>
         </section>
     </main>
