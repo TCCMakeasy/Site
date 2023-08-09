@@ -12,7 +12,7 @@
                 <a href="" class="navButton">Informações</a>
             </li>
             <li>
-                <a href="" class="navButton">Horário</a>
+                <a href="./adm_cronograma.php" class="navButton">Horário</a>
             </li>
             <li>
                 <a href="./natan_alunos.php" class="navButton">Alunos</a>

@@ -97,7 +97,7 @@ section{
 }
 
 #addAluno{
-    display: flex;
+    display: none;
     width: 40%;
     height: 35%;
     background-color: var(--corPrimaria);
@@ -223,11 +223,14 @@ section{
     *::-webkit-scrollbar {
         width: 10px;
     }
-    #adicionarAluno{
+    #abrirAdicionarAluno{
         width: 11rem;
         height: 3rem;
         font-size: 1.2rem;
         bottom: 1.5rem;
+    }
+    #addAluno{
+        width: 80%;
     }
 
 }
