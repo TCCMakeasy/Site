@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="./styles/estiloNotificar.css">
+
 <dialog id="notificações">
         <div class="notificações-content">
             <div class="notificações-header">
