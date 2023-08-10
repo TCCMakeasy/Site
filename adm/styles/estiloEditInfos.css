@@ -1,0 +1,48 @@
+
+main{
+    margin-left: calc((98% + 380px) / 2 - 40%);
+    height: 100vh;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+#fotoPerfil{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0.5rem;
+    border: 1px solid #000;
+}
+#editFoto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#labelInputFoto{
+    margin: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+#imgLabelInput{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+#title{
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem auto;
+}
+input[type='file'] {
+    display: none;
+  }
+@media (max-width: 768px){
+    main{
+        margin-left: 0;
+        margin-top: 5rem;
+    }
+}
