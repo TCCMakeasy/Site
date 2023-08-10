@@ -3,7 +3,7 @@ main{
     margin-left: calc((98% + 380px) / 2 - 40%);
     height: 100vh;
 }
-section{
+#tela{
     width: 100%;
     height: 100vh;
     display: flex;
@@ -54,8 +54,11 @@ input[type='file'] {
     flex-direction: column;
     align-items: flex-start;
 }
+.inputP{
+    margin: 0;
+}
 .tituloForm{
-    margin: 0.5rem;
+    margin: 0.5rem 0;
 }
 @media (max-width: 768px){
     main{
