@@ -39,7 +39,24 @@ section{
 }
 input[type='file'] {
     display: none;
-  }
+}
+#formInfos{
+    width: 80%;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+#editInfos{
+    display: flex;
+    flex-direction: column;
+}
+.divInputText{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.tituloForm{
+    margin: 0.5rem;
+}
 @media (max-width: 768px){
     main{
         margin-left: 0;
