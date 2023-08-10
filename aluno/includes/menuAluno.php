@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../aluno/styles/estiloMenuAluno.css">
 <aside id="menu">
     <img src="../aluno/images/logo.png" alt="Logo da empresa" id="logo">
-    <div id="fotoPerfil">
+    <div id="fotoMenu">
         <img src="../aluno/images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeAluno" id="nomeMenuAluno">Aluno</p>
     </div>

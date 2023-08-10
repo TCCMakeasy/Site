@@ -119,7 +119,7 @@ section{
     width: 100%;
 }
 #formAddAluno > h1{
-    margin: -1.5rem auto 1rem;
+    margin: auto auto 1rem;
 }
 #idAluno{
     display: flex;
@@ -127,7 +127,7 @@ section{
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 0.5rem 0 1.5rem;
+    margin: 2rem 0 1.5rem;
     padding: 3rem 0;
     font-size: 1.5rem;
 }	
@@ -155,26 +155,7 @@ section{
 #closeAddAluno{
     background-color: var(--vermelhoMakeasy);
 }
-/* Firefox */
-* {
-  scrollbar-width: 1rem;
-  scrollbar-color: var(--corPrimaria) var(--corSecundaria);
-}
 
-/* Chrome, Edge, and Safari */
-*::-webkit-scrollbar {
-  width: 1rem;
-}
-
-*::-webkit-scrollbar-track {
-  background: var(--corSecundaria);
-  border-radius: 20px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--corPrimaria);
-  border-radius: 20px;
-}
 
 @media (max-width: 768px){
     

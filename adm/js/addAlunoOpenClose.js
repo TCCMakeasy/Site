@@ -9,10 +9,12 @@ openMenu.addEventListener('click', function() {
 
 closeMenu.addEventListener('click', function() {
     modalAluno.close();
+    document.getElementById("addAluno").style.display = "none";
 });
 
 modalAluno.addEventListener('click', event => {
     if (event.target === event.currentTarget) {
-        event.currentTarget.close()
+        event.currentTarget.close();
+        document.getElementById("addAluno").style.display = "none";
     }
 })

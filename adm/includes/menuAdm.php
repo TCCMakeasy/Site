@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="./styles/estiloMenuAdmin.css">
 <aside id="menu">
     <img src="./images/logo.png" alt="Logo da empresa" id="logo">
-    <div id="fotoPerfil">
+    <div id="fotoMenu">
         <img src="./images/nathan.png" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeAluno" id="nomeMenuAluno">Nathan</p>
     </div>
@@ -9,7 +9,7 @@
     <nav>
         <ul>
             <li>
-                <a href="" class="navButton">Informações</a>
+                <a href="./edit_infos.php" class="navButton">Informações</a>
             </li>
             <li>
                 <a href="./adm_cronograma.php" class="navButton">Horário</a>
@@ -24,7 +24,7 @@
                 <a id="openNotify" class="navButton">Mensagens</a>
             </li>
             <li>
-                <a href="" class="navButton">Financeiro</a>
+                <a href="./adm_financeiro.php" class="navButton">Financeiro</a>
             </li>
             <li>
                 <a href="" class="navButton">Denúncias</a>
