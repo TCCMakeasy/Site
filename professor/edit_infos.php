@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <?php include_once "./includes/menuAdm.php"; ?>
+    <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
         <section id="tela">
             <h1 id="title">Suas Informações</h1>
             <form id="formInfos">
                 <section id="editFoto">
-                    <img src="./images/nathan.png" id="fotoPerfil" accept="./images/*">
+                    <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
                     <input type="file" id="inputFoto">
                 </section>

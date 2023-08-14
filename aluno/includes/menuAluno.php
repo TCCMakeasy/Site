@@ -9,7 +9,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="" class="navButton">Informações</a>
+                    <a href="./edit_infos.php" class="navButton">Informações</a>
                 </li>
                 <li>
                     <a href="" class="navButton">Horário</a>

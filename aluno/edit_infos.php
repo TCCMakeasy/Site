@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <?php include_once "./includes/menuAdm.php"; ?>
+    <?php include_once "./includes/menuAluno.php"; ?>
     <main>
         <section id="tela">
             <h1 id="title">Suas Informações</h1>
             <form id="formInfos">
                 <section id="editFoto">
-                    <img src="./images/nathan.png" id="fotoPerfil" accept="./images/*">
+                    <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
                     <input type="file" id="inputFoto">
                 </section>
@@ -40,10 +40,6 @@
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
                         <input id="dataNascInput" class="inputLock" type="text" value="" disabled>
-                    </div>
-                    <div id="divValor" class="divInputText">
-                        <p id="valorTitulo" class="tituloForm">Preço:</p>
-                        <p class="inputP"><input id="valorInput" class="inputText" type="number"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>
