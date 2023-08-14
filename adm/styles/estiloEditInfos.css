@@ -41,6 +41,7 @@ input[type='file'] {
     display: none;
 }
 #formInfos{
+    margin-top: 2rem;
     width: 80%;
     font-size: 1.5rem;
     font-weight: 600;
@@ -65,16 +66,21 @@ input[type='file'] {
 }
 .inputText{
     height: 2rem;
-    width: 30rem;
+    font-size: 1.5rem;
+    width: 50vw;
     border-radius: 8px;
     border: 2px solid #000;
 }
 .inputLock{
     height: 2rem;
-    width: 33.5rem;
+    width: calc(50vw + 3.5rem);
     border-radius: 8px;
     border: 2px solid #000;
     background: #D9D9D9;
+}
+#descInput{
+    height: 10rem;
+    width: 40vw;
 }
 .tituloForm{
     margin: 0.5rem 0;
@@ -84,6 +90,33 @@ input[type='file'] {
     height: 2.5rem;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+#divDesc{
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#divBtn{
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}	
+#btnSalvar{
+    margin: 2rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: var(--verdeMakeasy);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 768px){
