@@ -31,15 +31,19 @@
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="text"><img src="./images/edit.png"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" type="text"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password"><img src="./images/edit.png"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" type="password"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
                         <input id="dataNascInput" class="inputLock" type="text" value="" disabled>
+                    </div>
+                    <div id="divValor" class="divInputText">
+                        <p id="valorTitulo" class="tituloForm">Preço:</p>
+                        <p class="inputP"><input id="valorInput" class="inputText" type="number"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                 </section>
             </form>
