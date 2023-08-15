@@ -17,6 +17,22 @@ body {
   border-radius: 50%;
   border: 1px solid rgb(0, 0, 0);
 }
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 #menu {
   display: flex;
   flex-direction: column;
@@ -35,6 +51,13 @@ body {
 }
 #mobile-menu {
   display: none;
+}
+#menu[open]{
+  animation: slide-in 0.5s forwards;
+}
+#menu[closing]{
+  animation: slide-out 0.5s forwards;
+  
 }
 nav {
   overflow-y: auto;

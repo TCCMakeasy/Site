@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="./styles/estiloMenuAdmin.css">
-<aside id="menu">
+<aside id="menu" onresize="menuShow()">
     <img src="./images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
         <img src="./images/nathan.png" alt="Imagem de usuário" id="imgUsuario">

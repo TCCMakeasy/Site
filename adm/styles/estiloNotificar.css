@@ -1,72 +1,112 @@
-#notificações{
-    padding: 0;
-    width: 70%;
-    height: 80%;
-    position: fixed;
-    background-color: var(--corPrimaria);
-    border: 3px solid #000;
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    overflow-y: scroll;
-}	
+#notificações {
+  padding: 0;
+  width: 70%;
+  height: 80%;
+  position: fixed;
+  background-color: var(--corPrimaria);
+  border: 3px solid #000;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow-y: scroll;
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
-
-#notificações::backdrop{
-    background-color: rgba(0, 0, 0, 0.6);
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-#notificações .notificação{
-    height: 4rem;
-    color: white;
-    font-size: 20px;
-    border: 1px solid #000;
-    margin: 1rem;
-    background-color: var(--corSecundaria);
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
+#notificações[open] {
+  animation: 
+  slide-up 500ms forwards,
+  fade-in 500ms forwards;
 }
-#closeNotify{
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    margin: 0.5rem;
+#notificações[open]::backdrop {
+    animation: fade-in 500ms forwards;
 }
-#closeNotificar:hover{
-    background-color: var(--corSecundaria);
+#notificações[closing]{
+    animation: fade-out 500ms forwards;
+    display: block;
+    pointer-events: none;
+    inset: 0;
 }
-.separaItens{
-    font-size: 4rem;
-    transform: translate(0, -9%);
-    font-weight: 100;
-    color: #000;
+#notificações[closing]::backdrop{
+    animation: fade-out 500ms forwards;
 }
-#apagarNotificações{
-    display: flex;
-    align-items: center;
+#notificações::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#notificações .notificação {
+  height: 4rem;
+  color: white;
+  font-size: 20px;
+  border: 1px solid #000;
+  margin: 1rem;
+  background-color: var(--corSecundaria);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#closeNotify {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  margin: 0.5rem;
+}
+#closeNotificar:hover {
+  background-color: var(--corSecundaria);
+}
+.separaItens {
+  font-size: 4rem;
+  transform: translate(0, -9%);
+  font-weight: 100;
+  color: #000;
+}
+#apagarNotificações {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+@media (max-width: 768px) {
+  #notificações {
+    width: 100%;
     height: 100%;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-}
-@media (max-width: 768px){
-    #notificações{
-        width: 100%;
-        height: 100%;
-    }
-    #notificações .notificação{
-        height: 3rem;
-        font-size: 15px;
-    }
-    .separaItens{
-        font-size: 2rem;
-    }
-    #closeNotify > img{
-        width: 3rem;
-    }
+  }
+  #notificações .notificação {
+    height: 3rem;
+    font-size: 15px;
+  }
+  .separaItens {
+    font-size: 2rem;
+  }
+  #closeNotify > img {
+    width: 3rem;
+  }
 }
