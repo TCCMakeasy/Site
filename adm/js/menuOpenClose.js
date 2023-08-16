@@ -20,7 +20,8 @@ function menuShow() {
       menu.style.height = "calc(100% - 5rem)";
       menu.style.fontSize = "1.3rem";
     }
-  } else {}
+  } else {
+  }
 }
 
 function retornaTituloResponsivo() {

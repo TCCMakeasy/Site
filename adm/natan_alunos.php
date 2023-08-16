@@ -68,8 +68,8 @@
         <form action="" method="post" id="formAddAluno">
             <h1>Adicionar Aluno</h1>
             <div id="idAluno">
-            <label for="inputIdAluno"><b>ID do aluno:</b></label>
-            <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
+                <label for="inputIdAluno"><b>ID do aluno:</b></label>
+                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
             </div>
             <div id="submitAddAluno">
                 <input type="submit" id="adicionarAluno" value="Adicionar Aluno">

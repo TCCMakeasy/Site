@@ -8,7 +8,6 @@
     <title>Document</title>
 
     <style>
-        
         #tabela {
             display: flex;
             width: 100%;
@@ -20,7 +19,7 @@
             border-collapse: collapse;
         }
 
-        td{
+        td {
 
             background-color: #343888;
             color: white;
@@ -28,14 +27,14 @@
         }
 
 
-            @media (max-width: 768px){
-    
-               main{
-               margin-top: 5rem;
+        @media (max-width: 768px) {
+
+            main {
+                margin-top: 5rem;
             }
         }
 
-    /*#container{
+        /*#container{
     display: flex;
     width: 97%;
     height: 87%;
@@ -48,8 +47,6 @@
     flex-direction: column;
     overflow-y: scroll;
     }*/
-
-
     </style>
 
 </head>
@@ -59,174 +56,174 @@
 
     <section>
 
-    <main>
+        <main>
 
-    <div id="container">
+            <div id="container">
 
-        <table id="tabela">
+                <table id="tabela">
 
-            <tr>
+                    <tr>
 
-                <td>Horários</td>
-                <td>Segunda</td>
-                <td>Terça</td>
-                <td>Quarta</td>
-                <td>Quinta</td>
-                <td>Sexta</td>
-                <td>Sábado</td>
-                <td>Domingo</td>
+                        <td>Horários</td>
+                        <td>Segunda</td>
+                        <td>Terça</td>
+                        <td>Quarta</td>
+                        <td>Quinta</td>
+                        <td>Sexta</td>
+                        <td>Sábado</td>
+                        <td>Domingo</td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>10:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>10:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>11:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>11:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>12:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>12:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>13:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>13:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>14:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>14:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>15:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>15:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>16:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>16:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>17:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>17:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>18:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>18:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>19:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>19:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-            <tr>
+                    <tr>
 
-                <td>20:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                        <td>20:00</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
 
-            </tr>
+                    </tr>
 
-    </div>
+            </div>
 
-        </table>
-    </main>
+            </table>
+        </main>
 
-</section>
+    </section>
 
 </body>
 
