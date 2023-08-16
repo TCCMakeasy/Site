@@ -5,49 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
+    <link rel="stylesheet" type="text/css" href="./styles/estiloCronograma.css">
     <title>Document</title>
-
-    <style>
-        #tabela {
-            display: flex;
-            width: 100%;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            flex-direction: column;
-            border-collapse: collapse;
-        }
-
-        td {
-
-            background-color: #343888;
-            color: white;
-            border: 2px solid black;
-        }
-
-
-        @media (max-width: 768px) {
-
-            main {
-                margin-top: 5rem;
-            }
-        }
-
-        /*#container{
-    display: flex;
-    width: 97%;
-    height: 87%;
-    background-color: var(--corSecundaria);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-    color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    overflow-y: scroll;
-    }*/
-    </style>
 
 </head>
 
