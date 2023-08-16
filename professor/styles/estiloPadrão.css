@@ -1,18 +1,18 @@
-:root{
-    --corPrimaria: rgba(52, 56, 136, 1);
-    --corSecundaria: rgba(91, 109, 208, 1);
-    --roxoEscuro: rgba(0, 6, 40, 1);
-    --rosaMakeasy: rgba(239, 29, 172, 1);
-    --azulMakeasy: rgba(0,29,91,1.0);
-    --verdeMakeasy: rgba(124,218,36,1.0);
-    --vermelhoMakeasy: rgba(224,43,32,1.0);
+:root {
+  --corPrimaria: rgba(52, 56, 136, 1);
+  --corSecundaria: rgba(91, 109, 208, 1);
+  --roxoEscuro: rgba(0, 6, 40, 1);
+  --rosaMakeasy: rgba(239, 29, 172, 1);
+  --azulMakeasy: rgba(0, 29, 91, 1);
+  --verdeMakeasy: rgba(124, 218, 36, 1);
+  --vermelhoMakeasy: rgba(224, 43, 32, 1);
 }
 @font-face {
   font-family: "Open Sans";
   src: url("../fonts/OpenSans.ttf");
 }
-body{
-    font-family: "Open Sans", sans-serif;
+body {
+  font-family: "Open Sans", sans-serif;
 }
 /* Firefox */
 * {

@@ -37,7 +37,7 @@ body {
 #menu {
   display: flex;
   flex-direction: column;
-  width: calc((98% + 380px)/2 - 40%);
+  width: calc((98% + 380px) / 2 - 40%);
   height: 100%;
   margin-top: 0;
   background-color: var(--corPrimaria);
@@ -50,12 +50,11 @@ body {
   font-size: calc(14px + (22 - 14) * ((100vw - 400px) / (1920 - 400)));
   transition: 0.5s;
 }
-#menu[open]{
+#menu[open] {
   animation: slide-in 0.5s forwards;
 }
-#menu[closing]{
+#menu[closing] {
   animation: slide-out 0.5s forwards;
-  
 }
 #mobile-menu {
   display: none;
@@ -72,7 +71,7 @@ nav ul li {
   list-style-type: none;
 }
 
-#scroll{
+#scroll {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -125,7 +124,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  
   #mobile-menu {
     display: block;
     position: fixed;
@@ -160,8 +158,8 @@ footer {
   #titleResponsive {
     color: white;
     font-size: 1.5rem;
-  }	
-  #title{
+  }
+  #title {
     display: none;
   }
 }

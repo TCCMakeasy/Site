@@ -50,7 +50,7 @@
                         <textarea id="descInput" class="inputText" rows="5"></textarea>
                     </div>
                     <div id="divBtn">
-                    <input id="btnSalvar" class="btn" type="submit" value="Salvar">
+                        <input id="btnSalvar" class="btn" type="submit" value="Salvar">
                     </div>
                 </section>
             </form>
@@ -60,4 +60,5 @@
 <script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
+
 </html>

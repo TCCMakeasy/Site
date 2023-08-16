@@ -37,21 +37,19 @@
   }
 }
 #notificações[open] {
-  animation: 
-  slide-up 500ms forwards,
-  fade-in 500ms forwards;
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
 }
 #notificações[open]::backdrop {
-    animation: fade-in 500ms forwards;
+  animation: fade-in 500ms forwards;
 }
-#notificações[closing]{
-    animation: fade-out 500ms forwards;
-    display: block;
-    pointer-events: none;
-    inset: 0;
+#notificações[closing] {
+  animation: fade-out 500ms forwards;
+  display: block;
+  pointer-events: none;
+  inset: 0;
 }
-#notificações[closing]::backdrop{
-    animation: fade-out 500ms forwards;
+#notificações[closing]::backdrop {
+  animation: fade-out 500ms forwards;
 }
 #notificações::backdrop {
   background-color: rgba(0, 0, 0, 0.6);

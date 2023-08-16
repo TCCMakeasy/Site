@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 #fotoMenu {
-  margin-top:-2vh;
+  margin-top: -2vh;
 }
 #toogle {
   display: none;
@@ -36,7 +36,7 @@ body {
 #menu {
   display: flex;
   flex-direction: column;
-  width: calc((98% + 380px)/2 - 40%);
+  width: calc((98% + 380px) / 2 - 40%);
   height: 100%;
   margin-top: 0;
   background-color: var(--corPrimaria);
@@ -52,17 +52,16 @@ body {
 #mobile-menu {
   display: none;
 }
-#menu[open]{
+#menu[open] {
   animation: slide-in 0.5s forwards;
 }
-#menu[closing]{
+#menu[closing] {
   animation: slide-out 0.5s forwards;
-  
 }
 nav {
   overflow-y: auto;
   margin-bottom: 2rem;
-}	
+}
 nav ul {
   padding: 0;
   margin: 1rem;
@@ -71,7 +70,7 @@ nav ul li {
   margin-top: 1rem;
   list-style-type: none;
 }
-#scroll{
+#scroll {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -125,7 +124,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  
   #mobile-menu {
     display: block;
     position: fixed;
@@ -160,8 +158,8 @@ footer {
   #titleResponsive {
     color: white;
     font-size: 1.5rem;
-  }	
-  #title{
+  }
+  #title {
     display: none;
   }
 }

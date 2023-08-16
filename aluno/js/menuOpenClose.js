@@ -13,14 +13,13 @@ function menuShow() {
     );
   } else if (window.innerWidth <= 768) {
     menu.setAttribute("open", "");
-        menu.style.display = "flex";
-        menu.style.zIndex = "99999";
-        menu.style.width = "calc(40% + 150px)";
-        menu.style.height = "calc(100% - 5rem)";
-        menu.style.fontSize = "1.3rem";
-      }
+    menu.style.display = "flex";
+    menu.style.zIndex = "99999";
+    menu.style.width = "calc(40% + 150px)";
+    menu.style.height = "calc(100% - 5rem)";
+    menu.style.fontSize = "1.3rem";
   }
-
+}
 
 function retornaTituloResponsivo() {
   var title = document.getElementById("title").textContent;
