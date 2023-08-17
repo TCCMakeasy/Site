@@ -1,23 +1,47 @@
 <?php
-$btnCadUsuario = filter_input(INPUT_POST, 'btnCadUsuario', FILTER_DEFAULT);
+$btnCadAluno = filter_input(INPUT_POST, 'btnCad', FILTER_DEFAULT);
 if($btnCadAluno){
-    include_once '.\conexao.php';
+    include_once '../../conexao.php'; 
     $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+	$erro = false;
 
     $dados_st = array_map('strip_tags', $dados_rc);
 	$dados = array_map('trim', $dados_st);
 
-    if(!$erro){
-		//var_dump($dados);
-		$dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
+	if(in_array('',$dados)){
+		$erro = true;
+		$_SESSION['msg'] = "Necessário preencher todos os campos";
+	}elseif((strlen($dados['senha'])) < 6){
+		$erro = true;
+		$_SESSION['msg'] = "A senha deve ter no minímo 6 caracteres";
+	}elseif(stristr($dados['senha'], "&")) {
+		$erro = true;
+		$_SESSION['msg'] = "Caracter ( & ) utilizado na senha é inválido";
 		
-		$result_usuario = "INSERT INTO usuarios (nome, email, usuario, senha) VALUES (
-						'" .$dados['senha_aluno']. "',
-						'" .$dados['email_aluno']. "',
-						'" .$dados['nome_aluno']. "',
-						'" .$dados['nascimento_aluno']. "'
+	}else{
+		$result_usuario = "SELECT id_aluno FROM aluno WHERE id_aluno='". $dados['nome'] ."'";
+		$resultado_usuario = mysqli_query($sql, $result_usuario);
+		$result_usuario = "SELECT id_aluno FROM aluno WHERE email_aluno='". $dados['email'] ."'";
+		$resultado_usuario = mysqli_query($sql, $result_usuario);
+		if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
+			$erro = true;
+			$_SESSION['msg'] = "Este e-mail já está cadastrado";
+		}
+	}
+
+    if(!$erro){
+		$dados['senha_aluno'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
+		
+		$result_usuario = "INSERT INTO aluno (senha_aluno, email_aluno, nome_aluno, nascimento_aluno) VALUES (
+						'" .$dados['senha']. "',
+						'" .$dados['email']. "',
+						'" .$dados['nome']. "',
+						'" .$dados['data']. "'
 						)";
 		$resultado_usario = mysqli_query($sql, $result_usuario);
+		header('Location: ../login.php');
 	}
+	
 }
 ?>

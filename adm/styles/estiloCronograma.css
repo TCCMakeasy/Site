@@ -1,10 +1,27 @@
 main{
     margin-left: calc((98% + 380px) / 2 - 40%);
 }
+
+#tela {
+    width:100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  }
+
+  #title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 3rem auto;
+  }
+
 #tabela {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 36rem;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -12,18 +29,49 @@ main{
     border-collapse: collapse;
 }
 
-td {
+tr{
+    height: 2.125rem;
+}
 
-    background-color: #343888;
+th, td {
+
+    background-color: var(--corPrimaria);
     color: white;
     border: 3px solid black;
-    min-width: 150px;
+    min-width: 10rem;
 }
 
-tr{
-    min-height: 200px;
-
+#botoes{
+    display: inline-block;
 }
+
+#abrirMarcarAula {
+    width: 12rem;
+    height: 3rem;
+    bottom: 3rem;
+    background-color: var(--corPrimaria);
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: auto 1rem;
+    cursor: pointer;
+  }
+
+  #abrirDesmarcarAula{
+    width: 12rem;
+    height: 3rem;
+    bottom: 3rem;
+    background-color: var(--azulMakeasy);
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: auto 1rem;
+    cursor: pointer;
+  }
 
 @media (max-width: 768px) {
 
@@ -32,16 +80,9 @@ tr{
     }
 }
 
-/*#container{
-display: flex;
-width: 97%;
-height: 87%;
-background-color: var(--corSecundaria);
-border-radius: 10px;
-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
-color: white;
-display: flex;
-align-items: center;
-flex-direction: column;
-overflow-y: scroll;
-}*/
+@media (max-width: 1024px) {
+
+    #tela{
+        width: auto;
+    }
+}

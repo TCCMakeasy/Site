@@ -16,40 +16,29 @@
     <section>
 
         <main>
+        <section id="tela">
 
-            <div id="container">
+
+            <h1 id="title">Horário</h1>
 
                 <table id="tabela">
 
                     <tr>
 
-                        <td>Horários</td>
-                        <td>Segunda</td>
-                        <td>Terça</td>
-                        <td>Quarta</td>
-                        <td>Quinta</td>
-                        <td>Sexta</td>
-                        <td>Sábado</td>
-                        <td>Domingo</td>
+                        <th>HORÁRIOS</th>
+                        <th>SEGUNDA</th>
+                        <th>TERÇA</th>
+                        <th>QUARTA</th>
+                        <th>QUINTA</th>
+                        <th>SEXTA</th>
+                        <th>SÁBADO</th>
+                        <th>DOMINGO</th>
 
                     </tr>
 
                     <tr>
 
-                        <td>10:00</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>11:00</td>
+                        <th>10:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -62,7 +51,7 @@
 
                     <tr>
 
-                        <td>12:00</td>
+                        <th>11:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -75,7 +64,7 @@
 
                     <tr>
 
-                        <td>13:00</td>
+                        <th>12:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -88,7 +77,7 @@
 
                     <tr>
 
-                        <td>14:00</td>
+                        <th>13:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -101,7 +90,7 @@
 
                     <tr>
 
-                        <td>15:00</td>
+                        <th>14:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -114,7 +103,7 @@
 
                     <tr>
 
-                        <td>16:00</td>
+                        <th>15:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -127,7 +116,7 @@
 
                     <tr>
 
-                        <td>17:00</td>
+                        <th>16:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -140,7 +129,7 @@
 
                     <tr>
 
-                        <td>18:00</td>
+                        <th>17:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -153,7 +142,7 @@
 
                     <tr>
 
-                        <td>19:00</td>
+                        <th>18:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -166,7 +155,7 @@
 
                     <tr>
 
-                        <td>20:00</td>
+                        <th>19:00</th>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -177,9 +166,29 @@
 
                     </tr>
 
-            </div>
+                    <tr>
+
+                        <th>20:00</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+
 
             </table>
+
+            <div id="botoes">
+
+            <button id="abrirMarcarAula">Marcar aula</button>
+            <button id="abrirDesmarcarAula">Desmarcar aula</button>
+
+            </div>
+            </section>
         </main>
 
     </section>
