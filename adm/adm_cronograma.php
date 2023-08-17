@@ -13,14 +13,13 @@
 <body>
     <?php include_once "./includes/menuAdm.php"; ?>
 
-    <section>
+    <section id="tela">
 
         <main>
-        <section id="tela">
 
 
             <h1 id="title">Horário</h1>
-
+            <div id="container">
                 <table id="tabela">
 
                     <tr>
@@ -178,17 +177,16 @@
                         <td></td>
 
                     </tr>
-
+            </div>
 
             </table>
 
             <div id="botoes">
 
-            <button id="abrirMarcarAula">Marcar aula</button>
-            <button id="abrirDesmarcarAula">Desmarcar aula</button>
+                <button id="abrirMarcarAula">Marcar aula</button>
+                <button id="abrirDesmarcarAula">Desmarcar aula</button>
 
             </div>
-            </section>
         </main>
 
     </section>
