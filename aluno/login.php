@@ -28,7 +28,7 @@
           <label for="email" class="tituloInputLogin">Email:</label><br />
           <input
             type="email"
-            name="email"
+            name="email_login"
             id="email"
             class="inputLogin"
             placeholder="deanna.curtis@example.com"
@@ -38,7 +38,7 @@
           <label for="senha" class="tituloInputLogin">Senha:</label><br />
           <input
             type="password"
-            name="senha"
+            name="senha_login"
             id="senha"
             class="inputLogin"
             placeholder="●●●●●●●●"

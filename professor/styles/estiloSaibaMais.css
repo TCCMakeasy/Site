@@ -23,11 +23,11 @@ main {
     margin: 0 auto 2rem;
     text-align: center;
   }
-  #ladinho 
-  {
+#container
+{
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-  }
+}

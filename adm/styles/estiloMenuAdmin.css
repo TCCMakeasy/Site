@@ -49,6 +49,7 @@ body {
   font-weight: 700;
   font-size: calc(14px + (22 - 14) * ((100vw - 400px) / (1920 - 400)));
   transition: 0.5s;
+  z-index: 9999;
 }
 #menu[open] {
   animation: slide-in 0.5s forwards;
