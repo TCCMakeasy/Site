@@ -1,6 +1,5 @@
 #tela{
     margin-left: calc((98% + 380px) / 2 - 40%);
-    margin-bottom: 0;
 }
 main {
     max-width: 100%;
@@ -26,6 +25,9 @@ main {
     
 }
 
+#diasTitle{
+    display: none;
+}
 
 th,
 td {
@@ -37,7 +39,7 @@ td {
 }
 
 #botoes {
-    margin-top: 2rem;
+    margin: 2rem auto;
 }
 
 #abrirMarcarAula {
@@ -76,9 +78,50 @@ td {
     #container{
         margin-top: 2rem;
     }
+    #tabela{
+        width: 90%;
+    }
+    .diasTable{
+        display: none;
+    }
+    #horarioTitle{
+        width: 30%;
+    }
+    #diasTitle{
+        display: table-cell;
+    }
+    td{
+        display: block;
+        text-align: justify;
+        border: #000 2px solid;
+        padding: 1rem;
+    }
+    td::before{
+        text-transform: uppercase;
+        margin-right: 1rem;
+        font-weight: 700;
+    }
+    td:nth-of-type(1)::before{
+        content: "Segunda:";
+    }
+    td:nth-of-type(2)::before{
+        content: "Terça:";
+    }
+    td:nth-of-type(3)::before{
+        content: "Quarta:";
+    }
+    td:nth-of-type(4)::before{
+        content: "Quinta:";
+    }
+    td:nth-of-type(5)::before{
+        content: "Sexta:";
+    }
+    td:nth-of-type(6)::before{
+        content: "Sábado:";
+    }
+    td:nth-of-type(7)::before{
+        content: "Domingo:";
+    }
+
 }
 
-@media (max-width: 1024px) {
-
-
-}

@@ -50,6 +50,7 @@ body {
   font-size: calc(14px + (22 - 14) * ((100vw - 400px) / (1920 - 400)));
   transition: 0.5s;
   z-index: 9999;
+  cursor: default;
 }
 #menu[open] {
   animation: slide-in 0.5s forwards;
@@ -84,6 +85,10 @@ nav ul li {
   color: white;
   cursor: pointer;
 }
+.navButton:hover {
+  color: var(--corSecundaria);
+  transition: 0.3s;
+}
 #logo {
   margin: 1rem;
   width: 15rem;
@@ -98,6 +103,10 @@ footer {
 }
 #sair {
   color: var(--vermelhoMakeasy);
+}
+#sair:hover {
+  filter: contrast(1.6);
+  transition: 0.3s;
 }
 .redesSociais > a {
   display: inline-block;
