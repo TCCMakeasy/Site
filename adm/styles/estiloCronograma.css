@@ -1,17 +1,14 @@
 #tela{
     margin-left: calc((98% + 380px) / 2 - 40%);
+    margin-bottom: 0;
 }
 main {
-    width: 100%;
+    max-width: 100%;
     text-align: center;
     display: flex;
     flex-direction: column;
 }
 #container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     overflow-x: auto;
 }
 
@@ -22,19 +19,13 @@ main {
 }
 
 #tabela {
-    display: flex;
-    width: calc();
+    width: 70%;
+    margin: 0 auto;
     height: 36rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
     border-collapse: collapse;
+    
 }
 
-tr {
-    height: calc();
-}
 
 th,
 td {
@@ -46,7 +37,7 @@ td {
 }
 
 #botoes {
-    display: inline-block;
+    margin-top: 2rem;
 }
 
 #abrirMarcarAula {
@@ -79,14 +70,15 @@ td {
 
 @media (max-width: 768px) {
 
-    main {
-        margin-top: 5rem;
+    #tela {
+        margin: 5rem 0 0;
+    }
+    #container{
+        margin-top: 2rem;
     }
 }
 
 @media (max-width: 1024px) {
 
-    #tela {
-        width: auto;
-    }
+
 }
