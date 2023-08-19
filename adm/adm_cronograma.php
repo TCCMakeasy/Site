@@ -17,13 +17,11 @@
 
         <main>
 
-
             <h1 id="title">Horário</h1>
             <div id="container">
                 <table id="tabela">
 
                     <tr>
-
                         <th>HORÁRIOS</th>
                         <th>SEGUNDA</th>
                         <th>TERÇA</th>
@@ -32,7 +30,6 @@
                         <th>SEXTA</th>
                         <th>SÁBADO</th>
                         <th>DOMINGO</th>
-
                     </tr>
 
                     <tr>
@@ -177,9 +174,9 @@
                         <td></td>
 
                     </tr>
-            </div>
 
             </table>
+            </div>
 
             <div id="botoes">
 
