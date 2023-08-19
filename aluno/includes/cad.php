@@ -31,10 +31,10 @@ if($btnCadAluno){
 	}
 
     if(!$erro){
-		$dados['senha_aluno'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
+		$dados['senha_criptografada'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
 		
 		$result_usuario = "INSERT INTO aluno (senha_aluno, email_aluno, nome_aluno, nascimento_aluno) VALUES (
-						'" .$dados['senha']. "',
+						'" .$dados['senha_criptografada']. "',
 						'" .$dados['email']. "',
 						'" .$dados['nome']. "',
 						'" .$dados['data']. "'
