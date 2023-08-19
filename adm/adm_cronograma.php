@@ -22,26 +22,27 @@
                 <table id="tabela">
 
                     <tr>
-                        <th>HORÁRIOS</th>
-                        <th>SEGUNDA</th>
-                        <th>TERÇA</th>
-                        <th>QUARTA</th>
-                        <th>QUINTA</th>
-                        <th>SEXTA</th>
-                        <th>SÁBADO</th>
-                        <th>DOMINGO</th>
+                        <th id="horarioTitle">HORÁRIOS</th>
+                        <th id="diasTitle">DIAS</th>
+                        <th class="diasTable">SEGUNDA</th>
+                        <th class="diasTable">TERÇA</th>
+                        <th class="diasTable">QUARTA</th>
+                        <th class="diasTable">QUINTA</th>
+                        <th class="diasTable">SEXTA</th>
+                        <th class="diasTable">SÁBADO</th>
+                        <th class="diasTable">DOMINGO</th>
                     </tr>
 
                     <tr>
 
                         <th>10:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>Wellington</td>
+                        <td>Wellington</td>
+                        <td>Wellington</td>
+                        <td>Wellington</td>
+                        <td>Wellington</td>
+                        <td>Wellington</td>
+                        <td>Wellington</td>
 
                     </tr>
 
@@ -189,7 +190,8 @@
     </section>
 
 </body>
-
+<script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
+<?php include_once "includes/modalNotificar.php"; ?>
 
 </html>
