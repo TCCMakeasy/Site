@@ -5,9 +5,6 @@ body {
 #fotoMenu {
   margin-bottom: calc(14vh - 3rem);
 }
-#toogle {
-  display: none;
-}
 #abrirFecharMenu {
   display: none;
 }
