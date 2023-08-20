@@ -15,7 +15,6 @@
         <h1 id="title">Financeiro</h1>
         <div id="container">
             <h1 id="title">Lucro Mensal</h1>
-            <h1 id="title2">cu</h1>
         </div>
     </main>
 </body>
