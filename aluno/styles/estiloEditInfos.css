@@ -31,6 +31,11 @@ main {
   width: 2.5rem;
   height: 2.5rem;
 }
+#imgLabelInput:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
+}
 #title {
   font-size: 2rem;
   font-weight: 700;
@@ -116,6 +121,11 @@ input[type="file"] {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+#btnSalvar:hover {
+  cursor: pointer;
+  background-color: var(--verdeMakeasyHover);
+  transition: 0.5s;
 }
 
 @media (max-width: 768px) {

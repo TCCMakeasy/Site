@@ -20,11 +20,6 @@ section {
   font-weight: 700;
   margin: 0 auto 2rem;
 }
-#title2 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0 auto auto;
-}
 #container {
   display: flex;
   width: 97%;
