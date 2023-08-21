@@ -1,7 +1,7 @@
 <?php
 $btnCadAluno = filter_input(INPUT_POST, 'btnCad', FILTER_DEFAULT);
 if($btnCadAluno){
-    include_once '../../conexao.php'; 
+    require_once '../../conexao.php'; 
     $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
 	$erro = false;
@@ -28,6 +28,7 @@ if($btnCadAluno){
 			$erro = true;
 			$_SESSION['msg'] = "Este e-mail já está cadastrado";
 		}
+		echo $_SESSION['msg'];
 	}
 
     if(!$erro){

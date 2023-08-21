@@ -66,7 +66,7 @@
 
           <input type="submit" value="Cadastrar-se" id="botaoSubmit" name="btnCad" /><br />
           <p id="loginHref">
-            Já possui uma conta? <a href="login.html">Entre</a>
+            Já possui uma conta? <a href="login.php">Entre</a>
           </p>
         </fieldset>
       </form>

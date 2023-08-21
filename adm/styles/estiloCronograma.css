@@ -55,6 +55,153 @@ td {
     margin: auto 1rem;
     cursor: pointer;
 }
+#marAula {
+    display: none;
+    width: 40%;
+    height: 35%;
+    background-color: var(--corPrimaria);
+    border-radius: 8px;
+    border: 3px solid #000;
+    color: white;
+  }
+  #marAula::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  #marAula[open] {
+    animation: slide-up 500ms forwards, fade-in 500ms forwards;
+  }
+  #marAula[open]::backdrop {
+    animation: fade-in 500ms forwards;
+  }
+  #marAula-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+  #formMarcarAula {
+    width: 100%;
+  }
+  #formMarcarAula > h1 {
+    margin: auto auto 1rem;
+  }
+  #idAluno {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+    padding: 3rem 0;
+    font-size: 1.5rem;
+  }
+  #inputIdAluno {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  #submitAddAluno > * {
+    width: 10rem;
+    height: 2.5rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    margin: 0 3rem;
+    cursor: pointer;
+  }
+  #adicionarAluno {
+    background-color: var(--verdeMakeasy);
+  }
+  #closeAddAluno {
+    background-color: var(--vermelhoMakeasy);
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      margin-left: 0;
+      margin-top: 5rem;
+      height: calc(100% - 5rem);
+    }
+    section {
+      width: 10vw;
+      height: calc(100% - 5rem);
+    }
+    .aluno {
+      width: 45%;
+      height: 16rem;
+      margin: 0.5rem;
+    }
+    #alunos {
+      margin: 0.5rem auto;
+    }
+    #nomeAluno {
+      font-size: 1.3rem;
+      margin: 0.4rem;
+    }
+    #saibaMais {
+      font-size: 1.1rem;
+      margin: 0.5rem;
+    }
+    .imgAluno {
+      width: 7rem;
+      height: 7rem;
+      margin: 1.2rem 1rem 0.6rem;
+      border-radius: 50%;
+    }
+    #container {
+      margin-top: 0;
+      width: 100vw;
+      height: calc(100vh - 5rem);
+      border-radius: 0;
+      box-shadow: none;
+    }
+    #container > * {
+      margin: 0rem;
+      width: 100%;
+    }
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+    #abrirAdicionarAluno {
+      width: 11rem;
+      height: 3rem;
+      font-size: 1.2rem;
+      bottom: 1.5rem;
+    }
+    #addAluno {
+      width: 80%;
+    }
+  }  
 
 #abrirDesmarcarAula {
     width: 12rem;

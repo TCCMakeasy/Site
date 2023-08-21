@@ -45,9 +45,9 @@
             required
           />
 
-          <input type="submit" value="Entrar" id="botaoSubmit" name="entrar" /><br />
+          <input type="submit" value="entrar" id="botaoSubmit" name="entrar" /><br />
           <p id="loginHref">
-            Não tem uma conta? <a href="cadastrar.html">Registre-se</a>
+            Não tem uma conta? <a href="cadastro.php">Registre-se</a>
           </p>
         </fieldset>
       </form>

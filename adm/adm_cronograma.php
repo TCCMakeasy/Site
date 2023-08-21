@@ -190,8 +190,22 @@
     </section>
 
 </body>
-<script src="./js/addAlunoOpenClose.js"></script>
-<script src="./js/menuOpenClose.js"></script>
+<dialog id="marAula">
+    <div id="marAula-content">
+        <form action="" method="post" id="formMarcarAula">
+            <h1>Adicionar Aluno</h1>
+            <div id="idAluno">
+                <label for="inputIdAluno"><b>ID do aluno:</b></label>
+                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
+            </div>
+            <div id="submitAddAluno">
+                <input type="submit" id="adicionarAluno" value="Adicionar Aluno">
+                <button id="closeAddAluno">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+<script src="./js/marcarAulaOpenClose.js"></script><script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
 
 </html>
