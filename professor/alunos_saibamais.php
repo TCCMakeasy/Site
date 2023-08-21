@@ -13,9 +13,7 @@
     <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
         <header>
-        <span id="tela"></span>
         <h1 id="title"> Alunos </h1>
-        <span></span>
         </header>
         <div id="container">
 
