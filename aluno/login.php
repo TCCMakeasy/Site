@@ -25,7 +25,7 @@
         <fieldset id="fieldsetLogin">
           <h1 id="tituloLogin">Aluno</h1>
 
-          <label for="email" class="tituloInputLogin">Email:</label><br />
+          <label for="email" class="tituloInputLogin">Email:</label>
           <input
             type="email"
             name="email_login"
@@ -33,9 +33,9 @@
             class="inputLogin"
             placeholder="deanna.curtis@example.com"
             required
-          /><br />
+          />
 
-          <label for="senha" class="tituloInputLogin">Senha:</label><br />
+          <label for="senha" class="tituloInputLogin">Senha:</label>
           <input
             type="password"
             name="senha_login"
@@ -45,7 +45,7 @@
             required
           />
 
-          <input type="submit" value="entrar" id="botaoSubmit" name="entrar" /><br />
+          <input type="submit" value="entrar" id="botaoSubmit" name="entrar" />
           <p id="loginHref">
             Não tem uma conta? <a href="cadastro.php">Registre-se</a>
           </p>
