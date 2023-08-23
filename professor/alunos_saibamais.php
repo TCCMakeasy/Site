@@ -12,10 +12,12 @@
 <body>
     <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
-        <header>
-        <h1 id="title"> Alunos </h1>
-        </header>
-        <div id="container">
+        <div class="container">
+        <span width="90px"></span>
+        <h1 id="title">Alunos</h1>
+        <span width="90px"></span>
+</div>
+        <div class="container">
 
         <a href="alunos.php">
         <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />

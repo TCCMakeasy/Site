@@ -22,8 +22,10 @@ main {
     font-weight: 700;
     margin: 0 auto 2rem;
     text-align: center;
+    width: 90%;
+  
   }
-#container
+.container
 {
 
   display: flex;
@@ -31,3 +33,4 @@ main {
   justify-content: space-between;
 
 }
+

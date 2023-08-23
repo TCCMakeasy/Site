@@ -193,10 +193,14 @@
 <dialog id="marAula">
     <div id="marAula-content">
         <form action="" method="post" id="formMarcarAula">
-            <h1>Adicionar Aluno</h1>
+            <h1>Marcar aula</h1>
             <div id="idAluno">
                 <label for="inputIdAluno"><b>ID do aluno:</b></label>
-                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
+                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno"><br>
+                <label for="inputDia"><b>Dia da semana:</b></label>
+                <input type="text" name="idDia" id="inputDia" placeholder="Segunda-Feira"><br>
+                <label for="inputHora"><b>Horário:</b></label>
+                <input type="time" name="idHora" id="inputHora">
             </div>
             <div id="submitAddAluno">
                 <input type="submit" id="adicionarAluno" value="Adicionar Aluno">
@@ -205,7 +209,8 @@
         </form>
     </div>
 </dialog>
-<script src="./js/marcarAulaOpenClose.js"></script><script src="./js/menuOpenClose.js"></script>
+<script src="./js/marcarAulaOpenClose.js"></script>
+<script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
 
 </html>

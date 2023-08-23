@@ -65,14 +65,14 @@
 </body>
 <dialog id="addAluno">
     <div id="addAluno-content">
-        <form action="" method="post" id="formAddAluno">
+        <form action="./includes/add_alunos.php" method="post" id="formAddAluno">
             <h1>Adicionar Aluno</h1>
             <div id="idAluno">
                 <label for="inputIdAluno"><b>ID do aluno:</b></label>
                 <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
             </div>
             <div id="submitAddAluno">
-                <input type="submit" id="adicionarAluno" value="Adicionar Aluno">
+                <input type="submit" id="adicionarAluno" name="btnAddAluno" value="Adicionar Aluno">
                 <button id="closeAddAluno">Cancelar</button>
             </div>
         </form>
