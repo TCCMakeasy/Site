@@ -4,7 +4,7 @@ const modalAula = document.querySelector("#marAula");
 
 openMenu.addEventListener("click", function () {
   document.getElementById("marAula").style.display = "flex";
-  modalAmodalAulaluno.showModal();
+  modalAula.showModal();
 });
 
 closeMenu.addEventListener("click", function () {

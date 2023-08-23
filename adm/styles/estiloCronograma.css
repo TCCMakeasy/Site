@@ -55,6 +55,7 @@ td {
     margin: auto 1rem;
     cursor: pointer;
 }
+
 #marAula {
     display: none;
     width: 40%;
@@ -142,7 +143,7 @@ td {
   #adicionarAluno {
     background-color: var(--verdeMakeasy);
   }
-  #closeAddAluno {
+  #closeMarcarAula {
     background-color: var(--vermelhoMakeasy);
   }
   
