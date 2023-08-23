@@ -27,13 +27,22 @@ main {
 }
 
 #fieldsetCad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 24rem;
+  justify-content: center;
   margin: 2rem auto 0.5rem;
   border: 0.17rem solid #ffffff;
   border-radius: 10px;
-  padding: 10px;
 }
 #fieldsetLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   width: 24rem;
   margin: 4.5rem auto 0.5rem;
   border: 0.17rem solid #ffffff;
@@ -41,13 +50,10 @@ main {
   padding: 10px;
 }
 #cadastro {
-  align-items: center;
-  text-align: center;
-  justify-content: center;
   color: #ffffff;
 }
 #tituloCad {
-  margin: 0rem auto 1rem;
+  margin: 1rem auto 1rem;
   font-size: 2.7rem;
   font-weight: 700;
 }
@@ -56,12 +62,31 @@ main {
   font-size: 2.7rem;
   font-weight: 700;
 }
+.avisos{
+  border-radius: 0.5rem;
+  color: #ffffff;
+  width: 20rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+  display: none;
+}
+#alert{
+  background-color: rgba(255, 66, 66, 0.514);
+  border: rgba(255, 66, 66, 0.74) 1px solid;
+}
+#sucesso{
+  background-color: rgba(66, 255, 66, 0.514);
+  border: rgba(66, 255, 66, 0.74) 1px solid;
+}
 .inputCad {
   width: 20rem;
   height: 1.2rem;
   font-weight: lighter;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   border-radius: 10px;
   border: none;
   padding: 10px;

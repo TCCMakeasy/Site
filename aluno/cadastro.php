@@ -21,10 +21,10 @@
       <a id="span"></a>
     </header> 
     <main>
-      <form method="post" id="cadastro" action="../aluno/includes/cad.php">
+      <form method="POST" id="cadastro">
         <fieldset id="fieldsetCad">
           <h1 id="tituloCad">Cadastro</h1>
-          <label for="nome" class="tituloInputCad">Nome Completo:</label><br />
+          <label for="nome" class="tituloInputCad">Nome Completo:</label>
           <input
             type="text"
             name="nome"
@@ -32,9 +32,8 @@
             class="inputCad"
             placeholder="Albert Flores"
             required
-          /><br />
-
-          <label for="email" class="tituloInputCad">Email:</label><br />
+          />
+          <label for="email" class="tituloInputCad">Email:</label>
           <input
             type="email"
             name="email"
@@ -42,9 +41,9 @@
             class="inputCad"
             placeholder="deanna.curtis@example.com"
             required
-          /><br />
+          />
 
-          <label for="senha" class="tituloInputCad">Senha:</label><br />
+          <label for="senha" class="tituloInputCad">Senha:</label>
           <input
             type="password"
             name="senha"
@@ -52,17 +51,20 @@
             class="inputCad"
             placeholder="●●●●●●●●"
             required
-          /><br />
+          />
 
           <label for="data" class="tituloInputCad">Data de nascimento:</label
-          ><br />
+          >
           <input
             type="date"
             name="data"
             id="data"
             class="inputCad"
             required
-          /><br />
+          />
+
+          <div id="alert" class="avisos">EHIHCASHD aihjdfisahdlih liashjdliashdlioh</div>
+          <div id="sucesso" class="avisos">EHIHCASHD aihjdfisahdlih liashjdliashdlioh</div>
 
           <input type="submit" value="Cadastrar-se" id="botaoSubmit" name="btnCad" /><br />
           <p id="loginHref">
@@ -70,6 +72,7 @@
           </p>
         </fieldset>
       </form>
+      <script src="./js/ajaxCad.js"></script>
     </main>
   </body>
 </html>
