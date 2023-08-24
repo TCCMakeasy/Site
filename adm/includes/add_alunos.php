@@ -1,13 +1,17 @@
 <?php
 require_once '../../conexao.php'; 
 $id = filter_input(INPUT_POST, 'btnAddAluno', FILTER_DEFAULT);
-if($id){
-    $result_id = "select id_aluno from aluno where id_alunos= '$id' LIMIT 1";
-    $resultado_id = mysqli_query($sql, $result_id);
-    if($resultado_id){
-    }
+$verificaprofessor = "SELECT id_professor FROM aluno WHERE id_aluno = '$id'";
+$resultado_verificaprofessor = mysqli_query($sql, $verificaid);
+echo $verificaid;
+if ($resultado_verificaid){
+	echo "esse aluno já tem um professor";
 }else{
-    $_SESSION['msg'] = "<texto>id incorreto</texto>";
-    header("Location: ../natan_alunos.php");
+	$id = $sql-->("SELECT id_aluno FROM aluno WHERE id_aluno = '$id'");
+	if($verificaid[0] = 0){
+		echo "esse aluno não existe";
+	}else{
+		$sql-->("insert into //tabela do prof// (id_aluno) values ('".$id_aluno."')");
+	}
 }
 ?>
