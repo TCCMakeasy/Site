@@ -196,15 +196,15 @@
             <h1>Marcar aula</h1>
             <div id="idAluno">
                 <label for="inputIdAluno"><b>ID do aluno:</b></label>
-                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno"><br>
-                <label for="inputDia"><b>Dia da semana:</b></label>
-                <input type="text" name="idDia" id="inputDia" placeholder="Segunda-Feira"><br>
-                <label for="inputHora"><b>Horário:</b></label>
-                <input type="time" name="idHora" id="inputHora">
+                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
             </div>
-            <div id="submitAddAluno">
-                <input type="submit" id="adicionarAluno" value="Adicionar Aluno">
-                <button id="closeAddAluno">Cancelar</button>
+            <div id="aulaDia">
+                <label for="inputDia"><b>Dia da semana:</b></label>
+                <input type="text" name="aulaDia" id="inputDia" placeholder="Segunda-Feira">
+            </div>
+            <div id="aulaHora">
+                <label for="inputHora"><b>Horário:</b></label>
+                <input type="time" name="aulaHora" id="inputHora">
             </div>
         </form>
     </div>
