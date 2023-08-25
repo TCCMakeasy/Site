@@ -11,7 +11,7 @@ if ($resultado_verificaid){
 	if($verificaid[0] = 0){
 		echo "esse aluno não existe";
 	}else{
-		$sql-->("insert into //tabela do prof// (id_aluno) values ('".$id_aluno."')");
+		$sql-->("insert into sala (id_aluno) values ('".$id_aluno."')");
 	}
 }
 ?>
