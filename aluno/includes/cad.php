@@ -31,7 +31,8 @@
 
     if(!$erro){
 		$dados['senha_criptografada'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-		
+		$dados['nome'] = ltrim(ucwords($dados['nome']), " \t\n" ); // converte data para o formato do banco de dados [ano-mês-dia
+	
 		$result_usuario = "INSERT INTO aluno (senha_aluno, email_aluno, nome_aluno, nascimento_aluno) VALUES (
 						'" .$dados['senha_criptografada']. "',
 						'" .$dados['email']. "',

@@ -63,8 +63,8 @@
             required
           />
 
-          <div id="alert" class="avisos">EHIHCASHD aihjdfisahdlih liashjdliashdlioh</div>
-          <div id="sucesso" class="avisos">EHIHCASHD aihjdfisahdlih liashjdliashdlioh</div>
+          <div id="alert" class="avisos"></div>
+          <div id="sucesso" class="avisos"></div>
 
           <input type="submit" value="Cadastrar-se" id="botaoSubmit" name="btnCad" /><br />
           <p id="loginHref">

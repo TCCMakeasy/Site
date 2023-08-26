@@ -2,8 +2,8 @@
 <aside id="menu">
     <img src="../aluno/images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
-        <img src="../aluno/images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
-        <p class="nomeAluno" id="nomeMenuAluno">Aluno</p>
+        <img src="<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
+        <p class="nomeAluno" id="nomeMenuAluno"><?php echo ltrim(ucwords($_SESSION['nome']), " \t\n" ); ?></p>
     </div>
     <div id="scroll">
         <nav>
@@ -21,7 +21,7 @@
                     <a id="openNotify" class="navButton">Mensagens</a>
                 </li>
                 <li>
-                    <a href="" class="navButton" id="sair">Sair</a>
+                    <a href="./includes/fim_session.php" class="navButton" id="sair">Sair</a>
                 </li>
             </ul>
         </nav>

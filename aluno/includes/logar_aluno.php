@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../../conexao.php";
 $acessar = filter_input(INPUT_POST, 'entrar', FILTER_DEFAULT);
 
@@ -7,26 +8,38 @@ if ($acessar) {
     $senha = filter_input(INPUT_POST, 'senha_login', FILTER_DEFAULT);
 
     if ((!empty($email)) and (!empty($senha))) {
-        $result_email = "select id_aluno, nome_aluno, email_aluno, senha_aluno from aluno where email_aluno= '$email' LIMIT 1";
-        $resultado_email = mysqli_query($sql, $result_email);
-        if ($resultado_email) {
-            $row_email = mysqli_fetch_assoc($resultado_email);
-            if (password_verify($senha, $row_email['senha_aluno'])) {
-                $_SESSION['id'] = $row_email['id_aluno'];
-                $_SESSION['nome'] = $row_email['nome_aluno'];
-                $_SESSION['email'] = $row_email['email_aluno'];
-
-                header("Location: ../edit_infos.php");
+        $result_login = "select id_aluno, nome_aluno, email_aluno, senha_aluno, nascimento_aluno, id_professor, foto_aluno from aluno where email_aluno= '$email' LIMIT 1";
+        $resultado_login = mysqli_query($sql, $result_login);
+        if ($resultado_login) {
+            $row_login = mysqli_fetch_assoc($resultado_login);
+            echo print_r($row_login);
+            if ($row_login) {
+                if (password_verify($senha, $row_login['senha_aluno'])) {
+                    $_SESSION['id'] = $row_login['id_aluno'];
+                    $_SESSION['nome'] = $row_login['nome_aluno'];
+                    $_SESSION['email'] = $row_login['email_aluno'];
+                    $_SESSION['data'] = $row_login['nascimento_aluno'];
+                    $_SESSION['foto'] = $row_login['foto_aluno'];
+                    $_SESSION['id_professor'] = $row_login['id_professor'];
+                    unset($_SESSION['msg']);
+                    header("Location: ../edit_infos.php");
+                } else {
+                    $_SESSION['msg'] = "Senha incorreta";
+                    header("Location: ../login.php");
+                }
             } else {
-                $_SESSION['msg'] = "<texto>Senha incorreta</texto>";
+                $_SESSION['msg'] = "Email não encontrado";
+                header("Location: ../login.php");
             }
-            echo password_hash($senha, PASSWORD_DEFAULT);
+        } else {
+            $_SESSION['msg'] = "Erro. Tente novamente mais tarde";
+            header("Location: ../login.php");
         }
     } else {
-        $_SESSION['msg'] = "<texto>Email incorreto</texto>";
-        header("Location: ../cadastro.php");
+        $_SESSION['msg'] = "Preencha todos os campos";
+        header("Location: ../login.php");
     }
 } else {
-    $_SESSION['msg'] = "<texto>Página não encontrada</texto>";
+    $_SESSION['msg'] = "Página não encontrada";
     header("Location: ../login.php");
 }
