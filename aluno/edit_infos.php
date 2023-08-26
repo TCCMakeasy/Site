@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id'])) {
+    $_SESSION['msg'] = "Faça login para acessar o sistema";
+    header("Location: ../aluno/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -23,23 +31,23 @@
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
                         <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <input id="nomeInput" class="inputLock" type="text" disabled>
+                        <input id="nomeInput" class="inputLock" type="text" disabled value="<?php echo $_SESSION['nome'] ?>">
                     </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
-                        <input id="idInput" class="inputLock" type="text" value="" disabled>
+                        <input id="idInput" class="inputLock" type="text" value="<?php echo $_SESSION['id'] ?>" disabled>
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="email"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" type="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" value="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
-                        <input id="dataNascInput" class="inputLock" type="text" value="" disabled>
+                        <input id="dataNascInput" class="inputLock" type="text" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>
