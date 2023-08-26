@@ -3,7 +3,7 @@
     <img src="../aluno/images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
         <img src="<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
-        <p class="nomeAluno" id="nomeMenuAluno"><?php echo ltrim(ucwords($_SESSION['nome']), " \t\n" ); ?></p>
+        <p class="nomeAluno" id="nomeMenuAluno"><?php echo strstr($_SESSION['nome'], ' ', true); ?></p>
     </div>
     <div id="scroll">
         <nav>

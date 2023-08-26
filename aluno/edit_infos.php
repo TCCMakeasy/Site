@@ -26,7 +26,7 @@ if (!isset($_SESSION['id'])) {
                 <section id="editFoto">
                     <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
-                    <input type="file" id="inputFoto">
+                    <input type="file" id="inputFoto" name="fotoPerfil">
                 </section>
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
@@ -39,11 +39,11 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" value="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" value="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>
-                        <textarea id="descInput" class="inputText" rows="5"></textarea>
+                        <textarea id="descInput" class="inputText" rows="5" form="formInfos" name="descInput"></textarea>
                     </div>
                     <div id="divBtn">
                         <input id="btnSalvar" class="btn" type="submit" value="Salvar">
