@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Professor</title>
     <link rel="stylesheet" type="text/css" href="styles/estiloLogin.css" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <header>

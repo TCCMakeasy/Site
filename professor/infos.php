@@ -7,6 +7,7 @@
     <title>Informações do Administrador</title>
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloEditInfos.css">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>

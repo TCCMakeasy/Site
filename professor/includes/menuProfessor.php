@@ -9,13 +9,13 @@
         <nav>
             <ul>
                 <li>
-                    <a href="" class="navButton">Informações</a>
+                    <a href="./infos.php" class="navButton">Informações</a>
                 </li>
                 <li>
                     <a href="" class="navButton">Horário</a>
                 </li>
                 <li>
-                    <a href="./Alunos.php" class="navButton">Alunos</a>
+                    <a href="./alunos.php" class="navButton">Alunos</a>
                 </li>
                 <li>
                     <a href="" class="navButton">Financeiro</a>
