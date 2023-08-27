@@ -16,6 +16,7 @@ if (!isset($_SESSION['id'])) {
     <title>Suas Informações</title>
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloProfessores.css">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body id="bodyProfessores">

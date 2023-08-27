@@ -22,7 +22,7 @@ if ($acessar) {
                     $_SESSION['foto'] = $row_login['foto_aluno'];
                     $_SESSION['id_professor'] = $row_login['id_professor'];
                     unset($_SESSION['msg']);
-                    header("Location: ../edit_infos.php");
+                    header("Location: ../infos.php");
                 } else {
                     $_SESSION['msg'] = "Senha incorreta";
                     header("Location: ../login.php");

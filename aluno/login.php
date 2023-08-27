@@ -11,6 +11,7 @@ session_start();
   <title>Login - Aluno</title>
   <link rel="stylesheet" type="text/css" href="styles/estiloPadrão.css" />
   <link rel="stylesheet" type="text/css" href="styles/estiloLoginCadastro.css" />
+  <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
