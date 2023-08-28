@@ -25,12 +25,20 @@ main {
     width: 90%;
   
   }
-.container
+#voltar
 {
 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  position: absolute;
 
 }
+#editFoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#nome_aluno
+{
 
+  font-size: 20px;
+
+}

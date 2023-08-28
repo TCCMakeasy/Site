@@ -12,7 +12,6 @@ if ($acessar) {
         $resultado_login = mysqli_query($sql, $result_login);
         if ($resultado_login) {
             $row_login = mysqli_fetch_assoc($resultado_login);
-            echo print_r($row_login);
             if ($row_login) {
                 if (password_verify($senha, $row_login['senha_aluno'])) {
                     $_SESSION['id'] = $row_login['id_aluno'];

@@ -112,24 +112,15 @@ td {
   #formMarcarAula > h1 {
     margin: auto auto 1rem;
   }
-  #idAluno {
+  #idAluno, #aulaDia, #aulaHora {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin: 0 0 1.5rem;
-    padding: 1rem 0;
     font-size: 1.5rem;
-  }
-  #aulaDia, #aulaHora{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0 0 0.5rem;
-    font-size: 1.5rem;
+    flex-direction: column;
   }
   #inputIdAluno {
     width: 50%;

@@ -14,11 +14,8 @@
     <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
         <div class="container">
-        <span width="90px"></span>
         <h1 id="title">Alunos</h1>
-        <span width="90px"></span>
 </div>
-        <div class="container">
 
         <a href="alunos.php">
         <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
@@ -28,7 +25,7 @@
                 <section id="editFoto">
                     <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
                 </section>
-                <span></span>
+                <label id="nome_aluno"><b>Aluno<b></label>
         </section>
 </div id="container">
     </main>
