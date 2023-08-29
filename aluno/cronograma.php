@@ -178,13 +178,6 @@
 
             </table>
             </div>
-
-            <div id="botoes">
-
-                <button id="abrirMarcarAula">Marcar aula</button>
-                <button id="abrirDesmarcarAula">Desmarcar aula</button>
-
-            </div>
         </main>
 
     </section>
