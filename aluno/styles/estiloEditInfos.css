@@ -63,6 +63,10 @@ input[type="file"] {
   flex-direction: column;
   align-items: flex-start;
 }
+#senhaInput::-webkit-input-placeholder {
+  color: #000;
+  font-size: 1.2rem;
+}
 .inputP {
   margin: 0;
   display: flex;
@@ -111,7 +115,7 @@ input[type="file"] {
   align-items: center;
   justify-content: center;
 }
-#btnSalvar {
+.btn {
   margin: 2rem;
   width: 10rem;
   height: 3rem;
@@ -119,16 +123,26 @@ input[type="file"] {
   font-weight: 700;
   border-radius: 10px;
   border: 1px solid #000;
-  background-color: var(--verdeMakeasy);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-#btnSalvar:hover {
+.btn:hover {
   cursor: pointer;
-  background-color: var(--verdeMakeasyHover);
   transition: 0.5s;
+}
+#btnSalvar{
+  background-color: var(--verdeMakeasy);
+}
+#btnExcluir{
+  background-color: var(--vermelhoMakeasy);
+}
+#btnSalvar:hover {
+  background-color: var(--verdeMakeasyHover);
+}
+#btnExcluir:hover {
+  background-color: var(--vermelhoMakeasyHover);
 }
 
 @media (max-width: 768px) {
