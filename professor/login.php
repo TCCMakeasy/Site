@@ -43,7 +43,7 @@
 
           <input type="submit" value="Entrar" id="botaoSubmit" /><br />
           <p id="loginHref">
-            Não tem uma conta? <a href="login.html">Registre-se</a>
+            Não tem uma conta? <a href="https://google.com">Compre um dos cursos</a>
           </p>
         </fieldset>
       </form>

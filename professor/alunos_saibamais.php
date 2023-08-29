@@ -21,13 +21,31 @@
         <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
         </a>
 
-        <section id="tela">
+        <sec id="tela">
                 <section id="editFoto">
                     <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
                 </section>
                 <label id="nome_aluno"><b>Aluno<b></label>
-        </section>
+
 </div id="container">
+    <form id="formInfos">
+                <section id="editInfos">
+
+                    <div id="divValor" class="divInputText">
+                        <label id="valorTitulo" class="tituloForm">Preço:</label>
+                        <label class="inputP"><input id="valorInput" class="inputText" type="number"></label>
+                    </div>
+                    <div id="divDesc">
+                        <label id="descTitulo" class="tituloForm">Descrição:</label>
+                        <textarea id="descInput" class="inputText" rows="5"></textarea>
+                    </div>
+                    <div id="divBtn">
+                        <input id="btnSalvar" class="btn" type="submit" value="Salvar">
+                    </div>
+        </form>
+        </sec>
+                </section>
+
     </main>
 </body>
 <script src="./js/addAlunoOpenClose.js"></script>

@@ -74,7 +74,7 @@
             </div>
             <div id="submitAddAluno">
                 <input type="submit" id="adicionarAluno" name="btnAddAluno" value="Adicionar Aluno">
-                <button id="closeAddAluno">Cancelar</button>
+                <button type="button" id="closeAddAluno">Cancelar</button>
             </div>
         </form>
     </div>

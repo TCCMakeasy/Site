@@ -195,13 +195,21 @@
     <div id="marAula-content">
         <form action="" method="post" id="formMarcarAula">
             <h1>Marcar aula</h1>
-            <div id="formulario">
+            <div id="idAluno">
                 <label for="inputIdAluno"><b>ID do aluno:</b></label>
-                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno"><br>
+                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
+            </div>
+            <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
-                <input type="text" name="aulaDia" id="inputDia" placeholder="Segunda-Feira"><br>
+                <input type="text" name="aulaDia" id="inputDia" placeholder="Segunda-Feira">
+            </div>
+            <div id="aulaHora">
                 <label for="inputHora"><b>Horário:</b></label>
                 <input type="time" name="aulaHora" id="inputHora">
+            </div>
+            <div id="submitMarcarAula">
+                <input type="submit" id="btnMarcarAula" name="btnMarcarAula" value="Marcar Aula">
+                <button id="closeMarcarAula">Cancelar</button>
             </div>
         </form>
     </div>
