@@ -76,4 +76,7 @@
       <script src="./js/ajaxCad.js"></script>
     </main>
   </body>
+<?php
+unset($_SESSION['msg']);
+?>
 </html>

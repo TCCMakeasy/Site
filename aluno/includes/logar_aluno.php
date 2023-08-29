@@ -24,22 +24,27 @@ if ($acessar) {
                     header("Location: ../infos.php");
                 } else {
                     $_SESSION['msg'] = "Senha incorreta";
+                    $_SESSION['erro'] = true;
                     header("Location: ../login.php");
                 }
             } else {
                 $_SESSION['msg'] = "Email não encontrado";
+                $_SESSION['erro'] = true;
                 header("Location: ../login.php");
             }
         } else {
             $_SESSION['msg'] = "Erro. Tente novamente mais tarde";
+            $_SESSION['erro'] = true;
             header("Location: ../login.php");
         }
     } else {
         $_SESSION['msg'] = "Preencha todos os campos";
+        $_SESSION['erro'] = true;
         header("Location: ../login.php");
     }
 } else {
     $_SESSION['msg'] = "Página não encontrada";
+    $_SESSION['erro'] = true;
     header("Location: ../login.php");
 }
 

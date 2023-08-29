@@ -44,7 +44,7 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" value="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" placeholder="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
@@ -56,12 +56,14 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     <div id="divBtn">
                         <input id="btnSalvar" class="btn" type="submit" name="btnSalvar" value="Salvar">
+                        <button type="button" id="btnExcluir" class="btn">Excluir</button>
                     </div>
                 </section>
             </form>
         </section>
     </main>
 </body>
+<script src="./js/excluirConta.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
 
