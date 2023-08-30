@@ -44,3 +44,17 @@ main {
 #formInfos {
 text-align: left;
 }
+#cont 
+{
+
+  display: flex;
+  flex-direction: column;
+
+}
+#forminfos
+{
+
+  display: flex;
+  flex-direction: row;
+
+}
