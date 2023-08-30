@@ -11,11 +11,13 @@ if (!isset($_SESSION['id'])) {
     $delete = "DELETE FROM aluno WHERE id_aluno = '$id'";
     $result = mysqli_query($sql, $delete);
     if($result){
-        $_SESSION['msg'] = "Conta excluída com sucesso";
+        //Conta excluída com sucesso
+        session_destroy();
         header("Location: ../login.php");
     }else{
         $_SESSION['msg'] = "Erro ao excluir conta";
         header("Location: ../infos.php");
     }
 }
+
 ?>

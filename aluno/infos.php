@@ -52,7 +52,7 @@ if (!isset($_SESSION['id'])) {
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>
-                        <textarea id="descInput" class="inputText" rows="5" form="formInfos" name="descInput"></textarea>
+                        <textarea id="descInput" class="inputText" rows="5" form="formInfos" name="descInput"><?php echo $_SESSION['desc'] ?></textarea>
                     </div>
                     <div id="divBtn">
                         <input id="btnSalvar" class="btn" type="submit" name="btnSalvar" value="Salvar">
