@@ -31,46 +31,18 @@ if (!isset($_SESSION['id'])) {
                     <a href=""><img src="./images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
                 </div>
                 <ul id="professores">
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="professor">
-                        <img src="./images/usuario.png" alt="Foto do professor" class="imgProfessor">
-                        <h1 id="nomeProfessor">Nome do Professor</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
+                    <?php
+                    include_once("../conexao.php");
+                    $result_usuario = "SELECT * FROM professor";
+                    $resultado_usuario = mysqli_query($sql, $result_usuario);
+                    while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
+                        echo '<li class="professor">';
+                        echo '<img src="./fotosPerfil/' . $row_usuario['foto_professor'] . '" alt="Foto do professor" class="imgProfessor">';
+                        echo '<h1 id="nomeProfessor">' . $row_usuario['nome_professor'] . '</h1>';
+                        echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
+                        echo '</li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </section>

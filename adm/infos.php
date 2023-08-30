@@ -17,7 +17,7 @@
             <h1 id="title">Suas Informações</h1>
             <form id="formInfos">
                 <section id="editFoto">
-                    <img src="./images/nathan.png" id="fotoPerfil" accept="./images/*">
+                    <img src="./fotosPerfil/nathan.png" id="fotoPerfil" accept="./fotosPerfil/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
                     <input type="file" id="inputFoto">
                 </section>
