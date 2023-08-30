@@ -25,7 +25,7 @@ if (!isset($_SESSION['id'])) {
             <h1 id="title">Suas Informações</h1>
             <form id="formInfos" method="post" action="./includes/edit_infos.php">
                 <section id="editFoto">
-                    <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
+                    <img src="<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
                     <input type="file" id="inputFoto" name="fotoPerfil">
                 </section>

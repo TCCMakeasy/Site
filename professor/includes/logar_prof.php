@@ -19,6 +19,9 @@ if ($acessar) {
                     $_SESSION['email'] = $row_login['email_professor'];
                     $_SESSION['data'] = $row_login['nascimento_professor'];
                     $_SESSION['foto'] = $row_login['foto_professor'];
+                    $_SESSION['nota'] = $row_login['nota_professor'];
+                    $_SESSION['valor'] = $row_login['valor_professor'];
+                    $_SESSION['bio'] = $row_login['bio_professor'];
                     unset($_SESSION['msg']);
                     header("Location: ../infos.php");
                 } else {

@@ -30,12 +30,25 @@
 </div id="container">
     <form id="formInfos">
                 <section id="editInfos">
-
+            <div class="legenda">
                     <div id="divValor" class="divInputText">
-                        <label id="valorTitulo" class="tituloForm">Preço:</label>
-                        <label class="inputP"><input id="valorInput" class="inputText" type="number"></label>
+                        <div id="valorTitulo" class="tituloForm">Nome Completo:</div>
+                        <div id="valorTitulo" class="tituloForm">ID do Aluno:</div>
+                        <div id="valorTitulo" class="tituloForm">Email:</div>
+                        <div id="valorTitulo" class="tituloForm">Telefone:</div>
                     </div>
-                    <div id="divDesc">
+            </div>
+
+            <div class="cont">
+
+            <input id="valorInput" class="inputText" type="number"></label>
+            <input id="valorInput" class="inputText" type="number"></label>
+            <input id="valorInput" class="inputText" type="number"></label>
+            <input id="valorInput" class="inputText" type="number"></label>
+
+            </div>
+
+            <div id="divDesc">
                         <label id="descTitulo" class="tituloForm">Descrição:</label>
                         <textarea id="descInput" class="inputText" rows="5"></textarea>
                     </div>
