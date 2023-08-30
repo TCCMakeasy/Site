@@ -17,7 +17,7 @@
       <a id="span"></a>
     </header>
     <main>
-      <form action="POST" id="cadastro">
+      <form action="POST" id="cadastro" action="../professor/includes/logar_prof.php">
         <fieldset id="fieldsetLogin">
           <h1 id="tituloLogin">Professor</h1>
 
@@ -41,7 +41,7 @@
             required
           />
 
-          <input type="submit" value="Entrar" id="botaoSubmit" /><br />
+          <input type="submit" value="Entrar" id="botaoSubmit" name="entrar"/><br />
           <p id="loginHref">
             Não tem uma conta? <a href="https://google.com">Compre um dos cursos</a>
           </p>
