@@ -2,7 +2,7 @@
 <aside id="menu">
     <img src="./images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
-        <img src="./images/nathan.png" alt="Imagem de usuário" id="imgUsuario">
+        <img src="./fotosPerfil/nathan.png" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeAluno" id="nomeMenuAluno">Nathan</p>
     </div>
     <div id="scroll">
