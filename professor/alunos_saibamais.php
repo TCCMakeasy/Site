@@ -22,45 +22,61 @@ session_start();
     <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
         <div class="container">
-        <h1 id="title">Alunos</h1>
-</div>
-
-        <a href="alunos.php">
-        <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
-        </a>
-
-        <sec id="tela">
-                <section id="editFoto">
-                    <img src="./fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
-                </section>
-                <center id="nome_aluno"><b>Aluno<b></center>
-
-</div id="container">
-    <div id="formInfos">
-
-        <div class="conteúdo">
-            
-                    <div class="legenda" style="float: left; margin-left: 50px;">
-
-                        <div id="valorTitulo" class="tituloForm">Nome Completo:</div>
-                        <div id="valorTitulo" class="tituloForm">ID do Aluno:</div>
-                        <div id="valorTitulo" class="tituloForm">Email:</div>
-                        <div id="valorTitulo" class="tituloForm">Telefone:</div>
-
-                    </div>
-                    
-                    <div class="cont" style="float: right; margin-right: 600px;">
-
-                        <div id="valorInput" class="inputText" type="number">a</div>
-                        <div id="valorInput" class="inputText" type="number">a</div>
-                        <div id="valorInput" class="inputText" type="number">a</div>
-                        <div id="valorInput" class="inputText" type="number">a</div>
-
-                    </div>
-        
+            <h1 id="title">Alunos</h1>
         </div>
 
-    </div>
+        <a href="alunos.php">
+            <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
+        </a>
+
+        <div id="container">
+
+        <sec id="tela">
+            <section id="editFoto">
+                <img src="./fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
+            </section>
+
+            <div id="nome_aluno" style="text-align: center;"><b>Aluno<b></div>
+
+                <div id="conteúdo">
+
+                    <div class="label">
+
+                        <div class="cont">Nome Completo:</div>
+                        <br><br>
+                        <div id="valorInput" class="inputText" type="number">Davi Sousa Pedrosa</div>
+
+                    </div>
+                    <div class="label">
+
+                        <div class="cont">ID do Aluno:</div>
+                        <br><br>
+                        <div id="valorInput" class="inputText" type="number">@1234567</div>
+
+                    </div>
+                    <div class="label">
+
+                        <div class="cont">Email:</div>
+                        <br><br>
+                        <div id="valorInput" class="inputText" type="number">davisousap1223@gmail.com</div>
+
+                    </div>
+                    <div class="label">
+
+                        <div class="cont">Telefone:</div>
+                        <br><br>
+                        <div id="valorInput" class="inputText" type="number">(11) 98634-5554</div>
+
+                    </div>
+
+                </div>
+
+                <div id="divDesc">
+                        <p id="descTitulo" class="tituloForm">Descrição:</p>
+                        <div id="descInput" class="inputText" rows="5" name="bio"></div>
+                    </div>
+
+</sec>
 
     </main>
 </body>

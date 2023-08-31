@@ -25,11 +25,11 @@ main {
     
 }
 
-#tabela tr:link td{
+#tabela td:hover{
   background-color: var(--azulMakeasy);
 }
 
-#tabela tr.selecionado td{
+#tabela td.selecionado{
   background-color: var(--roxoEscuro);
 }
 
@@ -67,7 +67,7 @@ td {
 #marAula {
     display: none;
     width: 40%;
-    height: 50%;
+    height: 45%;
     background-color: var(--corPrimaria);
     border-radius: 8px;
     border: 3px solid #000;
@@ -127,7 +127,7 @@ td {
     align-items: center;
     justify-content: flex-end;
     text-align: center;
-    margin: 0 0 1.5rem;
+    margin: 2rem 0 2.5rem;
     font-size: 1.4rem;
   }
   input{

@@ -1,5 +1,5 @@
 main {
-    margin-left: calc((98% + 380px) / 2 - 40%);
+    margin-left: calc((98% + 415px) / 2 - 40%);
     height: 100vh;
   }
   #fotoPerfil {
@@ -14,7 +14,7 @@ main {
   #title {
     font-size: 2rem;
     font-weight: 700;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
     text-align: center;
     width: 90%;
   
@@ -34,9 +34,38 @@ main {
 }
 #conteúdo
 {
+  margin: 0 auto;
+  /* width: fit-content; */
 
-  width: 100px;
-  height: 100px;
-  display: inline-block;
+}
+#container
+{
+
+  background-color: #343888;
+  height: 100%;
+  color: white;
+
+}
+.label{
+  display: flex;
+
+}
+.cont
+{
+  width: 10rem;
+}
+#divDesc {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+#descInput
+{
+
+  border: 1px solid black;
+  width: 36rem;
+  height: 12rem;
 
 }
