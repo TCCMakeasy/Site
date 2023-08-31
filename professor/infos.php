@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+    $_SESSION['msg'] = "Faça login para acessar o sistema";
+    header("Location: ../professor/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -15,40 +23,40 @@
     <main>
         <section id="tela">
             <h1 id="title">Suas Informações</h1>
-            <form id="formInfos">
+        <form id="formInfos" method="POST" action="./includes/edit_infos.php">
                 <section id="editFoto">
-                    <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
+                    <img src="./fotosPerfil/<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
-                    <input type="file" id="inputFoto">
+                    <input type="file" id="inputFoto" name="foto">
                 </section>
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
                         <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <input id="nomeInput" class="inputLock" type="text" disabled>
+                        <p class="inputP"><input id="nomeInput" class="inputText" type="text" name="nome" value="<?php echo $_SESSION['nome'] ?>"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
-                        <input id="idInput" class="inputLock" type="text" value="" disabled>
+                        <input id="idInput" class="inputLock" type="text" name="id" value="<?php echo $_SESSION['id'] ?>" value="" disabled>
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="email"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" name="email" type="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" name="senha" type="password" placeholder="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
-                        <input id="dataNascInput" class="inputLock" type="text" value="" disabled>
+                        <input id="dataNascInput" class="inputLock" type="text" name="data" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
                     </div>
                     <div id="divValor" class="divInputText">
                         <p id="valorTitulo" class="tituloForm">Preço:</p>
-                        <p class="inputP"><input id="valorInput" class="inputText" type="number"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="valorInput" class="inputText" type="number" name="valor" value="<?php echo $_SESSION['valor'] ?>"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDesc">
-                        <p id="descTitulo" class="tituloForm">Descrição:</p>
-                        <textarea id="descInput" class="inputText" rows="5"></textarea>
+                        <p id="descTitulo" class="tituloForm">Biografia:</p>
+                        <textarea id="descInput" class="inputText" rows="5" name="bio"><?php echo $_SESSION['bio'] ?></textarea>
                     </div>
                     <div id="divBtn">
                         <input id="btnSalvar" class="btn" type="submit" value="Salvar">

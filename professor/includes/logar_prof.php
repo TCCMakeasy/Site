@@ -1,11 +1,14 @@
 <?php
 session_start();
 require_once "../../conexao.php";
-$acessar = filter_input(INPUT_POST, 'entrar', FILTER_DEFAULT);
+$dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+$dados_st = array_map('strip_tags', $dados_rc);
+$dados = array_map('trim', $dados_st);
 
-if ($acessar) {
-    $email = filter_input(INPUT_POST, 'email_login', FILTER_DEFAULT);
-    $senha = filter_input(INPUT_POST, 'senha_login', FILTER_DEFAULT);
+
+if (isset($dados)) {
+    $email = $dados['email'];
+    $senha = $dados['senha'];
 
     if ((!empty($email)) and (!empty($senha))) {
         $result_login = "select id_professor, bio_professor, valor_professor, nota_professor, email_professor, nome_professor, nascimento_professor, senha_professor, foto_professor from professor where email_professor= '$email' LIMIT 1";
@@ -22,6 +25,7 @@ if ($acessar) {
                     $_SESSION['nota'] = $row_login['nota_professor'];
                     $_SESSION['valor'] = $row_login['valor_professor'];
                     $_SESSION['bio'] = $row_login['bio_professor'];
+                    $_SESSION['tipo'] = 2;
                     unset($_SESSION['msg']);
                     header("Location: ../infos.php");
                 } else {

@@ -2,8 +2,9 @@
 <aside id="menu">
     <img src="../professor/images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
-        <img src="../professor/images/usuario.png" alt="Imagem de usuário" id="imgUsuario">
-        <p class="nomeProfessor" id="nomeMenuProfessor">Professor</p>
+        <img src="../professor/fotosPerfil/<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
+        <p class="nomeProfessor" id="nomeMenuProfessor"><?php $nome = explode(' ', $_SESSION['nome']);
+        echo $nome[0];?></p>
     </div>
     <div id="scroll">
         <nav>
@@ -24,7 +25,7 @@
                     <a id="openNotify" class="navButton">Mensagens</a>
                 </li>
                 <li>
-                    <a href="" class="navButton" id="sair">Sair</a>
+                    <a href="./includes/fim_session.php" class="navButton" id="sair">Sair</a>
                 </li>
             </ul>
         </nav>

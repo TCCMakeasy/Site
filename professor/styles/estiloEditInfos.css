@@ -70,6 +70,7 @@ input[type="file"] {
 }
 .inputText {
   height: 2rem;
+  padding-left: 0.5rem;
   font-size: 1.5rem;
   width: 50vw;
   border-radius: 8px;
@@ -77,6 +78,8 @@ input[type="file"] {
 }
 .inputLock {
   height: 2rem;
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
   width: calc(50vw + 3.5rem);
   border-radius: 8px;
   border: 2px solid #000;
@@ -85,6 +88,10 @@ input[type="file"] {
 #descInput {
   height: 10rem;
   width: 40vw;
+}
+#senhaInput::-webkit-input-placeholder {
+  color: #000;
+  font-size: 1.2rem;
 }
 .tituloForm {
   margin: 0.5rem 0;

@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+//if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+//    $_SESSION['msg'] = "Faça login para acessar o sistema";
+//    header("Location: ../professor/login.php");
+//}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -23,41 +31,36 @@
 
         <sec id="tela">
                 <section id="editFoto">
-                    <img src="./images/usuario.png" id="fotoPerfil" accept="./images/*">
+                    <img src="./fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
                 </section>
-                <label id="nome_aluno"><b>Aluno<b></label>
+                <center id="nome_aluno"><b>Aluno<b></center>
 
 </div id="container">
-    <form id="formInfos">
-                <section id="editInfos">
-            <div class="legenda">
-                    <div id="divValor" class="divInputText">
+    <div id="formInfos">
+
+        <div class="conteúdo">
+            
+                    <div class="legenda" style="float: left; margin-left: 50px;">
+
                         <div id="valorTitulo" class="tituloForm">Nome Completo:</div>
                         <div id="valorTitulo" class="tituloForm">ID do Aluno:</div>
                         <div id="valorTitulo" class="tituloForm">Email:</div>
                         <div id="valorTitulo" class="tituloForm">Telefone:</div>
+
                     </div>
-            </div>
+                    
+                    <div class="cont" style="float: right; margin-right: 600px;">
 
-            <div class="cont">
+                        <div id="valorInput" class="inputText" type="number">a</div>
+                        <div id="valorInput" class="inputText" type="number">a</div>
+                        <div id="valorInput" class="inputText" type="number">a</div>
+                        <div id="valorInput" class="inputText" type="number">a</div>
 
-            <input id="valorInput" class="inputText" type="number"></label>
-            <input id="valorInput" class="inputText" type="number"></label>
-            <input id="valorInput" class="inputText" type="number"></label>
-            <input id="valorInput" class="inputText" type="number"></label>
-
-            </div>
-
-            <div id="divDesc">
-                        <label id="descTitulo" class="tituloForm">Descrição:</label>
-                        <textarea id="descInput" class="inputText" rows="5"></textarea>
                     </div>
-                    <div id="divBtn">
-                        <input id="btnSalvar" class="btn" type="submit" value="Salvar">
-                    </div>
-        </form>
-        </sec>
-                </section>
+        
+        </div>
+
+    </div>
 
     </main>
 </body>

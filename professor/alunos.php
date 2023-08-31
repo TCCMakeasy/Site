@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+    $_SESSION['msg'] = "Faça login para acessar o sistema";
+    header("Location: ../professor/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -19,42 +27,42 @@
             <div id="container">
                 <ul id="alunos">
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
                     <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
+                        <img src="./fotosPerfil/usuario.png" alt="Foto do aluno" class="imgAluno">
                         <h1 id="nomeAluno">Nome do Aluno</h1>
                         <a id="saibaMais" href="google.com">Saiba Mais</a>
                     </li>
