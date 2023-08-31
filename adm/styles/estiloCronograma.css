@@ -25,6 +25,14 @@ main {
     
 }
 
+#tabela tr:link td{
+  background-color: var(--azulMakeasy);
+}
+
+#tabela tr.selecionado td{
+  background-color: var(--roxoEscuro);
+}
+
 #diasTitle{
     display: none;
 }
@@ -120,7 +128,7 @@ td {
     justify-content: flex-end;
     text-align: center;
     margin: 0 0 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   input{
     width: 50%;
@@ -131,6 +139,8 @@ td {
   }
   #submitMarcarAula{
     display: flex;
+    justify-content: center;
+
   }
   #submitMarcarAula > * {
     width: 10rem;

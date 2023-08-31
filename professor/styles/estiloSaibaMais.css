@@ -10,11 +10,6 @@ main {
   }
   #tela {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
   }
   #title {
     font-size: 2rem;
@@ -37,24 +32,11 @@ main {
 {
   font-size: 20px;
 }
-#editInfos {
-  display: flex;
-  flex-direction: column;
-}
-#formInfos {
-text-align: left;
-}
-#cont 
+#conteúdo
 {
 
-  display: flex;
-  flex-direction: column;
-
-}
-#forminfos
-{
-
-  display: flex;
-  flex-direction: row;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
 
 }

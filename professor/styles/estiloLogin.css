@@ -6,7 +6,21 @@ body {
   background-color: #343888;
   font-family: "Open Sans";
 }
-
+.avisos{
+  border-radius: 0.5rem;
+  color: #ffffff;
+  width: 20rem;
+  padding: 0.7rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+  display: none;
+}
+#alert{
+  background-color: rgba(255, 66, 66, 0.514);
+  border: rgba(255, 66, 66, 0.74) 1px solid;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -35,6 +49,11 @@ main {
 }
 
 #fieldsetLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   width: 24rem;
   margin: 4.5rem auto 0.5rem;
   border: 0.17rem solid #ffffff;
@@ -50,7 +69,7 @@ main {
 }
 
 #tituloLogin {
-  margin: 1rem auto 1.7rem;
+  margin: 1rem auto 1rem;
   font-size: 2.7rem;
   font-weight: 700;
 }
@@ -59,8 +78,8 @@ main {
   width: 20rem;
   height: 1.2rem;
   font-weight: lighter;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
   border-radius: 10px;
   border: none;
   padding: 10px;

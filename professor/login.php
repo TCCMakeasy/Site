@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -17,7 +20,7 @@
       <a id="span"></a>
     </header>
     <main>
-      <form action="POST" id="cadastro" action="../professor/includes/logar_prof.php">
+      <form method="POST" id="cadastro" action="./includes/logar_prof.php">
         <fieldset id="fieldsetLogin">
           <h1 id="tituloLogin">Professor</h1>
 
@@ -40,13 +43,22 @@
             placeholder="●●●●●●●●"
             required
           />
-
+          <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></div>
           <input type="submit" value="Entrar" id="botaoSubmit" name="entrar"/><br />
           <p id="loginHref">
-            Não tem uma conta? <a href="https://google.com">Compre um dos cursos</a>
+            Não tem uma conta? <a href="https://google.com">Compre um dos nossos cursos</a>
           </p>
         </fieldset>
       </form>
     </main>
   </body>
+  <script>
+  var alert = document.getElementById("alert");
+  if (alert.innerHTML != "") {
+    alert.style.display = "block";
+  }
+</script>
+<?php
+unset($_SESSION['msg']);
+?>
 </html>

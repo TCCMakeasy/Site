@@ -21,6 +21,7 @@ if ($acessar) {
                     $_SESSION['foto'] = $row_login['foto_aluno'];
                     $_SESSION['id_professor'] = $row_login['id_professor'];
                     $_SESSION['desc'] = $row_login['desc_aluno'];
+                    $_SESSION['tipo'] = 1;
                     unset($_SESSION['msg']);
                     header("Location: ../infos.php");
                 } else {

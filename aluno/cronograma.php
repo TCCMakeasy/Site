@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../aluno/login.php");
 }
