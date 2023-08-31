@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -50,7 +50,7 @@
                     <tr>
 
                         <th>11:00</th>
-                        <td></td>
+                        <td onclick="SelLinha"></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -216,6 +216,7 @@
 </dialog>
 <script src="./js/marcarAulaOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
+<script src="./js/selectAula.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
 
 </html>
