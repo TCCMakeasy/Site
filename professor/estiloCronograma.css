@@ -1,0 +1,288 @@
+#tela{
+    margin-left: calc((98% + 380px) / 2 - 40%);
+}
+main {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+#container{
+    overflow-x: auto;
+}
+
+#title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem auto 3rem;
+}
+
+#tabela {
+    width: 70%;
+    margin: 0 auto;
+    height: 36rem;
+    border-collapse: collapse;
+    
+}
+
+#tabela td:hover{
+  background-color: var(--azulMakeasy);
+}
+
+#tabela td.selecionado{
+  background-color: var(--roxoEscuro);
+}
+
+#diasTitle{
+    display: none;
+}
+
+th,
+td {
+
+    background-color: var(--corPrimaria);
+    color: white;
+    border: 3px solid black;
+    min-width: 10rem;
+}
+
+#botoes {
+    margin: 2rem auto;
+}
+
+#abrirMarcarAula {
+    width: 12rem;
+    height: 3rem;
+    bottom: 3rem;
+    background-color: var(--corPrimaria);
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: auto 1rem;
+    cursor: pointer;
+}
+
+#marAula {
+    display: none;
+    width: 40%;
+    height: 45%;
+    background-color: var(--corPrimaria);
+    border-radius: 8px;
+    border: 3px solid #000;
+    color: white;
+  }
+  #marAula::backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  @keyframes slide-up {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  #marAula[open] {
+    animation: slide-up 500ms forwards, fade-in 500ms forwards;
+  }
+  #marAula[open]::backdrop {
+    animation: fade-in 500ms forwards;
+  }
+  #marAula-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  #formMarcarAula {
+    width: 60%;
+  }
+  #formMarcarAula > h1 {
+    margin: auto auto 1rem;
+  }
+  #idAluno, #aulaDia, #aulaHora {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    margin: 2rem 0 2.5rem;
+    font-size: 1.4rem;
+  }
+  input{
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  #submitMarcarAula{
+    display: flex;
+    justify-content: center;
+
+  }
+  #submitMarcarAula > * {
+    width: 10rem;
+    height: 2.5rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+  #btnMarcarAula {
+    background-color: var(--verdeMakeasy);
+  }
+  #closeMarcarAula {
+    background-color: var(--vermelhoMakeasy);
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      margin-left: 0;
+      margin-top: 5rem;
+      height: calc(100% - 5rem);
+    }
+    section {
+      width: 10vw;
+      height: calc(100% - 5rem);
+    }
+    .aluno {
+      width: 45%;
+      height: 16rem;
+      margin: 0.5rem;
+    }
+    #alunos {
+      margin: 0.5rem auto;
+    }
+    #nomeAluno {
+      font-size: 1.3rem;
+      margin: 0.4rem;
+    }
+    #saibaMais {
+      font-size: 1.1rem;
+      margin: 0.5rem;
+    }
+    .imgAluno {
+      width: 7rem;
+      height: 7rem;
+      margin: 1.2rem 1rem 0.6rem;
+      border-radius: 50%;
+    }
+    #container {
+      margin-top: 0;
+      width: 100vw;
+      height: calc(100vh - 5rem);
+      border-radius: 0;
+      box-shadow: none;
+    }
+    #container > * {
+      margin: 0rem;
+      width: 100%;
+    }
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+    #abrirAdicionarAluno {
+      width: 11rem;
+      height: 3rem;
+      font-size: 1.2rem;
+      bottom: 1.5rem;
+    }
+    #addAluno {
+      width: 80%;
+    }
+  }  
+
+#abrirDesmarcarAula {
+    width: 12rem;
+    height: 3rem;
+    bottom: 3rem;
+    background-color: var(--azulMakeasy);
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: auto 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    #tela {
+        margin: 5rem 0 0;
+    }
+    #container{
+        margin-top: 2rem;
+    }
+    #tabela{
+        width: 90%;
+    }
+    .diasTable{
+        display: none;
+    }
+    #horarioTitle{
+        width: 30%;
+    }
+    #diasTitle{
+        display: table-cell;
+    }
+    td{
+        display: block;
+        text-align: justify;
+        border: #000 2px solid;
+        padding: 1rem;
+    }
+    td::before{
+        text-transform: uppercase;
+        margin-right: 1rem;
+        font-weight: 700;
+    }
+    td:nth-of-type(1)::before{
+        content: "Segunda:";
+    }
+    td:nth-of-type(2)::before{
+        content: "Terça:";
+    }
+    td:nth-of-type(3)::before{
+        content: "Quarta:";
+    }
+    td:nth-of-type(4)::before{
+        content: "Quinta:";
+    }
+    td:nth-of-type(5)::before{
+        content: "Sexta:";
+    }
+    td:nth-of-type(6)::before{
+        content: "Sábado:";
+    }
+    td:nth-of-type(7)::before{
+        content: "Domingo:";
+    }
+
+}
+

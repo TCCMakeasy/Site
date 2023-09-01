@@ -17,47 +17,20 @@
         <section>
             <h1 id="title">Alunos</h1>
             <div id="container">
+            <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></div>
                 <ul id="alunos">
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
-                    <li class="aluno">
-                        <img src="./images/usuario.png" alt="Foto do aluno" class="imgAluno">
-                        <h1 id="nomeAluno">Nome do Aluno</h1>
-                        <a id="saibaMais" href="google.com">Saiba Mais</a>
-                    </li>
+                    <?php
+                    include_once("../conexao.php");
+                    $result_usuario = "SELECT * FROM aluno where id_professor = '".$_SESSION['id']."'";
+                    $resultado_usuario = mysqli_query($sql, $result_usuario);
+                    while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
+                        echo '<li class="aluno">';
+                        echo '<img src="./fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgAluno">';
+                        echo '<h1 id="nomeProfessor">' . $row_usuario['nome_aluno'] . '</h1>';
+                        echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
+                        echo '</li>';
+                    }
+                    ?>
                 </ul>
                 <button id="abrirAdicionarAluno">Adicionar Aluno</button>
             </div>

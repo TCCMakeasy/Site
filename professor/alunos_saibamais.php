@@ -40,41 +40,34 @@ session_start();
 
                 <div id="conteúdo">
 
-                    <div class="label">
+                        <div class="dado">
+                            <h2 class="cont">Nome Completo:</h2>
+                            <label id="valorInput" class="inputText" type="number">Davi Sousa Pedrosa</label>
+                        </div>
 
-                        <div class="cont">Nome Completo:</div>
-                        <br><br>
-                        <div id="valorInput" class="inputText" type="number">Davi Sousa Pedrosa</div>
+                        <div class="dado">
+                            <h2 class="cont">ID do Aluno:</h2>
+                            <label id="valorInput" class="inputText" type="number">@1234567</label>
+                        </div>
 
-                    </div>
-                    <div class="label">
 
-                        <div class="cont">ID do Aluno:</div>
-                        <br><br>
-                        <div id="valorInput" class="inputText" type="number">@1234567</div>
+                        <div class="dado">
+                            <h2 class="cont">Email:</h2>
+                            <label id="valorInput" class="inputText" type="number">davisousap1223@gmail.com</label>
+                        </div>
 
-                    </div>
-                    <div class="label">
 
-                        <div class="cont">Email:</div>
-                        <br><br>
-                        <div id="valorInput" class="inputText" type="number">davisousap1223@gmail.com</div>
-
-                    </div>
-                    <div class="label">
-
-                        <div class="cont">Telefone:</div>
-                        <br><br>
-                        <div id="valorInput" class="inputText" type="number">(11) 98634-5554</div>
-
-                    </div>
+                        <div class="dado">
+                            <h2 class="cont">Telefone:</h2>
+                            <label id="valorInput" class="inputText" type="number">(11) 98634-5554</label>
+                        </div>
 
                 </div>
 
                 <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>
-                        <div id="descInput" class="inputText" rows="5" name="bio"></div>
-                    </div>
+                        <label id="descInput" class="inputText" rows="5" name="bio"></label>
+                </div>
 
 </sec>
 
