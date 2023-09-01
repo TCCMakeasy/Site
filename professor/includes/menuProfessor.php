@@ -13,7 +13,7 @@
                     <a href="./infos.php" class="navButton">Informações</a>
                 </li>
                 <li>
-                    <a href="" class="navButton">Horário</a>
+                    <a href="./prof_cronograma.php" class="navButton">Horário</a>
                 </li>
                 <li>
                     <a href="./alunos.php" class="navButton">Alunos</a>

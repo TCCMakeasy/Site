@@ -1,59 +1,82 @@
 main {
-    margin-left: calc((98% + 415px) / 2 - 40%);
-    height: 100vh;
-  }
-  #fotoPerfil {
-    width: 7rem;
-    height: 7rem;
-    margin: 1.2rem 1rem 0.6rem;
-    border-radius: 50%;
-  }
-  #tela {
-    width: 100%;
-  }
-  #title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 auto;
-    text-align: center;
-    width: 90%;
-  
-  }
-#voltar
-{
+  margin-left: calc((98% + 415px) / 2 - 40%);
+  height: 100%;
+}
+
+#fotoPerfil {
+  width: 7rem;
+  height: 7rem;
+  margin: 1.2rem 1rem 0.6rem;
+  border-radius: 50%;
+}
+
+#tela {
+  width: 100%;
+}
+
+#title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+
+}
+
+#voltar {
   position: absolute;
 }
+
 #editFoto {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#nome_aluno
-{
-  font-size: 20px;
+
+#nome_aluno {
+  font-size: 2rem;
 }
-#conteúdo
-{
+
+#conteúdo {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
-  /* width: fit-content; */
 
 }
-#container
-{
+
+#conteúdo .dado {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  font-size: 1.5rem;
+  column-gap: 2rem;
+  margin-left: 1rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+#container {
 
   background-color: #343888;
   height: 100%;
   color: white;
 
 }
-.label{
+
+.label {
   display: flex;
 
 }
-.cont
-{
-  width: 10rem;
+
+.cont {
+  white-space: nowrap;
+  font-size: 1.5rem;
+  width: fit-content;
 }
+
 #divDesc {
   margin: 0.5rem;
   display: flex;
@@ -61,11 +84,25 @@ main {
   align-items: center;
 
 }
-#descInput
-{
+
+#descInput {
 
   border: 1px solid black;
   width: 36rem;
   height: 12rem;
 
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    margin-top: 5rem;
+  }
+  #conteúdo .dado{
+    grid-template-columns: 1fr;
+  }
+  #voltar {
+    position:unset;
+  }
+  
 }
