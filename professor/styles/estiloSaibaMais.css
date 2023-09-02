@@ -1,5 +1,5 @@
 main {
-  margin-left: calc((98% + 415px) / 2 - 40%);
+  margin-left: calc((98% + 380px) / 2 - 40%);
   height: 100%;
 }
 
@@ -12,6 +12,7 @@ main {
 
 #tela {
   width: 100%;
+  margin: 1rem;
 }
 
 #title {
@@ -20,15 +21,15 @@ main {
   margin: 0 auto;
   text-align: center;
   width: 90%;
-
 }
 
 #voltar {
   position: absolute;
 }
 
-#editFoto {
+#foto {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -40,11 +41,9 @@ main {
 #conteúdo {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-
 }
 
 #conteúdo .dado {
@@ -59,16 +58,15 @@ main {
 }
 
 #container {
-
   background-color: #343888;
   height: 100%;
+  min-height: 90vh;
   color: white;
-
+  margin: 1rem;
 }
 
 .label {
   display: flex;
-
 }
 
 .cont {
@@ -78,19 +76,18 @@ main {
 }
 
 #divDesc {
-  margin: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin: 2rem;
 }
 
 #descInput {
-
-  border: 1px solid black;
+  border: 2px solid black;
+  background-color: transparent;
+  border-radius: 8px;
   width: 36rem;
   height: 12rem;
-
 }
 
 @media (max-width: 768px) {
@@ -98,11 +95,28 @@ main {
     margin-left: 0;
     margin-top: 5rem;
   }
-  #conteúdo .dado{
+  #container {
+    margin: 0;
+  }
+  #conteúdo .dado {
     grid-template-columns: 1fr;
+    width: 95%;
+    margin-bottom: 1rem;
   }
   #voltar {
-    position:unset;
+    position: unset;
   }
-  
+  #descInput {
+    width: 20rem;
+    height: 12rem;
+  }
+  .mobileSeta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-left: -2rem;
+  }
+  #foto{
+    margin-left: -2rem;
+  }
 }
