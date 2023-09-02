@@ -27,6 +27,7 @@ main {
 
 #tabela td:hover{
   background-color: var(--azulMakeasy);
+  cursor: pointer;
 }
 
 #tabela td.selecionado{
