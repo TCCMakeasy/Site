@@ -30,7 +30,7 @@
                     <a href="" class="navButton">Denúncias</a>
                 </li>
                 <li>
-                    <a href="" class="navButton" id="sair">Sair</a>
+                    <a href="./includes/fim_session.php" class="navButton" id="sair">Sair</a>
                 </li>
             </ul>
         </nav>

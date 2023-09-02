@@ -12,7 +12,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informações do Administrador</title>
+    <title>Informações do Professor</title>
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloEditInfos.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
