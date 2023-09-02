@@ -21,55 +21,48 @@ session_start();
 <body>
     <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
-        <div class="container">
-            <h1 id="title">Alunos</h1>
-        </div>
-
-        <a href="alunos.php">
-            <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
-        </a>
-
-        <div id="container">
-
-        <sec id="tela">
-            <section id="editFoto">
-                <img src="./fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
-            </section>
-
-            <div id="nome_aluno" style="text-align: center;"><b>Aluno<b></div>
-
+        <h1 id="title">Alunos</h1>
+            <div id="container">
+                <div class="mobileSeta">
+                    <a href="alunos.php">
+                        <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
+                    </a>
+                    <div id="foto">
+                        <img src="./fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
+                        <h1 id="nome_aluno"><b>Aluno<b></h1>
+                    </div>
+                </div>
                 <div id="conteúdo">
 
-                        <div class="dado">
-                            <h2 class="cont">Nome Completo:</h2>
-                            <label id="valorInput" class="inputText" type="number">Davi Sousa Pedrosa</label>
-                        </div>
+                    <div class="dado">
+                        <h2 class="cont">Nome Completo:</h2>
+                        <label id="valorInput" class="inputText" type="number">Davi Sousa Pedrosa</label>
+                    </div>
 
-                        <div class="dado">
-                            <h2 class="cont">ID do Aluno:</h2>
-                            <label id="valorInput" class="inputText" type="number">@1234567</label>
-                        </div>
-
-
-                        <div class="dado">
-                            <h2 class="cont">Email:</h2>
-                            <label id="valorInput" class="inputText" type="number">davisousap1223@gmail.com</label>
-                        </div>
+                    <div class="dado">
+                        <h2 class="cont">ID do Aluno:</h2>
+                        <label id="valorInput" class="inputText" type="number">@1234567</label>
+                    </div>
 
 
-                        <div class="dado">
-                            <h2 class="cont">Telefone:</h2>
-                            <label id="valorInput" class="inputText" type="number">(11) 98634-5554</label>
-                        </div>
+                    <div class="dado">
+                        <h2 class="cont">Email:</h2>
+                        <label id="valorInput" class="inputText" type="number">davisousap1223@gmail.com</label>
+                    </div>
+
+
+                    <div class="dado">
+                        <h2 class="cont">Telefone:</h2>
+                        <label id="valorInput" class="inputText" type="number">(11) 98634-5554</label>
+                    </div>
 
                 </div>
 
                 <div id="divDesc">
-                        <p id="descTitulo" class="tituloForm">Descrição:</p>
-                        <label id="descInput" class="inputText" rows="5" name="bio"></label>
+                    <p id="descTitulo" class="tituloForm">Descrição:</p>
+                    <textarea id="descInput" class="inputText" rows="5" name="bio" disabled></textarea>
                 </div>
-
-</sec>
+            </div>
 
     </main>
 </body>
