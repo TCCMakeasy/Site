@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
+    $_SESSION['msg'] = "Faça login para acessar o sistema";
+    header("Location: ../../professor/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -17,16 +25,18 @@
         <section>
             <h1 id="title">Alunos</h1>
             <div id="container">
-            <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></div>
+                <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {
+                                                    echo $_SESSION['msg'];
+                                                } ?></div>
                 <ul id="alunos">
                     <?php
                     include_once("../conexao.php");
-                    $result_usuario = "SELECT * FROM aluno where id_professor = '".$_SESSION['id']."'";
+                    $result_usuario = "SELECT * FROM aluno where id_professor = '" . $_SESSION['id'] . "'";
                     $resultado_usuario = mysqli_query($sql, $result_usuario);
                     while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
                         echo '<li class="aluno">';
                         echo '<img src="./fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgAluno">';
-                        echo '<h1 id="nomeProfessor">' . $row_usuario['nome_aluno'] . '</h1>';
+                        echo '<h1 id="nomeAluno">' . $row_usuario['nome_aluno'] . '</h1>';
                         echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
                         echo '</li>';
                     }
@@ -47,13 +57,26 @@
             </div>
             <div id="submitAddAluno">
                 <input type="submit" id="adicionarAluno" name="btnAddAluno" value="Adicionar Aluno">
-                <button type="button" id="closeAddAluno">Cancelar</button>
+                <button id="closeAddAluno" type="button">Cancelar</button>
             </div>
         </form>
     </div>
 </dialog>
 <script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<script>
+  var alert = document.getElementById("alert");
+  if (alert.innerHTML != "") {
+    alert.style.display = "block";
+    if(alert.innerHTML == "Aluno cadastrado com sucesso!"){
+    alert.style.backgroundColor = "rgba(76, 175, 80, 0.7)";
+    alert.style.border = "1px solid rgb(76, 175, 80)";
+    }
+    else{
+  }
+  }
+</script>
+<?php include_once "includes/modalNotificar.php";
+unset($_SESSION['msg']); ?>
 
 </html>

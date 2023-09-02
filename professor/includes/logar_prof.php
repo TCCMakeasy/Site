@@ -25,9 +25,14 @@ if (isset($dados)) {
                     $_SESSION['nota'] = $row_login['nota_professor'];
                     $_SESSION['valor'] = $row_login['valor_professor'];
                     $_SESSION['bio'] = $row_login['bio_professor'];
-                    $_SESSION['tipo'] = 2;
                     unset($_SESSION['msg']);
-                    header("Location: ../infos.php");
+                    if ($_SESSION['email'] == "adm@gmail.com") {
+                        $_SESSION['tipo'] = 3;
+                        header("Location: ../../adm/infos.php");
+                    }else{
+                        $_SESSION['tipo'] = 2;
+                        header("Location: ../infos.php");
+                    }
                 } else {
                     $_SESSION['msg'] = "Senha incorreta";
                     header("Location: ../login.php");
