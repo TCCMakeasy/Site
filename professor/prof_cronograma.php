@@ -193,7 +193,7 @@
 </body>
 <dialog id="marAula">
     <div id="marAula-content">
-        <form action="" method="post" id="formMarcarAula">
+        <form action="./includes/prof_marcar-aula.php" method="post" id="formMarcarAula">
             <h1>Marcar aula</h1>
             <div id="idAluno">
                 <label for="inputIdAluno"><b>ID do aluno:</b></label>
