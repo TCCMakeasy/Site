@@ -160,6 +160,19 @@ td {
   #closeMarcarAula {
     background-color: var(--vermelhoMakeasy);
   }
+  #abrirDesmarcarAula {
+    width: 12rem;
+    height: 3rem;
+    bottom: 3rem;
+    background-color: var(--azulMakeasy);
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: auto 1rem;
+    cursor: pointer;
+}
   
   @media (max-width: 768px) {
     main {
@@ -170,28 +183,6 @@ td {
     section {
       width: 10vw;
       height: calc(100% - 5rem);
-    }
-    .aluno {
-      width: 45%;
-      height: 16rem;
-      margin: 0.5rem;
-    }
-    #alunos {
-      margin: 0.5rem auto;
-    }
-    #nomeAluno {
-      font-size: 1.3rem;
-      margin: 0.4rem;
-    }
-    #saibaMais {
-      font-size: 1.1rem;
-      margin: 0.5rem;
-    }
-    .imgAluno {
-      width: 7rem;
-      height: 7rem;
-      margin: 1.2rem 1rem 0.6rem;
-      border-radius: 50%;
     }
     #container {
       margin-top: 0;
@@ -207,30 +198,20 @@ td {
     *::-webkit-scrollbar {
       width: 10px;
     }
-    #abrirAdicionarAluno {
-      width: 11rem;
+    #botoes {
+      display: flex;
+      align-items: center;
+    }
+    #abrirMarcarAula, #abrirDesmarcarAula{
+      width: 10rem;
       height: 3rem;
       font-size: 1.2rem;
       bottom: 1.5rem;
     }
-    #addAluno {
+    #marAula {
       width: 80%;
     }
   }  
-
-#abrirDesmarcarAula {
-    width: 12rem;
-    height: 3rem;
-    bottom: 3rem;
-    background-color: var(--azulMakeasy);
-    border: 2px solid #000;
-    border-radius: 10px;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-    margin: auto 1rem;
-    cursor: pointer;
-}
 
 @media (max-width: 768px) {
 
@@ -286,4 +267,10 @@ td {
     }
 
 }
-
+select{
+  width: 54%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}

@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+    $_SESSION['msg'] = "Faça login para acessar o sistema";
+    header("Location: ../professor/login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -201,7 +209,17 @@
             </div>
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
-                <input type="text" name="aulaDia" id="inputDia" placeholder="Segunda-Feira">
+                <select name="aulaDia" id="inputDia">
+                    <option value="">Escolha um dia da semana</option>
+                    <option value="Segunda-Feira">Segunda-Feira</option>
+                    <option value="Terça-Feira">Terça-Feira</option>
+                    <option value="Quarta-Feira">Quarta-Feira</option>
+                    <option value="Quinta-Feira">Quinta-Feira</option>
+                    <option value="Sexta-Feira">Sexta-Feira</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+
+                </select>
             </div>
             <div id="aulaHora">
                 <label for="inputHora"><b>Horário:</b></label>
