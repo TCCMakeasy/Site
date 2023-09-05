@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
 }
@@ -19,7 +19,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </head>
 
 <body>
-    <?php include_once "includes/menuAdm.php"; ?>
+    <?php include_once "includes/menuProfessor.php"; ?>
     <main>
         <h1 id="title">Financeiro</h1>
         <div id="container">

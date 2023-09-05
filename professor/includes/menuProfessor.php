@@ -19,7 +19,7 @@
                     <a href="./alunos.php" class="navButton">Alunos</a>
                 </li>
                 <li>
-                    <a href="" class="navButton">Financeiro</a>
+                    <a href="./financeiro.php" class="navButton">Financeiro</a>
                 </li>
                 <li>
                     <a id="openNotify" class="navButton">Mensagens</a>
