@@ -20,7 +20,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 </head>
 
 <body>
-    <?php include_once "./includes/menuProfessor.php"; ?>
+    <?php 
+    
+    include_once "./includes/menuProfessor.php"; 
+    
+    ?>
 
     <section id="tela">
 
@@ -45,20 +49,29 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     <tr>
 
                         <th>10:00</th>
+                        <?php /*
+                    include_once("../conexao.php");
+                    include_once "./includes/prof_marcar-aula.php"; 
+                    $result_usuario = "SELECT * FROM cronograma where tempo_cronograma = '10:00:00'";
+                    $resultado_usuario = mysqli_query($sql, $result_usuario);
+                    while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
+                        echo '<td>'. $resultado_usuario['seg_cronograma'].'</td>';
+                    }*/
+                    ?>
+                        <td>while</td>
                         <td>Wellington</td>
                         <td>Wellington</td>
                         <td>Wellington</td>
                         <td>Wellington</td>
                         <td>Wellington</td>
                         <td>Wellington</td>
-                        <td>Wellington</td>
-
+    
                     </tr>
 
                     <tr>
 
                         <th>11:00</th>
-                        <td onclick="SelLinha"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -210,7 +223,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
                 <select name="aulaDia" id="inputDia">
-                    <option value="">Escolha um dia da semana</option>
                     <option value="Segunda-Feira">Segunda-Feira</option>
                     <option value="Terça-Feira">Terça-Feira</option>
                     <option value="Quarta-Feira">Quarta-Feira</option>
