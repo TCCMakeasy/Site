@@ -182,28 +182,6 @@ td {
       display: flex;
       justify-content: center;
     }
-    .aluno {
-      width: 45%;
-      height: 16rem;
-      margin: 0.5rem;
-    }
-    #alunos {
-      margin: 0.5rem auto;
-    }
-    #nomeAluno {
-      font-size: 1.3rem;
-      margin: 0.4rem;
-    }
-    #saibaMais {
-      font-size: 1.1rem;
-      margin: 0.5rem;
-    }
-    .imgAluno {
-      width: 7rem;
-      height: 7rem;
-      margin: 1.2rem 1rem 0.6rem;
-      border-radius: 50%;
-    }
     #container {
       margin-top: 1rem;
       height: calc(100vh - 5rem);

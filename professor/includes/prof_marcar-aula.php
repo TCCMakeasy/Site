@@ -37,19 +37,10 @@
     
         $dia = 'dom';
     
-    }
-    
-    if($aulaDia == "Escolha um dia da semana")
-    {
-        
-        
-
-    }else
-    {
+    }    
 
         $insertar = "INSERT INTO cronograma (".$dia."_cronograma, tempo_cronograma) values ('$idAluno', '$aulaHora')";   
 
         $select = mysqli_query($sql, $insertar);
 
-    }
 ?>

@@ -36,3 +36,45 @@ section {
 #container > ul {
   margin-top: 1.5rem;
 }
+#botoes {
+  margin: 2rem auto;
+}
+#abrirAddGanho {
+  width: 13rem;
+  height: 3rem;
+  bottom: 3rem;
+  background-color: var(--rosaMakeasy);
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: auto 1rem;
+  cursor: pointer;
+}
+#abrirAddGasto {
+  width: 13rem;
+  height: 3rem;
+  bottom: 3rem;
+  background-color: var(--vermelhoMakeasy);
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: auto 1rem;
+  cursor: pointer;
+}
+#abrirValores {
+  width: 13rem;
+  height: 3rem;
+  bottom: 3rem;
+  background-color: var(--roxoEscuro);
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: auto 1rem;
+  cursor: pointer;
+}
