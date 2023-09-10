@@ -11,7 +11,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $erro = false;
     $fotoPerfil = $_FILES['fotoPerfil'];
     if ($fotoPerfil['error'] == 4) {
-        $fotoPerfil = $_SESSION['foto'];
+        $dados['fotoPerfil'] = $_SESSION['foto'];
     }elseif($fotoPerfil['size'] > 5242880){
         $erro = true;
         echo "O arquivo enviado excede o limite de 5MB";
