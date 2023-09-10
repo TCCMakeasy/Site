@@ -23,7 +23,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <main>
         <section id="tela">
             <h1 id="title">Suas Informações</h1>
-            <form id="formInfos" method="post" action="./includes/edit_infos.php">
+            <form id="formInfos" method="post" action="./includes/edit_infos.php" enctype="multipart/form-data">
                 <section id="editFoto">
                     <img src="./fotosPerfil/<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
@@ -63,6 +63,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         </section>
     </main>
 </body>
+<script>
+    fotoForm = document.getElementById("fotoPerfil");
+    inputFoto = document.getElementById("inputFoto");
+    inputFoto.addEventListener("change", function() {
+        fotoForm.src = URL.createObjectURL(event.target.files[0]);
+    });
+</script>
 <script src="./js/excluirConta.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>

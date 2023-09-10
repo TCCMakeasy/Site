@@ -16,6 +16,7 @@ main {
   height: 10rem;
   border-radius: 0.5rem;
   border: 1px solid #000;
+  object-fit: cover;
 }
 #editFoto {
   display: flex;
