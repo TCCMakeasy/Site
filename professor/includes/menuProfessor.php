@@ -2,7 +2,7 @@
 <aside id="menu">
     <img src="../professor/images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
-        <img src="../professor/fotosPerfil/<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
+        <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeProfessor" id="nomeMenuProfessor"><?php $nome = explode(' ', $_SESSION['nome']);
         echo $nome[0];?></p>
     </div>

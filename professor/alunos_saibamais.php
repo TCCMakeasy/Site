@@ -28,7 +28,7 @@ session_start();
                         <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                     </a>
                     <div id="foto">
-                        <img src="./fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
+                        <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
                         <h1 id="nome_aluno"><b>Aluno<b></h1>
                     </div>
                 </div>

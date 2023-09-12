@@ -4,9 +4,9 @@ session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
-}else{
+} else {
     require_once("../conexao.php");
-    $horarios = array("10", "11", "12", "13", "14","15", "16", "17", "18", "19","20");
+    $horarios = array("10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
     $days = array("seg", "ter", "qua", "qui", "sex", "sab", "dom");
 }
 ?>
@@ -53,11 +53,23 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     foreach ($horarios as $horario) {
                         echo '<tr>';
                         echo '<th>' . $horario . ':00</th>';
-                        $sqlSelect = "SELECT * FROM cronograma WHERE tempo_cronograma = '".$horario.":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
+                        $sqlSelect = "SELECT * FROM cronograma WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
                         $sqlHorarios = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
                         foreach ($days as $day) {
-                            echo '<td>' ;
-                            if (isset($sqlHorarios[$day . '_cronograma'])) { echo $sqlHorarios[$day . '_cronograma'];}else{echo "";} 
+                            echo '<td>';
+                            if (isset($sqlHorarios[$day . '_cronograma'])) {
+                                $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
+                                $alunoRequest = mysqli_query($sql, $alunoSelect);
+                                $aluno = mysqli_fetch_assoc($alunoRequest);
+                                $aluno = explode(' ', $aluno['nome_aluno']);
+                                if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
+                                    echo $aluno[0] . ' ' . $aluno[1];
+                                } else {
+                                    echo $aluno[0];
+                                }
+                            } else {
+                                echo "";
+                            }
                             echo '</td>';
                         }
                         echo '</tr>';
