@@ -4,6 +4,10 @@ session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
+}else{
+    require_once("../conexao.php");
+    $horarios = array("10", "11", "12", "13", "14","15", "16", "17", "18", "19","20");
+    $days = array("seg", "ter", "qua", "qui", "sex", "sab", "dom");
 }
 ?>
 <!DOCTYPE html>
@@ -20,10 +24,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 </head>
 
 <body>
-    <?php 
-    
-    include_once "./includes/menuProfessor.php"; 
-    
+    <?php
+
+    include_once "./includes/menuProfessor.php";
+
     ?>
 
     <section id="tela">
@@ -45,160 +49,21 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         <th class="diasTable">SÁBADO</th>
                         <th class="diasTable">DOMINGO</th>
                     </tr>
-
-                    <tr>
-
-                        <th>10:00</th>
-                        <?php /*
-                    include_once("../conexao.php");
-                    include_once "./includes/prof_marcar-aula.php"; 
-                    $result_usuario = "SELECT * FROM cronograma where tempo_cronograma = '10:00:00'";
-                    $resultado_usuario = mysqli_query($sql, $result_usuario);
-                    while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
-                        echo '<td>'. $resultado_usuario['seg_cronograma'].'</td>';
-                    }*/
+                    <?php
+                    foreach ($horarios as $horario) {
+                        echo '<tr>';
+                        echo '<th>' . $horario . ':00</th>';
+                        $sqlSelect = "SELECT * FROM cronograma WHERE tempo_cronograma = '".$horario.":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
+                        $sqlHorarios = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
+                        foreach ($days as $day) {
+                            echo '<td>' ;
+                            if (isset($sqlHorarios[$day . '_cronograma'])) { echo $sqlHorarios[$day . '_cronograma'];}else{echo "";} 
+                            echo '</td>';
+                        }
+                        echo '</tr>';
+                    }
                     ?>
-                        <td>while</td>
-                        <td>Wellington</td>
-                        <td>Wellington</td>
-                        <td>Wellington</td>
-                        <td>Wellington</td>
-                        <td>Wellington</td>
-                        <td>Wellington</td>
-    
-                    </tr>
-
-                    <tr>
-
-                        <th>11:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>12:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>13:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>14:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>15:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>16:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>17:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>18:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>19:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <th>20:00</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-            </table>
+                </table>
             </div>
 
             <div id="botoes">
@@ -218,7 +83,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <h1>Marcar aula</h1>
             <div id="idAluno">
                 <label for="inputIdAluno"><b>ID do aluno:</b></label>
-                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno">
+                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno" required>
             </div>
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
@@ -235,7 +100,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             </div>
             <div id="aulaHora">
                 <label for="inputHora"><b>Horário:</b></label>
-                <input type="time" name="aulaHora" id="inputHora">
+                <input type="time" name="aulaHora" id="inputHora" min="10:00" max="20:00" step="3600" required>
             </div>
             <div id="submitMarcarAula">
                 <input type="submit" id="btnMarcarAula" name="btnMarcarAula" value="Marcar Aula">
