@@ -79,6 +79,7 @@ section {
   margin: 2rem auto 1rem;
   border-radius: 50%;
   border: 1px solid black;
+  object-fit: cover;
 }
 #nomeAluno {
   font-size: calc(1.5rem + 20%);

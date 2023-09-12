@@ -36,26 +36,32 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 
         $dia = 'dom';
     }
+    $verificaAluno = "SELECT id_professor FROM aluno WHERE id_aluno = '$idAluno'";
+    $resultado_verificaAluno = mysqli_query($sql, $verificaAluno);
+    $result = mysqli_fetch_assoc($resultado_verificaAluno);
 
-    $sqlCheck = "SELECT * FROM cronograma WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
-    $resultCheck = $sql->query($sqlCheck);
-    
-    if ($resultCheck->num_rows > 0) {
-        // Se o registro já existe, faça uma atualização
-        $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
-        if ($sql->query($sqlUpdate) === TRUE) {
-            echo "Registro atualizado com sucesso.";
+    if ($result['id_professor'] === $_SESSION['id']) {
+        $sqlCheck = "SELECT * FROM cronograma WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
+        $resultCheck = $sql->query($sqlCheck);
+
+        if ($resultCheck->num_rows > 0) {
+            $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
+            if ($sql->query($sqlUpdate) === TRUE) {
+                echo "Registro atualizado com sucesso.";
+            } else {
+                echo "Erro ao atualizar registro: " . $sql->error;
+            }
         } else {
-            echo "Erro ao atualizar registro: " . $sql->error;
+            $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
+            if ($sql->query($sqlInsert) === TRUE) {
+                echo "Registro inserido com sucesso.";
+            } else {
+                echo "Erro ao inserir registro: " . $sql->error;
+            }
         }
+        $sql->close();
     } else {
-        // Se o registro não existe, faça uma inserção
-        $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
-        if ($sql->query($sqlInsert) === TRUE) {
-            echo "Registro inserido com sucesso.";
-        } else {
-            echo "Erro ao inserir registro: " . $sql->error;
-        }
+        $_SESSION['msg'] = "Esse aluno não é seu";
+        header("Location: ../alunos.php");
     }
-    $sql->close();
 }

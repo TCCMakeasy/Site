@@ -37,7 +37,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     $resultado_usuario = mysqli_query($sql, $result_usuario);
                     while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
                         echo '<li class="professor">';
-                        echo '<img src="./fotosPerfil/' . $row_usuario['foto_professor'] . '" alt="Foto do professor" class="imgProfessor">';
+                        echo '<img src="../fotosPerfil/' . $row_usuario['foto_professor'] . '" alt="Foto do professor" class="imgProfessor">';
                         echo '<h1 id="nomeProfessor">' . $row_usuario['nome_professor'] . '</h1>';
                         echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
                         echo '</li>';
