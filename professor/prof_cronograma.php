@@ -56,7 +56,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         $sqlSelect = "SELECT * FROM cronograma WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
                         $sqlHorarios = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
                         foreach ($days as $day) {
-                            echo '<td>';
+                            echo '<td id="'.$day . $horario.'">';
                             if (isset($sqlHorarios[$day . '_cronograma'])) {
                                 $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
                                 $alunoRequest = mysqli_query($sql, $alunoSelect);
@@ -81,7 +81,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <div id="botoes">
 
                 <button id="abrirMarcarAula">Marcar aula</button>
-                <button id="abrirDesmarcarAula">Desmarcar aula</button>
+                <button id="desmarcarAula">Desmarcar aula</button>
 
             </div>
         </main>
