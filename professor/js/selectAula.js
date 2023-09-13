@@ -13,44 +13,38 @@ tabela.addEventListener("click", function (e) {
   }
 });
 
-
-const desmarcarAula = (aula) => {
-  try {
-    objetoAJAX = new XMLHttpRequest();
-  } catch (e1) {
-    try {
-      objetoAJAX = new ActiveXObject("Msxm12.XMLHTTP");
-    } catch (e2) {
-      try {
-        objetoAJAX = new ActiveXObject("Microsoft.XMLHTTP");
-      } catch (e3) {
-        objetoAJAX = false;
+const desmarcarAula = async (aula) => {
+  fetch("./includes/desmarcarAula.php", {
+    method: "POST",
+    body: aula,
+  })
+    .then((response) => response.text())
+    .then((response) => {
+      if (response == "Desmarcado com sucesso") {
+        setTimeout(() => {
+          tabela.location.reload();
+        }, 1000);
+      } else {
+        console.log("Erro: " + response);
       }
-    }
-  }
-  if (objetoAJAX) {
-    objetoAJAX.open("POST", "./includes/desmarcarAula.php", true);
-    objetoAJAX.setRequestHeader(
-      "X-Content-Type-Options",
-      "multipart/form-data"
-    );
-    objetoAJAX.send(aula);
-    objetoAJAX.onreadystatechange = function () {
-      if (objetoAJAX.readyState == 4) {
-        if (objetoAJAX.responseText == "Desmarcado com sucesso") {
-          setTimeout(() => {
-            tabela.location.reload();
-          }, 1000)
-        } else {
-          console.log("Erro: " + objetoAJAX.responseText);
-        }
-      }
-    };
-  }
+    })
+    .catch((error) => console.log("Erro: " + error));
 };
 
 btnDesmarcar.addEventListener("click", function (e) {
-    let target = tabela.getElementsByClassName("selecionado")[0].id;
-    desmarcarAula(target);
-    console.log(target);
-  });
+  
+  try {
+    var target = tabela.getElementsByClassName("selecionado")[0];
+    var aula = target.id;
+  } catch (error) {
+    alert("Selecione uma aula");
+    console.log(error);
+    return;
+  }
+  if (target.innerHTML == ""){
+    alert("Aula vazia não pode ser desmarcada");
+    return;
+  }else if (confirm("Deseja desmarcar a aula?")) {
+    desmarcarAula(aula);
+  }
+});
