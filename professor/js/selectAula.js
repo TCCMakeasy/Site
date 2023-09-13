@@ -20,12 +20,11 @@ const desmarcarAula = async (aula) => {
   })
     .then((response) => response.text())
     .then((response) => {
-      if (response == "Desmarcado com sucesso") {
-        setTimeout(() => {
-          tabela.location.reload();
-        }, 1000);
+      if (response == "Aula desmarcada com sucesso!") {
+          document.getElementById(aula).innerHTML = "";
+          alert(response);
       } else {
-        console.log("Erro: " + response);
+        alert("Erro ao desmarcar aula, tente novamente mais tarde");
       }
     })
     .catch((error) => console.log("Erro: " + error));

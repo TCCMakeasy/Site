@@ -47,7 +47,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         if ($resultCheck->num_rows > 0) {
             $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
             if ($sql->query($sqlUpdate) === TRUE) {
-                echo "Registro atualizado com sucesso.";
+                header("Location: ../prof_cronograma.php");
             } else {
                 echo "Erro ao atualizar registro: " . $sql->error;
             }
