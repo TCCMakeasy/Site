@@ -160,7 +160,7 @@ td {
   #closeMarcarAula {
     background-color: var(--vermelhoMakeasy);
   }
-  #abrirDesmarcarAula {
+  #desmarcarAula {
     width: 12rem;
     height: 3rem;
     bottom: 3rem;

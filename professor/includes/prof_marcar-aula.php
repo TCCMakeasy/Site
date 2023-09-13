@@ -54,7 +54,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         } else {
             $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
             if ($sql->query($sqlInsert) === TRUE) {
-                echo "Registro inserido com sucesso.";
+                header("Location: ../prof_cronograma.php");
             } else {
                 echo "Erro ao inserir registro: " . $sql->error;
             }
