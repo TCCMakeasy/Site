@@ -56,19 +56,23 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         $sqlSelect = "SELECT * FROM cronograma WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
                         $sqlHorarios = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
                         foreach ($days as $day) {
-                            echo '<td id="'.$day .':'. $horario.'">';
                             if (isset($sqlHorarios[$day . '_cronograma'])) {
-                                $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
-                                $alunoRequest = mysqli_query($sql, $alunoSelect);
-                                $aluno = mysqli_fetch_assoc($alunoRequest);
-                                $aluno = explode(' ', $aluno['nome_aluno']);
-                                if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
-                                    echo $aluno[0] . ' ' . $aluno[1];
+                                echo '<td id="' . $day . ':' . $horario . '">';
+                                if ($sqlHorarios[$day . '_cronograma'] == "privado") {?><script>document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");</script><?php
                                 } else {
-                                    echo $aluno[0];
+                                    $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
+                                    $alunoRequest = mysqli_query($sql, $alunoSelect);
+                                    $aluno = mysqli_fetch_assoc($alunoRequest);
+                                    $aluno = explode(' ', $aluno['nome_aluno']);
+                                    if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
+                                        echo $aluno[0] . ' ' . $aluno[1];
+                                    } else {
+                                        echo $aluno[0];
+                                    }
                                 }
                             } else {
-                                echo "";
+                                echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
+                                echo "Disponível";
                             }
                             echo '</td>';
                         }
@@ -79,9 +83,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             </div>
 
             <div id="botoes">
-
-                <button id="abrirMarcarAula">Marcar aula</button>
-                <button id="desmarcarAula">Desmarcar aula</button>
+                <button id="privarAula" class="btnHorario">Privar horário</button>
+                <button id="abrirMarcarAula" class="btnHorario">Marcar aula</button>
+                <button id="desmarcarAula" class="btnHorario">Desmarcar aula</button>
 
             </div>
         </main>
