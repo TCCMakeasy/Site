@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
-    header("Location: ../professor/login.php");
+    header("Location: ../../professor/login.php");
 } else {
     require_once "../../conexao.php";
 
@@ -45,14 +45,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         if ($resultCheck->num_rows > 0) {
             $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
             if ($sql->query($sqlUpdate) === TRUE) {
-                header("Location: ../prof_cronograma.php");
+                header("Location: ../adm_cronograma.php");
             } else {
                 echo "Erro ao atualizar registro: " . $sql->error;
             }
         } else {
             $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
             if ($sql->query($sqlInsert) === TRUE) {
-                header("Location: ../prof_cronograma.php");
+                header("Location: ../adm_cronograma.php");
             } else {
                 echo "Erro ao inserir registro: " . $sql->error;
             }
