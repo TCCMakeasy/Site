@@ -4,7 +4,7 @@
     <div id="fotoMenu">
         <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeAluno" id="nomeMenuAluno"><?php $nome = explode(' ', $_SESSION['nome']);
-        echo $nome[0];?></p>
+                                                echo $nome[0]; ?></p>
     </div>
     <div id="scroll">
         <nav>
@@ -16,7 +16,12 @@
                     <a href="./cronograma.php" class="navButton">Horário</a>
                 </li>
                 <li>
-                    <a href="./professores.php" class="navButton">Professores</a>
+                    <a class="navButton" href="<?php if (isset($_SESSION['id_professor'])) {
+                                                    echo './professor.php?id=' . $_SESSION['id_professor'] . '">Professor';
+                                                } else {
+                                                    echo './professores.php">Professores';
+                                                } ?></a>
+
                 </li>
                 <li>
                     <a id="openNotify" class="navButton">Mensagens</a>
