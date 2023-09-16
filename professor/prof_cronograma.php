@@ -112,13 +112,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
                 <select name="aulaDia" id="inputDia">
-                    <option value="Segunda-Feira">Segunda-Feira</option>
-                    <option value="Terça-Feira">Terça-Feira</option>
-                    <option value="Quarta-Feira">Quarta-Feira</option>
-                    <option value="Quinta-Feira">Quinta-Feira</option>
-                    <option value="Sexta-Feira">Sexta-Feira</option>
-                    <option value="Sábado">Sábado</option>
-                    <option value="Domingo">Domingo</option>
+                    <option value="seg">Segunda-Feira</option>
+                    <option value="ter">Terça-Feira</option>
+                    <option value="qua">Quarta-Feira</option>
+                    <option value="qui">Quinta-Feira</option>
+                    <option value="sex">Sexta-Feira</option>
+                    <option value="sab">Sábado</option>
+                    <option value="dom">Domingo</option>
 
                 </select>
             </div>

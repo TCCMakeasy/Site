@@ -58,27 +58,29 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         foreach ($days as $day) {
                             if (isset($sqlHorarios[$day . '_cronograma'])) {
                                 echo '<td id="' . $day . ':' . $horario . '">';
-                                if ($sqlHorarios[$day . '_cronograma'] == "privado") {?><script>document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");</script><?php
-                                } else {
-                                    $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
-                                    $alunoRequest = mysqli_query($sql, $alunoSelect);
-                                    $aluno = mysqli_fetch_assoc($alunoRequest);
-                                    $aluno = explode(' ', $aluno['nome_aluno']);
-                                    if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
-                                        echo $aluno[0] . ' ' . $aluno[1];
-                                    } else {
-                                        echo $aluno[0];
+                                if ($sqlHorarios[$day . '_cronograma'] == "privado") { ?><script>
+                                        document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");
+                                    </script><?php
+                                            } else {
+                                                $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
+                                                $alunoRequest = mysqli_query($sql, $alunoSelect);
+                                                $aluno = mysqli_fetch_assoc($alunoRequest);
+                                                $aluno = explode(' ', $aluno['nome_aluno']);
+                                                if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
+                                                    echo $aluno[0] . ' ' . $aluno[1];
+                                                } else {
+                                                    echo $aluno[0];
+                                                }
+                                            }
+                                        } else {
+                                            echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
+                                            echo "Disponível";
+                                        }
+                                        echo '</td>';
                                     }
+                                    echo '</tr>';
                                 }
-                            } else {
-                                echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
-                                echo "Disponível";
-                            }
-                            echo '</td>';
-                        }
-                        echo '</tr>';
-                    }
-                    ?>
+                                                ?>
                 </table>
             </div>
 
@@ -98,13 +100,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         <form action="./includes/adm_marcar-aula.php" method="post" id="formMarcarAula">
             <h1>Marcar aula</h1>
             <div id="idAluno">
-            <label for="inputIdAluno"><b>Aluno:</b></label>
+                <label for="inputIdAluno"><b>Aluno:</b></label>
                 <select name="idAluno" id="inputIdAluno" required>
                     <?php
                     $sqlSelect = "SELECT * FROM aluno WHERE id_professor = '" . $_SESSION['id'] . "'";
                     $sqlAlunos = mysqli_query($sql, $sqlSelect);
                     while ($aluno = mysqli_fetch_assoc($sqlAlunos)) {
-                        echo '<option value="' . $aluno['id_aluno'] . '">' . $aluno['nome_aluno'] . '  ID:'. $aluno['id_aluno'] .'</option>';
+                        echo '<option value="' . $aluno['id_aluno'] . '">' . $aluno['nome_aluno'] . '  ID:' . $aluno['id_aluno'] . '</option>';
                     }
                     ?>
                 </select>
@@ -112,13 +114,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
                 <select name="aulaDia" id="inputDia">
-                    <option value="Segunda-Feira">Segunda-Feira</option>
-                    <option value="Terça-Feira">Terça-Feira</option>
-                    <option value="Quarta-Feira">Quarta-Feira</option>
-                    <option value="Quinta-Feira">Quinta-Feira</option>
-                    <option value="Sexta-Feira">Sexta-Feira</option>
-                    <option value="Sábado">Sábado</option>
-                    <option value="Domingo">Domingo</option>
+                    <option value="seg">Segunda-Feira</option>
+                    <option value="ter">Terça-Feira</option>
+                    <option value="qua">Quarta-Feira</option>
+                    <option value="qui">Quinta-Feira</option>
+                    <option value="sex">Sexta-Feira</option>
+                    <option value="sab">Sábado</option>
+                    <option value="dom">Domingo</option>
 
                 </select>
             </div>
