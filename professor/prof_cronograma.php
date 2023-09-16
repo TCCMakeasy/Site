@@ -98,8 +98,16 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         <form action="./includes/prof_marcar-aula.php" method="post" id="formMarcarAula">
             <h1>Marcar aula</h1>
             <div id="idAluno">
-                <label for="inputIdAluno"><b>ID do aluno:</b></label>
-                <input type="text" name="idAluno" id="inputIdAluno" placeholder="ID do Aluno" required>
+                <label for="inputIdAluno"><b>Aluno:</b></label>
+                <select name="idAluno" id="inputIdAluno" required>
+                    <?php
+                    $sqlSelect = "SELECT * FROM aluno WHERE id_professor = '" . $_SESSION['id'] . "'";
+                    $sqlAlunos = mysqli_query($sql, $sqlSelect);
+                    while ($aluno = mysqli_fetch_assoc($sqlAlunos)) {
+                        echo '<option value="' . $aluno['id_aluno'] . '">' . $aluno['nome_aluno'] . '  ID:'. $aluno['id_aluno'] .'</option>';
+                    }
+                    ?>
+                </select>
             </div>
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
