@@ -40,9 +40,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
     if ($result['id_professor'] === $_SESSION['id_professor']) {
         $sqlCheck = "SELECT * FROM cronograma WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id_professor'] . "'";
-        $resultCheck = $sql->query($sqlCheck);
-
-        if ($resultCheck->num_rows > 0) {
+        $result =   mysqli_query($sql, $sqlCheck);
+        $resultCheck = mysqli_fetch_assoc($result);
+        if($resultCheck[$dia.'_cronograma'] == "privado" || $resultCheck[$dia.'_cronograma'] != null){
+            $_SESSION['msg'] = "Esse horário já está ocupado";
+            header("Location: ../cronograma.php");
+        }else{
+        if ($result->num_rows > 0) {
             $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id_professor'] . "'";
             if ($sql->query($sqlUpdate) === TRUE) {
                 header("Location: ../cronograma.php");
@@ -58,7 +62,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
             }
         }
         $sql->close();
-    } else {
+    }} else {
         $_SESSION['msg'] = "Esse aluno não é seu";
         header("Location: ../alunos.php");
     }
