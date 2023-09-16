@@ -4,6 +4,8 @@ session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../aluno/login.php");
+}else if(isset($_SESSION['id_professor'])){
+    header("Location: ./professor.php?id=".$_SESSION['id_professor']);
 }
 ?>
 <!DOCTYPE html>
