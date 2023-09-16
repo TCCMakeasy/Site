@@ -37,7 +37,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         echo '<li class="aluno">';
                         echo '<img src="../fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgAluno">';
                         echo '<h1 id="nomeAluno">' . $row_usuario['nome_aluno'] . '</h1>';
-                        echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
+                        echo '<a id="saibaMais" href="alunos_saibamais.php?id='.$row_usuario['id_aluno'].'">Saiba Mais</a>';
                         echo '</li>';
                     }
                     ?>
