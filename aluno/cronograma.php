@@ -58,26 +58,28 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                         foreach ($days as $day) {
                             if (isset($sqlHorarios[$day . '_cronograma'])) {
                                 echo '<td id="' . $day . ':' . $horario . '">';
-                                if ($sqlHorarios[$day . '_cronograma'] == "privado") {?><script>document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");</script><?php
-                                } else {
-                                    $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id_professor'] . "'";
-                                    $alunoRequest = mysqli_query($sql, $alunoSelect);
-                                    $aluno = mysqli_fetch_assoc($alunoRequest);
-                                    if ($aluno['nome_aluno'] == $_SESSION['nome']){
-                                        echo "Você";
-                                    } else {
-                                        echo "Ocupado";
+                                if ($sqlHorarios[$day . '_cronograma'] == "privado") { ?><script>
+                                        document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");
+                                    </script><?php
+                                            } else {
+                                                $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id_professor'] . "'";
+                                                $alunoRequest = mysqli_query($sql, $alunoSelect);
+                                                $aluno = mysqli_fetch_assoc($alunoRequest);
+                                                if ($aluno['nome_aluno'] == $_SESSION['nome']) {
+                                                    echo "Você";
+                                                } else {
+                                                    echo "Ocupado";
+                                                }
+                                            }
+                                        } else {
+                                            echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
+                                            echo "Disponível";
+                                        }
+                                        echo '</td>';
                                     }
+                                    echo '</tr>';
                                 }
-                            } else {
-                                echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
-                                echo "Disponível";
-                            }
-                            echo '</td>';
-                        }
-                        echo '</tr>';
-                    }
-                    ?>
+                                                ?>
                 </table>
             </div>
 
@@ -98,13 +100,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
             <div id="aulaDia">
                 <label for="inputDia"><b>Dia da semana:</b></label>
                 <select name="aulaDia" id="inputDia">
-                    <option value="Segunda-Feira">Segunda-Feira</option>
-                    <option value="Terça-Feira">Terça-Feira</option>
-                    <option value="Quarta-Feira">Quarta-Feira</option>
-                    <option value="Quinta-Feira">Quinta-Feira</option>
-                    <option value="Sexta-Feira">Sexta-Feira</option>
-                    <option value="Sábado">Sábado</option>
-                    <option value="Domingo">Domingo</option>
+                    <option value="seg">Segunda-Feira</option>
+                    <option value="ter">Terça-Feira</option>
+                    <option value="qua">Quarta-Feira</option>
+                    <option value="qui">Quinta-Feira</option>
+                    <option value="sex">Sexta-Feira</option>
+                    <option value="sab">Sábado</option>
+                    <option value="dom">Domingo</option>
 
                 </select>
             </div>
@@ -123,9 +125,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>
 <script>
-        alert("<?php echo $_SESSION['msg'];?>");
-        <?php  unset($_SESSION['msg']); ?>
-    </script>
+    alert("<?php echo $_SESSION['msg']; ?>");
+    <?php unset($_SESSION['msg']); ?>
+</script>
 <?php include_once "includes/modalNotificar.php"; ?>
 
 </html>

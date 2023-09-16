@@ -12,28 +12,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $aulaDia = $_POST['aulaDia'];
 
     $aulaHora = $_POST['aulaHora'];
-
-    if ($aulaDia == "Segunda-Feira") {
-        $dia = 'seg';
-    } else if ($aulaDia == "Terça-Feira") {
-
-        $dia = 'ter';
-    } else if ($aulaDia == "Quarta-Feira") {
-
-        $dia = 'qua';
-    } else if ($aulaDia == "Quinta-Feira") {
-
-        $dia = 'qui';
-    } else if ($aulaDia == "Sexta-Feira") {
-
-        $dia = 'sex';
-    } else if ($aulaDia == "Sábado") {
-
-        $dia = 'sab';
-    } else if ($aulaDia == "Domingo") {
-
-        $dia = 'dom';
-    }
     $verificaAluno = "SELECT id_professor FROM aluno WHERE id_aluno = '$idAluno'";
     $resultado_verificaAluno = mysqli_query($sql, $verificaAluno);
     $result = mysqli_fetch_assoc($resultado_verificaAluno);
@@ -43,14 +21,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         $resultCheck = $sql->query($sqlCheck);
 
         if ($resultCheck->num_rows > 0) {
-            $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
+            $sqlUpdate = "UPDATE cronograma SET " . $aulaDia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
             if ($sql->query($sqlUpdate) === TRUE) {
                 header("Location: ../adm_cronograma.php");
             } else {
                 echo "Erro ao atualizar registro: " . $sql->error;
             }
         } else {
-            $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
+            $sqlInsert = "INSERT INTO cronograma (" . $aulaDia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
             if ($sql->query($sqlInsert) === TRUE) {
                 header("Location: ../adm_cronograma.php");
             } else {
