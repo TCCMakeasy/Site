@@ -1,271 +1,262 @@
+@charset "utf-8";
 #tela {
-    margin-left: calc((98% + 380px) / 2 - 40%);
+  margin-left: calc((98% + 380px) / 2 - 40%);
+}
+main {
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+#container {
+  overflow-x: auto;
+}
+
+#title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1rem auto 3rem;
+}
+
+#tabela {
+  width: 70%;
+  margin: 0 auto;
+  height: 36rem;
+  border-collapse: collapse;
+}
+
+#tabela td:hover {
+  background-color: var(--azulMakeasyHover);
+  cursor: pointer;
+}
+
+#tabela td.selecionado {
+  background-color: var(--azulMakeasy);
+}
+
+#diasTitle {
+  display: none;
+}
+
+th,
+td {
+  background-color: var(--corPrimaria);
+  color: white;
+  border: 3px solid black;
+  min-width: 10rem;
+  font-weight: 700;
+}
+.privado {
+  background-color: var(--roxoEscuro);
+}
+.disponivel {
+  background-color: var(--corSecundaria);
+}
+#botoes {
+  margin: 2rem auto;
+}
+.btnHorario {
+  width: 12rem;
+  height: 3rem;
+  bottom: 3rem;
+  border: 2px solid #000;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: auto 1rem;
+  cursor: pointer;
+}
+#abrirMarcarAula {
+  background-color: var(--corPrimaria);
+}
+#desmarcarAula {
+  background-color: var(--corSecundaria);
+}
+#marAula {
+  display: none;
+  width: 40%;
+  height: 45%;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#marAula::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
   }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#marAula[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#marAula[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#marAula-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#formMarcarAula {
+  width: 60%;
+}
+#formMarcarAula > h1 {
+  margin: auto auto 1rem;
+}
+#idAluno,
+#aulaDia,
+#aulaHora {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+input {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+#submitMarcarAula {
+  display: flex;
+  justify-content: center;
+}
+#submitMarcarAula > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 1rem;
+  cursor: pointer;
+}
+#btnMarcarAula {
+  background-color: var(--verdeMakeasy);
+}
+#closeMarcarAula {
+  background-color: var(--vermelhoMakeasy);
+}
+select {
+  width: 54%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
   main {
-    max-width: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5rem;
+    height: calc(100% - 5rem);
+  }
+  section {
+    width: 100%;
+    height: calc(100% - 5rem);
   }
   #container {
-    overflow-x: auto;
+    margin-top: 0;
+    width: 100%;
+    height: calc(100vh - 5rem);
+    border-radius: 0;
+    box-shadow: none;
   }
-  
-  #title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 1rem auto 3rem;
+  #container > * {
+    margin: 0rem;
+    width: 100%;
   }
-  
-  #tabela {
-    width: 70%;
-    margin: 0 auto;
-    height: 36rem;
-    border-collapse: collapse;
-  }
-  
-  #tabela td:hover {
-    background-color: var(--azulMakeasyHover);
-    cursor: pointer;
-  }
-  
-  #tabela td.selecionado {
-    background-color: var(--azulMakeasy);
-  }
-  
-  #diasTitle {
-    display: none;
-  }
-  
-  th,
-  td {
-    background-color: var(--corPrimaria);
-    color: white;
-    border: 3px solid black;
-    min-width: 10rem;
-    font-weight: 700;
-  }
-  .privado {
-    background-color: var(--roxoEscuro);
-  }
-  .disponivel {
-    background-color: var(--corSecundaria);
+  *::-webkit-scrollbar {
+    width: 10px;
   }
   #botoes {
-    margin: 2rem auto;
-  }
-  .btnHorario {
-    width: 12rem;
-    height: 3rem;
-    bottom: 3rem;
-    border: 2px solid #000;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: auto 1rem;
-    cursor: pointer;
-  }
-  #abrirMarcarAula {
-    background-color: var(--corPrimaria);
-  }
-  #desmarcarAula {
-    background-color: var(--corSecundaria);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
   #marAula {
+    width: 80%;
+  }
+  #tela {
+    margin: 5rem 0 0;
+  }
+  #container {
+    margin-top: 2rem;
+  }
+  .diasTable {
     display: none;
-    width: 40%;
-    height: 45%;
-    background-color: var(--corPrimaria);
-    border-radius: 8px;
-    border: 3px solid #000;
-    color: white;
   }
-  #marAula::backdrop {
-    background-color: rgba(0, 0, 0, 0.75);
+  #horarioTitle {
+    width: 30%;
   }
-  @keyframes slide-up {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(0%);
-    }
+  #diasTitle {
+    display: table-cell;
   }
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  td {
+    display: block;
+    text-align: justify;
+    border: #000 2px solid;
+    padding: 1rem;
   }
-  
-  @keyframes fade-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  #marAula[open] {
-    animation: slide-up 500ms forwards, fade-in 500ms forwards;
-  }
-  #marAula[open]::backdrop {
-    animation: fade-in 500ms forwards;
-  }
-  #marAula-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  #formMarcarAula {
-    width: 60%;
-  }
-  #formMarcarAula > h1 {
-    margin: auto auto 1rem;
-  }
-  #idAluno,
-  #aulaDia,
-  #aulaHora {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: center;
-    margin: 2rem 0 2.5rem;
-    font-size: 1.4rem;
-  }
-  input {
-    width: 50%;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 0.5rem;
-    margin-left: 0.5rem;
-  }
-  #submitMarcarAula {
-    display: flex;
-    justify-content: center;
-  }
-  #submitMarcarAula > * {
-    width: 10rem;
-    height: 2.5rem;
-    border: 1px solid #000;
-    border-radius: 10px;
-    font-size: 1rem;
+  td::before {
+    text-transform: uppercase;
+    margin-right: 1rem;
     font-weight: 700;
-    color: rgb(0, 0, 0);
-    margin: 0 1rem;
-    cursor: pointer;
   }
-  #btnMarcarAula {
-    background-color: var(--verdeMakeasy);
+  td:nth-of-type(1)::before {
+    content: "Segunda:";
   }
-  #closeMarcarAula {
-    background-color: var(--vermelhoMakeasy);
+  td:nth-of-type(2)::before {
+    content: "Terça:";
   }
-  
-  @media (max-width: 768px) {
-    main {
-      margin-left: 0;
-      margin-top: 5rem;
-      height: calc(100% - 5rem);
-    }
-    section {
-      width: 10vw;
-      height: calc(100% - 5rem);
-    }
-    #container {
-      margin-top: 0;
-      width: 100vw;
-      height: calc(100vh - 5rem);
-      border-radius: 0;
-      box-shadow: none;
-    }
-    #container > * {
-      margin: 0rem;
-      width: 100%;
-    }
-    *::-webkit-scrollbar {
-      width: 10px;
-    }
-    #botoes {
-      display: flex;
-      align-items: center;
-    }
-    #abrirMarcarAula,
-    #abrirDesmarcarAula {
-      width: 10rem;
-      height: 3rem;
-      font-size: 1.2rem;
-      bottom: 1.5rem;
-    }
-    #marAula {
-      width: 80%;
-    }
+  td:nth-of-type(3)::before {
+    content: "Quarta:";
   }
-  
-  @media (max-width: 768px) {
-    #tela {
-      margin: 5rem 0 0;
-    }
-    #container {
-      margin-top: 2rem;
-    }
-    #tabela {
-      width: 90%;
-    }
-    .diasTable {
-      display: none;
-    }
-    #horarioTitle {
-      width: 30%;
-    }
-    #diasTitle {
-      display: table-cell;
-    }
-    td {
-      display: block;
-      text-align: justify;
-      border: #000 2px solid;
-      padding: 1rem;
-    }
-    td::before {
-      text-transform: uppercase;
-      margin-right: 1rem;
-      font-weight: 700;
-    }
-    td:nth-of-type(1)::before {
-      content: "Segunda:";
-    }
-    td:nth-of-type(2)::before {
-      content: "Terça:";
-    }
-    td:nth-of-type(3)::before {
-      content: "Quarta:";
-    }
-    td:nth-of-type(4)::before {
-      content: "Quinta:";
-    }
-    td:nth-of-type(5)::before {
-      content: "Sexta:";
-    }
-    td:nth-of-type(6)::before {
-      content: "Sábado:";
-    }
-    td:nth-of-type(7)::before {
-      content: "Domingo:";
-    }
+  td:nth-of-type(4)::before {
+    content: "Quinta:";
   }
-  select {
-    width: 54%;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding: 0.5rem;
-    margin-left: 0.5rem;
+  td:nth-of-type(5)::before {
+    content: "Sexta:";
   }
-  
+  td:nth-of-type(6)::before {
+    content: "Sábado:";
+  }
+  td:nth-of-type(7)::before {
+    content: "Domingo:";
+  }
+}

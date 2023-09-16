@@ -1,3 +1,4 @@
+@charset "utf-8";
 #tela {
   margin-left: calc((98% + 380px) / 2 - 40%);
 }
@@ -171,20 +172,28 @@ input {
 #closeMarcarAula {
   background-color: var(--vermelhoMakeasy);
 }
+select {
+  width: 54%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
 
 @media (max-width: 768px) {
   main {
+    width: 100%;
     margin-left: 0;
     margin-top: 5rem;
     height: calc(100% - 5rem);
   }
   section {
-    width: 10vw;
+    width: 100%;
     height: calc(100% - 5rem);
   }
   #container {
     margin-top: 0;
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 5rem);
     border-radius: 0;
     box-shadow: none;
@@ -198,29 +207,19 @@ input {
   }
   #botoes {
     display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-  #abrirMarcarAula,
-  #abrirDesmarcarAula {
-    width: 10rem;
-    height: 3rem;
-    font-size: 1.2rem;
-    bottom: 1.5rem;
+    justify-content: center;
+    gap: 1rem;
   }
   #marAula {
     width: 80%;
   }
-}
-
-@media (max-width: 768px) {
   #tela {
     margin: 5rem 0 0;
   }
   #container {
     margin-top: 2rem;
-  }
-  #tabela {
-    width: 90%;
   }
   .diasTable {
     display: none;
@@ -263,11 +262,4 @@ input {
   td:nth-of-type(7)::before {
     content: "Domingo:";
   }
-}
-select {
-  width: 54%;
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 0.5rem;
-  margin-left: 0.5rem;
 }
