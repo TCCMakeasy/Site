@@ -34,10 +34,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     $result_usuario = "SELECT * FROM aluno where id_professor = '" . $_SESSION['id'] . "'";
                     $resultado_usuario = mysqli_query($sql, $result_usuario);
                     while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
+                        $nome = explode(' ', $row_usuario['nome_aluno']);
+                        if (empty($nome[1])) {
+                            $nome[1] = "";
+                        }
+                        $nome = $nome[0] . " " . $nome[1];
                         echo '<li class="aluno">';
                         echo '<img src="../fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgAluno">';
-                        echo '<h1 id="nomeAluno">' . $row_usuario['nome_aluno'] . '</h1>';
-                        echo '<a id="saibaMais" href="alunos_saibamais.php?id='.$row_usuario['id_aluno'].'">Saiba Mais</a>';
+                        echo '<h1 id="nomeAluno">' . $nome . '</h1>';
+                        echo '<a id="saibaMais" href="alunos_saibamais.php?id=' . $row_usuario['id_aluno'] . '">Saiba Mais</a>';
                         echo '</li>';
                     }
                     ?>
@@ -65,16 +70,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 <script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <script>
-  var alert = document.getElementById("alert");
-  if (alert.innerHTML != "") {
-    alert.style.display = "block";
-    if(alert.innerHTML == "Aluno cadastrado com sucesso!" || alert.innerHTML == "Aluno desvinculado com sucesso!"){
-    alert.style.backgroundColor = "rgba(76, 175, 80, 0.7)";
-    alert.style.border = "1px solid rgb(76, 175, 80)";
+    var alert = document.getElementById("alert");
+    if (alert.innerHTML != "") {
+        alert.style.display = "block";
+        if (alert.innerHTML == "Aluno cadastrado com sucesso!" || alert.innerHTML == "Aluno desvinculado com sucesso!") {
+            alert.style.backgroundColor = "rgba(76, 175, 80, 0.7)";
+            alert.style.border = "1px solid rgb(76, 175, 80)";
+        } else {}
     }
-    else{
-  }
-  }
 </script>
 <?php include_once "includes/modalNotificar.php";
 unset($_SESSION['msg']); ?>
