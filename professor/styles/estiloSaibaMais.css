@@ -81,13 +81,40 @@ main {
   align-items: center;
   margin: 2rem;
 }
+#descTitulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
 
 #descInput {
+  padding: 1rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1.5rem;
   border: 2px solid black;
   background-color: transparent;
   border-radius: 8px;
   width: 36rem;
   height: 12rem;
+}
+#divDesvincularAluno{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#desvincularAluno{
+  background-color: var(--vermelhoMakeasy);
+  border: 2px solid black;
+  border-radius: 16px;
+  padding: 0.7rem;
+  font-weight: 600;
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 768px) {

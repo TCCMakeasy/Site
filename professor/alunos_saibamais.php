@@ -1,10 +1,23 @@
 <?php
 session_start();
 
-//if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
-//    $_SESSION['msg'] = "Faça login para acessar o sistema";
-//    header("Location: ../professor/login.php");
-//}
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+    $_SESSION['msg'] = "Faça login para acessar o sistema";
+    header("Location: ../professor/login.php");
+} else {
+    require_once("../conexao.php");
+    $idAluno = $_GET['id'];
+    $checkProfessor = "SELECT id_professor FROM aluno WHERE id_aluno = '$idAluno'";
+    $resultCheckProfessor = mysqli_query($sql, $checkProfessor);
+    $resultProfessor = mysqli_fetch_assoc($resultCheckProfessor);
+    if ($resultProfessor['id_professor'] != $_SESSION['id']) {
+        $_SESSION['msg'] = "Você não tem permissão para acessar essa página";
+        header("Location: ../professor/alunos.php");
+    } else {
+        $sqlSelect = "SELECT * FROM aluno WHERE id_aluno = '$idAluno'";
+        $sqlAluno = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,52 +35,57 @@ session_start();
     <?php include_once "./includes/menuProfessor.php"; ?>
     <main>
         <h1 id="title">Alunos</h1>
-            <div id="container">
-                <div class="mobileSeta">
-                    <a href="alunos.php">
-                        <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
-                    </a>
-                    <div id="foto">
-                        <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
-                        <h1 id="nome_aluno"><b>Aluno<b></h1>
-                    </div>
-                </div>
-                <div id="conteúdo">
-
-                    <div class="dado">
-                        <h2 class="cont">Nome Completo:</h2>
-                        <label id="valorInput" class="inputText" type="number">Davi Sousa Pedrosa</label>
-                    </div>
-
-                    <div class="dado">
-                        <h2 class="cont">ID do Aluno:</h2>
-                        <label id="valorInput" class="inputText" type="number">@1234567</label>
-                    </div>
-
-
-                    <div class="dado">
-                        <h2 class="cont">Email:</h2>
-                        <label id="valorInput" class="inputText" type="number">davisousap1223@gmail.com</label>
-                    </div>
-
-
-                    <div class="dado">
-                        <h2 class="cont">Telefone:</h2>
-                        <label id="valorInput" class="inputText" type="number">(11) 98634-5554</label>
-                    </div>
-
-                </div>
-
-                <div id="divDesc">
-                    <p id="descTitulo" class="tituloForm">Descrição:</p>
-                    <textarea id="descInput" class="inputText" rows="5" name="bio" disabled></textarea>
+        <div id="container">
+            <div class="mobileSeta">
+                <a href="alunos.php">
+                    <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
+                </a>
+                <div id="foto">
+                    <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
+                    <h1 id="nome_aluno"><b><?php $nome = explode(' ', $sqlAluno['nome_aluno']);
+                                            if (empty($nome[1])) {
+                                                $nome[1] = "";
+                                            }
+                                            echo $nome[0] . " " . $nome[1]; ?><b></h1>
                 </div>
             </div>
+            <div id="conteúdo">
+
+                <div class="dado">
+                    <h2 class="cont">Nome Completo:</h2>
+                    <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['nome_aluno'] ?></label>
+                </div>
+
+                <div class="dado">
+                    <h2 class="cont">ID do Aluno:</h2>
+                    <label id="valorInput" class="inputText" type="number"><?php echo $idAluno ?></label>
+                </div>
+
+
+                <div class="dado">
+                    <h2 class="cont">Email:</h2>
+                    <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['email_aluno'] ?></label>
+                </div>
+
+
+                <div class="dado">
+                    <h2 class="cont">Telefone:</h2>
+                    <label id="valorInput" class="inputText" type="number">(11) 98634-5554</label>
+                </div>
+
+            </div>
+
+            <div id="divDesc">
+                <p id="descTitulo" class="tituloForm">Descrição:</p>
+                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php echo $sqlAluno['desc_aluno'] ?></textarea>
+            </div>
+            <div id="divDesvincularAluno">
+                <button id="desvincularAluno">Desvincular-se</button>
+            </div>
+        </div>
 
     </main>
 </body>
-<script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
-
 </html>
