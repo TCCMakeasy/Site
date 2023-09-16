@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
-    header("Location: ../professor/login.php");
+    header("Location: ../aluno/login.php");
 } else {
     require_once "../../conexao.php";
 
-    $idAluno = $_POST['idAluno'];
+    $idAluno = $_SESSION['id'];
 
     $aulaDia = $_POST['aulaDia'];
 
@@ -38,21 +38,21 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $resultado_verificaAluno = mysqli_query($sql, $verificaAluno);
     $result = mysqli_fetch_assoc($resultado_verificaAluno);
 
-    if ($result['id_professor'] === $_SESSION['id']) {
-        $sqlCheck = "SELECT * FROM cronograma WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
+    if ($result['id_professor'] === $_SESSION['id_professor']) {
+        $sqlCheck = "SELECT * FROM cronograma WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id_professor'] . "'";
         $resultCheck = $sql->query($sqlCheck);
 
         if ($resultCheck->num_rows > 0) {
-            $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
+            $sqlUpdate = "UPDATE cronograma SET " . $dia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id_professor'] . "'";
             if ($sql->query($sqlUpdate) === TRUE) {
-                header("Location: ../prof_cronograma.php");
+                header("Location: ../cronograma.php");
             } else {
                 echo "Erro ao atualizar registro: " . $sql->error;
             }
         } else {
-            $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
+            $sqlInsert = "INSERT INTO cronograma (" . $dia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id_professor'] . "')";
             if ($sql->query($sqlInsert) === TRUE) {
-                header("Location: ../prof_cronograma.php");
+                header("Location: ../cronograma.php");
             } else {
                 echo "Erro ao inserir registro: " . $sql->error;
             }
