@@ -80,7 +80,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                 <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php echo $sqlAluno['desc_aluno'] ?></textarea>
             </div>
             <div id="divDesvincularAluno">
-                <button id="desvincularAluno">Desvincular-se</button>
+                <button id="desvincularAluno"><a href="./includes/desvincular.php?id=<?php echo $idAluno?>">Desvincular-se</a></button>
             </div>
         </div>
 

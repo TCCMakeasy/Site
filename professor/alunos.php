@@ -68,7 +68,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
   var alert = document.getElementById("alert");
   if (alert.innerHTML != "") {
     alert.style.display = "block";
-    if(alert.innerHTML == "Aluno cadastrado com sucesso!"){
+    if(alert.innerHTML == "Aluno cadastrado com sucesso!" || alert.innerHTML == "Aluno desvinculado com sucesso!"){
     alert.style.backgroundColor = "rgba(76, 175, 80, 0.7)";
     alert.style.border = "1px solid rgb(76, 175, 80)";
     }
