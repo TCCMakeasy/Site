@@ -4,10 +4,13 @@ session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
-} else {
+} else if (isset($_SESSION['id_professor'])) {
     require_once("../conexao.php");
     $horarios = array("10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
     $days = array("seg", "ter", "qua", "qui", "sex", "sab", "dom");
+}else{
+    $_SESSION['msg'] = "Você não tem um professor";
+    header("Location: ../aluno/infos.php");
 }
 ?>
 <!DOCTYPE html>

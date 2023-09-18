@@ -5,6 +5,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../aluno/login.php");
 }
+else if (isset($_SESSION['msg'])){
+    echo "<script>alert('".$_SESSION['msg']."')</script>";
+    unset($_SESSION['msg']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

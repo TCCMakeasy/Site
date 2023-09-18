@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="../Professor/styles/estiloMenuProfessor.css">
+<link rel="stylesheet" type="text/css" href="../professor/styles/estiloMenuProfessor.css">
 <aside id="menu">
     <img src="../professor/images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
