@@ -12,9 +12,12 @@
                 <li>
                     <a href="./infos.php" class="navButton">Informações</a>
                 </li>
-                <li>
-                    <a href="./cronograma.php" class="navButton">Horário</a>
-                </li>
+                <?php if (isset($_SESSION['id_professor'])) {
+                                                    echo '                <li>
+                                                    <a href="./cronograma.php" class="navButton">Horário</a>
+                                                </li>';
+                }?>
+
                 <li>
                     <a class="navButton" href="<?php if (isset($_SESSION['id_professor'])) {
                                                     echo './professor.php?id=' . $_SESSION['id_professor'] . '">Professor';
@@ -73,3 +76,4 @@
         </button>
     </div>
 </header>
+<!--TODO: Horário somente para alunos com professor-->
