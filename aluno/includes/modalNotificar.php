@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" type="text/css" href="./styles/estiloNotificar.css">
 <dialog id="notificações">
     <div class="notificações-content">
@@ -8,9 +7,7 @@
         <div class="notificações-body">
             <div class="notificação">
                 <?php
-                require_once '../../conexao.php';
                 
-                $sql="SELECT id_professor FROM alunos INNER JOIN notifica ON id_professor = id_professor";
                 ?>
                 <p id="notificações-txt">ahjkfhjsadhffids sidjhflsdf dfs sdfdsfsdfs</p>
                 <div id="apagarNotificações"><span class="separaItens">|</span>

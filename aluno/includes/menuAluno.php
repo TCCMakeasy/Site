@@ -13,18 +13,22 @@
                     <a href="./infos.php" class="navButton">Informações</a>
                 </li>
                 <?php if (isset($_SESSION['id_professor'])) {
-                                                    echo '                <li>
+                    echo '                <li>
                                                     <a href="./cronograma.php" class="navButton">Horário</a>
                                                 </li>';
-                }?>
+                } ?>
 
                 <li>
                     <a class="navButton" href="<?php if (isset($_SESSION['id_professor'])) {
-                                                    echo './professor.php?id=' . $_SESSION['id_professor'] . '">Professor';
+                                                    echo './professor.php?id=' . $_SESSION['id_professor'];
                                                 } else {
-                                                    echo './professores.php">Professores';
-                                                } ?></a>
-
+                                                    echo './professores.php';
+                                                } ?>"><?php if (isset($_SESSION['id_professor'])) {
+                                                            echo 'Professor';
+                                                        } else {
+                                                            echo 'Professores';
+                                                        }
+                                                        ?> </a>
                 </li>
                 <li>
                     <a id="openNotify" class="navButton">Mensagens</a>
@@ -76,4 +80,3 @@
         </button>
     </div>
 </header>
-<!--TODO: Horário somente para alunos com professor-->

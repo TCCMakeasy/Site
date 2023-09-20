@@ -30,7 +30,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <div id="pesquisar">
                     <h1 id="pesquisarTitulo">Pesquisar:</h1>
                     <input type="text" id="inputPesquisa" name="pesquisa" value="">
-                    <a href=""><img src="./images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
+                    <a href="" id=""><img src="./images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
                 </div>
                 <ul id="professores">
                     <?php
@@ -50,7 +50,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         </section>
     </main>
 </body>
-<script src="./js/notifyOpenClose.js"></script>
 <?php include_once "./includes/modalNotificar.php"; ?>
+<?php include_once "./includes/filtro_alunos.php"; ?>
 
 </html>
