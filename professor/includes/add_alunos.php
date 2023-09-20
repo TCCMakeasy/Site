@@ -25,6 +25,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 			if ($result_insertAluno) {
 				$_SESSION['msg'] = "Aluno cadastrado com sucesso!";
 				header("Location: ../alunos.php");
+				$trigger = "CREATE TRIGGER noti AFTER UPDATE OF id_professor ON aluno BEGIN 
+								INSERT INTO ";
 			} else {
 				$_SESSION['msg'] = "Erro ao conectar o aluno";
 				header("Location: ../alunos.php");

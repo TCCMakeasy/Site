@@ -6,9 +6,6 @@
         </div>
         <div class="notificações-body">
             <div class="notificação">
-                <?php
-                
-                ?>
                 <p id="notificações-txt">ahjkfhjsadhffids sidjhflsdf dfs sdfdsfsdfs</p>
                 <div id="apagarNotificações"><span class="separaItens">|</span>
                     <svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg">

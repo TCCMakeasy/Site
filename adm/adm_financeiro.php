@@ -37,19 +37,23 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <dialog id="AddGanho">
     <div id="AddGanho-content">
-        <h1>Adicionar ganho</h1>
         <form id="formAddGanho">
+        <h1>Adicionar ganho</h1>
         <div id="nomeGanho">
-                <label for="inputnomeGanho"><b>Nome:</b></label>
-                <input type="text" name="nomeGasto" id="inputnomeGanho">
+                <label for="inputnomeGanho"><b>Nome do ganho:</b></label>
+                <input type="text" name="nomeGanho" id="inputnomeGanho">
             </div>
             <div id="valorGanho">
-                <label for="inputvalorGanho"><b>Nome:</b></label>
+                <label for="inputvalorGanho"><b>Valor do ganho:</b></label>
                 <input type="text" name="valorGanho" id="inputvalorGanho">
             </div>
-            <div id="confirmar">
-                <input type="submit" id="adicionarAluno" name="btnAddAluno" value="Adicionar Aluno">
-                <button id="closeAddAluno" type="button">Cancelar</button>
+            <div id="mensal">
+                <label for="inputMensal"><b>Mensal:</b></label>
+                <input type="checkbox" name="mensal" id="checkMensal">
+            </div>
+            <div id="submitAddGanho">
+                <input type="submit" id="btnAddGanho" name="btnAddGanho" value="Adicionar Ganho">
+                <button id="closeAddGanho" type="button">Cancelar</button>
             </div>
         </form>
     </div>

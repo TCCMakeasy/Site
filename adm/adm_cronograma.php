@@ -121,7 +121,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <option value="sex">Sexta-Feira</option>
                     <option value="sab">Sábado</option>
                     <option value="dom">Domingo</option>
-
                 </select>
             </div>
             <div id="aulaHora">

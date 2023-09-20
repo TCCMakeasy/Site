@@ -135,9 +135,7 @@ section {
 #formAddGanho > h1 {
   margin: auto auto 1rem;
 }
-#nomeGanho,
-#valorGanho,
-#confirmar {
+#nomeGanho, #valorGanho, #mensal {
   display: flex;
   width: 100%;
   align-items: center;
@@ -153,6 +151,9 @@ input {
   padding: 0.5rem;
   margin-left: 0.5rem;
 }
+#checkMensal{
+  height: 1.5rem;
+}
 #submitAddGanho {
   display: flex;
   justify-content: center;
@@ -167,4 +168,11 @@ input {
   color: rgb(0, 0, 0);
   margin: 0 1rem;
   cursor: pointer;
+}
+
+#btnAddGanho {
+  background-color: var(--verdeMakeasy);
+}
+#closeAddGanho {
+  background-color: var(--vermelhoMakeasy);
 }
