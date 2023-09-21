@@ -23,10 +23,16 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 			$insertAluno = "UPDATE aluno set id_professor = '" . $_SESSION['id'] . "' WHERE id_aluno = '" . $id . "'";
 			$result_insertAluno = mysqli_query($sql, $insertAluno);
 			if ($result_insertAluno) {
-				$_SESSION['msg'] = "Aluno cadastrado com sucesso!";
-				header("Location: ../alunos.php");
-				$trigger = "CREATE TRIGGER noti AFTER UPDATE OF id_professor ON aluno BEGIN 
-								INSERT INTO ";
+				$notificar = "UPDATE notifica SET texto_notifica = 'Voçê foi adicionado pelo professor" .$_SESSION['nome']. "' WHERE id_aluno = '" .$id. "'";
+				$noti = mysqli_query($sql,$notificar);
+				if ($noti){
+					$_SESSION['msg'] = "Aluno cadastrado com sucesso!";
+					header("Location: ../alunos.php");
+				}
+				else {
+					$_SESSION['msg'] = "Erro ao conectar o aluno";
+					header("Location: ../alunos.php");
+				}
 			} else {
 				$_SESSION['msg'] = "Erro ao conectar o aluno";
 				header("Location: ../alunos.php");
