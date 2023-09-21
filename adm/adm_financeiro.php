@@ -40,11 +40,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         <form id="formAddGanho">
         <h1>Adicionar ganho</h1>
         <div id="nomeGanho">
-                <label for="inputnomeGanho"><b>Nome do ganho:</b></label>
+                <label for="inputnomeGanho"><b>Nome:</b></label>
                 <input type="text" name="nomeGanho" id="inputnomeGanho">
             </div>
             <div id="valorGanho">
-                <label for="inputvalorGanho"><b>Valor do ganho:</b></label>
+                <label for="inputvalorGanho"><b>Valor:</b></label>
                 <input type="text" name="valorGanho" id="inputvalorGanho">
             </div>
             <div id="mensal">
@@ -54,6 +54,54 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="submitAddGanho">
                 <input type="submit" id="btnAddGanho" name="btnAddGanho" value="Adicionar Ganho">
                 <button id="closeAddGanho" type="button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<dialog id="AddGasto">
+    <div id="AddGasto-content">
+        <form id="formAddGasto">
+        <h1>Adicionar gasto</h1>
+        <div id="nomeGasto">
+                <label for="inputnomeGasto"><b>Nome do gasto:</b></label>
+                <input type="text" name="nomeGasto" id="inputnomeGasto">
+            </div>
+            <div id="valorGasto">
+                <label for="inputvalorGasto"><b>Valor do gasto:</b></label>
+                <input type="text" name="valorGasto" id="inputvalorGasto">
+            </div>
+            <div id="mensal">
+                <label for="inputMensal"><b>Mensal:</b></label>
+                <input type="checkbox" name="mensal" id="checkMensal">
+            </div>
+            <div id="submitAddGasto">
+                <input type="submit" id="btnAddGasto" name="btnAddGasto" value="Adicionar Gasto">
+                <button id="closeAddGasto" type="button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<dialog id="EdxValor">
+    <div id="EdxValor-content">
+        <form id="formEdxValor">
+        <h1>Adicionar gasto</h1>
+        <div id="nomeGasto">
+                <label for="inputnomeGasto"><b>Nome do gasto:</b></label>
+                <input type="text" name="nomeGasto" id="inputnomeGasto">
+            </div>
+            <div id="valorGasto">
+                <label for="inputvalorGasto"><b>Valor do gasto:</b></label>
+                <input type="text" name="valorGasto" id="inputvalorGasto">
+            </div>
+            <div id="mensal">
+                <label for="inputMensal"><b>Mensal:</b></label>
+                <input type="checkbox" name="mensal" id="checkMensal">
+            </div>
+            <div id="submitAddGasto">
+                <input type="submit" id="btnAddGasto" name="btnAddGasto" value="Adicionar Gasto">
+                <button id="closeAddGasto" type="button">Cancelar</button>
             </div>
         </form>
     </div>

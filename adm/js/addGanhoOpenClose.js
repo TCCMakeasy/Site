@@ -1,13 +1,13 @@
-const openMenu = document.querySelector("#abrirAddGanho");
-const closeMenu = document.querySelector("#closeAddGanho");
+const openGanho = document.querySelector("#abrirAddGanho");
+const closeGanho = document.querySelector("#closeAddGanho");
 const modalGanho = document.querySelector("#AddGanho");
 
-openMenu.addEventListener("click", function () {
+openGanho.addEventListener("click", function () {
   document.getElementById("AddGanho").style.display = "flex";
   modalGanho.showModal();
 });
 
-closeMenu.addEventListener("click", function () {
+closeGanho.addEventListener("click", function () {
     modalGanho.close();
   document.getElementById("AddGanho").style.display = "none";
 });

@@ -90,6 +90,18 @@ section {
 #AddGanho::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
 }
+#AddGasto {
+  display: none;
+  width: 40%;
+  height: 45%;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#AddGasto::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
 @keyframes slide-up {
   0% {
     transform: translateY(100%);
@@ -135,7 +147,45 @@ section {
 #formAddGanho > h1 {
   margin: auto auto 1rem;
 }
-#nomeGanho, #valorGanho, #mensal {
+#nomeGanho, #valorGanho {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+#mensal{
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-starts;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+#AddGasto[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#AddGasto[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#AddGasto-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#formAddGasto {
+  width: 60%;
+}
+#formAddGasto > h1 {
+  margin: auto auto 1rem;
+}
+#nomeGasto, #valorGasto {
   display: flex;
   width: 100%;
   align-items: center;
@@ -144,8 +194,15 @@ section {
   margin: 2rem 0 2.5rem;
   font-size: 1.4rem;
 }
-input {
-  width: 50%;
+input[type=text] {
+  width: 70%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+input[type=checkbox] {
+  height: 10%;/*aqui*/
   border: 1px solid black;
   border-radius: 8px;
   padding: 0.5rem;
@@ -174,5 +231,27 @@ input {
   background-color: var(--verdeMakeasy);
 }
 #closeAddGanho {
+  background-color: var(--vermelhoMakeasy);
+}
+#submitAddGasto {
+  display: flex;
+  justify-content: center;
+}
+#submitAddGasto > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+#btnAddGasto {
+  background-color: var(--verdeMakeasy);
+}
+#closeAddGasto {
   background-color: var(--vermelhoMakeasy);
 }
