@@ -65,7 +65,7 @@ section {
   margin: auto 1rem;
   cursor: pointer;
 }
-#abrirValores {
+#abrirEdxValor {
   width: 13rem;
   height: 3rem;
   bottom: 3rem;
@@ -100,6 +100,18 @@ section {
   color: white;
 }
 #AddGasto::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#EdxValor {
+  display: none;
+  width: 40%;
+  height: 75%;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#EdxValor::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
 }
 @keyframes slide-up {
@@ -160,9 +172,9 @@ section {
   display: flex;
   width: 90%;
   align-items: center;
-  justify-content: flex-starts;
+  justify-content: flex-end;
   text-align: center;
-  margin: 2rem 0 2.5rem;
+  margin: 1rem 0 2.5rem;
   font-size: 1.4rem;
 }
 #AddGasto[open] {
@@ -187,7 +199,36 @@ section {
 }
 #nomeGasto, #valorGasto {
   display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+#EdxValor[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#EdxValor[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#EdxValor-content {
   width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#formEdxValor {
+  width: 60%;
+}
+#formEdxValor > h1 {
+  margin: auto auto 1rem;
+}
+#nomeValor, #valorValor {
+  display: flex;
+  width: 90%;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
@@ -202,11 +243,7 @@ input[type=text] {
   margin-left: 0.5rem;
 }
 input[type=checkbox] {
-  height: 10%;/*aqui*/
-  border: 1px solid black;
-  border-radius: 8px;
-  padding: 0.5rem;
-  margin-left: 0.5rem;
+  width: 74%;
 }
 #checkMensal{
   height: 1.5rem;
@@ -254,4 +291,46 @@ input[type=checkbox] {
 }
 #closeAddGasto {
   background-color: var(--vermelhoMakeasy);
+}
+
+#submitEdxValor {
+  display: flex;
+  justify-content: center;
+}
+#submitEdxValor > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+#btnEdValor {
+  background-color: var(--verdeMakeasy);
+}
+#btnExValor {
+  background-color: var(--roxoEscuro);
+  color: white;
+}
+#closeEdxValor {
+  background-color: var(--vermelhoMakeasy);
+}
+#tabela {
+  width: 70%;
+  margin: 0 auto;
+  height: 18rem;
+  border-collapse: collapse;
+}
+#valorTitle{
+  font-weight: bold;
+}
+th,
+td {
+  border: 3px solid black;
+  min-width: 10rem;
+  font-weight: 700;
 }
