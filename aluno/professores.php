@@ -30,7 +30,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <div id="pesquisar">
                     <h1 id="pesquisarTitulo">Pesquisar:</h1>
                     <input type="text" id="inputPesquisa" name="pesquisa">
-                    <a href="" id=""><img src="./images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
+                    <a id="openFiltro"><img src="./images/filtroIco.png" alt="Filtro de pesquisa" id="filtroPesquisa"></a>
                 </div>
                 <ul id="professores">
                     <?php
