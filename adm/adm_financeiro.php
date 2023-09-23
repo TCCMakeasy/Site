@@ -16,6 +16,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloFinancas.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -24,13 +25,101 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         <h1 id="title">Financeiro</h1>
         <div id="container">
             <h1 id="title">Lucro Mensal</h1>
+            <div class="grafico"> <canvas id="lucroMensal"></canvas></div>
+
+            <script>
+                const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', ];
+                const lucroMensal = document.getElementById('lucroMensal').getContext('2d');
+
+                const graficoLucroMensal = new Chart(lucroMensal, {
+                    type: 'line',
+                    data: {
+                        labels: meses,
+                        datasets: [{
+                                label: 'Ganhos',
+                                data: [1500, 1400, 1600, 1700, 1750, 1800],
+                                tension: 0.3,
+                                borderColor: '#ef1dac',
+                                backgroundColor: '#ef1dac'
+                            },
+                            {
+                                label: 'Gastos',
+                                data: [1000, 1100, 1200, 1300, 1400, 1500],
+                                tension: 0.3,
+                                borderColor: '#e02b20',
+                                backgroundColor: '#e02b20'
+                            },
+                            {
+                                label: 'Lucro',
+                                data: [500, 300, 400, 400, 350, 300],
+                                tension: 0.3,
+                                borderColor: '#7cda24',
+                                backgroundColor: '#7cda24'
+                            }
+                        ]
+                    },
+                    options: {
+                        elements: {
+                            point: {
+                                radius: 0
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                grid: {
+                                    color: '#fff',
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    callback: function(value, index, values) {
+                                        return 'R$ ' + value;
+                                    },
+                                    padding: 15,
+                                    font: {
+                                        size: 16,
+                                        family: 'Open Sans',
+                                    }
+                                },
+                                border: {
+                                    width: 0
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0)',
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    padding: 15,
+                                    font: {
+                                        size: 16,
+                                        family: 'Open Sans',
+                                    }
+                                },
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    // This more specific font property overrides the global property
+                                    font: {
+                                        size: 20,
+                                        family: 'Open Sans',
+                                    },
+                                    color: "#fff"
+                                },
+
+                            }
+                        }
+                    }
+                });
+            </script>
             <div id="botoes">
                 <button id="abrirAddGanho">Adicionar ganho</button>
                 <button id="abrirAddGasto">Adicionar gasto</button>
                 <button id="abrirEdxValor">Editar/Excluir valor</button>
             </div>
-
-            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
         </div>
     </main>
 </body>
@@ -49,7 +138,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="checkMensal">
+                <input type="checkbox" name="mensal" id="inputMensal">
             </div>
             <div id="submitAddGanho">
                 <input type="submit" id="btnAddGanho" name="btnAddGanho" value="Adicionar Ganho">
@@ -73,7 +162,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="checkMensal">
+                <input type="checkbox" name="mensal" id="inputMensal">
             </div>
             <div id="submitAddGasto">
                 <input type="submit" id="btnAddGasto" name="btnAddGasto" value="Adicionar Gasto">
@@ -103,7 +192,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="checkMensal">
+                <input type="checkbox" name="mensal" id="inputMensal">
             </div>
             <div id="submitEdxValor">
                 <input type="submit" id="btnEdValor" name="btnEdValor" value="Editar valor">
@@ -127,7 +216,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="checkMensal">
+                <input type="checkbox" name="mensal" id="inputMensal">
             </div>
             <div id="submitAddGasto">
                 <input type="submit" id="btnAddGasto" name="btnAddGasto" value="Adicionar Gasto">
@@ -137,15 +226,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     </div>
 </dialog>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
-<script>
-    const myChart = new Chart("myChart", {
-        type: "bar",
-        data: {},
-        options: {}
-    });
-</script>
 <script src="./js/addGanhoOpenClose.js"></script>
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>

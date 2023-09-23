@@ -18,14 +18,12 @@ section {
 #title {
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 auto 2rem;
+  margin: 1rem auto 2rem;
 }
 #container {
   display: flex;
   width: 97%;
-  height: 87%;
-  background-color: var(--corSecundaria);
-  border-radius: 10px;
+  background-color: var(--corPrimaria);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   color: white;
   display: flex;
@@ -35,6 +33,13 @@ section {
 }
 #container > ul {
   margin-top: 1.5rem;
+}
+.grafico {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #botoes {
   margin: 2rem auto;
