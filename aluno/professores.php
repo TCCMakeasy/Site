@@ -35,13 +35,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <ul id="professores">
                     <?php
                     include_once("../conexao.php");
-                    $result_usuario = "SELECT * FROM professor";
+                    $result_usuario = "SELECT id_professor, nome_professor, foto_professor FROM professor";
                     $resultado_usuario = mysqli_query($sql, $result_usuario);
                     while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
                         echo '<li class="professor">';
                         echo '<img src="../fotosPerfil/' . $row_usuario['foto_professor'] . '" alt="Foto do professor" class="imgProfessor">';
                         echo '<h1 id="nomeProfessor">' . $row_usuario['nome_professor'] . '</h1>';
-                        echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
+                        echo '<a id="saibaMais" href="saibamais.php?id='. $row_usuario['id_professor'] .'">Saiba Mais</a>';
                         echo '</li>';
                     }
                     ?>
