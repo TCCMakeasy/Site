@@ -37,7 +37,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         echo '<li class="aluno">';
                         echo '<img src="../fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgAluno">';
                         echo '<h1 id="nomeAluno">' . $row_usuario['nome_aluno'] . '</h1>';
-                        echo '<a id="saibaMais" href="google.com">Saiba Mais</a>';
+                        echo '<a id="saibaMais" href="alunos_saibamais.php?id=' . $row_usuario['id_aluno'] . '">Saiba Mais</a>';
                         echo '</li>';
                     }
                     ?>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
   var alert = document.getElementById("alert");
   if (alert.innerHTML != "") {
     alert.style.display = "block";
-    if(alert.innerHTML == "Aluno cadastrado com sucesso!"){
+    if(alert.innerHTML == "Aluno cadastrado com sucesso!" || alert.innerHTML == "Aluno desvinculado com sucesso!"){
     alert.style.backgroundColor = "rgba(76, 175, 80, 0.7)";
     alert.style.border = "1px solid rgb(76, 175, 80)";
     }

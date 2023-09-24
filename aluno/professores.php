@@ -52,7 +52,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 </body>
 
 <script src="./js/professoresSearch.js"></script>
-<?php include_once "./includes/modalNotificar.php"; ?>
-<?php include_once "./includes/filtro_alunos.php"; ?>
+<?php include_once "./includes/modalNotificar.php";
+include_once "./includes/filtro_alunos.php";
+unset($_SESSION['msg']); ?>
 
 </html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
 } else {
@@ -11,10 +11,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $resultDesvincularProfessor = mysqli_query($sql, $desvincularProfessor);
     if ($resultDesvincularProfessor) {
         $_SESSION['msg'] = "Aluno desvinculado com sucesso!";
-        header("Location: ../alunos.php");
+        header("Location: ../adm_alunos.php");
     } else {
         $_SESSION['msg'] = "Erro ao desvincular aluno";
-        header("Location: ../alunos.php");
+        header("Location: ../adm_alunos.php");
     }
 }
 ?>
