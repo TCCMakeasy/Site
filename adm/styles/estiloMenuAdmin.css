@@ -29,7 +29,7 @@ body {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-101%);
   }
 }
 #menu {
@@ -49,12 +49,6 @@ body {
   transition: 0.5s;
   z-index: 9999;
   cursor: default;
-}
-#menu[open] {
-  animation: slide-in 0.5s forwards;
-}
-#menu[closing] {
-  animation: slide-out 0.5s forwards;
 }
 #mobile-menu {
   display: none;
@@ -141,8 +135,20 @@ footer {
     height: 5rem;
     background-color: var(--corPrimaria);
   }
+  #menu[closing] {
+    display: flex;
+    animation: slide-out 0.5s forwards;
+  }
   #menu {
     display: none;
+  }
+  #menu[open] {
+    animation: slide-in 0.5s forwards;
+    display: flex;
+    z-index: 9999;
+    width: calc(40% + 150px);
+    height: calc(100% - 5rem);
+    font-size: 1.3rem;
   }
   .menu-container {
     display: flex;
