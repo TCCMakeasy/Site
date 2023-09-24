@@ -1,0 +1,140 @@
+main {
+  margin-left: calc((98% + 380px) / 2 - 40%);
+  height: 100%;
+}
+
+#fotoPerfil {
+  width: 7rem;
+  height: 7rem;
+  margin: 1.2rem 1rem 0.6rem;
+  border-radius: 50%;
+}
+
+#tela {
+  width: 100%;
+  margin: 1rem;
+}
+
+#title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+}
+
+#voltar {
+  position: absolute;
+}
+
+#foto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#nome_aluno {
+  font-size: 2rem;
+}
+
+#conteúdo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#conteúdo .dado {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  font-size: 1.5rem;
+  column-gap: 2rem;
+  margin-left: 1rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+#container {
+  background-color: #343888;
+  height: 100%;
+  min-height: 90vh;
+  color: white;
+  margin: 1rem;
+}
+
+.label {
+  display: flex;
+}
+
+.cont {
+  white-space: nowrap;
+  font-size: 1.5rem;
+  width: fit-content;
+}
+
+#divDesc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+#descTitulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+#descInput {
+  padding: 1rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1.5rem;
+  border: 2px solid black;
+  background-color: transparent;
+  border-radius: 8px;
+  width: 36rem;
+  max-width: 90%;
+  min-width: 40%;
+  height: 12rem;
+  max-height: 20rem;
+  min-height: 5rem;
+
+}
+@media (max-width: 768px) {
+  body{
+    height: calc(100vh - 5rem);
+  }
+  main {
+    margin-left: 0;
+    margin-top: 5rem;
+  }
+  #container {
+    margin: 0;
+  }
+  #conteúdo .dado {
+    margin-left: 5rem;
+    grid-template-columns: 1fr;
+    width: calc(100% - 5rem);
+    margin-bottom: 0;
+  }
+  #voltar {
+    position: unset;
+  }
+  #descInput {
+    width: 20rem;
+    height: 12rem;
+  }
+  .mobileSeta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-left: -2rem;
+  }
+  #foto{
+    margin-left: -2rem;
+  }
+}

@@ -25,7 +25,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         <h1 id="title">Financeiro</h1>
         <div id="container">
             <h1 id="title">Lucro Mensal</h1>
-            <div class="grafico"> <canvas id="lucroMensal"></canvas></div>
+            <div class="grafico"><canvas id="lucroMensal"></canvas></div>
 
             <script>
                 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', ];
@@ -102,7 +102,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         plugins: {
                             legend: {
                                 labels: {
-                                    // This more specific font property overrides the global property
                                     font: {
                                         size: 20,
                                         family: 'Open Sans',

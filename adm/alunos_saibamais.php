@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
 } else {
@@ -12,7 +12,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $resultProfessor = mysqli_fetch_assoc($resultCheckProfessor);
     if ($resultProfessor['id_professor'] != $_SESSION['id']) {
         $_SESSION['msg'] = "Você não tem permissão para acessar essa página";
-        header("Location: ../professor/alunos.php");
+        header("Location: ../../professor/alunos.php");
     } else {
         $sqlSelect = "SELECT * FROM aluno WHERE id_aluno = '$idAluno'";
         $sqlAluno = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
@@ -32,7 +32,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 </head>
 
 <body>
-    <?php include_once "./includes/menuProfessor.php"; ?>
+    <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <h1 id="title">Alunos</h1>
         <div id="container">

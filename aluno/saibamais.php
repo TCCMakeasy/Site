@@ -1,22 +1,15 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
-    header("Location: ../professor/login.php");
+    header("Location: ../aluno/login.php");
 } else {
     require_once("../conexao.php");
-    $idAluno = $_GET['id'];
-    $checkProfessor = "SELECT id_professor FROM aluno WHERE id_aluno = '$idAluno'";
-    $resultCheckProfessor = mysqli_query($sql, $checkProfessor);
-    $resultProfessor = mysqli_fetch_assoc($resultCheckProfessor);
-    if ($resultProfessor['id_professor'] != $_SESSION['id']) {
-        $_SESSION['msg'] = "Você não tem permissão para acessar essa página";
-        header("Location: ../professor/alunos.php");
-    } else {
-        $sqlSelect = "SELECT * FROM aluno WHERE id_aluno = '$idAluno'";
-        $sqlAluno = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
-    }
+    $idProfessor = $_GET['id'];
+    $infosProfessor = "SELECT nome_professor, email_professor, bio_professor, valor_professor, nota_professor FROM professor WHERE id_professor = '$idProfessor'";
+    $resultInfosProfessor = mysqli_query($sql, $infosProfessor);
+    $infosProfessor = mysqli_fetch_assoc($resultInfosProfessor);
 }
 ?>
 <!DOCTYPE html>
@@ -32,7 +25,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 </head>
 
 <body>
-    <?php include_once "./includes/menuProfessor.php"; ?>
+    <?php include_once "./includes/menuAluno.php"; ?>
     <main>
         <h1 id="title">Alunos</h1>
         <div id="container">
@@ -42,7 +35,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                 </a>
                 <div id="foto">
                     <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
-                    <h1 id="nome_aluno"><b><?php $nome = explode(' ', $sqlAluno['nome_aluno']);
+                    <h1 id="nome_aluno"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
                                             if (empty($nome[1])) {
                                                 $nome[1] = "";
                                             }
@@ -53,28 +46,19 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 
                 <div class="dado">
                     <h2 class="cont">Nome Completo:</h2>
-                    <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['nome_aluno'] ?></label>
+                    <label id="valorInput" class="inputText" type="number"><?php echo $infosProfessor['nome_professor'] ?></label>
                 </div>
-
-                <div class="dado">
-                    <h2 class="cont">ID do Aluno:</h2>
-                    <label id="valorInput" class="inputText" type="number"><?php echo $idAluno ?></label>
-                </div>
-
 
                 <div class="dado">
                     <h2 class="cont">Email:</h2>
-                    <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['email_aluno'] ?></label>
+                    <label id="valorInput" class="inputText" type="number"><?php echo $infosProfessor['email_professor'] ?></label>
                 </div>
 
             </div>
 
             <div id="divDesc">
                 <p id="descTitulo" class="tituloForm">Descrição:</p>
-                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if(isset($sqlAluno['desc_aluno'])){echo $sqlAluno['desc_aluno'];} ?></textarea>
-            </div>
-            <div id="divDesvincularAluno">
-                <button id="desvincularAluno"><a href="./includes/desvincular.php?id=<?php echo $idAluno?>">Desvincular-se</a></button>
+                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if(isset($infosProfessor['bio_professor'])){echo $infosProfessor['bio_professor'];} ?></textarea>
             </div>
         </div>
 
