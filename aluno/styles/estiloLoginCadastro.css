@@ -19,13 +19,11 @@ header {
   width: 30rem;
   margin-left: -7rem;
 }
-
 main {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 #fieldsetCad {
   display: flex;
   flex-direction: column;
@@ -62,7 +60,7 @@ main {
   font-size: 2.7rem;
   font-weight: 700;
 }
-.avisos{
+.avisos {
   border-radius: 0.5rem;
   color: #ffffff;
   width: 20rem;
@@ -73,11 +71,11 @@ main {
   margin-top: 1rem;
   display: none;
 }
-#alert{
+#alert {
   background-color: rgba(255, 66, 66, 0.514);
   border: rgba(255, 66, 66, 0.74) 1px solid;
 }
-#sucesso{
+#sucesso {
   background-color: rgba(66, 255, 66, 0.514);
   border: rgba(66, 255, 66, 0.74) 1px solid;
 }
@@ -92,7 +90,6 @@ main {
   padding: 10px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .inputLogin {
   width: 20rem;
   height: 1.2rem;
@@ -104,7 +101,6 @@ main {
   padding: 10px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .tituloInputLogin {
   color: #ffffff;
   font-size: 20px;
@@ -115,7 +111,6 @@ main {
   font-size: 20px;
   font-weight: 600;
 }
-
 #botaoSubmit {
   width: 11.5rem;
   height: 2.7rem;
@@ -129,12 +124,10 @@ main {
   cursor: pointer;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-
 #botaoSubmit:hover {
   background-color: #c41b8e;
   transition: 0.5s;
 }
-
 #loginHref {
   font-size: 0.9rem;
   font-weight: 600;
@@ -144,7 +137,6 @@ main {
   text-decoration: none;
   font-weight: 800;
 }
-
 #loginHref a:hover {
   color: #001122;
   transition: 0.5s;

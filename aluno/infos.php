@@ -29,30 +29,30 @@ else if (isset($_SESSION['msg'])){
             <h1 id="title">Suas Informações</h1>
             <form id="formInfos" method="post" action="./includes/edit_infos.php" enctype="multipart/form-data">
                 <section id="editFoto">
-                    <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" accept="./images/*">
+                    <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" alt="Foto de perfil do usuário" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
                     <input type="file" id="inputFoto" name="fotoPerfil">
                 </section>
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
                         <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <input id="nomeInput" class="inputLock" type="text" disabled value="<?php echo $_SESSION['nome'] ?>">
+                        <input  id="nomeInput" class="inputLock" type="text" name="nome" disabled value="<?php echo $_SESSION['nome'] ?>">
                     </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
-                        <input id="idInput" class="inputLock" type="text" value="<?php echo $_SESSION['id'] ?>" disabled>
+                        <input id="idInput" class="inputLock" type="text" name="ID" value="<?php echo $_SESSION['id'] ?>" disabled>
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" placeholder="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" placeholder="●●●●●●●●"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
                     </div>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
-                        <input id="dataNascInput" class="inputLock" type="text" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
+                        <input id="dataNascInput" class="inputLock" type="text" name="data de Nascimento" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>

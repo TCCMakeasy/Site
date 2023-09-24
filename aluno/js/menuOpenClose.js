@@ -1,25 +1,14 @@
-const menu = document.getElementById("menu");
-
 function menuShow() {
-  if (menu.style.display == "flex") {
-    menu.setAttribute("closing", "");
-    menu.addEventListener(
-      "animationend",
-      () => {
-        menu.removeAttribute("closing");
-        menu.style.display = "none";
-      },
-      { once: true }
-    );
-  } else if (window.innerWidth <= 768) {
-    menu.setAttribute("open", "");
-    menu.style.display = "flex";
-    menu.style.zIndex = "99999";
-    menu.style.width = "calc(40% + 150px)";
-    menu.style.height = "calc(100% - 5rem)";
-    menu.style.fontSize = "1.3rem";
+  const menu = document.getElementById("menu");
+  if (menu.getAttribute("open")) {
+    menu.removeAttribute("open");
+    menu.setAttribute("closing", "true"); // Adicionei o valor "true" para o atributo "closing"
+  } else {
+    menu.setAttribute("open", "true"); // Adicionei o valor "true" para o atributo "open"
+    menu.removeAttribute("closing"); // Removi o atributo "closing"
   }
 }
+
 
 function retornaTituloResponsivo() {
   var title = document.getElementById("title").textContent;

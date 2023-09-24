@@ -13,6 +13,7 @@
 @font-face {
   font-family: "Open Sans";
   src: url("../fonts/OpenSans.ttf");
+  font-display: swap;
 }
 body {
   font-family: "Open Sans", sans-serif;
