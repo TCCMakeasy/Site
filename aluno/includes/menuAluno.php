@@ -20,7 +20,7 @@
 
                 <li>
                     <a class="navButton" href="<?php if (isset($_SESSION['id_professor'])) {
-                                                    echo './professor.php?id=' . $_SESSION['id_professor'];
+                                                    echo './saibamais.php?id=' . $_SESSION['id_professor'];
                                                 } else {
                                                     echo './professores.php';
                                                 } ?>"><?php if (isset($_SESSION['id_professor'])) {

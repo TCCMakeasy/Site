@@ -110,7 +110,7 @@ section {
 #EdxValor {
   display: none;
   width: 40%;
-  height: 75%;
+  height: 70%;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -249,6 +249,7 @@ input[type=text] {
 }
 input[type=checkbox] {
   width: 74%;
+  height: 1.25rem;;
 }
 #checkMensal{
   height: 1.5rem;
@@ -325,17 +326,21 @@ input[type=checkbox] {
   background-color: var(--vermelhoMakeasy);
 }
 #tabela {
-  width: 70%;
   margin: 0 auto;
-  height: 18rem;
   border-collapse: collapse;
 }
 #valorTitle{
   font-weight: bold;
+  font-size: 1.25rem;
+}
+#valores{
+  font-weight: normal;
+  font-size: 1rem;
 }
 th,
 td {
   border: 3px solid black;
   min-width: 10rem;
   font-weight: 700;
+  height: 2rem;
 }

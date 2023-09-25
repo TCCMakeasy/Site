@@ -175,10 +175,35 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <div id="EdxValor-content">
         <form id="formEdxValor">
             <table id="tabela">
-                <tr>
+            <tr>
                     <th id="valorTitle">Nome</th>
                     <th id="valorTitle">Valor</th>
                     <th id="valorTitle">Tipo</th>
+                </tr>
+                <tr>
+                    <th id="valores">Netflix</th>
+                    <th id="valores">40</th>
+                    <th id="valores">Gasto</th>
+                </tr>
+                <tr>
+                    <th id="valores">Netflix</th>
+                    <th id="valores">40</th>
+                    <th id="valores">Gasto</th>
+                </tr>
+                <tr>
+                    <th id="valores">Netflix</th>
+                    <th id="valores">40</th>
+                    <th id="valores">Gasto</th>
+                </tr>
+                <tr>
+                    <th id="valores">Netflix</th>
+                    <th id="valores">40</th>
+                    <th id="valores">Gasto</th>
+                </tr>
+                <tr>
+                    <th id="valores">Netflix</th>
+                    <th id="valores">40</th>
+                    <th id="valores">Gasto</th>
                 </tr>
             </table>
             <div id="nomeValor">
