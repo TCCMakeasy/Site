@@ -32,7 +32,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
                         <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <p class="inputP"><input id="nomeInput" class="inputText" type="text" name="nome" value="<?php echo $_SESSION['nome'] ?>"><img src="./images/edit.png" id="editImg"></p>
+                        <input id="nomeInput" class="inputLock" type="text" name="nome" value="<?php echo $_SESSION['nome'] ?>" disabled>
                     </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>

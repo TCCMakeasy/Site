@@ -18,14 +18,12 @@ section {
 #title {
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 auto 2rem;
+  margin: 1rem auto 2rem;
 }
 #container {
   display: flex;
   width: 97%;
-  height: 87%;
-  background-color: var(--corSecundaria);
-  border-radius: 10px;
+  background-color: var(--corPrimaria);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   color: white;
   display: flex;
@@ -35,4 +33,314 @@ section {
 }
 #container > ul {
   margin-top: 1.5rem;
+}
+.grafico {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#botoes {
+  margin: 2rem auto;
+}
+#abrirAddGanho {
+  width: 13rem;
+  height: 3rem;
+  bottom: 3rem;
+  background-color: var(--rosaMakeasy);
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: auto 1rem;
+  cursor: pointer;
+}
+#abrirAddGasto {
+  width: 13rem;
+  height: 3rem;
+  bottom: 3rem;
+  background-color: var(--vermelhoMakeasy);
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: auto 1rem;
+  cursor: pointer;
+}
+#abrirEdxValor {
+  width: 13rem;
+  height: 3rem;
+  bottom: 3rem;
+  background-color: var(--roxoEscuro);
+  border: 2px solid #000;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: auto 1rem;
+  cursor: pointer;
+}
+#AddGanho {
+  display: none;
+  width: 40%;
+  height: 45%;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#AddGanho::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#AddGasto {
+  display: none;
+  width: 40%;
+  height: 45%;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#AddGasto::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+#EdxValor {
+  display: none;
+  width: 40%;
+  height: 70%;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#EdxValor::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#AddGanho[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#AddGanho[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#AddGanho-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#formAddGanho {
+  width: 60%;
+}
+#formAddGanho > h1 {
+  margin: auto auto 1rem;
+}
+#nomeGanho, #valorGanho {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+#mensal{
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 1rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+#AddGasto[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#AddGasto[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#AddGasto-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#formAddGasto {
+  width: 60%;
+}
+#formAddGasto > h1 {
+  margin: auto auto 1rem;
+}
+#nomeGasto, #valorGasto {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+#EdxValor[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#EdxValor[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#EdxValor-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#formEdxValor {
+  width: 60%;
+}
+#formEdxValor > h1 {
+  margin: auto auto 1rem;
+}
+#nomeValor, #valorValor {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+input[type=text] {
+  width: 70%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+input[type=checkbox] {
+  width: 74%;
+  height: 1.25rem;;
+}
+#checkMensal{
+  height: 1.5rem;
+}
+#submitAddGanho {
+  display: flex;
+  justify-content: center;
+}
+#submitAddGanho > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+#btnAddGanho {
+  background-color: var(--verdeMakeasy);
+}
+#closeAddGanho {
+  background-color: var(--vermelhoMakeasy);
+}
+#submitAddGasto {
+  display: flex;
+  justify-content: center;
+}
+#submitAddGasto > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+#btnAddGasto {
+  background-color: var(--verdeMakeasy);
+}
+#closeAddGasto {
+  background-color: var(--vermelhoMakeasy);
+}
+
+#submitEdxValor {
+  display: flex;
+  justify-content: center;
+}
+#submitEdxValor > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+#btnEdValor {
+  background-color: var(--verdeMakeasy);
+}
+#btnExValor {
+  background-color: var(--roxoEscuro);
+  color: white;
+}
+#closeEdxValor {
+  background-color: var(--vermelhoMakeasy);
+}
+#tabela {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+#valorTitle{
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+#valores{
+  font-weight: normal;
+  font-size: 1rem;
+}
+th,
+td {
+  border: 3px solid black;
+  min-width: 10rem;
+  font-weight: 700;
+  height: 2rem;
 }

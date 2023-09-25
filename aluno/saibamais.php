@@ -58,7 +58,23 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
             <div id="divDesc">
                 <p id="descTitulo" class="tituloForm">Descrição:</p>
-                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if(isset($infosProfessor['bio_professor'])){echo $infosProfessor['bio_professor'];} ?></textarea>
+                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if (isset($infosProfessor['bio_professor'])) {
+                                                                                            echo $infosProfessor['bio_professor'];
+                                                                                        } ?></textarea>
+            </div>
+
+            <div id="avaliacoes">
+                <span></span>
+                <h1 style="font-size: 1.3rem;">Avaliações</h1>
+                <div>
+                <span>5/5</span>
+                <span>2 Avaliações</span>
+                </div>
+                <div id="avaliacao">
+                    <h3>Ana Paula</h3>
+                    <span>5/5:</span>
+                    <span>Gostei bastante da aula, muito boa mesmo</span>
+                </div>
             </div>
         </div>
 
@@ -66,4 +82,5 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 </body>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
+
 </html>
