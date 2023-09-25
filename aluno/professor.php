@@ -25,12 +25,17 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 </head>
 
 <body>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <?php include_once "./includes/menuAluno.php"; ?>
     <main>
         <h1 id="title">Alunos</h1>
         <div id="container">
             <div class="mobileSeta">
-                <a href="professores.php">
+                <a onclick="goBack()" style="cursor:pointer;">
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
                 <div id="foto">
@@ -74,12 +79,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     <h3>Ana Paula</h3>
                     <p><span>5/5⭐:</span>
                         <span>Gostei bastante da aula, muito boa mesmo</span>
-                    </p>
-                </div>
-                <div id="avaliacao">
-                    <h3>Lucas Batista</h3>
-                    <p><span>5/5⭐:</span>
-                        <span>Recomendo demais para quem deseja viajar</span>
                     </p>
                 </div>
             </div>

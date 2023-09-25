@@ -8,11 +8,6 @@
                 include_once("../conexao.php");
                 $result_notifica = "SELECT * FROM notifica where id_aluno = '" . $_SESSION['id'] . "'";
                 $resultado_notify = mysqli_query($sql, $result_notifica);
-                $nome = explode(' ', $row_usuario['nome_aluno']);
-                if (empty($nome[1])) {
-                    $nome[1] = "";
-                }
-                $nome = $nome[0] . " " . $nome[1];
                 while ($row_usuario = mysqli_fetch_assoc($resultado_notify)) {
                     echo '<div class="notificações-body">';
                     echo '<div class="notificação">';
