@@ -23,7 +23,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     <main>
         <section id="tela">
             <h1 id="title">Suas Informações</h1>
-        <form id="formInfos" method="POST" action="./includes/edit_infos.php" enctype="multipart/form-data">
+            <form id="formInfos" method="POST" action="./includes/edit_infos.php" enctype="multipart/form-data">
                 <section id="editFoto">
                     <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
@@ -32,7 +32,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
                         <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <p class="inputP"><input id="nomeInput" class="inputText" type="text" name="nome" value="<?php echo $_SESSION['nome'] ?>"><img src="./images/edit.png" id="editImg"></p>
+                        <input id="nomeInput" class="inputLock" type="text" name="nome" value="<?php echo $_SESSION['nome'] ?>" disabled>
                     </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
