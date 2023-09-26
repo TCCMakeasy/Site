@@ -118,7 +118,150 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <button id="abrirAddGanho">Adicionar ganho</button>
                 <button id="abrirAddGasto">Adicionar gasto</button>
                 <button id="abrirEdxValor">Editar/Excluir valor</button>
-            </div>
+            </div><br>
+            <h1 id="title">Avaliações</h1>
+            <div class="grafico"><canvas id="avaliacoes"></canvas></div>
+
+            <script>
+                const estrelas = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
+                const avaliacoes = document.getElementById('avaliacoes').getContext('2d');
+
+                const graficoAvaliacoes = new Chart(avaliacoes, {
+                    type: 'bar',
+                    data: {
+                        labels: estrelas,
+                        datasets: [{
+                            label: 'Avaliações',
+                            data: [15, 14, 16, 17, 17],
+                            tension: 0.3,
+                            borderColor: '#fff',
+                            backgroundColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        elements: {
+                            point: {
+                                radius: 0
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                grid: {
+                                    color: '#fff',
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    padding: 15,
+                                    font: {
+                                        size: 16,
+                                        family: 'Open Sans',
+                                    }
+                                },
+                                border: {
+                                    width: 0
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0)',
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    padding: 15,
+                                    font: {
+                                        size: 16,
+                                        family: 'Open Sans',
+                                    }
+                                },
+                            }
+                        },
+                    }
+                });
+            </script><br>
+            <h1 id="title">Alunos</h1>
+            <div class="grafico"><canvas id="alunosMensal"></canvas></div>
+            <script>
+                const alunosMensal = document.getElementById('alunosMensal').getContext('2d');
+                const graficoAlunosMensal = new Chart(alunosMensal, {
+                    type: 'bar',
+                    data: {
+                        labels: meses,
+                        datasets: [{
+                                label: 'Alunos novos',
+                                data: [5, 4, 6, 7, 7, 8],
+                                tension: 0.3,
+                                borderColor: '#ef1dac',
+                                backgroundColor: '#ef1dac'
+                            },
+                            {
+                                label: 'Alunos perdidos',
+                                data: [1, 1, 2, 3, 4, 5],
+                                tension: 0.3,
+                                borderColor: '#e02b20',
+                                backgroundColor: '#e02b20'
+                            },
+                        ]
+                    },
+                    options: {
+                        elements: {
+                            point: {
+                                radius: 0
+                            }
+                        },
+                        scales: {
+                            y: {
+                                grid: {
+                                    color: '#fff',
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    callback: function(value, index, values) {
+                                        return value;
+                                    },
+                                    padding: 15,
+                                    font: {
+                                        size: 16,
+                                        family: 'Open Sans',
+                                    }
+                                },
+                                border: {
+                                    width: 0
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0)',
+                                },
+                                ticks: {
+                                    color: '#fff',
+                                    padding: 15,
+                                    font: {
+                                        size: 16,
+                                        family: 'Open Sans',
+                                    }
+                                },
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: {
+                                        size: 20,
+                                        family: 'Open Sans',
+                                    },
+                                    color: "#fff"
+                                },
+
+                            }
+                        }
+                    }
+                });
+            </script>
         </div>
     </main>
 </body>
@@ -175,35 +318,35 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <div id="EdxValor-content">
         <form id="formEdxValor">
             <table id="tabela">
-            <tr>
+                <tr>
                     <th id="valorTitle">Nome</th>
                     <th id="valorTitle">Valor</th>
                     <th id="valorTitle">Tipo</th>
                 </tr>
                 <tr>
-                    <th id="valores">Netflix</th>
-                    <th id="valores">40</th>
-                    <th id="valores">Gasto</th>
+                    <td id="valores">Netflix</td>
+                    <td id="valores">40</td>
+                    <td id="valores">Gasto</td>
                 </tr>
                 <tr>
-                    <th id="valores">Netflix</th>
-                    <th id="valores">40</th>
-                    <th id="valores">Gasto</th>
+                    <td id="valores">Netflix</td>
+                    <td id="valores">40</td>
+                    <td id="valores">Gasto</td>
                 </tr>
                 <tr>
-                    <th id="valores">Netflix</th>
-                    <th id="valores">40</th>
-                    <th id="valores">Gasto</th>
+                    <td id="valores">Netflix</td>
+                    <td id="valores">40</td>
+                    <td id="valores">Gasto</td>
                 </tr>
                 <tr>
-                    <th id="valores">Netflix</th>
-                    <th id="valores">40</th>
-                    <th id="valores">Gasto</th>
+                    <td id="valores">Netflix</td>
+                    <td id="valores">40</td>
+                    <td id="valores">Gasto</td>
                 </tr>
                 <tr>
-                    <th id="valores">Netflix</th>
-                    <th id="valores">40</th>
-                    <th id="valores">Gasto</th>
+                    <td id="valores">Netflix</td>
+                    <td id="valores">40</td>
+                    <td id="valores">Gasto</td>
                 </tr>
             </table>
             <div id="nomeValor">
@@ -250,9 +393,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     </div>
 </dialog>
 
+<script src="./js/selectValor.js"></script>
 <script src="./js/addGanhoOpenClose.js"></script>
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
+<script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
 
 </html>
