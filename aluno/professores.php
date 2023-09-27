@@ -51,10 +51,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         </section>
     </main>
 </body>
-
+<script src="./js/menuOpenClose.js"></script>
 <script src="./js/professoresSearch.js"></script>
 <?php include_once "./includes/modalNotificar.php";
-include_once "./includes/filtro_alunos.php";
+include_once "./includes/modalFiltro.php";
 unset($_SESSION['msg']); ?>
 
 </html>

@@ -6,7 +6,7 @@
         </div>
         <?php
                 include_once("../conexao.php");
-                $result_notifica = "SELECT * FROM notifica where id_aluno = '" . $_SESSION['id'] . "'";
+                $result_notifica = "SELECT * FROM notifica where id_professor = '" . $_SESSION['id'] . "' AND verifica_notifica = '1'";
                 $resultado_notify = mysqli_query($sql, $result_notifica);
                 while ($row_usuario = mysqli_fetch_assoc($resultado_notify)) {
                     echo '<div class="notificações-body">';
