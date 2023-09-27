@@ -25,7 +25,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         <h1 id="title">Financeiro</h1>
         <div id="container">
             <h1 id="title">Lucro Mensal</h1>
-            <div class="grafico"><canvas id="lucroMensal"></canvas></div>
+            <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
 
             <script>
                 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', ];
@@ -184,7 +184,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 });
             </script><br>
             <h1 id="title">Alunos</h1>
-            <div class="grafico"><canvas id="alunosMensal"></canvas></div>
+            <div class="grafico" id="graficos"><canvas id="alunosMensal"></canvas></div>
             <script>
                 const alunosMensal = document.getElementById('alunosMensal').getContext('2d');
                 const graficoAlunosMensal = new Chart(alunosMensal, {

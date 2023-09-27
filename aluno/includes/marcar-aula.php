@@ -18,31 +18,18 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $result = mysqli_fetch_assoc($resultado_verificaAluno);
 
     if ($result['id_professor'] === $_SESSION['id_professor']) {
-        $sqlCheck = "SELECT * FROM cronograma WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id_professor'] . "'";
-        $result =   mysqli_query($sql, $sqlCheck);
-        $resultCheck = mysqli_fetch_assoc($result);
-        if($resultCheck[$aulaDia.'_cronograma'] == "privado" || $resultCheck[$aulaDia.'_cronograma'] != null){
-            $_SESSION['msg'] = "Esse horário já está ocupado";
-            header("Location: ../cronograma.php");
-        }else{
-        if ($result->num_rows > 0) {
-            $sqlUpdate = "UPDATE cronograma SET " . $aulaDia . "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id_professor'] . "'";
-            if ($sql->query($sqlUpdate) === TRUE) {
-                header("Location: ../cronograma.php");
-            } else {
-                echo "Erro ao atualizar registro: " . $sql->error;
-            }
-        } else {
-            $sqlInsert = "INSERT INTO cronograma (" . $aulaDia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id_professor'] . "')";
-            if ($sql->query($sqlInsert) === TRUE) {
-                header("Location: ../cronograma.php");
-            } else {
-                echo "Erro ao inserir registro: " . $sql->error;
-            }
-        }
-        $sql->close();
-    }} else {
-        $_SESSION['msg'] = "Esse aluno não é seu";
-        header("Location: ../alunos.php");
+        $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('O aluno ".$_SESSION['nome']." marcou uma aula para a ".$aulaDia." para as ".$aulaHora."', '".$_SESSION['id_professor']."', '".$idAluno."', '1')";
+		$noti = mysqli_query($sql,$notificar);
+		if ($noti){
+			$_SESSION['msg'] = "Professor notificado, espere até seu professor confirmar!";
+			header("Location: ../cronograma.php");
+		}
+		else {
+			$_SESSION['msg'] = "Erro ao marcar aula";
+			header("Location: ../cronograma.php");
+		}
+    } else {
+        $_SESSION['msg'] = "Esse professor não é seu";
+        header("Location: ../cronograma.php");
     }
 }

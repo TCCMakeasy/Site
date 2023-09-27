@@ -30,7 +30,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         $dados['email'] = $_SESSION['email'];
     }
     if ($dados['senha'] == "") {
-        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', desc_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', bio_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
         $erro = true;
         echo "A senha deve ter no minímo 6 caracteres";
@@ -39,7 +39,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         echo "Carácter ( & ) utilizado na senha é inválido";
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', senha_aluno = '" . $dados['senha'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', desc_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', senha_aluno = '" . $dados['senha'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', bio_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
     }
     if ($erro == false) {
         $result = mysqli_query($sql, $update);

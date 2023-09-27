@@ -351,6 +351,9 @@ td {
   font-weight: 700;
   height: 2rem;
 }
+#graficos{
+  height: 500px !important;
+}
 @media (max-width: 768px) {
   main {
     margin-left: 0;
