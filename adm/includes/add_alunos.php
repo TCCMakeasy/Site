@@ -23,7 +23,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 			$insertAluno = "UPDATE aluno set id_professor = '" . $_SESSION['id'] . "' WHERE id_aluno = '" . $id . "'";
 			$result_insertAluno = mysqli_query($sql, $insertAluno);
 			if ($result_insertAluno) {
-				$notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno) VALUES('Você foi adicionado pelo professor ".$_SESSION['nome']."', '".$_SESSION['id']."', '".$id."')";
+				$notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('Você foi adicionado pelo professor ".$_SESSION['nome']."', '".$_SESSION['id']."', '".$id."', '0')";
 				$noti = mysqli_query($sql,$notificar);
 				if ($noti){
 					$_SESSION['msg'] = "Aluno cadastrado com sucesso!";

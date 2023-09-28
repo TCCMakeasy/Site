@@ -9,12 +9,12 @@
             <form method="POST" action="./includes/filtro2_alunos.php">
 
             <h2>Valor</h2>
-            <input type="radio" name="valor" value="Crescente">Crescente</input>
-            <input type="radio" name="valor" checked value="Decrescente">Decrescente</input>
+            <input type="radio" id="valorCrescente" name="valor" value="Crescente">Crescente</input>
+            <input type="radio" id="valorDecrescente" name="valor" checked value="Decrescente">Decrescente</input>
 
             <h2>Avaliação</h2>
-            <input type="radio" name="avalia" value="Crescente">Crescente</input>
-            <input type="radio" name="avalia" checked value="Decrescente">Decrescente</input>
+            <input type="radio" id="avaliaCrescente" name="avalia" value="Crescente">Crescente</input>
+            <input type="radio" id="avaliaDecrescente" name="avalia" checked value="Decrescente">Decrescente</input>
 
             <input type="submit"></input>
 
