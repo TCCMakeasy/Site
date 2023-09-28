@@ -40,7 +40,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         } else {
             $sqlInsert = "INSERT INTO cronograma (" . $aulaDia . "_cronograma, tempo_cronograma, id_professor) VALUES ('$idAluno', '$aulaHora', '" . $_SESSION['id'] . "')";
             if ($sql->query($sqlInsert) === TRUE) {
-                $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno) VALUES('Uma aula foi marcada pelo professor ".$_SESSION['nome']." para as ".$aulaHora."', '".$_SESSION['id']."', '".$idAluno."')";
+                $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('Uma aula foi marcada pelo professor ".$_SESSION['nome']." para as ".$aulaHora."', '".$_SESSION['id']."', '".$idAluno."', '0')";
 				$noti = mysqli_query($sql,$notificar);
 				if ($noti){
                     $_SESSION['msg'] = "Aula cadastrada com sucesso";

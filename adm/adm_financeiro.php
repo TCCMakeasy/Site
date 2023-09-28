@@ -21,6 +21,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <body>
     <?php include_once "includes/menuAdm.php"; ?>
+    <section id="tela">
     <main>
         <h1 id="title">Financeiro</h1>
         <div id="container">
@@ -120,7 +121,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <button id="abrirEdxValor">Editar/Excluir valor</button>
             </div><br>
             <h1 id="title">Avaliações</h1>
-            <div class="grafico"><canvas id="avaliacoes"></canvas></div>
+            <div class="grafico" id="graficos"><canvas id="avaliacoes"></canvas></div>
 
             <script>
                 const estrelas = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
@@ -184,7 +185,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 });
             </script><br>
             <h1 id="title">Alunos</h1>
-            <div class="grafico" id="graficos"><canvas id="alunosMensal"></canvas></div>
+            <div class="grafico" id="graficos">
+            <canvas id="alunosMensal"></canvas></div>
             <script>
                 const alunosMensal = document.getElementById('alunosMensal').getContext('2d');
                 const graficoAlunosMensal = new Chart(alunosMensal, {
@@ -264,6 +266,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </script>
         </div>
     </main>
+    </section>
 </body>
 
 <dialog id="AddGanho">
@@ -282,6 +285,18 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <label for="inputMensal"><b>Mensal:</b></label>
                 <input type="checkbox" name="mensal" id="inputMensal">
             </div>
+            <div id="aulaDia">
+                <label for="inputDia"><b>Dia da semana:</b></label>
+                <select name="aulaDia" id="inputDia">
+                    <option value="seg">Segunda-Feira</option>
+                    <option value="ter">Terça-Feira</option>
+                    <option value="qua">Quarta-Feira</option>
+                    <option value="qui">Quinta-Feira</option>
+                    <option value="sex">Sexta-Feira</option>
+                    <option value="sab">Sábado</option>
+                    <option value="dom">Domingo</option>
+                </select>
+            </div>
             <div id="submitAddGanho">
                 <input type="submit" id="btnAddGanho" name="btnAddGanho" value="Adicionar Ganho">
                 <button id="closeAddGanho" type="button">Cancelar</button>
@@ -292,7 +307,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <dialog id="AddGasto">
     <div id="AddGasto-content">
-        <form id="formAddGasto">
+        <form id="formAddGasto" action="./includes/add_gastos.php">
             <h1>Adicionar gasto</h1>
             <div id="nomeGasto">
                 <label for="inputnomeGasto"><b>Nome:</b></label>
@@ -323,27 +338,27 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <th id="valorTitle">Valor</th>
                     <th id="valorTitle">Tipo</th>
                 </tr>
-                <tr>
+                <tr id="linha">
                     <td id="valores">Netflix</td>
                     <td id="valores">40</td>
                     <td id="valores">Gasto</td>
                 </tr>
-                <tr>
+                <tr id="linha">
                     <td id="valores">Netflix</td>
                     <td id="valores">40</td>
                     <td id="valores">Gasto</td>
                 </tr>
-                <tr>
+                <tr id="linha">
                     <td id="valores">Netflix</td>
                     <td id="valores">40</td>
                     <td id="valores">Gasto</td>
                 </tr>
-                <tr>
+                <tr id="linha">
                     <td id="valores">Netflix</td>
                     <td id="valores">40</td>
                     <td id="valores">Gasto</td>
                 </tr>
-                <tr>
+                <tr id="linha">
                     <td id="valores">Netflix</td>
                     <td id="valores">40</td>
                     <td id="valores">Gasto</td>
@@ -356,6 +371,18 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="valorValor">
                 <label for="inputvalorValor"><b>Valor:</b></label>
                 <input type="text" name="valorValor" id="inputvalorValor">
+            </div>
+            <div id="aulaDia">
+                <label for="inputDia"><b>Dia da semana:</b></label>
+                <select name="aulaDia" id="inputDia">
+                    <option value="seg">Segunda-Feira</option>
+                    <option value="ter">Terça-Feira</option>
+                    <option value="qua">Quarta-Feira</option>
+                    <option value="qui">Quinta-Feira</option>
+                    <option value="sex">Sexta-Feira</option>
+                    <option value="sab">Sábado</option>
+                    <option value="dom">Domingo</option>
+                </select>
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>

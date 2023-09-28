@@ -3,7 +3,6 @@ const professores = document.getElementById("professores");
 var searchtimer;
 
 const pesquisa = async (text) =>{
-    console.log(text)
     try {
         const response = await fetch("./includes/pesquisa.php", {
             method: "POST",
