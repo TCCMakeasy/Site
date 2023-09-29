@@ -18,7 +18,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     }else{
         $extensao = strtolower(pathinfo($fotoPerfil['name'], PATHINFO_EXTENSION));
         $novo_nome = md5(uniqid()) . "." . $extensao;
-        $diretorio = "../fotosPerfil/";
+        $diretorio = "../../fotosPerfil/";
         if ($_SESSION['foto'] != "usuario.png"){unlink($diretorio . $_SESSION['foto']);}
         move_uploaded_file($fotoPerfil['tmp_name'], $diretorio . $novo_nome);
         $dados['fotoPerfil'] = $novo_nome;

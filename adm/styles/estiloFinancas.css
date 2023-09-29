@@ -77,7 +77,7 @@ main {
 #AddGanho {
   display: none;
   width: 40%;
-  height: 45%;
+  height: 48%;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -89,7 +89,7 @@ main {
 #AddGasto {
   display: none;
   width: 40%;
-  height: 45%;
+  height: 48%;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -155,7 +155,7 @@ main {
 #formAddGanho > h1 {
   margin: auto auto 1rem;
 }
-#nomeGanho, #valorGanho {
+#nomeGanho, #valorGanho, #mesGanho {
   display: flex;
   width: 90%;
   align-items: center;
@@ -170,7 +170,7 @@ main {
   align-items: center;
   justify-content: flex-end;
   text-align: center;
-  margin: 1rem 0 2.5rem;
+  margin: 1rem 0 1rem;
   font-size: 1.4rem;
 }
 #AddGasto[open] {
@@ -193,7 +193,7 @@ main {
 #formAddGasto > h1 {
   margin: auto auto 1rem;
 }
-#nomeGasto, #valorGasto {
+#nomeGasto, #valorGasto, #mesGasto {
   display: flex;
   width: 90%;
   align-items: center;
@@ -222,7 +222,7 @@ main {
 #formEdxValor > h1 {
   margin: auto auto 1rem;
 }
-#nomeValor, #valorValor, #aulaDia{
+#nomeValor, #valorValor, #mesValor{
   display: flex;
   width: 90%;
   align-items: center;
@@ -342,11 +342,22 @@ td {
   font-weight: 700;
   height: 2rem;
 }
+#mensal:checked ~ #mesGanho{
+  visibility: hidden;/*aqui*/
+}
 #graficos{
   height: 75%;
   flex: 0 0 auto;
-  width: 100%;
+  width: 95%;
 }
+select {
+  width: 74%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
 @media (max-width: 768px) {
   main {
     width: 100%;
@@ -375,26 +386,15 @@ td {
   }
   #botoes {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
   }
-  #abrirAddGasto {
-    width: 12rem;
-    height: 3.5rem;
-    font-size: 1.2rem;
-    bottom: 1.5rem;
-  }
-  #abrirAddGanho {
-    width: 12rem;
-    height: 3.5rem;
-    font-size: 1.2rem;
-    bottom: 1.5rem;
-  }
-  #abrirEdxValor {
-    width: 12rem;
-    height: 3.5rem;
-    font-size: 1.2rem;
-    bottom: 1.5rem;
+  #graficos{
+    height: 50%;
+    flex: 0 0 auto;
+    width: 95%;
+    margin-top: 10%;
   }
 }

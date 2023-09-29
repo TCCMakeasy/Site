@@ -6,7 +6,7 @@
         </div>
         <div class="filtro-body">
         
-            <form method="POST" action="./includes/filtro2_alunos.php">
+            <form method="POST" action="./includes/filtro_alunos.php">
 
             <h2>Valor</h2>
             <input type="radio" id="valorCrescente" name="valor" value="Crescente">Crescente</input>
@@ -15,8 +15,6 @@
             <h2>Avaliação</h2>
             <input type="radio" id="avaliaCrescente" name="avalia" value="Crescente">Crescente</input>
             <input type="radio" id="avaliaDecrescente" name="avalia" checked value="Decrescente">Decrescente</input>
-
-            <input type="submit"></input>
 
             </form>
 

@@ -51,7 +51,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         <input id="dataNascInput" class="inputLock" type="text" name="data" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
                     </div>
                     <div id="divValor" class="divInputText">
-                        <p id="valorTitulo" class="tituloForm">Preço:</p>
+                        <p id="valorTitulo" class="tituloForm">Preço (R$):</p>
                         <p class="inputP"><input id="valorInput" class="inputText" type="number" name="valor" value="<?php echo $_SESSION['valor'] ?>"><img src="./images/edit.png" id="editImg"></p>
                     </div>
                     <div id="divDesc">
@@ -75,6 +75,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </script>
 <script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php"; 
+unset($_SESSION['msg'])?>
 
 </html>

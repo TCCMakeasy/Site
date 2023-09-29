@@ -75,6 +75,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 </script>
 <script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php"; 
+unset($_SESSION['msg'])?>
 
 </html>
