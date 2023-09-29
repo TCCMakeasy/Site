@@ -60,6 +60,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         ]
                     },
                     options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
                         elements: {
                             point: {
                                 radius: 0
@@ -140,6 +142,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         }]
                     },
                     options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
                         elements: {
                             point: {
                                 radius: 0
@@ -210,6 +214,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         ]
                     },
                     options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
                         elements: {
                             point: {
                                 radius: 0
@@ -271,7 +277,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <dialog id="AddGanho">
     <div id="AddGanho-content">
-        <form id="formAddGanho">
+        <form id="formAddGanho" action="./includes/add_ganhos.php" method="post">
             <h1>Adicionar ganho</h1>
             <div id="nomeGanho">
                 <label for="inputnomeGanho"><b>Nome:</b></label>
@@ -285,16 +291,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <label for="inputMensal"><b>Mensal:</b></label>
                 <input type="checkbox" name="mensal" id="inputMensal">
             </div>
-            <div id="aulaDia">
-                <label for="inputDia"><b>Dia da semana:</b></label>
-                <select name="aulaDia" id="inputDia">
-                    <option value="seg">Segunda-Feira</option>
-                    <option value="ter">Terça-Feira</option>
-                    <option value="qua">Quarta-Feira</option>
-                    <option value="qui">Quinta-Feira</option>
-                    <option value="sex">Sexta-Feira</option>
-                    <option value="sab">Sábado</option>
-                    <option value="dom">Domingo</option>
+            <div id="mesGanho">
+                <label for="inputMes"><b>Mês:</b></label>
+                <select name="mesGanho" id="inputMes">
+                    <option value="jan">Janeiro</option>
+                    <option value="fev">Fevereiro</option>
+                    <option value="mar">Março</option>
+                    <option value="abr">Abril</option>
+                    <option value="mai">Maio</option>
+                    <option value="junho">Junho</option>
                 </select>
             </div>
             <div id="submitAddGanho">
@@ -307,7 +312,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <dialog id="AddGasto">
     <div id="AddGasto-content">
-        <form id="formAddGasto" action="./includes/add_gastos.php">
+        <form id="formAddGasto" action="./includes/add_gastos.php" method="post">
             <h1>Adicionar gasto</h1>
             <div id="nomeGasto">
                 <label for="inputnomeGasto"><b>Nome:</b></label>
@@ -320,6 +325,17 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
                 <input type="checkbox" name="mensal" id="inputMensal">
+            </div>
+            <div id="mesGasto">
+                <label for="inputMes"><b>Mês:</b></label>
+                <select name="mesGasto" id="inputMes">
+                    <option value="jan">Janeiro</option>
+                    <option value="fev">Fevereiro</option>
+                    <option value="mar">Março</option>
+                    <option value="abr">Abril</option>
+                    <option value="mai">Maio</option>
+                    <option value="junho">Junho</option>
+                </select>
             </div>
             <div id="submitAddGasto">
                 <input type="submit" id="btnAddGasto" name="btnAddGasto" value="Adicionar Gasto">
@@ -372,21 +388,20 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <label for="inputvalorValor"><b>Valor:</b></label>
                 <input type="text" name="valorValor" id="inputvalorValor">
             </div>
-            <div id="aulaDia">
-                <label for="inputDia"><b>Dia da semana:</b></label>
-                <select name="aulaDia" id="inputDia">
-                    <option value="seg">Segunda-Feira</option>
-                    <option value="ter">Terça-Feira</option>
-                    <option value="qua">Quarta-Feira</option>
-                    <option value="qui">Quinta-Feira</option>
-                    <option value="sex">Sexta-Feira</option>
-                    <option value="sab">Sábado</option>
-                    <option value="dom">Domingo</option>
-                </select>
-            </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
                 <input type="checkbox" name="mensal" id="inputMensal">
+            </div>
+            <div id="mesValor">
+                <label for="inputValor"><b>Mês:</b></label>
+                <select name="mesValor" id="inputValor">
+                    <option value="jan">Janeiro</option>
+                    <option value="fev">Fevereiro</option>
+                    <option value="mar">Março</option>
+                    <option value="abr">Abril</option>
+                    <option value="mai">Maio</option>
+                    <option value="junho">Junho</option>
+                </select>
             </div>
             <div id="submitEdxValor">
                 <input type="submit" id="btnEdValor" name="btnEdValor" value="Editar valor">

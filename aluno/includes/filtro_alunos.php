@@ -1,11 +1,12 @@
 
 <?php
-
 require_once '../../conexao.php';
 $hndl = fopen("php://input", "r");
 $tipoDoFiltro = fread($hndl, 1024);
-
-if ($valor == "Crescente" && $avalia == "Crescente")
+$tipoDoFiltro = explode(",", $tipoDoFiltro);
+$valor = $tipoDoFiltro[0];
+$avalia = $tipoDoFiltro[1];
+if ($valor == "valorCrescente" && $avalia == "avaliaCrescente")
 {
     $procura = "SELECT * from professor ORDER BY valor_professor ASC, nota_professor ASC";
     $mysql = mysqli_query($sql, $procura);
@@ -20,7 +21,7 @@ if ($valor == "Crescente" && $avalia == "Crescente")
     echo json_encode($resultados);
 
 }}
-else if ($valor == "Crescente" && $avalia == "Decrescente")
+else if ($valor == "valorCrescente" && $avalia == "avaliaDecrescente")
   {
 
       $procura = "SELECT * from professor ORDER BY valor_professor ASC, nota_professor DESC";
@@ -36,10 +37,10 @@ else if ($valor == "Crescente" && $avalia == "Decrescente")
       echo json_encode($resultados);
       }
   }
-  else if ($valor == "Decrescente" && $avalia == "Crescente")
+  else if ($valor == "valorDecrescente" && $avalia == "avaliaCrescente")
     {
 
-        $mysql = "SELECT * from professor ORDER BY valor_professor DESC, nota_professor ASC";
+        $procura = "SELECT * from professor ORDER BY valor_professor DESC, nota_professor ASC";
         $mysql = mysqli_query($sql, $procura);
         $resultados = array(); // Inicializa um array para armazenar os resultados
     
@@ -53,10 +54,10 @@ else if ($valor == "Crescente" && $avalia == "Decrescente")
         }
 
     }
-    else if ($valor == "Decrescente" && $avalia == "Decrescente")
+    else if ($valor == "valorDecrescente" && $avalia == "avaliaDecrescente")
       {
 
-          $mysql = "SELECT * from professor ORDER BY valor_professor DESC, nota_professor DESC";
+          $procura = "SELECT * from professor ORDER BY valor_professor DESC, nota_professor DESC";
           $mysql = mysqli_query($sql, $procura);
           $resultados = array(); // Inicializa um array para armazenar os resultados
       

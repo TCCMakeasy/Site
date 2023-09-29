@@ -5,7 +5,7 @@ const decrescenteValor = document.getElementById('valorDecrescente');
 const crescenteValor = document.getElementById('valorCrescente');
 const decrescenteAvalia = document.getElementById('avaliaDecrescente');
 const crescenteAvalia = document.getElementById('avaliaCrescente');
-
+const filtros = [decrescenteAvalia, crescenteAvalia, decrescenteValor, crescenteValor];
 openFiltro.addEventListener("click", function () {
   filtro.showModal();
 });
@@ -37,26 +37,25 @@ filtro.addEventListener("click", (event) => {
     );
   }
 });
-
-decrescenteAvalia.addEventListener("click", () => {
-  var filtros = []
-
-  if(crescenteValor.checked){
-    filtros.push(crescenteValor.id)
-  }else if(decrescenteValor.checked){
-    filtros.push(decrescenteValor.id)
-  }
-
-  if(decrescenteAvalia.checked){
-    filtros.push(decrescenteAvalia.id);
-    console.log(decrescenteAvalia.id)
-  }else if(crescenteAvalia.checked){
-    filtros.push(crescenteAvalia.id)
-  }
-
-  console.log(filtros)
-  atualizarFiltro(filtros);
+filtros.forEach(e => {
+  e.addEventListener("click", () => {
+    var filtrosSelecionados = []
+  
+    if(crescenteValor.checked){
+      filtrosSelecionados.push(crescenteValor.id)
+    }else if(decrescenteValor.checked){
+      filtrosSelecionados.push(decrescenteValor.id)
+    }
+  
+    if(decrescenteAvalia.checked){
+      filtrosSelecionados.push(decrescenteAvalia.id);
+    }else if(crescenteAvalia.checked){
+      filtrosSelecionados.push(crescenteAvalia.id)
+    }
+    atualizarFiltro(filtrosSelecionados);
+  })
 })
+
 
 const atualizarFiltro = async (filtros) => {
   try {
@@ -67,6 +66,7 @@ const atualizarFiltro = async (filtros) => {
 
     if (response.ok) {
       const data = await response.json(); // Aguarde a resolução da promessa JSON
+      console.log(data);
       professores.innerHTML = "";
       if (data.erro) {
         professores.innerHTML = "<h1>Nenhum professor encontrado</h1>";

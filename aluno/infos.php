@@ -76,6 +76,7 @@ else if (isset($_SESSION['msg'])){
 </script>
 <script src="./js/excluirConta.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php"; 
+unset($_SESSION['msg'])?>
 
 </html>
