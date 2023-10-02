@@ -36,6 +36,8 @@ session_start();
         <input type="submit" value="Entrar" id="botaoSubmit" name="entrar" />
         <p id="loginHref">
           Não tem uma conta? <a href="cadastro.php">Registre-se</a>
+          <br>
+          <a href="cadastro.php">Esqueceu sua senha?</a>
         </p>
       </fieldset>
     </form>

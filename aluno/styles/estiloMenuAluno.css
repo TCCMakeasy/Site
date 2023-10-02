@@ -65,7 +65,6 @@ nav ul li {
   list-style-type: none;
 }
 #scroll {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

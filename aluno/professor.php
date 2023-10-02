@@ -38,6 +38,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <a onclick="goBack()" style="cursor:pointer;">
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
+                <div id="questions"><p>Preço:R$100</p><a id="report"><img src="./images/denuncia.svg" alt="">
+                    Problemas com o professor?</a>
+                </div>
                 <div id="foto">
                     <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
                     <h1 id="nome_aluno"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
@@ -46,6 +49,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                                             }
                                             echo $nome[0] . " " . $nome[1]; ?><b></h1>
                 </div>
+
             </div>
             <div id="conteúdo">
 

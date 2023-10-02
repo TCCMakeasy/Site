@@ -289,7 +289,19 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensal">
+                <input type="checkbox" name="mensal" id="inputMensal" onclick="myFunction()">
+                <script>
+                    function myFunction() {
+                    const checkMensal = document.getElementById("inputMensal");
+                    const mesGanho = document.getElementById("inputMes");
+                    var isChecked = checkMensal.checked;
+                    if(isChecked) {
+                        mesGanho.setAttribute('disabled',true);
+                    } else {
+                        mesGanho.removeAttribute('disabled');
+                    }};
+                
+                </script>
             </div>
             <div id="mesGanho">
                 <label for="inputMes"><b>Mês:</b></label>
