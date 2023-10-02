@@ -26,7 +26,20 @@ main {
 #voltar {
   position: absolute;
 }
-
+#questions{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  margin-top: 5rem;
+  max-width: 20%;
+  right: 5%;
+}
+#report{
+  display: flex;
+  text-align: center;
+  padding: 0;
+}
 #foto {
   display: flex;
   flex-direction: column;

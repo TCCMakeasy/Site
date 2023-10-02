@@ -137,6 +137,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <script src="./js/marcarAulaOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php"; 
+unset($_SESSION['msg']);?>
 
 </html>

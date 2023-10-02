@@ -397,4 +397,11 @@ select {
     width: 95%;
     margin-top: 10%;
   }
+  #AddGanho, #AddGasto, #EdxValor {
+    height: 75%;
+    width: 80%;
+  }
+  #tela {
+    margin: 5rem 0 0;
+  }
 }

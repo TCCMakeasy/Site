@@ -143,7 +143,7 @@ main {
 }
 @media (max-width: 768px) {
   #fieldsetLogin {
-    width: 80%;
+    width: 20rem;
   }
   .inputLogin {
     width: 90%;

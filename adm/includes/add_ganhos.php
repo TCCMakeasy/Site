@@ -5,27 +5,28 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     header("Location: ../../professor/login.php");
 } else { 
 require_once "../../conexao.php";
-$ganho_preco = $_POST['inputvalorGanho'];
-$ganho_nome = $_POST['inputnomeGanho'];
-$ganho_mensal = $_POST['inputMensal'];
-$ganho_mes = $_POST['inputMes'];
+$ganho_preco = $_POST['valorGanho'];
+$ganho_nome = $_POST['nomeGanho'];
+$ganho_mensal = $_POST['mensal'];
 if ($ganho_mensal == TRUE){
-    $ganho = "INSERT INTO financeiro (preco_financeiro, tipo_financeiro, mensal_financeiro, id_professor, nome_financeiro) VALUES = ('".$ganho_preco."', '1', '1' '".$_SESSION['id']."','".$ganho_nome."')";
-    $ganho_inseri = mysqli_query($sql, $ganho);
+    $ganho = "INSERT INTO financeiro (preco_financeiro, tipo_financeiro, mensal_financeiro, id_professor, nome_financeiro) VALUES ('".$ganho_preco."', '1', '1' '".$_SESSION['id']."','".$ganho_nome."')";
+    $ganho_inseri = mysqli_query($sql, $ganho) or die (mysqli_error($sql));
     if($ganho_inseri){
         $_SESSION['msg'] = 'foi porra';
         header("Location: ../adm_financeiro.php");
-    }else{        
+    }else{
     $_SESSION['msg'] = 'não foi porra com mensal';
-    header("Location: ../adm_financeiro.php");
+    echo $_SESSION['msg'];
+    //header("Location: ../adm_financeiro.php");
     }
 }else{
-    $ganho = "INSERT INTO financeiro (preco_financeiro, tipo_financeiro, mes_financeiro, mensal_financeiro, id_professor, nome_financeiro) VALUES = ('".$ganho_preco."', '1', '".$ganho_mes."', '0', '".$_SESSION['id']."','".$ganho_nome."')";
-    $ganho_inseri = mysqli_query($sql, $ganho);
-    if($ganho_inseri){
+    $ganho_mes = $_POST['mesGanho'];
+    $ganho2 = "INSERT INTO financeiro (preco_financeiro, tipo_financeiro, mes_financeiro, mensal_financeiro, id_professor, nome_financeiro) VALUES ('".$ganho_preco."', '1', '".$ganho_mes."', '0', '".$_SESSION['id']."','".$ganho_nome."')";
+    $ganho_inseri2 = mysqli_query($sql, $ganho);
+    if($ganho_inseri2){
         $_SESSION['msg'] = 'foi porra';
         header("Location: ../adm_financeiro.php");
-    }else{        
+    }else{      
     $_SESSION['msg'] = 'não foi porra sem mensal';
     header("Location: ../adm_financeiro.php");
     }
