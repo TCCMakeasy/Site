@@ -31,14 +31,20 @@ main {
   flex-direction: column;
   text-align: center;
   position: absolute;
-  margin-top: 5rem;
+  margin-top: calc(48px + (80 - 48) * ((100vw - 400px) / (1920 - 400)));;
   max-width: 20%;
   right: 5%;
+  font-weight: 600;
 }
-#report{
-  display: flex;
-  text-align: center;
-  padding: 0;
+#questions a{
+  color: white;
+  text-decoration: none;
+  padding: 0.2rem;
+  font-size: calc(14px + (16 - 14) * ((100vw - 400px) / (1920 - 400)));
+}
+#report a:hover{
+  color: var(--corSecundaria);
+  transition: 0.3s;
 }
 #foto {
   display: flex;
@@ -103,7 +109,7 @@ main {
 
 #descInput {
   padding: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: white;
   font-size: 1.5rem;
   border: 2px solid black;

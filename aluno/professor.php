@@ -38,8 +38,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <a onclick="goBack()" style="cursor:pointer;">
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
-                <div id="questions"><p>Preço:R$100</p><a id="report"><img src="./images/denuncia.svg" alt="">
-                    Problemas com o professor?</a>
+                <div id="questions">
+                    <a><?php echo $infosProfessor['nota_professor']?>/5⭐</a>
+                    <a>Preço:R$<?php echo $infosProfessor['valor_professor']?></a>
+                    <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Problemas com o professor?</a>
                 </div>
                 <div id="foto">
                     <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
@@ -76,7 +78,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <span></span>
                 <h1 style="font-size: 1.3rem;">Avaliações</h1>
                 <p>
-                    <span>5/5⭐</span>
+                    <span><?php echo $infosProfessor['nota_professor']?>/5⭐</span>
                     <span>2 Avaliações</span>
                 </p>
                 <div id="avaliacao">
