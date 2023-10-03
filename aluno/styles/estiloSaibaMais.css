@@ -42,7 +42,7 @@ main {
   padding: 0.2rem;
   font-size: calc(14px + (16 - 14) * ((100vw - 400px) / (1920 - 400)));
 }
-#report a:hover{
+#report:hover{
   color: var(--corSecundaria);
   transition: 0.3s;
 }

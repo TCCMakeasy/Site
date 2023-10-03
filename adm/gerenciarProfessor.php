@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
+if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
-    header("Location: ../aluno/login.php");
+    header("Location: ../../professor/login.php");
 } else {
     require_once("../conexao.php");
     $idProfessor = $_GET['id'];
@@ -20,7 +20,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informações do Administrador</title>
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
-    <link rel="stylesheet" type="text/css" href="./styles/estiloSaibaMais.css">
+    <link rel="stylesheet" type="text/css" href="./styles/estiloGerenciarProfessor.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
@@ -30,7 +30,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
             window.history.back();
         }
     </script>
-    <?php include_once "./includes/menuAluno.php"; ?>
+    <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <h1 id="title">Alunos</h1>
         <div id="container">
@@ -41,7 +41,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <div id="questions">
                     <a><?php echo $infosProfessor['nota_professor']?>/5⭐</a>
                     <a>Preço:R$<?php echo $infosProfessor['valor_professor']?></a>
-                    <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Problemas com o professor?</a>
+                    <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Denúncias</a>
                 </div>
                 <div id="foto">
                     <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
@@ -89,7 +89,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 </div>
             </div>
             <div id="divDesvincular">
-                <button id="desvincularProfessor"><a href="./includes/desvincular.php?id=<?php echo $_SESSION['id']?>">Desvincular-se</a></button>
+                <button id="desvincularProfessor"><a href="./includes/excluirProfessor.php?id=<?php echo $idProfessor?>">Excluir Professor</a></button>
             </div>
         </div>
 

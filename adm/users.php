@@ -67,7 +67,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         echo '<li class="user">';
                         echo '<img src="../fotosPerfil/' . $row_usuario['foto_professor'] . '" alt="Foto do Professor" class="imgUser">';
                         echo '<h1 id="nomeUser">' . $row_usuario['nome_professor'] . '</h1>';
-                        echo '<a id="saibaMais" href="alunos_saibamais.php?id=' . $row_usuario['id_professor'] . '">Saiba Mais</a>';
+                        echo '<a id="saibaMais" href="gerenciarProfessor.php?id=' . $row_usuario['id_professor'] . '">Saiba Mais</a>';
                         echo '</li>';
                     }
                     ?>
