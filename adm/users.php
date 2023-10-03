@@ -8,6 +8,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,8 +18,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <title>Todos os usuários</title>
 </head>
+
 <body>
-<?php include_once "./includes/menuAdm.php"; ?>
+    <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <section>
             <h1 id="title">Alunos</h1>
@@ -26,7 +28,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {
                                                     echo $_SESSION['msg'];
                                                 } ?></div>
-                <ul id="users">
+                <div id="pesquisar">
+                    <h1 id="pesquisarTitulo">Pesquisar:</h1>
+                    <input type="text" class="inputPesquisa" id="pesquisaAluno" name="pesquisa">
+                </div>
+                <ul class="users" id="usersAlunos">
                     <?php
                     include_once("../conexao.php");
                     $result_usuario = "SELECT * FROM aluno";
@@ -35,7 +41,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         echo '<li class="user">';
                         echo '<img src="../fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgUser">';
                         echo '<h1 id="nomeUser">' . $row_usuario['nome_aluno'] . '</h1>';
-                        echo '<a id="saibaMais" href="alunos_saibamais.php?id=' . $row_usuario['id_aluno'] . '">Saiba Mais</a>';
+                        echo '<a id="saibaMais" href="gerenciarAluno.php?id=' . $row_usuario['id_aluno'] . '">Saiba Mais</a>';
                         echo '</li>';
                     }
                     ?>
@@ -48,7 +54,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {
                                                     echo $_SESSION['msg'];
                                                 } ?></div>
-                <ul id="users">
+                <div id="pesquisar">
+                    <h1 id="pesquisarTitulo">Pesquisar:</h1>
+                    <input type="text" class="inputPesquisa" id="pesquisaProfessor" name="pesquisa">
+                </div>
+                <ul class="users" id="usersProfessores">
                     <?php
                     include_once("../conexao.php");
                     $result_usuario = "SELECT * FROM professor";
@@ -67,4 +77,5 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         </section>
     </main>
 </body>
+<script src="./js/searchUsers.js"></script>
 </html>

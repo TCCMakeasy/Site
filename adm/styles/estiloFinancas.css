@@ -375,7 +375,6 @@ select {
     height: calc(100vh - 5rem);
     border-radius: 0;
     box-shadow: none;
-    margin-top: 2rem;
   }
   #container > * {
     margin: 0rem;

@@ -8,7 +8,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     require_once("../conexao.php");
     $horarios = array("10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
     $days = array("seg", "ter", "qua", "qui", "sex", "sab", "dom");
-}else{
+} else {
     $_SESSION['msg'] = "Você não tem um professor";
     header("Location: ../aluno/infos.php");
 }
@@ -61,28 +61,27 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                         foreach ($days as $day) {
                             if (isset($sqlHorarios[$day . '_cronograma'])) {
                                 echo '<td id="' . $day . ':' . $horario . '">';
-                                if ($sqlHorarios[$day . '_cronograma'] == "privado") { ?><script>
-                                        document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");
-                                    </script><?php
-                                            } else {
-                                                $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id_professor'] . "'";
-                                                $alunoRequest = mysqli_query($sql, $alunoSelect);
-                                                $aluno = mysqli_fetch_assoc($alunoRequest);
-                                                if ($aluno['nome_aluno'] == $_SESSION['nome']) {
-                                                    echo "Você";
-                                                } else {
-                                                    echo "Ocupado";
-                                                }
-                                            }
-                                        } else {
-                                            echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
-                                            echo "Disponível";
-                                        }
-                                        echo '</td>';
+                                if ($sqlHorarios[$day . '_cronograma'] == "privado") {
+                                    echo "Ocupado";
+                                } else {
+                                    $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id_professor'] . "'";
+                                    $alunoRequest = mysqli_query($sql, $alunoSelect);
+                                    $aluno = mysqli_fetch_assoc($alunoRequest);
+                                    if ($aluno['nome_aluno'] == $_SESSION['nome']) {
+                                        echo "Você";
+                                    } else {
+                                        echo "Ocupado";
                                     }
-                                    echo '</tr>';
                                 }
-                                                ?>
+                            } else {
+                                echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
+                                echo "Disponível";
+                            }
+                            echo '</td>';
+                        }
+                        echo '</tr>';
+                    }
+                    ?>
                 </table>
             </div>
 
