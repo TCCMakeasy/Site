@@ -42,7 +42,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         echo "Carácter ( & ) utilizado na senha é inválido";
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['fotoPerfil'] . "', foto_professor = '" . $dados['foto'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['senha'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     }
     if ($erro == false) {
         $result = mysqli_query($sql, $update);

@@ -65,11 +65,17 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                                                 $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
                                                 $alunoRequest = mysqli_query($sql, $alunoSelect);
                                                 $aluno = mysqli_fetch_assoc($alunoRequest);
+                                                if(isset($aluno['nome_aluno'])){
                                                 $aluno = explode(' ', $aluno['nome_aluno']);
                                                 if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
                                                     echo $aluno[0] . ' ' . $aluno[1];
                                                 } else {
                                                     echo $aluno[0];
+                                                }} else {
+                                                    $sqlUpdate = "UPDATE cronograma SET " . $day . "_cronograma = NULL WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
+                                                    mysqli_query($sql, $sqlUpdate);
+                                                    echo "<script>document.getElementById('" . $day . ':' . $horario . "').classList.add('disponivel');</script>";
+                                                    echo "Disponível";
                                                 }
                                             }
                                         } else {

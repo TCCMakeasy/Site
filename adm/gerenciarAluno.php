@@ -7,16 +7,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 } else {
     require_once("../conexao.php");
     $idAluno = $_GET['id'];
-    $checkProfessor = "SELECT id_professor FROM aluno WHERE id_aluno = '$idAluno'";
-    $resultCheckProfessor = mysqli_query($sql, $checkProfessor);
-    $resultProfessor = mysqli_fetch_assoc($resultCheckProfessor);
-    if ($resultProfessor['id_professor'] != $_SESSION['id']) {
-        $_SESSION['msg'] = "Você não tem permissão para acessar essa página";
-        header("Location: ../../adm/adm_alunos.php");
-    } else {
-        $sqlSelect = "SELECT * FROM aluno WHERE id_aluno = '$idAluno'";
-        $sqlAluno = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
-    }
+    $sqlSelect = "SELECT * FROM aluno WHERE id_aluno = '$idAluno'";
+    $sqlAluno = mysqli_fetch_assoc(mysqli_query($sql, $sqlSelect));
 }
 ?>
 <!DOCTYPE html>
@@ -25,7 +17,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Alunos - Saiba Mais</title>
+    <title>Gerenciar Aluno (ADM)</title>
     <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloSaibaMais.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
@@ -37,7 +29,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         <h1 id="title">Alunos</h1>
         <div id="container">
             <div class="mobileSeta">
-                <a href="adm_alunos.php">
+                <a href="users.php">
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
                 <div id="foto">
@@ -74,7 +66,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if(isset($sqlAluno['desc_aluno'])){echo $sqlAluno['desc_aluno'];} ?></textarea>
             </div>
             <div id="divDesvincularAluno">
-                <button id="desvincularAluno"><a href="./includes/desvincular.php?id=<?php echo $idAluno?>">Desvincular-se</a></button>
+                <button id="desvincularAluno"><a href="./includes/excluirAluno.php?id=<?php echo $idAluno?>">Excluir aluno</a></button>
             </div>
         </div>
 

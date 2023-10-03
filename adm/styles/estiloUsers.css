@@ -50,7 +50,23 @@ section {
 #container > ul {
   margin-top: 1.5rem;
 }
-#users {
+#pesquisar {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.inputPesquisa {
+  width: 90%;
+  height: 2rem;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 0 1rem;
+  font-size: 1.3rem;
+}
+.users {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

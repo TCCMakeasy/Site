@@ -18,7 +18,7 @@
                     <a href="./adm_alunos.php" class="navButton">Alunos</a>
                 </li>
                 <li>
-                    <a href="" class="navButton">Usuários</a>
+                    <a href="./users.php" class="navButton">Usuários</a>
                 </li>
                 <li>
                     <a id="openNotify" class="navButton">Mensagens</a>
