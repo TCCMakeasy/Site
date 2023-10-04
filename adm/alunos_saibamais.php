@@ -53,7 +53,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
                 <div class="dado">
                     <h2 class="cont">Nome Completo:</h2>
-                    <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['nome_aluno'] ?></label>
+                    <label id="valorInput" class="inputText" type="text"><?php echo $sqlAluno['nome_aluno'] ?></label>
                 </div>
 
                 <div class="dado">
@@ -64,7 +64,12 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
                 <div class="dado">
                     <h2 class="cont">Email:</h2>
-                    <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['email_aluno'] ?></label>
+                    <label id="valorInput" class="inputText" type="email"><?php echo $sqlAluno['email_aluno'] ?></label>
+                </div>
+
+                <div class="dado">
+                    <h2 class="cont">Telefone:</h2>
+                    <label id="valorInput" class="inputText" type="tel"><?php echo $sqlAluno['telefone_aluno'] ?></label>
                 </div>
 
             </div>

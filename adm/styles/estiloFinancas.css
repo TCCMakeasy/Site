@@ -224,7 +224,6 @@ main {
 }
 #nomeValor, #valorValor, #mesValor{
   display: flex;
-  width: 90%;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
@@ -397,8 +396,35 @@ select {
     margin-top: 10%;
   }
   #AddGanho, #AddGasto, #EdxValor {
-    height: 75%;
+    height: 80%;
     width: 80%;
+  }
+  #tabela {
+    display: flex;
+    flex-direction: column;
+  }
+  th, td {
+  min-width: 5rem;
+  height: 2rem;
+  }
+  #submitEdxValor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #EdxValor-content {
+    display: block;
+  }
+  #formEdxValor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #btnEdValor, #btnExValor, #closeEdxValor {
+    font-size: 0.9rem;
+    height: 2rem;
   }
   #tela {
     margin: 5rem 0 0;

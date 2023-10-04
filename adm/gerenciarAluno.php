@@ -53,12 +53,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <label id="valorInput" class="inputText" type="number"><?php echo $idAluno ?></label>
                 </div>
 
-
                 <div class="dado">
                     <h2 class="cont">Email:</h2>
                     <label id="valorInput" class="inputText" type="number"><?php echo $sqlAluno['email_aluno'] ?></label>
                 </div>
 
+                <div class="dado">
+                    <h2 class="cont">Telefone:</h2>
+                    <label id="valorInput" class="inputText" type="tel"><?php echo $sqlAluno['telefone_aluno'] ?></label>
+                </div>
             </div>
 
             <div id="divDesc">
