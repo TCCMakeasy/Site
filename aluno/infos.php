@@ -4,9 +4,8 @@ session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../aluno/login.php");
-}
-else if (isset($_SESSION['msg'])){
-    echo "<script>alert('".$_SESSION['msg']."')</script>";
+} else if (isset($_SESSION['msg'])) {
+    echo "<script>alert('" . $_SESSION['msg'] . "')</script>";
     unset($_SESSION['msg']);
 }
 ?>
@@ -36,7 +35,7 @@ else if (isset($_SESSION['msg'])){
                 <section id="editInfos">
                     <div id="divNome" class="divInputText">
                         <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <input  id="nomeInput" class="inputLock" type="text" name="nome" disabled value="<?php echo $_SESSION['nome'] ?>">
+                        <input id="nomeInput" class="inputLock" type="text" name="nome" disabled value="<?php echo $_SESSION['nome'] ?>">
                     </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
@@ -50,6 +49,24 @@ else if (isset($_SESSION['msg'])){
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
                         <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" placeholder="●●●●●●●●"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
                     </div>
+                    <div id="divTelefone" class="divInputText">
+                        <p id="telefoneTitulo" class="tituloForm">Telefone:</p>
+                        <p class="inputP"><input id="telefoneInput" class="inputText" type="tel" name="telefone" placeholder="(99)99999-9999" maxlength="15" onkeyup="handlePhone(event)" value="<?php echo $_SESSION['telefone'] ?>"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
+                    </div>
+                    <script>
+                        const handlePhone = (event) => {
+                            let input = event.target
+                            input.value = phoneMask(input.value)
+                        }
+
+                        const phoneMask = (value) => {
+                            if (!value) return ""
+                            value = value.replace(/\D/g, '')
+                            value = value.replace(/(\d{2})(\d)/, "($1) $2")
+                            value = value.replace(/(\d)(\d{4})$/, "$1-$2")
+                            return value
+                        }
+                    </script>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
                         <input id="dataNascInput" class="inputLock" type="text" name="data de Nascimento" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
@@ -76,7 +93,7 @@ else if (isset($_SESSION['msg'])){
 </script>
 <script src="./js/excluirConta.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "./includes/modalNotificar.php"; 
-unset($_SESSION['msg']);?>
+<?php include_once "./includes/modalNotificar.php";
+unset($_SESSION['msg']); ?>
 
 </html>
