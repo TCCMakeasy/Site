@@ -88,7 +88,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     </p>
                 </div>
             </div>
-            <div id="divDesvincular">
+            <div id="divDesvincularProfessor">
                 <button id="desvincularProfessor"><a href="./includes/desvincular.php?id=<?php echo $_SESSION['id']?>">Desvincular-se</a></button>
             </div>
         </div>

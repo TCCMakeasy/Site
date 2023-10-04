@@ -4,10 +4,7 @@ session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../aluno/login.php");
-} else if (isset($_SESSION['msg'])) {
-    echo "<script>alert('" . $_SESSION['msg'] . "')</script>";
-    unset($_SESSION['msg']);
-}
+} 
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -94,6 +91,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 <script src="./js/excluirConta.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "./includes/modalNotificar.php";
+if (isset($_SESSION['msg'])) {
+    echo "<script>
+    document.onload(alert('" . $_SESSION['msg'] . "'));</script>";
+}
 unset($_SESSION['msg']); ?>
 
 </html>
