@@ -58,7 +58,7 @@ main {
   font-size: 1.25rem;
   font-weight: 600;
   color: rgb(255, 255, 255);
-  margin: auto 1rem;
+  margin: auto 0.75;
   cursor: pointer;
 }
 #abrirEdxValor {
@@ -76,8 +76,8 @@ main {
 }
 #AddGanho {
   display: none;
-  width: 40%;
-  height: 48%;
+  width: 50rem;
+  height: 28rem;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -88,8 +88,8 @@ main {
 }
 #AddGasto {
   display: none;
-  width: 40%;
-  height: 48%;
+  width: 50rem;
+  height: 28rem;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -100,8 +100,8 @@ main {
 }
 #EdxValor {
   display: none;
-  width: 40%;
-  height: 70%;
+  width: 50rem;
+  height: 39rem;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -170,7 +170,7 @@ main {
   align-items: center;
   justify-content: flex-end;
   text-align: center;
-  margin: 1rem 0 1rem;
+  margin: 2rem 0 2.5rem;
   font-size: 1.4rem;
 }
 #AddGasto[open] {
@@ -316,6 +316,7 @@ input[type=checkbox] {
   background-color: var(--vermelhoMakeasy);
 }
 #tabela {
+  max-height: 14rem;
   margin: 0 auto;
   border-collapse: collapse;
 }
@@ -390,13 +391,17 @@ select {
     gap: 1rem;
   }
   #graficos{
-    height: 50%;
+    height: 60%;
     flex: 0 0 auto;
-    width: 95%;
+    width: 100%;
     margin-top: 10%;
   }
-  #AddGanho, #AddGasto, #EdxValor {
-    height: 80%;
+  #AddGanho, #AddGasto {
+    height: 70%;
+    width: 80%;
+  }
+  #EdxValor {
+    height: 85%;
     width: 80%;
   }
   #tabela {
@@ -422,10 +427,13 @@ select {
     display: flex;
     flex-direction: column;
   }
-  #btnEdValor, #btnExValor, #closeEdxValor {
-    font-size: 0.9rem;
-    height: 2rem;
+  #nomeValor{
+    margin: 1rem 0 1.5rem;
   }
+  #valorValor, #mensal, #mesValor{
+    margin: 0rem 0 1.5rem;
+  }
+
   #tela {
     margin: 5rem 0 0;
   }
