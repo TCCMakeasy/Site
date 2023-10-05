@@ -72,10 +72,34 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     }
                     ?>
                 </ul>
-                <button id="abrirAdicionarProfessor">Adicionar Professor</button>
+                <button id="abrirAdicionarProf">Adicionar Professor</button>
             </div>
         </section>
     </main>
 </body>
+<dialog id="addProf">
+    <div id="addProf-content">
+        <form action="./includes/add_Profs.php" method="post" id="formAddProf">
+            <h1>Adicionar Professor</h1>
+            <div id="nomeProf">
+                <label for="inputNomeProf"><b>Nome:</b></label>
+                <input type="text" name="nomeProf" id="inputNomeProf" placeholder="Nome do Professor">
+            </div>
+            <div id="senhaProf">
+                <label for="inputsenhaProf"><b>Senha provisória:</b></label>
+                <input type="text" name="senhaProf" id="inputSenhaProf">
+            </div>
+            <div id="emailProf">
+                <label for="inputemailProf"><b>Email:</b></label>
+                <input type="text" name="emailProf" id="inputEmailProf">
+            </div>
+            <div id="submitAddProf">
+                <input type="submit" id="adicionarProf" name="btnAddProf" value="Adicionar Professor">
+                <button id="closeAddProf" type="button">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</dialog>
 <script src="./js/searchUsers.js"></script>
+<script src="./js/addProfOpenClose.js"></script>
 </html>

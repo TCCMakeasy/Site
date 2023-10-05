@@ -11,7 +11,7 @@ if (isset($dados)) {
     $senha = $dados['senha'];
 
     if ((!empty($email)) and (!empty($senha))) {
-        $result_login = "select id_professor, bio_professor, valor_professor, nota_professor, email_professor, nome_professor, nascimento_professor, senha_professor, foto_professor from professor where email_professor= '$email' LIMIT 1";
+        $result_login = "select * from professor where email_professor= '$email' LIMIT 1";
         $resultado_login = mysqli_query($sql, $result_login);
         if ($resultado_login) {
             $row_login = mysqli_fetch_assoc($resultado_login);
@@ -23,6 +23,7 @@ if (isset($dados)) {
                     $_SESSION['data'] = $row_login['nascimento_professor'];
                     $_SESSION['foto'] = $row_login['foto_professor'];
                     $_SESSION['nota'] = $row_login['nota_professor'];
+                    $_SESSION['telefone'] = $row_login['telefone_professor'];
                     $_SESSION['valor'] = $row_login['valor_professor'];
                     $_SESSION['bio'] = $row_login['bio_professor'];
                     unset($_SESSION['msg']);

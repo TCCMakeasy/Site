@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
-    header("Location: ../professor/login.php");
+    header("Location: ../../professor/login.php");
 } else {
     require_once "../../conexao.php";
     $dados_rc = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -33,7 +33,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         $dados['valor'] = $_SESSION['valor'];
     }
     if ($dados['senha'] == "") {
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
         $erro = true;
         echo "A senha deve ter no minímo 6 caracteres";
@@ -42,7 +42,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         echo "Carácter ( & ) utilizado na senha é inválido";
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['senha'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['senha'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     }
     if ($erro == false) {
         $result = mysqli_query($sql, $update);
@@ -52,6 +52,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             $_SESSION['foto'] = $dados['fotoPerfil'];
             $_SESSION['bio'] = $dados['bio'];
             $_SESSION['valor'] = $dados['valor'];
+            $_SESSION['telefone'] = $dados['telefone'];
+
             header("Location: ../infos.php");
         } else {
             $_SESSION['msg'] = "Erro ao atualizar informações";

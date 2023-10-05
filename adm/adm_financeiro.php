@@ -360,37 +360,30 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <dialog id="EdxValor">
     <div id="EdxValor-content">
         <form id="formEdxValor">
-            <table id="tabela">
+            <table id="tabela" action="./includes/adm_financeiroedit.php">
                 <tr>
                     <th id="valorTitle">Nome</th>
                     <th id="valorTitle">Valor</th>
                     <th id="valorTitle">Tipo</th>
                 </tr>
-                <tr id="linha">
-                    <td id="valores">Netflix</td>
-                    <td id="valores">40</td>
-                    <td id="valores">Gasto</td>
-                </tr>
-                <tr id="linha">
-                    <td id="valores">Netflix</td>
-                    <td id="valores">40</td>
-                    <td id="valores">Gasto</td>
-                </tr>
-                <tr id="linha">
-                    <td id="valores">Netflix</td>
-                    <td id="valores">40</td>
-                    <td id="valores">Gasto</td>
-                </tr>
-                <tr id="linha">
-                    <td id="valores">Netflix</td>
-                    <td id="valores">40</td>
-                    <td id="valores">Gasto</td>
-                </tr>
-                <tr id="linha">
-                    <td id="valores">Netflix</td>
-                    <td id="valores">40</td>
-                    <td id="valores">Gasto</td>
-                </tr>
+                <?php
+                    require_once '../conexao.php';
+                    $seleciona_financeiro = "SELECT * FROM financeiro WHERE id_professor = '".$_SESSION['id']."'";
+                    $resultado_financeiro = mysqli_query($sql, $seleciona_financeiro);
+                    while($row_edit = mysqli_fetch_assoc($resultado_financeiro)){
+                        echo '<tr id="linha">';
+                        echo '<td id="valores">'.$row_edit['nome_financeiro'].'</td>';
+                        echo '<td id="valores">'.$row_edit['preco_financeiro'].'</td>';
+                        if($row_edit['tipo_financeiro'] == 1){
+                            echo '<td id="valores">Ganho</td>';
+                        }else{
+                            echo '<td id="valores">Gasto</td>';
+                        }
+                        echo '</tr>';
+                    }
+
+                ?>
+                
             </table>
             <div id="nomeValor">
                 <label for="inputnomeValor"><b>Nome:</b></label>

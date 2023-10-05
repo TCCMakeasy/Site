@@ -46,6 +46,24 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
                         <p class="inputP"><input id="senhaInput" class="inputText" name="senha" type="password" placeholder="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
                     </div>
+                    <div id="divTelefone" class="divInputText">
+                        <p id="telefoneTitulo" class="tituloForm">Telefone:</p>
+                        <p class="inputP"><input id="telefoneInput" class="inputText" type="tel" name="telefone" placeholder="(99)99999-9999" maxlength="15" onkeyup="handlePhone(event)" value="<?php echo $_SESSION['telefone'] ?>"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
+                    </div>
+                    <script>
+                        const handlePhone = (event) => {
+                            let input = event.target
+                            input.value = phoneMask(input.value)
+                        }
+
+                        const phoneMask = (value) => {
+                            if (!value) return ""
+                            value = value.replace(/\D/g, '')
+                            value = value.replace(/(\d{2})(\d)/, "($1) $2")
+                            value = value.replace(/(\d)(\d{4})$/, "$1-$2")
+                            return value
+                        }
+                    </script>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
                         <input id="dataNascInput" class="inputLock" type="text" name="data" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>

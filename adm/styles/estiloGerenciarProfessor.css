@@ -159,6 +159,17 @@ main {
     text-decoration: none;
     color: black;
   }
+  #whatsappAluno {
+    background-color: #25d366;
+    margin: 0.5rem;
+    padding: 0 0.5rem;
+    border-radius: 8px;
+  }
+  #whatsappAluno:hover {
+    background-color: #128c7e;
+    transition: 0.3s;
+    box-shadow: 0 0 0 1.2px #25d366 inset;
+  }
   @media (max-width: 768px) {
     body{
       height: calc(100vh - 5rem);

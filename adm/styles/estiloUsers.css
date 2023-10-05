@@ -218,6 +218,145 @@ section {
   background-color: var(--vermelhoMakeasy);
 }
 
+#abrirAdicionarProf {
+  width: 10rem;
+  height: 2.5rem;
+  position: fixed;
+  bottom: 3rem;
+  background-color: var(--verdeMakeasy);
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#addProf {
+  display: none;
+  width: 50rem;
+  height: 28rem;
+  background-color: var(--corPrimaria);
+  border-radius: 8px;
+  border: 3px solid #000;
+  color: white;
+}
+#addProf::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#addProf[open] {
+  animation: slide-up 500ms forwards, fade-in 500ms forwards;
+}
+#addProf[open]::backdrop {
+  animation: fade-in 500ms forwards;
+}
+#addProf-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+#formAddProf {
+  width: 100%;
+}
+#formAddProf > h1 {
+  margin: -1.5rem auto 1rem;
+}
+#nomeProf {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  font-size: 1.4rem;
+}
+input {
+  width: 70%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+#senhaProf {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5rem 0 1.5rem;
+  padding: 3rem 0;
+  font-size: 1.5rem;
+}
+#inputSenhaProf {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+#emailProf {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0.5rem 0 1.5rem;
+  padding: 3rem 0;
+  font-size: 1.5rem;
+}
+#inputEmailProf {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+#submitAddProf > * {
+  width: 10rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 3rem;
+  cursor: pointer;
+}
+#adicionarProf {
+  background-color: var(--verdeMakeasy);
+}
+#closeAddProf {
+  background-color: var(--vermelhoMakeasy);
+}
+
 @media (max-width: 768px) {
   main {
     margin-left: 0;
