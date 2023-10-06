@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import '../styles/estiloPadrão.css';
 #tela {
   margin-left: calc((98% + 380px) / 2 - 40%);
 }

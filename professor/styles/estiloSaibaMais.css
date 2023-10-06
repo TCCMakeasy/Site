@@ -1,3 +1,4 @@
+@import '../styles/estiloPadrão.css';
 main {
   margin-left: calc((98% + 380px) / 2 - 40%);
   height: 100%;
@@ -98,14 +99,13 @@ main {
   border-radius: 8px;
   width: 36rem;
   height: 12rem;
-
 }
-#divDesvincularAluno{
+#divDesvincularAluno {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#desvincularAluno{
+#desvincularAluno {
   background-color: var(--vermelhoMakeasy);
   border: 2px solid black;
   border-radius: 16px;
@@ -116,15 +116,26 @@ main {
   cursor: pointer;
   margin-bottom: 2rem;
 }
-#desvincularAluno:hover{
+#desvincularAluno:hover {
   background-color: var(--vermelhoMakeasyHover);
   transition: 0.3s;
 }
-#desvincularAluno > a{
+#desvincularAluno > a {
   text-decoration: none;
   color: black;
 }
 
+#whatsappAluno {
+  background-color: #25d366;
+  margin: 0.5rem;
+  padding: 0 0.5rem;
+  border-radius: 8px;
+}
+#whatsappAluno:hover {
+  background-color: #128c7e;
+  transition: 0.3s;
+  box-shadow: 0 0 0 1.2px #25d366 inset;
+}
 @media (max-width: 768px) {
   main {
     margin-left: 0;
@@ -151,7 +162,7 @@ main {
     justify-content: space-around;
     margin-left: -2rem;
   }
-  #foto{
+  #foto {
     margin-left: -2rem;
   }
 }

@@ -13,7 +13,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suas Informações</title>
-    <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloEditInfos.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
