@@ -57,33 +57,36 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         foreach ($days as $day) {
                             if (isset($sqlHorarios[$day . '_cronograma'])) {
                                 echo '<td id="' . $day . ':' . $horario . '">';
-                                if ($sqlHorarios[$day . '_cronograma'] == "privado") {?><script>document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");</script><?php
-                                } else {
-                                    $alunoSelect = "SELECT id_aluno, nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
-                                    $alunoRequest = mysqli_query($sql, $alunoSelect);
-                                    $alunoInfos = mysqli_fetch_assoc($alunoRequest);
-                                    if(isset($alunoInfos['nome_aluno'])){
-                                    $aluno = explode(' ', $alunoInfos['nome_aluno']);
-                                    if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
-                                        echo $aluno[0] . ' ' . $aluno[1] . ' [' . $alunoInfos['id_aluno'] . ']';
-                                    } else {
-                                        echo $aluno[0]  . ' [' . $alunoInfos['id_aluno'] . ']';
-                                    }} else {
-                                        $sqlUpdate = "UPDATE cronograma SET " . $day . "_cronograma = NULL WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
-                                        mysqli_query($sql, $sqlUpdate);
-                                        echo "<script>document.getElementById('" . $day . ':' . $horario . "').classList.add('disponivel');</script>";
-                                        echo "Disponível";
+                                if ($sqlHorarios[$day . '_cronograma'] == "privado") { ?><script>
+                                        document.getElementById("<?php echo $day . ':' . $horario ?>").classList.add("privado");
+                                    </script><?php
+                                            } else {
+                                                $alunoSelect = "SELECT id_aluno, nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id'] . "'";
+                                                $alunoRequest = mysqli_query($sql, $alunoSelect);
+                                                $alunoInfos = mysqli_fetch_assoc($alunoRequest);
+                                                if (isset($alunoInfos['nome_aluno'])) {
+                                                    $aluno = explode(' ', $alunoInfos['nome_aluno']);
+                                                    if (isset($aluno[1]) && strlen($aluno[0]) <= 12) {
+                                                        echo $aluno[0] . ' ' . $aluno[1] . ' [' . $alunoInfos['id_aluno'] . ']';
+                                                    } else {
+                                                        echo $aluno[0]  . ' [' . $alunoInfos['id_aluno'] . ']';
+                                                    }
+                                                } else {
+                                                    $sqlUpdate = "UPDATE cronograma SET " . $day . "_cronograma = NULL WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
+                                                    mysqli_query($sql, $sqlUpdate);
+                                                    echo "<script>document.getElementById('" . $day . ':' . $horario . "').classList.add('disponivel');</script>";
+                                                    echo "Disponível";
+                                                }
+                                            }
+                                        } else {
+                                            echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
+                                            echo "Disponível";
+                                        }
+                                        echo '</td>';
                                     }
+                                    echo '</tr>';
                                 }
-                            } else {
-                                echo '<td id="' . $day . ':' . $horario . '" class="disponivel">';
-                                echo "Disponível";
-                            }
-                            echo '</td>';
-                        }
-                        echo '</tr>';
-                    }
-                    ?>
+                                                ?>
                 </table>
             </div>
 
@@ -109,7 +112,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     $sqlSelect = "SELECT * FROM aluno WHERE id_professor = '" . $_SESSION['id'] . "'";
                     $sqlAlunos = mysqli_query($sql, $sqlSelect);
                     while ($aluno = mysqli_fetch_assoc($sqlAlunos)) {
-                        echo '<option value="' . $aluno['id_aluno'] . '">' . $aluno['nome_aluno'] . '  ID:'. $aluno['id_aluno'] .'</option>';
+                        echo '<option value="' . $aluno['id_aluno'] . '">' . $aluno['nome_aluno'] . '  ID:' . $aluno['id_aluno'] . '</option>';
                     }
                     ?>
                 </select>
@@ -141,6 +144,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 <script src="./js/marcarAulaOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php";
+if (isset($_SESSION['msg'])) {
+    echo '<script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            alert("' . $_SESSION['msg'] . '");
+          })</script>';
+}
+unset($_SESSION['msg']); ?>
 
 </html>
