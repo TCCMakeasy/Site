@@ -43,7 +43,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 </a>
                 <div id="questions">
                     <a><?php echo $infosProfessor['nota_professor']?>/5⭐</a>
-                    <a>Preço:R$<?php echo $infosProfessor['valor_professor']?></a>
+                    <a>Preço: R$<?php echo $infosProfessor['valor_professor']?></a>
                     <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Problemas com o professor?</a>
                 </div>
                 <div id="foto">

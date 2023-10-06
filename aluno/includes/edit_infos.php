@@ -14,7 +14,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         $dados['fotoPerfil'] = $_SESSION['foto'];
     }elseif($fotoPerfil['size'] > 5242880){
         $erro = true;
-        echo "O arquivo enviado excede o limite de 5MB";
+        $_SESSION['msg'] = "O arquivo enviado excede o limite de 5MB";
+        header("Location: ../infos.php");
+        exit();
     }else{
         $extensao = strtolower(pathinfo($fotoPerfil['name'], PATHINFO_EXTENSION));
         $novo_nome = md5(uniqid()) . "." . $extensao;
@@ -33,10 +35,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', telefone_aluno = '" . $dados['telefone'] . "', bio_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
         $erro = true;
-        echo "A senha deve ter no minímo 6 caracteres";
+        $_SESSION['msg'] = "A senha deve conter no mínimo 6 caracteres";
+        header("Location: ../infos.php");
+        exit();
     } elseif (stristr($dados['senha'], "&")) {
         $erro = true;
-        echo "Carácter ( & ) utilizado na senha é inválido";
+        $_SESSION['msg'] = "Carácter ( & ) utilizado na senha é inválido";
+        header("Location: ../infos.php");
+        exit();
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
         $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', senha_aluno = '" . $dados['senha'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', bio_aluno = '" . $dados['descInput'] . "', telefone_aluno = '" . $dados['telefone'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
@@ -50,12 +56,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
             $_SESSION['desc'] = $dados['descInput'];
             $_SESSION['telefone'] = $dados['telefone'];
             header("Location: ../infos.php");
+            exit();
         } else {
             $_SESSION['msg'] = "Erro ao atualizar informações";
             header("Location: ../infos.php");
+            exit();
         }
     } else {
         $_SESSION['msg'] = "Erro ao atualizar informações";
         header("Location: ../infos.php");
+        exit();
     }
 }
