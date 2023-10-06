@@ -1,9 +1,10 @@
+@import '../styles/estiloPadrão.css';
 @font-face {
   font-family: "Open Sans";
   src: url("../fonts/OpenSans.ttf");
 }
 body {
-  background-color: #343888;
+  background-color: var(--corPrimaria);
   font-family: "Open Sans";
 }
 .avisos{
@@ -30,10 +31,10 @@ header {
 
 #voltar {
   display: block;
-  background-color: #343888;
+  background-color: var(--corPrimaria);
   margin-left: 10px;
   border: none;
-  color: #ef1dac;
+  color: var(--rosaMakeasy);
   font-weight: 700;
 }
 
@@ -98,7 +99,7 @@ main {
   margin: 1.5rem auto 0rem;
   border-radius: 10px;
   border: none;
-  background-color: #ef1dac;
+  background-color: var(--rosaMakeasy);
   color: #ffffff;
   font-weight: 600;
   font-size: 1.2rem;
@@ -107,7 +108,7 @@ main {
 }
 
 #botaoSubmit:hover {
-  background-color: #c41b8e;
+  background-color: var(--rosaMakeasyHover);
   transition: 0.5s;
 }
 

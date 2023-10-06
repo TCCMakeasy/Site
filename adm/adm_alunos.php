@@ -14,7 +14,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Alunos</title>
-    <link rel="stylesheet" type="text/css" href="./styles/estiloPadrão.css">
     <link rel="stylesheet" type="text/css" href="./styles/estiloAlunosN.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>

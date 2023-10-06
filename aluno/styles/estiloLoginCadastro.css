@@ -1,5 +1,6 @@
+@import '../styles/estiloPadrão.css';
 body {
-  background-color: #343888;
+  background-color: var(--corPrimaria);
 }
 header {
   display: flex;
@@ -9,10 +10,10 @@ header {
 }
 #voltar {
   display: block;
-  background-color: #343888;
+  background-color: var(--corPrimaria);
   margin-left: 10px;
   border: none;
-  color: #ef1dac;
+  color: var(--rosaMakeasy);
   font-weight: 700;
 }
 #logo {
@@ -117,7 +118,7 @@ main {
   margin: 1.5rem auto 0rem;
   border-radius: 10px;
   border: none;
-  background-color: #ef1dac;
+  background-color: var(--rosaMakeasy);
   color: #ffffff;
   font-weight: 600;
   font-size: 1.2rem;
@@ -125,7 +126,7 @@ main {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 #botaoSubmit:hover {
-  background-color: #c41b8e;
+  background-color: var(--rosaMakeasyHover);
   transition: 0.5s;
 }
 #loginHref {
