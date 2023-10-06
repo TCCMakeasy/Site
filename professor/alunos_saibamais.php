@@ -90,7 +90,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 
             <div id="divDesc">
                 <p id="descTitulo" class="tituloForm">Descrição:</p>
-                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if(isset($sqlAluno['desc_aluno'])){echo $sqlAluno['desc_aluno'];} ?></textarea>
+                <textarea id="descInput" class="inputText" rows="5" name="bio" disabled><?php if(isset($sqlAluno['bio_aluno'])){echo $sqlAluno['bio_aluno'];} ?></textarea>
             </div>
             <div id="divDesvincularAluno">
                 <button id="desvincularAluno"><a href="./includes/desvincular.php?id=<?php echo $idAluno?>">Desvincular-se</a></button>

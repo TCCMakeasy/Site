@@ -48,7 +48,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             $sqlUpdate = "UPDATE cronograma SET " .$_POST['aulaDia']. "_cronograma = '$idAluno' WHERE tempo_cronograma = '$aulaHora' AND id_professor = '" . $_SESSION['id'] . "'";
             if ($sql->query($sqlUpdate) === TRUE) {
                 header("Location: ../adm_cronograma.php");
-                $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('Uma aula foi marcada ".$aulaDia.", pelo professor ".$_SESSION['nome'].",  para as ".$aulaHora."', '".$_SESSION['id']."', '".$idAluno."', '0')";
+                $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('Uma aula foi marcada pelo professor ".$_SESSION['nome']."  para ".$aulaDia." às ".$aulaHora." horas', '".$_SESSION['id']."', '".$idAluno."', '0')";
 				$noti = mysqli_query($sql,$notificar);
 				if ($noti){
                     $_SESSION['msg'] = "Aula cadastrada com sucesso";

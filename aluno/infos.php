@@ -91,8 +91,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "./includes/modalNotificar.php";
 if (isset($_SESSION['msg'])) {
-    echo "<script>
-    document.onload(alert('" . $_SESSION['msg'] . "'));</script>";
+    echo '<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        alert("' . $_SESSION['msg'] . '");
+      })</script>';
 }
 unset($_SESSION['msg']); ?>
 

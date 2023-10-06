@@ -32,6 +32,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <a href="professores.php">
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
+                <div id="questions">
+                    <a><?php echo $infosProfessor['nota_professor']?>/5⭐</a>
+                    <a>Preço: R$<?php echo $infosProfessor['valor_professor']?></a>
+                </div>
                 <div id="foto">
                     <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
                     <h1 id="nome_aluno"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);

@@ -7,17 +7,40 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     require_once "../../conexao.php";
     $data = file_get_contents('php://input');
     $data = explode(':', $data);
-    $dia = $data[0];
+    $aulaDia = $data[0];
     $horario = $data[1];
+	switch($aulaDia){
+		case "seg":
+			$aulaDia = "Segunda-Feira";
+			break;
+		case "ter":
+			$aulaDia = "Terça-Feira";
+			break;
+		case "qua":
+			$aulaDia = "Quarta-Feira";
+			break;
+		case "qui":
+			$aulaDia = "Quinta-Feira";
+			break;
+		case "sex":
+			$aulaDia = "Sexta-Feira";
+			break;
+		case "sab":
+			$aulaDia = "Sábado";
+			break;
+		case "dom":
+			$aulaDia = "Domingo";
+			break;
+	}
     
-    $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('O aluno ".$_SESSION['nome']." pediu para desmarcar a aula de ".$dia." para as ".$horario."', '".$_SESSION['id_professor']."', '".$_SESSION['id']."', '1')";
+    $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('".$_SESSION['nome']." pediu para desmarcar a aula de ".$aulaDia." às ".$horario.":00 horas', '".$_SESSION['id_professor']."', '".$_SESSION['id']."', '1')";
 	$noti = mysqli_query($sql,$notificar);
 		if ($noti){
-			$_SESSION['msg'] = "Professor notificado, espere até seu professor confirmar!";
-			header("Location: ../cronograma.php");
+			echo "1";
+			exit();
 		}
 		else {
-			$_SESSION['msg'] = "Erro ao desmarcar aula";
-			header("Location: ../cronograma.php");
+			echo "2";
+			exit();
 		}
 }

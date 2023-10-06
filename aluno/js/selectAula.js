@@ -25,8 +25,8 @@ btnDesmarcar.addEventListener("click", function (e) {
   if (target.innerHTML == "Disponível") {
     alert("Aula vazia não pode ser desmarcada");
     return;
-  } else if(target.classList.contains("privado")){
-    alert("Aula privada não pode ser desmarcada");
+  } else if(target.innerHTML == "Ocupado"){
+    alert("Aula de outros alunos não pode ser desmarcada");
     return;
   }
   else if (confirm("Deseja desmarcar a aula?")) {
@@ -41,12 +41,10 @@ const desmarcarAula = async (aula) => {
   })
     .then((response) => response.text())
     .then((response) => {
-      if (response == "Aula desmarcada com sucesso!") {
-        document.getElementById(aula).innerHTML = "Disponível";
-        document.getElementById(aula).classList.add("disponivel");
-        alert(response);
+      if (response == "1") {
+        alert("Professor notificado sobre a desmarcação da aula");
       } else {
-        alert("Erro ao desmarcar aula, tente novamente mais tarde");
+        alert("Erro ao desmarcar aula");
       }
     })
     .catch((error) => console.log("Erro: " + error));

@@ -125,10 +125,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 <script src="./js/marcarAulaOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>
-<script>
-    alert("<?php echo $_SESSION['msg']; ?>");
-    <?php unset($_SESSION['msg']); ?>
-</script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php
+include_once "includes/modalNotificar.php";
+if (isset($_SESSION['msg'])) {
+    echo '<script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            alert("' . $_SESSION['msg'] . '");
+          })</script>';
+}
+unset($_SESSION['msg']); ?>
 
 </html>
