@@ -64,6 +64,7 @@ window.addEventListener("DOMContentLoaded", () => {
     clearTimeout(searchtimer);
     searchtimer = setTimeout(() => {
       const text = e.target.value;
+      console.log(text)
       const tipo = "Professor";
       pesquisa(text, tipo);
     }, 700);
@@ -72,6 +73,7 @@ window.addEventListener("DOMContentLoaded", () => {
     clearTimeout(searchtimer);
     searchtimer = setTimeout(() => {
       const text = e.target.value;
+      console.log(text)
       const tipo = "Aluno";
       pesquisa(text, tipo);
     }, 700);
