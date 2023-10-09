@@ -32,26 +32,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <input type="text" class="inputPesquisa" id="pesquisaAluno" name="pesquisa">
                 </div>
                 <ul class="users" id="usersAlunos">
-                    <?php
-                    include_once("../conexao.php");
-                    $result_usuario = "SELECT * FROM aluno";
-                    $resultado_usuario = mysqli_query($sql, $result_usuario);
-                    while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
-                        $nome = explode(' ', $row_usuario['nome_aluno']);
-                        if (empty($nome[1])) {
-                            $nome[1] = "";
-                        }
-                        if (empty($nome[2]) || strlen($nome[1]) >= 7) {
-                            $nome[2] = "";
-                        }
-                        $nomeAluno = $nome[0] . " " . $nome[1] . " " . $nome[2];
-                        echo '<li class="user">';
-                        echo '<img src="../fotosPerfil/' . $row_usuario['foto_aluno'] . '" alt="Foto do aluno" class="imgUser">';
-                        echo '<h1 id="nomeUser">' . $nomeAluno . '</h1>';
-                        echo '<a id="saibaMais" href="gerenciarAluno.php?id=' . $row_usuario['id_aluno'] . '">Saiba Mais</a>';
-                        echo '</li>';
-                    }
-                    ?>
                 </ul>
             </div>
         </section>
@@ -66,26 +46,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <input type="text" class="inputPesquisa" id="pesquisaProfessor" name="pesquisa">
                 </div>
                 <ul class="users" id="usersProfessores">
-                    <?php
-                    include_once("../conexao.php");
-                    $result_usuario = "SELECT * FROM professor";
-                    $resultado_usuario = mysqli_query($sql, $result_usuario);
-                    while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
-                        $nome = explode(' ', $row_usuario['nome_professor']);
-                        if (empty($nome[1])) {
-                            $nome[1] = "";
-                        }
-                        if (empty($nome[2]) || strlen($nome[1]) >= 7) {
-                            $nome[2] = "";
-                        }
-                        $nomeProfessor = $nome[0] . " " . $nome[1] . " " . $nome[2];
-                        echo '<li class="user">';
-                        echo '<img src="../fotosPerfil/' . $row_usuario['foto_professor'] . '" alt="Foto do Professor" class="imgUser">';
-                        echo '<h1 id="nomeUser">' . $nomeProfessor . '</h1>';
-                        echo '<a id="saibaMais" href="gerenciarProfessor.php?id=' . $row_usuario['id_professor'] . '">Saiba Mais</a>';
-                        echo '</li>';
-                    }
-                    ?>
                 </ul>
                 <button id="abrirAdicionarProf">Adicionar Professor</button>
             </div>
@@ -117,4 +77,5 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </dialog>
 <script src="./js/searchUsers.js"></script>
 <script src="./js/addProfOpenClose.js"></script>
+
 </html>
