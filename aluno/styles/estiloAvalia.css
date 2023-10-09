@@ -80,7 +80,7 @@
 }
 .avalia-submit {
   display: flex;
-  position: absolute;
+  position: relative;
   bottom: 0;
   flex-direction: column;
   justify-content: space-around;
