@@ -7,7 +7,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 } else {
     require_once("../conexao.php");
     $idProfessor = $_GET['id'];
-    $infosProfessor = "SELECT nome_professor, email_professor, bio_professor, valor_professor, nota_professor, telefone_professor FROM professor WHERE id_professor = '$idProfessor'";
+    $infosProfessor = "SELECT nome_professor, email_professor, bio_professor, valor_professor, nota_professor, telefone_professor, foto_professor FROM professor WHERE id_professor = '$idProfessor'";
     $resultInfosProfessor = mysqli_query($sql, $infosProfessor);
     $infosProfessor = mysqli_fetch_assoc($resultInfosProfessor);
 }
@@ -37,8 +37,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     <a>Preço: R$<?php echo $infosProfessor['valor_professor']?></a>
                 </div>
                 <div id="foto">
-                    <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
-                    <h1 id="nome_aluno"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
+                    <img src="../fotosPerfil/<?php echo $infosProfessor['foto_professor'] ?>" id="fotoPerfil">
+                    <h1 id="nomeProfessor"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
                                             if (empty($nome[1])) {
                                                 $nome[1] = "";
                                             }

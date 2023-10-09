@@ -25,6 +25,7 @@
   margin-top: 0;
   font-weight: 700;
   text-align: center;
+  cursor: default;
 }
 
 #subtitleAvalia {
@@ -32,6 +33,8 @@
   margin: 1rem auto;
   text-align: center;
   width: 70%;
+  cursor: default;
+  user-select: none;
 }
 #infosProfessorAvalia {
   margin-top: -3rem;
@@ -46,6 +49,7 @@
   width: 20%;
   height: 20%;
   border-radius: 50%;
+  user-select: none;
 }
 
 .avalia-item {
@@ -97,6 +101,10 @@
   font-size: 1.5rem;
   cursor: pointer;
   margin: auto 3rem 0.5rem;
+}
+
+.avalia-submit > input[type="submit"]:hover {
+  color: var(--rosaMakeasyHover);
 }
 
 @keyframes slide-up {
