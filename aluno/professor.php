@@ -46,8 +46,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Problemas com o professor?</a>
                 </div>
                 <div id="foto">
-                    <img src="../fotosPerfil/<?php echo $infosProfessor['foto_professor'] ?>" id="fotoPerfil" accept="../fotosPerfil/*">
-                    <h1 id="nome_aluno"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
+                    <img src="../fotosPerfil/<?php echo $infosProfessor['foto_professor'] ?>" id="fotoPerfil">
+                    <h1 id="nomeProfessor"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
                                             if (empty($nome[1])) {
                                                 $nome[1] = "";
                                             }
