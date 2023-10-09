@@ -10,7 +10,7 @@ $gasto_nome = $_POST['nomeGasto'];
 $gasto_mensal = $_POST['mensal'];
 if ($gasto_mensal == TRUE){
     $gasto = "INSERT INTO financeiro (tipo_financeiro, nome_financeiro, preco_financeiro, mensal_financeiro, id_professor) Values('2', '".$gasto_nome."', '".$gasto_preco."', '1', '".$_SESSION['id']."')";
-    $gasto_inseri = mysqli_query($sql, $gasto) or die (mysqli_error($sql));
+    $gasto_inseri = mysqli_query($sql, $gasto);
     if($gasto_inseri){
         $_SESSION['msg'] = 'Dados salvos com sucesso';
         header("Location: ../adm_financeiro.php");
