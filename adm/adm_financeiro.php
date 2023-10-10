@@ -16,6 +16,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <link rel="stylesheet" type="text/css" href="./styles/estiloFinancas.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <?php echo "<script>pesquisa(".$_SESSION['id'].")</script>"; ?>
 </head>
 
 <body>
@@ -125,149 +126,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div class="grafico" id="graficos"><canvas id="avaliacoes"></canvas></div>
 
             <script>
-                const estrelas = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
-                const avaliacoes = document.getElementById('avaliacoes').getContext('2d');
-
-                const graficoAvaliacoes = new Chart(avaliacoes, {
-                    type: 'bar',
-                    data: {
-                        labels: estrelas,
-                        datasets: [{
-                            label: 'Avaliações',
-                            data: [15, 14, 16, 17, 17],
-                            tension: 0.3,
-                            borderColor: '#fff',
-                            backgroundColor: '#fff'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        elements: {
-                            point: {
-                                radius: 0
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                display: false
-                            }
-                        },
-                        scales: {
-                            y: {
-                                grid: {
-                                    color: '#fff',
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    padding: 15,
-                                    font: {
-                                        size: 16,
-                                        family: 'Open Sans',
-                                    }
-                                },
-                                border: {
-                                    width: 0
-                                }
-                            },
-                            x: {
-                                grid: {
-                                    color: 'rgba(255, 255, 255, 0)',
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    padding: 15,
-                                    font: {
-                                        size: 16,
-                                        family: 'Open Sans',
-                                    }
-                                },
-                            }
-                        },
-                    }
-                });
+               
             </script><br>
             <h1 id="title">Alunos</h1>
             <div class="grafico" id="graficos">
             <canvas id="alunosMensal"></canvas></div>
             <script>
-                const alunosMensal = document.getElementById('alunosMensal').getContext('2d');
-                const graficoAlunosMensal = new Chart(alunosMensal, {
-                    type: 'bar',
-                    data: {
-                        labels: meses,
-                        datasets: [{
-                                label: 'Alunos novos',
-                                data: [5, 4, 6, 7, 7, 8],
-                                tension: 0.3,
-                                borderColor: '#ef1dac',
-                                backgroundColor: '#ef1dac'
-                            },
-                            {
-                                label: 'Alunos perdidos',
-                                data: [1, 1, 2, 3, 4, 5],
-                                tension: 0.3,
-                                borderColor: '#e02b20',
-                                backgroundColor: '#e02b20'
-                            },
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        elements: {
-                            point: {
-                                radius: 0
-                            }
-                        },
-                        scales: {
-                            y: {
-                                grid: {
-                                    color: '#fff',
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    callback: function(value, index, values) {
-                                        return value;
-                                    },
-                                    padding: 15,
-                                    font: {
-                                        size: 16,
-                                        family: 'Open Sans',
-                                    }
-                                },
-                                border: {
-                                    width: 0
-                                }
-                            },
-                            x: {
-                                grid: {
-                                    color: 'rgba(255, 255, 255, 0)',
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    padding: 15,
-                                    font: {
-                                        size: 16,
-                                        family: 'Open Sans',
-                                    }
-                                },
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: {
-                                        size: 20,
-                                        family: 'Open Sans',
-                                    },
-                                    color: "#fff"
-                                },
 
-                            }
-                        }
-                    }
-                });
             </script>
         </div>
     </main>
@@ -288,19 +153,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensal" onclick="myFunction()">
-                <script>
-                    function myFunction() {
-                    const checkMensal = document.getElementById("inputMensal");
-                    const mesGanho = document.getElementById("inputMes");
-                    var isChecked = checkMensal.checked;
-                    if(isChecked) {
-                        mesGanho.setAttribute('disabled',true);
-                    } else {
-                        mesGanho.removeAttribute('disabled');
-                    }};
-                
-                </script>
+                <input type="checkbox" name="mensal" id="inputMensal" onclick="disableInput()">
             </div>
             <div id="mesGanho">
                 <label for="inputMes"><b>Mês:</b></label>
@@ -440,6 +293,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </dialog>
 
 <script src="./js/selectValor.js"></script>
+<script src="./js/graficos.js"></script>
 <script src="./js/addGanhoOpenClose.js"></script>
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
