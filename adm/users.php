@@ -15,7 +15,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/estiloUsers.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
-    <title>Todos os usuários</title>
+    <title>Usuários</title>
 </head>
 
 <body>
@@ -61,12 +61,12 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <input type="text" name="nomeProf" id="inputNomeProf" placeholder="Nome do Professor">
             </div>
             <div id="senhaProf">
-                <label for="inputsenhaProf"><b>Senha provisória:</b></label>
-                <input type="text" name="senhaProf" id="inputSenhaProf">
+                <label for="inputsenhaProf"><b>Senha:</b></label>
+                <input type="password" name="senhaProf" id="inputSenhaProf" placeholder="•••••••••••••">
             </div>
             <div id="emailProf">
                 <label for="inputemailProf"><b>Email:</b></label>
-                <input type="text" name="emailProf" id="inputEmailProf">
+                <input type="email" name="emailProf" id="inputEmailProf" placeholder="Professor@gmail.com">
             </div>
             <div id="submitAddProf">
                 <input type="submit" id="adicionarProf" name="btnAddProf" value="Adicionar Professor">
@@ -77,5 +77,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </dialog>
 <script src="./js/searchUsers.js"></script>
 <script src="./js/addProfOpenClose.js"></script>
+<script src="./js/menuOpenClose.js"></script>
+<?php include_once "includes/modalNotificar.php"; ?>
 
 </html>
