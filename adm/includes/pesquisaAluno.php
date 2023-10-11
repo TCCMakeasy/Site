@@ -15,4 +15,3 @@
     }else{
     echo json_encode($resultados); // Retorna todos os resultados como JSON
 }
-    ?>
