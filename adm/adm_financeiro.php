@@ -16,7 +16,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <link rel="stylesheet" type="text/css" href="./styles/estiloFinancas.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <?php echo "<script>pesquisa(".$_SESSION['id'].")</script>"; ?>
 </head>
 
 <body>
@@ -29,93 +28,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
 
             <script>
-                const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', ];
-                const lucroMensal = document.getElementById('lucroMensal').getContext('2d');
 
-                const graficoLucroMensal = new Chart(lucroMensal, {
-                    type: 'line',
-                    data: {
-                        labels: meses,
-                        datasets: [{
-                                label: 'Ganhos',
-                                data: [1500, 1400, 1600, 1700, 1750, 1800],
-                                tension: 0.3,
-                                borderColor: '#ef1dac',
-                                backgroundColor: '#ef1dac'
-                            },
-                            {
-                                label: 'Gastos',
-                                data: [1000, 1100, 1200, 1300, 1400, 1500],
-                                tension: 0.3,
-                                borderColor: '#e02b20',
-                                backgroundColor: '#e02b20'
-                            },
-                            {
-                                label: 'Lucro',
-                                data: [500, 300, 400, 400, 350, 300],
-                                tension: 0.3,
-                                borderColor: '#7cda24',
-                                backgroundColor: '#7cda24'
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        elements: {
-                            point: {
-                                radius: 0
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: false,
-                                grid: {
-                                    color: '#fff',
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    callback: function(value, index, values) {
-                                        return 'R$ ' + value;
-                                    },
-                                    padding: 15,
-                                    font: {
-                                        size: 16,
-                                        family: 'Open Sans',
-                                    }
-                                },
-                                border: {
-                                    width: 0
-                                }
-                            },
-                            x: {
-                                grid: {
-                                    color: 'rgba(255, 255, 255, 0)',
-                                },
-                                ticks: {
-                                    color: '#fff',
-                                    padding: 15,
-                                    font: {
-                                        size: 16,
-                                        family: 'Open Sans',
-                                    }
-                                },
-                            }
-                        },
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: {
-                                        size: 20,
-                                        family: 'Open Sans',
-                                    },
-                                    color: "#fff"
-                                },
-
-                            }
-                        }
-                    }
-                });
             </script>
             <div id="botoes">
                 <button id="abrirAddGanho">Adicionar ganho</button>
@@ -239,7 +152,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </table>
             <div id="nomeValor">
                 <label for="inputnomeValor"><b>Nome:</b></label>
-                <input type="text" name="nomeValor" id="inputnomeValor">
+                <input type="text" name="nomeValor" id="inputnomeValor" value="">
             </div>
             <div id="valorValor">
                 <label for="inputvalorValor"><b>Valor:</b></label>
@@ -294,6 +207,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <script src="./js/selectValor.js"></script>
 <script src="./js/graficos.js"></script>
+<?php echo "<script>pesquisa(".$_SESSION['id'].")</script>"; ?>
 <script src="./js/addGanhoOpenClose.js"></script>
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
