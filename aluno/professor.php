@@ -120,8 +120,32 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <h1 style="font-size: 1.3rem;">Avaliações</h1>
                 <p>
                     <span><?php echo $infosProfessor['nota_professor'] ?>/5⭐</span>
-                    <span>2 Avaliações</span>
+                    <span><?php $conta = "SELECT COUNT(nota_avalia) FROM avalia WHERE id_professor = '".$_SESSION['id_professor']."'";
+                            $verifica_conta = mysqli_query($sql, $conta);
+                            if($verifica_conta){
+                                $conta2 = mysqli_fetch_assoc($verifica_conta);
+                                $conta2 = $conta2['COUNT(nota_avalia)'];
+                                echo $conta2;
+                            }
+                            ?> Avaliações</span>
                 </p>
+                <?php
+                    $aval = "SELECT * FROM avalia WHERE id_professor = ".$_SESSION['id_professor']."";
+                    $veri_avalia = mysqli_query($sql, $aval);
+                    while ($row_aval = mysqli_fetch_assoc($veri_aval)){
+                        $nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '".$row_aval['id_aluno']."'";
+                        $verify_nome = mysqli_query($sql, $nome);
+                        $nome = mysqli_fetch_assoc($verify_nome);
+                        $nota = "SELECT nota_avalia FROM avalia WHERE id_aluno = '".$row_aval['id_aluno']."'";
+                        $verify_nota = mysqli_query($sql, $nota);
+                        $nota = mysqli_fetch_assoc($verify_nota);
+                        
+                        echo '<div id="avaliacao">';
+                        echo '<h3>'.$verify_nome.'</h3>';
+                        echo '<p><span>'.$nota.'/5⭐:</span>';
+
+                    }
+                ?>
                 <div id="avaliacao">
                     <h3>Ana Paula</h3>
                     <p><span>5/5⭐:</span>
