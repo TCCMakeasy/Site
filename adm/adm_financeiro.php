@@ -21,34 +21,35 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <body>
     <?php include_once "includes/menuAdm.php"; ?>
     <section id="tela">
-    <main>
-        <h1 id="title">Financeiro</h1>
-        <div id="container">
-            <h1 id="title">Lucro Mensal</h1>
-            <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
+        <main>
+            <h1 id="title">Financeiro</h1>
+            <div id="container">
+                <h1 id="title">Lucro Mensal</h1>
+                <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
 
-            <script>
+                <script>
 
-            </script>
-            <div id="botoes">
-                <button id="abrirAddGanho">Adicionar ganho</button>
-                <button id="abrirAddGasto">Adicionar gasto</button>
-                <button id="abrirEdxValor">Editar/Excluir valor</button>
-            </div><br>
-            <h1 id="title">Avaliações</h1>
-            <div class="grafico" id="graficos"><canvas id="avaliacoes"></canvas></div>
+                </script>
+                <div id="botoes">
+                    <button id="abrirAddGanho">Adicionar ganho</button>
+                    <button id="abrirAddGasto">Adicionar gasto</button>
+                    <button id="abrirEdxValor">Editar/Excluir valor</button>
+                </div><br>
+                <h1 id="title">Avaliações</h1>
+                <div class="grafico" id="graficos"><canvas id="avaliacoes"></canvas></div>
 
-            <script>
-               
-            </script><br>
-            <h1 id="title">Alunos</h1>
-            <div class="grafico" id="graficos">
-            <canvas id="alunosMensal"></canvas></div>
-            <script>
+                <script>
 
-            </script>
-        </div>
-    </main>
+                </script><br>
+                <h1 id="title">Alunos</h1>
+                <div class="grafico" id="graficos">
+                    <canvas id="alunosMensal"></canvas>
+                </div>
+                <script>
+
+                </script>
+            </div>
+        </main>
     </section>
 </body>
 
@@ -124,32 +125,33 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <dialog id="EdxValor">
     <div id="EdxValor-content">
-        <form id="formEdxValor">
-            <table id="tabela" action="./includes/adm_financeiroedit.php">
-                <tr>
-                    <th id="valorTitle">Nome</th>
-                    <th id="valorTitle">Valor</th>
-                    <th id="valorTitle">Tipo</th>
-                </tr>
-                <?php
-                    require_once '../conexao.php';
-                    $seleciona_financeiro = "SELECT * FROM financeiro WHERE id_professor = '".$_SESSION['id']."'";
-                    $resultado_financeiro = mysqli_query($sql, $seleciona_financeiro);
-                    while($row_edit = mysqli_fetch_assoc($resultado_financeiro)){
-                        echo '<tr id="linha">';
-                        echo '<td id="valores">'.$row_edit['nome_financeiro'].'</td>';
-                        echo '<td id="valores">'.$row_edit['preco_financeiro'].'</td>';
-                        if($row_edit['tipo_financeiro'] == 1){
-                            echo '<td id="valores">Ganho</td>';
-                        }else{
-                            echo '<td id="valores">Gasto</td>';
-                        }
-                        echo '</tr>';
-                    }
 
-                ?>
-                
-            </table>
+        <table id="tabela" action="./includes/adm_financeiroedit.php">
+            <tr>
+                <th id="valorTitle">Nome</th>
+                <th id="valorTitle">Valor</th>
+                <th id="valorTitle">Tipo</th>
+            </tr>
+            <?php
+            require_once '../conexao.php';
+            $seleciona_financeiro = "SELECT * FROM financeiro WHERE id_professor = '" . $_SESSION['id'] . "'";
+            $resultado_financeiro = mysqli_query($sql, $seleciona_financeiro);
+            while ($row_edit = mysqli_fetch_assoc($resultado_financeiro)) {
+                echo '<tr id="linha">';
+                echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
+                echo '<td class="valores" id="valor_financa">' . $row_edit['preco_financeiro'] . '</td>';
+                if ($row_edit['tipo_financeiro'] == 1) {
+                    echo '<td class="valores">Ganho</td>';
+                } else {
+                    echo '<td class="valores">Gasto</td>';
+                }
+                echo '</tr>';
+            }
+
+            ?>
+
+        </table>
+        <form id="formEdxValor">
             <div id="nomeValor">
                 <label for="inputnomeValor"><b>Nome:</b></label>
                 <input type="text" name="nomeValor" id="inputnomeValor" value="">
@@ -207,7 +209,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <script src="./js/selectValor.js"></script>
 <script src="./js/graficos.js"></script>
-<?php echo "<script>pesquisa(".$_SESSION['id'].")</script>"; ?>
+<?php echo "<script>pesquisa(" . $_SESSION['id'] . ")</script>"; ?>
 <script src="./js/addGanhoOpenClose.js"></script>
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
