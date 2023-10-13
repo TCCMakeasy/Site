@@ -213,6 +213,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="mesValor">
                 <label for="inputMesEdit"><b>Mês:</b></label>
                 <select name="inputMes" id="inputMesEdit">
+                    <option value="" disabled selected hidden></option>
                     <option value="jan">Janeiro</option>
                     <option value="fev">Fevereiro</option>
                     <option value="mar">Março</option>

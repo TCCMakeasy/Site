@@ -210,10 +210,10 @@ const pesquisa = async (text) => {
                     maintainAspectRatio: false,
                     elements: {
                         point: {
-                            radius: 0
+                            radius: 1
                         },
                         line: {
-                            borderWidth: 5,
+                            borderWidth: 4,
                             fill: false
                         }
                     },
@@ -225,7 +225,7 @@ const pesquisa = async (text) => {
                             },
                             ticks: {
                                 color: '#fff',
-                                callback: function(value, index, values) {
+                                callback: function(value) {
                                     return 'R$ ' + value;
                                 },
                                 padding: 15,
