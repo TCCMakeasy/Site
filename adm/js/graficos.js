@@ -178,11 +178,6 @@ const pesquisa = async (text) => {
                 ganhosTotais[mes] = ganhos[mes].reduce((acc, item) => acc + parseFloat(item.preco_financeiro), 0);
                 lucroTotal[mes] = ganhosTotais[mes] - gastosTotais[mes];
             }
-            console.log(ganhos);
-            console.log(gastos);
-            console.log(gastosTotais);
-            console.log(ganhosTotais);
-            console.log(lucroTotal);
             const graficoLucroMensal = new Chart(lucroMensal, {
                 type: 'line',
                 data: {
