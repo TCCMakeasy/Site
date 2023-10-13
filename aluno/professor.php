@@ -131,28 +131,29 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 </p>
                 <?php
                     $aval = "SELECT * FROM avalia WHERE id_professor = ".$_SESSION['id_professor']."";
-                    $veri_avalia = mysqli_query($sql, $aval);
+                    $veri_aval = mysqli_query($sql, $aval);
                     while ($row_aval = mysqli_fetch_assoc($veri_aval)){
                         $nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '".$row_aval['id_aluno']."'";
                         $verify_nome = mysqli_query($sql, $nome);
-                        $nome = mysqli_fetch_assoc($verify_nome);
+                        $nome2 = mysqli_fetch_assoc($verify_nome);
+                        $nome = $nome2['nome_aluno'];
                         $nota = "SELECT nota_avalia FROM avalia WHERE id_aluno = '".$row_aval['id_aluno']."'";
                         $verify_nota = mysqli_query($sql, $nota);
-                        $nota = mysqli_fetch_assoc($verify_nota);
-                        
+                        $nota2 = mysqli_fetch_assoc($verify_nota);
+                        $nota = $nota2['nota_avalia'];
+                        $desc = "SELECT desc_avalia FROM avalia WHERE id_aluno = '".$row_aval['id_aluno']."'";
+                        $verify_desc = mysqli_query($sql, $desc);
+                        $desc2 = mysqli_fetch_assoc($verify_desc);
+                        $desc = $desc2['desc_avalia'];
                         echo '<div id="avaliacao">';
-                        echo '<h3>'.$verify_nome.'</h3>';
-                        echo '<p><span>'.$nota.'/5⭐:</span>';
-
+                        echo '<h3>'.$nome.'</h3>';
+                        echo '<p><span>'.$nota.'/5⭐: </span>';
+                        echo '<span>'.$desc.'</span>';
+                        echo '</p>';
+                        echo '</div>';
                     }
                 ?>
-                <div id="avaliacao">
-                    <h3>Ana Paula</h3>
-                    <p><span>5/5⭐:</span>
-                        <span>Gostei bastante da aula, muito boa mesmo</span>
-                    </p>
-                </div>
-            </div>
+                
             <div id="divDesvincularProfessor">
                 <button id="desvincularProfessor"><a href="./includes/desvincular.php?id=<?php echo $_SESSION['id'] ?>">Desvincular-se</a></button>
             </div>
