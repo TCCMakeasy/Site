@@ -126,8 +126,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <dialog id="EdxValor">
     <div id="EdxValor-content">
 
-        <table id="tabela" action="./includes/adm_financeiroedit.php">
+        <table id="tabela">
             <tr>
+                <th id="valorTitle">Id</th>
                 <th id="valorTitle">Nome</th>
                 <th id="valorTitle">Valor</th>
                 <th id="valorTitle">Tipo</th>
@@ -138,6 +139,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             $resultado_financeiro = mysqli_query($sql, $seleciona_financeiro);
             while ($row_edit = mysqli_fetch_assoc($resultado_financeiro)) {
                 echo '<tr id="linha">';
+                echo '<td class="valores" id="nome_financa">'.$row_edit['id_financeiro'].'</td>';
                 echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
                 echo '<td class="valores" id="valor_financa">' . $row_edit['preco_financeiro'] . '</td>';
                 if ($row_edit['tipo_financeiro'] == 1) {
@@ -151,7 +153,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             ?>
 
         </table>
-        <form id="formEdxValor">
+        <form id="formEdxValor" action="./includes/adm_financeiroedit.php">
+            <div id="nomeValor">
+                <label for="inputidValor"><b>Id:</b></label>
+                <input type="text" name="idValor" id="inputidValor" value="">
+            </div>
             <div id="nomeValor">
                 <label for="inputnomeValor"><b>Nome:</b></label>
                 <input type="text" name="nomeValor" id="inputnomeValor" value="">
