@@ -128,24 +128,65 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
         <table id="tabela">
             <tr>
-                <th id="valorTitle">Id</th>
-                <th id="valorTitle">Nome</th>
-                <th id="valorTitle">Valor</th>
-                <th id="valorTitle">Tipo</th>
+                <th class="valorTitle">Id</th>
+                <th class="valorTitle">Nome</th>
+                <th class="valorTitle">Valor</th>
+                <th class="valorTitle">Mês</th>
+                <th class="valorTitle">Tipo</th>>
             </tr>
             <?php
             require_once '../conexao.php';
             $seleciona_financeiro = "SELECT * FROM financeiro WHERE id_professor = '" . $_SESSION['id'] . "'";
             $resultado_financeiro = mysqli_query($sql, $seleciona_financeiro);
             while ($row_edit = mysqli_fetch_assoc($resultado_financeiro)) {
+                switch ($row_edit['mes_financeiro']) {
+                    case "jan":
+                        $row_edit['mes_financeiro'] = "Janeiro";
+                        break;
+                    case "fev":
+                        $row_edit['mes_financeiro'] = "Fevereiro";
+                        break;
+                    case "mar":
+                        $row_edit['mes_financeiro'] = "Março";
+                        break;
+                    case "abr":
+                        $row_edit['mes_financeiro'] = "Abril";
+                        break;
+                    case "mai":
+                        $row_edit['mes_financeiro'] = "Maio";
+                        break;
+                    case "jun":
+                        $row_edit['mes_financeiro'] = "Junho";
+                        break;
+                    case "jul":
+                        $row_edit['mes_financeiro'] = "Julho";
+                        break;
+                    case "ago":
+                        $row_edit['mes_financeiro'] = "Agosto";
+                        break;
+                    case "set":
+                        $row_edit['mes_financeiro'] = "Setembro";
+                        break;
+                    case "out":
+                        $row_edit['mes_financeiro'] = "Outubro";
+                        break;
+                    case "nov":
+                        $row_edit['mes_financeiro'] = "Novembro";
+                        break;
+                    case "dez":
+                        $row_edit['mes_financeiro'] = "Dezembro";
+                        break;
+                }
                 echo '<tr id="linha">';
-                echo '<td class="valores" id="nome_financa">'.$row_edit['id_financeiro'].'</td>';
+                echo '<td class="valores" id="id_financa">' . $row_edit['id_financeiro'] . '</td>';
                 echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
                 echo '<td class="valores" id="valor_financa">' . $row_edit['preco_financeiro'] . '</td>';
+                echo '<td class="valores" id="mes_financa">' . $row_edit['mes_financeiro'] . '</td>';
+                echo '<td class="valores" id="mensal_financa" hidden>' . $row_edit['mensal_financeiro'] . '</td>';
                 if ($row_edit['tipo_financeiro'] == 1) {
-                    echo '<td class="valores">Ganho</td>';
+                    echo '<td class="valores" id="tipo_financa">Ganho</td>';
                 } else {
-                    echo '<td class="valores">Gasto</td>';
+                    echo '<td class="valores" id="tipo_financa">Gasto</td>';
                 }
                 echo '</tr>';
             }
@@ -153,32 +194,32 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             ?>
 
         </table>
-        <form id="formEdxValor" action="./includes/adm_financeiroedit.php">
-            <div id="nomeValor">
-                <label for="inputidValor"><b>Id:</b></label>
-                <input type="text" name="idEdit" id="inputidValor" value="">
+        <form id="formEdxValor" action="./includes/adm_financeiroEdit.php" method="POST">
+            <div id="hideItens">
+                <input type="text" name="idValor" id="inputIdEdit" value="" hidden>
             </div>
             <div id="nomeValor">
-                <label for="inputnomeValor"><b>Nome:</b></label>
-                <input type="text" name="nomeValor" id="inputnomeValor" value="">
+                <label for="inputNomeEdit"><b>Nome:</b></label>
+                <input type="text" name="nomeEdit" id="inputNomeEdit" value="">
             </div>
             <div id="valorValor">
-                <label for="inputvalorValor"><b>Valor:</b></label>
-                <input type="text" name="valorValor" id="inputvalorValor">
+                <label for="inputValorEdit"><b>Valor:</b></label>
+                <input type="text" name="valorEdit" id="inputValorEdit">
             </div>
             <div id="mensal">
-                <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensal">
+                <label for="inputMensalEdit"><b>Mensal:</b></label>
+                <input type="checkbox" name="mensal" id="inputMensalEdit">
             </div>
             <div id="mesValor">
-                <label for="inputValor"><b>Mês:</b></label>
-                <select name="mesValor" id="inputValor">
+                <label for="inputMesEdit"><b>Mês:</b></label>
+                <select name="inputMes" id="inputMesEdit">
+                    <option value="" disabled selected hidden></option>
                     <option value="jan">Janeiro</option>
                     <option value="fev">Fevereiro</option>
                     <option value="mar">Março</option>
                     <option value="abr">Abril</option>
                     <option value="mai">Maio</option>
-                    <option value="junho">Junho</option>
+                    <option value="jun">Junho</option>
                 </select>
             </div>
             <div id="submitEdxValor">
