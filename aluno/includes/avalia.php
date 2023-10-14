@@ -18,6 +18,9 @@ if($verifica_aluno != 0){
             if($verify_media){
                 $media = mysqli_fetch_assoc($verify_media);
                 $media = $media['AVG(nota_avalia)'];
+                if($media == null){
+                    $media = 0;
+                }
                 echo $media;
                 $inseri = "UPDATE professor SET nota_professor = '".$media."' WHERE id_professor = '".$_SESSION['id_professor']."'";
                 $inseri2 = mysqli_query($sql, $inseri);

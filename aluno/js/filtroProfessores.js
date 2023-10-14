@@ -66,7 +66,6 @@ const atualizarFiltro = async (filtros) => {
 
     if (response.ok) {
       const data = await response.json(); // Aguarde a resolução da promessa JSON
-      console.log(data);
       professores.innerHTML = "";
       if (data.erro) {
         professores.innerHTML = "<h1>Nenhum professor encontrado</h1>";
