@@ -31,7 +31,7 @@
                                                         ?> </a>
                 </li>
                 <li>
-                    <a id="openNotify" class="navButton">Mensagens</a>
+                    <a id="openNotify" onclick="abrirNotify(<?php echo $_SESSION['id'] ?>)" class="navButton">Mensagens</a>
                 </li>
                 <li>
                     <a href="./includes/fim_session.php" class="navButton" id="sair">Sair</a>
@@ -73,7 +73,7 @@
             </svg>
         </button>
         <h1 id="titleResponsive"></h1>
-        <button class="notification" id="openNotifyMobile">
+        <button class="notification" id="openNotifyMobile" onclick="abrirNotify(<?php echo $_SESSION['id'] ?>)">
             <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24 22.6667V24H0V22.6667L2.66667 20V12C2.66667 7.86667 5.37333 4.22667 9.33333 3.05333V2.66667C9.33333 1.95942 9.61429 1.28115 10.1144 0.781048C10.6145 0.280951 11.2928 0 12 0C12.7072 0 13.3855 0.280951 13.8856 0.781048C14.3857 1.28115 14.6667 1.95942 14.6667 2.66667V3.05333C18.6267 4.22667 21.3333 7.86667 21.3333 12V20L24 22.6667ZM14.6667 25.3333C14.6667 26.0406 14.3857 26.7189 13.8856 27.219C13.3855 27.719 12.7072 28 12 28C11.2928 28 10.6145 27.719 10.1144 27.219C9.61429 26.7189 9.33333 26.0406 9.33333 25.3333" fill="white" />
             </svg>
