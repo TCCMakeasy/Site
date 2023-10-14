@@ -40,7 +40,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $result = mysqli_fetch_assoc($resultado_verificaAluno);
 
     if ($result['id_professor'] === $_SESSION['id_professor']) {
-        $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('".$_SESSION['nome']." pediu a marcação de uma aula para a ".$aulaDia." ás ".$aulaHora."horas', '".$_SESSION['id_professor']."', '".$idAluno."', '1')";
+        $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('".$_SESSION['nome']."[ID:" .$_SESSION['id']."] pediu a marcação de uma aula para a ".$aulaDia." ás ".$aulaHora." horas', '".$_SESSION['id_professor']."', '".$idAluno."', '1')";
 		$noti = mysqli_query($sql,$notificar);
 		if ($noti){
 			$_SESSION['msg'] = "Professor notificado, espere até seu professor confirmar!";

@@ -33,7 +33,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 			break;
 	}
     
-    $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('".$_SESSION['nome']." pediu para desmarcar a aula de ".$aulaDia." às ".$horario.":00 horas', '".$_SESSION['id_professor']."', '".$_SESSION['id']."', '1')";
+    $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('".$_SESSION['nome']."[ID:" .$_SESSION['id']."] pediu para desmarcar a aula de ".$aulaDia." às ".$horario.":00 horas', '".$_SESSION['id_professor']."', '".$_SESSION['id']."', '1')";
 	$noti = mysqli_query($sql,$notificar);
 		if ($noti){
 			echo "1";

@@ -1,15 +1,17 @@
 <?php
 session_start();    
 require_once("../../conexao.php");
-$id_notifica = $_GET['id_notifica'];
-$apagar = "DELETE FROM notifica WHERE id_aluno = '".$_SESSION['id']."' AND id_notifica = '$id_notifica'";
+$hndl = fopen("php://input", "r");
+$id_notifica = fread($hndl, 1024);
+if($id_notifica == "all"){
+    $apagar = "DELETE FROM notifica WHERE id_aluno = '".$_SESSION['id']."'";
+}else{
+    $apagar = "DELETE FROM notifica WHERE id_aluno = '".$_SESSION['id']."' AND id_notifica = '$id_notifica'";
+}
 $result_apagar = mysqli_query($sql, $apagar);
 if($result_apagar){
-    $_SESSION['msg'] = "Apagado com sucesso";
-    echo "<script>window.history.back();</script>";
+    echo 200;
 }
 else{
-    $_SESSION['msg'] = "Erro";
-    echo "<script>window.history.back();</script>";
+    echo 404;
 }
-?>
