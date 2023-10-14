@@ -13,7 +13,7 @@
             <form action="./includes/avalia.php" method="POST">
                 <div class="avalia-item">
                     <label for="comentario">Comentário:</label>
-                    <textarea name="comentario" id="comentario" placeholder="Descreva sua experiência (opcional)" cols="30" rows="1" maxlength="500" required></textarea>
+                    <textarea name="comentario" id="comentario" placeholder="Descreva sua experiência (opcional)" cols="30" rows="1" maxlength="500"></textarea>
                 </div>
                 <div class="rating">
                     <input type="radio" name="rating" id="rating-5" value="5">

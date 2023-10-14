@@ -8,7 +8,7 @@ if ($acessar) {
     $senha = filter_input(INPUT_POST, 'senha_login', FILTER_DEFAULT);
 
     if ((!empty($email)) and (!empty($senha))) {
-        $result_login = "select id_aluno, nome_aluno, email_aluno, senha_aluno, nascimento_aluno, id_professor, foto_aluno from aluno where email_aluno= '$email' LIMIT 1";
+        $result_login = "select * from aluno where email_aluno= '$email' LIMIT 1";
         $resultado_login = mysqli_query($sql, $result_login);
         if ($resultado_login) {
             $row_login = mysqli_fetch_assoc($resultado_login);
@@ -20,7 +20,7 @@ if ($acessar) {
                     $_SESSION['data'] = $row_login['nascimento_aluno'];
                     $_SESSION['foto'] = $row_login['foto_aluno'];
                     $_SESSION['id_professor'] = $row_login['id_professor'];
-                    $_SESSION['desc'] = $row_login['desc_aluno'];
+                    $_SESSION['desc'] = $row_login['bio_aluno'];
                     $_SESSION['telefone'] = $row_login['telefone_aluno'];
                     $_SESSION['tipo'] = 1;
                     unset($_SESSION['msg']);

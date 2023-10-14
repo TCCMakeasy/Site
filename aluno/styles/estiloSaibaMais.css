@@ -3,7 +3,9 @@ main {
   margin-left: calc((98% + 380px) / 2 - 40%);
   height: 100%;
 }
-
+#notaProfessorMobile {
+  display: none;
+}	
 #fotoPerfil {
   width: 12rem;
   height: 12rem;
@@ -46,6 +48,7 @@ main {
 #report:hover{
   color: var(--corSecundaria);
   transition: 0.3s;
+  cursor: pointer;
 }
 #foto {
   display: flex;
@@ -241,6 +244,8 @@ main {
   }
   #voltar {
     position: unset;
+    width: 4rem;
+    margin: 1rem 0 0 1rem;
   }
   #descInput {
     width: 20rem;
@@ -251,8 +256,28 @@ main {
     align-items: flex-start;
     justify-content: space-around;
     margin-left: -2rem;
+    
   }
   #foto{
-    margin-left: -2rem;
+    margin-left: -4rem;
+  }
+  #fotoPerfil{
+    width: 8rem;
+    height: 8rem;
+    margin: 1rem 0 0.5rem;
+  }
+  #questions{
+    margin-top: 1rem;
+  }
+  #questions a{
+    font-size: 1rem;
+  }
+  #notaProfessor{
+    display: none;
+  }
+  #notaProfessorMobile{
+    display: flex;
+    font-size: 1.5rem;
+    margin-top: -1.6rem;
   }
 }

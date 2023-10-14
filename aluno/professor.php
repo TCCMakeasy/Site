@@ -41,17 +41,18 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
                 <div id="questions">
-                    <a><?php echo $infosProfessor['nota_professor'] ?>/5⭐</a>
+                    <a id="notaProfessor"><?php echo $infosProfessor['nota_professor'] ?>/5⭐</a>
                     <a>Preço: R$<?php echo $infosProfessor['valor_professor'] ?></a>
-                    <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Problemas com o professor?</a>
+                    <a id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Problemas com o professor?</a>
                 </div>
                 <div id="foto">
                     <img src="../fotosPerfil/<?php echo $infosProfessor['foto_professor'] ?>" id="fotoPerfil">
                     <h1 id="nomeProfessor"><b><?php $nome = explode(' ', $infosProfessor['nome_professor']);
-                                            if (empty($nome[1])) {
-                                                $nome[1] = "";
-                                            }
-                                            echo $nome[0] . " " . $nome[1]; ?><b></h1>
+                                                if (empty($nome[1])) {
+                                                    $nome[1] = "";
+                                                }
+                                                echo $nome[0] . " " . $nome[1]; ?><b></h1>
+                    <a id="notaProfessorMobile">⭐<?php echo $infosProfessor['nota_professor'] ?>/5</a>
                 </div>
 
             </div>
@@ -120,9 +121,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                 <h1 style="font-size: 1.3rem;">Avaliações</h1>
                 <p>
                     <span><?php echo $infosProfessor['nota_professor'] ?>/5⭐</span>
-                    <span><?php $conta = "SELECT COUNT(nota_avalia) FROM avalia WHERE id_professor = '".$_SESSION['id_professor']."'";
+                    <span><?php $conta = "SELECT COUNT(nota_avalia) FROM avalia WHERE id_professor = '" . $_SESSION['id_professor'] . "'";
                             $verifica_conta = mysqli_query($sql, $conta);
-                            if($verifica_conta){
+                            if ($verifica_conta) {
                                 $conta2 = mysqli_fetch_assoc($verifica_conta);
                                 $conta2 = $conta2['COUNT(nota_avalia)'];
                                 echo $conta2;
@@ -130,39 +131,42 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                             ?> Avaliações</span>
                 </p>
                 <?php
-                    $aval = "SELECT * FROM avalia WHERE id_professor = ".$_SESSION['id_professor']."";
-                    $veri_aval = mysqli_query($sql, $aval);
-                    while ($row_aval = mysqli_fetch_assoc($veri_aval)){
-                        $nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '".$row_aval['id_aluno']."'";
-                        $verify_nome = mysqli_query($sql, $nome);
-                        $nome2 = mysqli_fetch_assoc($verify_nome);
-                        $nome = $nome2['nome_aluno'];
-                        $nota = "SELECT nota_avalia FROM avalia WHERE id_aluno = '".$row_aval['id_aluno']."'";
-                        $verify_nota = mysqli_query($sql, $nota);
-                        $nota2 = mysqli_fetch_assoc($verify_nota);
-                        $nota = $nota2['nota_avalia'];
-                        $desc = "SELECT desc_avalia FROM avalia WHERE id_aluno = '".$row_aval['id_aluno']."'";
-                        $verify_desc = mysqli_query($sql, $desc);
-                        $desc2 = mysqli_fetch_assoc($verify_desc);
-                        $desc = $desc2['desc_avalia'];
-                        echo '<div id="avaliacao">';
-                        echo '<h3>'.$nome.'</h3>';
-                        echo '<p><span>'.$nota.'/5⭐: </span>';
-                        echo '<span>'.$desc.'</span>';
-                        echo '</p>';
-                        echo '</div>';
-                    }
+                $aval = "SELECT * FROM avalia WHERE id_professor = " . $_SESSION['id_professor'] . "";
+                $veri_aval = mysqli_query($sql, $aval);
+                while ($row_aval = mysqli_fetch_assoc($veri_aval)) {
+                    $nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_nome = mysqli_query($sql, $nome);
+                    $nome2 = mysqli_fetch_assoc($verify_nome);
+                    $nome = $nome2['nome_aluno'];
+                    $nota = "SELECT nota_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_nota = mysqli_query($sql, $nota);
+                    $nota2 = mysqli_fetch_assoc($verify_nota);
+                    $nota = $nota2['nota_avalia'];
+                    $desc = "SELECT desc_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_desc = mysqli_query($sql, $desc);
+                    $desc2 = mysqli_fetch_assoc($verify_desc);
+                    $desc = $desc2['desc_avalia'];
+                    echo '<div id="avaliacao">';
+                    echo '<h3>' . $nome . '</h3>';
+                    echo '<p><span>' . $nota . '/5⭐: </span>';
+                    echo '<span>' . $desc . '</span>';
+                    echo '</p>';
+                    echo '</div>';
+                }
                 ?>
-                
+
+            </div>
             <div id="divDesvincularProfessor">
                 <button id="desvincularProfessor"><a href="./includes/desvincular.php?id=<?php echo $_SESSION['id'] ?>">Desvincular-se</a></button>
             </div>
-        </div>
         </div>
     </main>
 </body>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php";
-include_once "includes/modalAvalia.php" ?>
+include_once "includes/modalAvalia.php";
+include_once "includes/modalDenuncia.php";
+unset($_SESSION['msg']);
+?>
 
 </html>
