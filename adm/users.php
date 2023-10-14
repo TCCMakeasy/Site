@@ -19,10 +19,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </head>
 
 <body>
+    <h1 id="title" hidden>Usuários</h1>
     <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <section>
-            <h1 id="title">Alunos</h1>
+            <h1 class="title">Alunos</h1>
             <div id="container">
                 <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {
                                                     echo $_SESSION['msg'];
@@ -36,7 +37,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
         </section>
         <section>
-            <h1 id="title">Professores</h1>
+            <h1 class="title">Professores</h1>
             <div id="container">
                 <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {
                                                     echo $_SESSION['msg'];
