@@ -142,9 +142,9 @@ const graficoAvaliacoes = new Chart(avaliacoes, {
     }
 });
 
-function disableInput() {
-    const checkMensal = document.getElementById("inputMensal");
-    const mesGanho = document.getElementById("inputMes");
+function disableInput(e) {
+    const checkMensal = document.getElementsByClassName("inputMensal")[e];
+    const mesGanho = document.getElementById("inputMes"+e);
     var isChecked = checkMensal.checked;
     if (isChecked) {
         mesGanho.setAttribute('disabled', true);

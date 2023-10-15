@@ -212,6 +212,7 @@ main {
 #EdxValor-content {
   width: 100%;
   height: 100%;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -318,9 +319,8 @@ input[type=checkbox] {
   background-color: var(--vermelhoMakeasy);
 }
 #tabela {
-  max-height: 14rem;
-  margin: 0 auto;
   border-collapse: collapse;
+  align-items: center;
 }
 #tabela #linha:hover {
   background-color: var(--azulMakeasyHover);
@@ -358,6 +358,24 @@ select {
   border-radius: 8px;
   padding: 0.5rem;
   margin-left: 0.5rem;
+}
+.alert{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.alert-danger{
+  background-color: var(--vermelhoMakeasy);
+  color: white;
+}
+.alert-success{
+  background-color: var(--verdeMakeasy);
+
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -404,11 +422,12 @@ select {
   }
   #EdxValor {
     height: 85%;
-    width: 80%;
+    width: 90%;
   }
   #tabela {
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
   }
   th, td {
   min-width: 5rem;
@@ -423,6 +442,7 @@ select {
   }
   #EdxValor-content {
     display: block;
+    margin: 0;
   }
   #formEdxValor {
     width: 100%;
