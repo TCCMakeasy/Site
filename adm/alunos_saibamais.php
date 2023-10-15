@@ -40,7 +40,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
                 </a>
                 <div id="foto">
-                    <img src="../fotosPerfil/usuario.png" id="fotoPerfil" accept="./images/*">
+                    <img src="../fotosPerfil/<?php echo $sqlAluno['foto_aluno'] ?>" id="fotoPerfil" accept="./images/*">
                     <h1 id="nome_aluno"><b><?php $nome = explode(' ', $sqlAluno['nome_aluno']);
                                             if (empty($nome[1])) {
                                                 $nome[1] = "";

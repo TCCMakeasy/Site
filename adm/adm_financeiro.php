@@ -25,7 +25,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <h1 id="title">Financeiro</h1>
             <div id="container">
                 <h1 id="title">Lucro Mensal</h1>
-                <?php if(isset($_SESSION['msg'])){echo $_SESSION['msg'];} ?>
+                <?php if (isset($_SESSION['msg'])) {
+                    echo $_SESSION['msg'];
+                } ?>
                 <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
 
                 <script>
@@ -235,28 +237,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     </div>
 </dialog>
 
-<dialog id="EdxValor">
-    <div id="EdxValor-content">
-        <form id="formEdxValor">
-            <div id="nomeGasto">
-                <label for="inputnomeGasto"><b>Nome do gasto:</b></label>
-                <input type="text" name="nomeGasto" id="inputnomeGasto">
-            </div>
-            <div id="valorGasto">
-                <label for="inputvalorGasto"><b>Valor do gasto:</b></label>
-                <input type="text" name="valorGasto" id="inputvalorGasto">
-            </div>
-            <div id="mensal">
-                <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensal">
-            </div>
-            <div id="submitAddGasto">
-                <input type="submit" id="btnAddGasto" name="btnAddGasto" value="Adicionar Gasto">
-                <button id="closeAddGasto" type="button">Cancelar</button>
-            </div>
-        </form>
-    </div>
-</dialog>
 
 <script src="./js/selectValor.js"></script>
 <script src="./js/graficos.js"></script>
@@ -265,7 +245,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; 
-unset($_SESSION['msg']);?>
+<?php include_once "includes/modalNotificar.php";
+unset($_SESSION['msg']); ?>
 
 </html>
