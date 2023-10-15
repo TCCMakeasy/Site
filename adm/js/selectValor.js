@@ -8,6 +8,14 @@ const inputValor = document.getElementById("inputValorEdit");
 const inputMes = document.getElementById("inputMesEdit");
 const inputMensal = document.getElementById("inputMensalEdit");
 
+inputMensal.addEventListener("click", () => {
+  if (inputMensal.checked) {
+    inputMes.setAttribute("disabled", "true");
+  } else {
+    inputMes.removeAttribute("disabled");
+  }
+});
+
 tabela.addEventListener("click", function (e) {
   const target = e.target;
   if (target.nodeName === "TD") {
@@ -42,10 +50,10 @@ tabela.addEventListener("click", function (e) {
     }
     if (tds[4].innerText == 0) {
       inputMensal.checked = false;
+      inputMes.removeAttribute("disabled");
     } else {
       inputMensal.checked = true;
+      inputMes.setAttribute("disabled", "true");
     }
-    console.log(tds);
-    console.log(target.parentNode);
   }
 });

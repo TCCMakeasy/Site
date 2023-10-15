@@ -25,6 +25,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <h1 id="title">Financeiro</h1>
             <div id="container">
                 <h1 id="title">Lucro Mensal</h1>
+                <?php if(isset($_SESSION['msg'])){echo $_SESSION['msg'];} ?>
                 <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
 
                 <script>
@@ -67,11 +68,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensal" onclick="disableInput()">
+                <input type="checkbox" name="mensal" class="inputMensal" onclick="disableInput(0)">
             </div>
             <div id="mesGanho">
-                <label for="inputMes"><b>Mês:</b></label>
-                <select name="mesGanho" id="inputMes">
+                <label for="inputMes0"><b>Mês:</b></label>
+                <select name="mesGanho" id="inputMes0" class="inputMes">
                     <option value="jan">Janeiro</option>
                     <option value="fev">Fevereiro</option>
                     <option value="mar">Março</option>
@@ -102,11 +103,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensal">
+                <input type="checkbox" name="mensal" class="inputMensal" onclick="disableInput(1)">
             </div>
             <div id="mesGasto">
-                <label for="inputMes"><b>Mês:</b></label>
-                <select name="mesGasto" id="inputMes">
+                <label for="inputMes1"><b>Mês:</b></label>
+                <select name="mesGasto" id="inputMes1" class="inputMes">
                     <option value="jan">Janeiro</option>
                     <option value="fev">Fevereiro</option>
                     <option value="mar">Março</option>
@@ -132,7 +133,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <th class="valorTitle">Nome</th>
                 <th class="valorTitle">Valor</th>
                 <th class="valorTitle">Mês</th>
-                <th class="valorTitle">Tipo</th>>
+                <th class="valorTitle">Tipo</th>
             </tr>
             <?php
             require_once '../conexao.php';
@@ -175,6 +176,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         break;
                     case "dez":
                         $row_edit['mes_financeiro'] = "Dezembro";
+                        break;
+                    case "":
+                        $row_edit['mes_financeiro'] = "Mensal";
                         break;
                 }
                 echo '<tr id="linha">';
@@ -224,7 +228,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="submitEdxValor">
                 <input type="submit" id="btnEdValor" name="btnEdValor" value="Editar valor">
-                <input type="submit" id="btnExValor" name="btnExValor" value="Excluir valor">
+                <input type="submit" id="btnExValor" name="btnEdValor" value="Excluir valor">
                 <button id="closeEdxValor" type="button">Cancelar</button>
             </div>
         </form>
@@ -261,6 +265,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php"; 
+unset($_SESSION['msg']);?>
 
 </html>
