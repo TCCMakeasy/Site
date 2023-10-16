@@ -13,12 +13,11 @@
             <form action="./includes/denuncia.php" method="POST">
                 <div class="denuncia-item">
                     <select name="tipoDenuncia" id="selectDenuncia" required>
-                        <option select hidden>Qual o problema?</option>
-                        <option value="1">Professor desrespeitoso na aula</option>
-                        <option value="2">Conta falsa / Spam</option>
-                        <option value="3">Descrição/dados ofensivos</option>
-                        <option value="4">Professor não foi profissional</option>
-                        <option value="5">Outro</option>
+                        <option>Professor desrespeitoso na aula</option>
+                        <option>Conta falsa / Spam</option>
+                        <option>Descrição/dados ofensivos</option>
+                        <option>Professor não foi profissional</option>
+                        <option>Outro</option>
                     </select>
                     <textarea name="comentario" id="comentario" placeholder="Descreva o problema (opcional)" cols="30" rows="1" maxlength="500"></textarea>
                 </div>

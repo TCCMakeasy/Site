@@ -55,7 +55,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 </body>
 <dialog id="addProf">
     <div id="addProf-content">
-        <form action="./includes/add_Profs.php" method="post" id="formAddProf">
+        <form action="./includes/add_prof.php" method="post" id="formAddProf">
             <h1>Adicionar Professor</h1>
             <div id="nomeProf">
                 <label for="inputNomeProf"><b>Nome:</b></label>
