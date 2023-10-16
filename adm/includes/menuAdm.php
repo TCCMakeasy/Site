@@ -27,7 +27,7 @@
                     <a href="./adm_financeiro.php" class="navButton">Financeiro</a>
                 </li>
                 <li>
-                    <a href="" class="navButton">Denúncias</a>
+                    <a href="./denuncias.php" class="navButton">Denúncias</a>
                 </li>
                 <li>
                     <a href="./includes/fim_session.php" class="navButton" id="sair">Sair</a>
