@@ -69,6 +69,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <label for="inputemailProf"><b>Email:</b></label>
                 <input type="email" name="emailProf" id="inputEmailProf" placeholder="Professor@gmail.com">
             </div>
+            <div id="emailProf">
+                <label for="inputemailProf"><b>Data de nasc.:</b></label>
+                <input type="date" name="dataProf" id="inputDateProf" placeholder="9/99/9999">
+            </div>
             <div id="submitAddProf">
                 <input type="submit" id="adicionarProf" name="btnAddProf" value="Adicionar Professor">
                 <button id="closeAddProf" type="button">Cancelar</button>
