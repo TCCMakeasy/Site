@@ -12,24 +12,33 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $fotoPerfil = $_FILES['fotoPerfil'];
     if ($fotoPerfil['error'] == 4) {
         $dados['fotoPerfil'] = $_SESSION['foto'];
-    }elseif($fotoPerfil['size'] > 5242880){
+    } elseif ($fotoPerfil['size'] > 5242880) {
         $erro = true;
         $_SESSION['msg'] = "O arquivo enviado excede o limite de 5MB";
         header("Location: ../infos.php");
         exit();
-    }else{
+    } else {
         $extensao = strtolower(pathinfo($fotoPerfil['name'], PATHINFO_EXTENSION));
         $novo_nome = md5(uniqid()) . "." . $extensao;
         $diretorio = "../../fotosPerfil/";
-        if ($_SESSION['foto'] != "usuario.png"){unlink($diretorio . $_SESSION['foto']);}
+        if ($_SESSION['foto'] != "usuario.png") {
+            unlink($diretorio . $_SESSION['foto']);
+        }
         move_uploaded_file($fotoPerfil['tmp_name'], $diretorio . $novo_nome);
         $dados['fotoPerfil'] = $novo_nome;
     }
     if ($dados['descInput'] == "") {
         $dados['descInput'] = $_SESSION['desc'];
     }
-    if ($dados['email'] == "") {
-        $dados['email'] = $_SESSION['email'];
+    if (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
+        if ($dados['email'] == "") {
+            $dados['email'] = $_SESSION['email'];
+        } else {
+            $erro = true;
+            $_SESSION['msg'] = "Digite um e-mail válido";
+            header("Location: ../infos.php");
+            exit();
+        }
     }
     if ($dados['senha'] == "") {
         $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', telefone_aluno = '" . $dados['telefone'] . "', bio_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";

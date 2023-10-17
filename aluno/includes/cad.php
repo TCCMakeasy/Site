@@ -17,6 +17,9 @@
 	}elseif(stristr($dados['senha'], "&")) {
 		$erro = true;
 		echo "Carácter ( & ) utilizado na senha é inválido";
+	}elseif (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
+		$erro = true;
+		echo "E-mail inválido";
 		
 	}else{
 		$result_usuario = "SELECT id_aluno FROM aluno WHERE id_aluno='". $dados['nome'] ."'";
@@ -40,7 +43,7 @@
 						'" .$dados['data']. "'
 						)";
 		$resultado_usario = mysqli_query($sql, $result_usuario);
-		echo "Cadastrado com sucesso";
+		echo "Cadastrado com sucesso! Redirecionando para a página de login...";
 	}
 	
 ?>

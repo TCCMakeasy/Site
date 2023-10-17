@@ -22,7 +22,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <main>
         <section id="tela">
             <h1 id="title">Suas Informações</h1>
-        <form id="formInfos" method="POST" action="./includes/edit_infos.php" enctype="multipart/form-data">
+            <form id="formInfos" method="POST" action="./includes/edit_infos.php" enctype="multipart/form-data">
                 <section id="editFoto">
                     <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" id="fotoPerfil" accept="./images/*">
                     <label for="inputFoto" id="labelInputFoto"><img id="imgLabelInput" src="./images/edit.png" alt="Botão para editar Foto de Perfil"></label>
@@ -39,15 +39,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" name="email" type="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" name="email" type="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" class="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" name="senha" type="password" placeholder="●●●●●●●●"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" name="senha" type="password" placeholder="●●●●●●●●"><img src="./images/hide.png" alt="label Editável" class="editImg" id="show-hide" onclick="showHidePassword()"></p>
                     </div>
                     <div id="divTelefone" class="divInputText">
                         <p id="telefoneTitulo" class="tituloForm">Telefone:</p>
-                        <p class="inputP"><input id="telefoneInput" class="inputText" type="tel" name="telefone" placeholder="(99)99999-9999" maxlength="15" onkeyup="handlePhone(event)" value="<?php echo $_SESSION['telefone'] ?>"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
+                        <p class="inputP"><input id="telefoneInput" class="inputText" type="tel" name="telefone" placeholder="(99)99999-9999" maxlength="15" onkeyup="handlePhone(event)" value="<?php echo $_SESSION['telefone'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
                     </div>
                     <script>
                         const handlePhone = (event) => {
@@ -69,14 +69,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     </div>
                     <div id="divValor" class="divInputText">
                         <p id="valorTitulo" class="tituloForm">Preço (R$):</p>
-                        <p class="inputP"><input id="valorInput" class="inputText" type="number" name="valor" value="<?php echo $_SESSION['valor'] ?>"><img src="./images/edit.png" id="editImg"></p>
+                        <p class="inputP"><input id="valorInput" class="inputText" type="number" name="valor" value="<?php echo $_SESSION['valor'] ?>"><img src="./images/edit.png" class="editImg"></p>
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Biografia:</p>
                         <textarea id="descInput" class="inputText" rows="5" name="bio"><?php echo $_SESSION['bio'] ?></textarea>
                     </div>
                     <div id="divBtn">
-                        <input id="btnSalvar" class="btn" type="submit" value="Salvar">
+                        <input id="btnSalvar" class="btn" type="submit" value="Salvar" onclick="return confirmEdit();">
                     </div>
                 </section>
             </form>
@@ -89,16 +89,28 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     inputFoto.addEventListener("change", function() {
         fotoForm.src = URL.createObjectURL(event.target.files[0]);
     });
+
+    const confirmEdit = () => {
+        return confirm('Tem certeza que quer salvar suas informações?');
+    }
+
+    const showHidePassword = () => {
+    if(document.querySelector('#senhaInput').value != '') {
+        document.querySelector('#senhaInput').type = document.querySelector('#senhaInput').type === 'password' ? 'text' : 'password';
+    document.querySelector('#show-hide').src = document.querySelector('#senhaInput').type === 'password' ? './images/hide.png' : './images/show.png';
+    }
+    
+}
 </script>
 <script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; 
+<?php include_once "includes/modalNotificar.php";
 if (isset($_SESSION['msg'])) {
     echo '<script>
     document.addEventListener("DOMContentLoaded", function(event) {
         alert("' . $_SESSION['msg'] . '");
       })</script>';
 }
-unset($_SESSION['msg'])?>
+unset($_SESSION['msg']) ?>
 
 </html>

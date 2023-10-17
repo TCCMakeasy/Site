@@ -32,10 +32,13 @@ if(objetoAJAX){
   objetoAJAX.send(data);
   objetoAJAX.onreadystatechange = function(){
     if(objetoAJAX.readyState == 4){
-      if(objetoAJAX.responseText == "Cadastrado com sucesso"){
+      if(objetoAJAX.responseText == "Cadastrado com sucesso! Redirecionando para a página de login..."){
         alert.style.display="none";
         sucesso.style.display = "block";
         sucesso.innerHTML = objetoAJAX.responseText;
+        setTimeout(function(){
+          window.location.replace("./login.php");
+        }, 2000);
       }else{
         alert.innerHTML = "Erro: " + objetoAJAX.responseText;
       }

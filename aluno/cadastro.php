@@ -10,7 +10,28 @@
   <link rel="stylesheet" type="text/css" href="styles/estiloLoginCadastro.css" />
 </head>
 
-<body>
+<script>
+  const dateMax = () => {
+    let dataAtual = new Date();
+    let dia = dataAtual.getDate();
+    let mes = dataAtual.getMonth() + 1;
+    let ano = dataAtual.getFullYear();
+    if (dia < 10) {
+      dia = "0" + dia;
+    }
+    if (mes < 10) {
+      mes = "0" + mes;
+    }
+    let dataMax = (ano - 12) + "-" + mes + "-" + dia;
+    let dataMin = (ano - 100) + "-" + mes + "-" + dia;
+    let dataInput = document.getElementById("data");
+    dataInput.setAttribute("max", dataMax);
+    dataInput.setAttribute("min", dataMin);
+
+  }
+</script>
+
+<body onload="dateMax()">
   <header>
     <a href="" class="">
       <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
@@ -24,6 +45,7 @@
         <h1 id="tituloCad">Cadastro</h1>
         <label for="nome" class="tituloInputCad">Nome Completo:</label>
         <input type="text" name="nome" id="nome" class="inputCad" placeholder="Albert Flores" required />
+
         <label for="email" class="tituloInputCad">Email:</label>
         <input type="email" name="email" id="email" class="inputCad" placeholder="deanna.curtis@example.com" required />
 
