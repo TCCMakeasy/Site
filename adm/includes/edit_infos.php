@@ -26,8 +26,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     if ($dados['bio'] == "") {
         $dados['bio'] = $_SESSION['bio'];
     }
-    if ($dados['email'] == "") {
-        $dados['email'] = $_SESSION['email'];
+    if (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
+        if ($dados['email'] == "") {
+            $dados['email'] = $_SESSION['email'];
+        } else {
+            $erro = true;
+            $_SESSION['msg'] = "Digite um e-mail válido";
+            header("Location: ../infos.php");
+            exit();
+        }
     }
     if ($dados['valor'] == "") {
         $dados['valor'] = $_SESSION['valor'];

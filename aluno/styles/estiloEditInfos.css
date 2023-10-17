@@ -99,10 +99,13 @@ input[type="file"] {
 .tituloForm {
   margin: 0.5rem 0;
 }
-#editImg {
+.editImg {
   width: 2.5rem;
   height: 2.5rem;
   margin-left: 1rem;
+}
+#show-hide{
+  cursor: pointer;
 }
 #divDesc {
   margin: 0.5rem;

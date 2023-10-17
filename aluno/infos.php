@@ -39,15 +39,15 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>
-                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" placeholder="●●●●●●●●"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
+                        <p class="inputP"><input id="senhaInput" class="inputText" type="password" name="senha" placeholder="●●●●●●●●"><img src="./images/hide.png" alt="label Editável" class="editImg" id="show-hide" onclick="showHidePassword()"></p>
                     </div>
                     <div id="divTelefone" class="divInputText">
                         <p id="telefoneTitulo" class="tituloForm">Telefone:</p>
-                        <p class="inputP"><input id="telefoneInput" class="inputText" type="tel" name="telefone" placeholder="(99)99999-9999" maxlength="15" onkeyup="handlePhone(event)" value="<?php echo $_SESSION['telefone'] ?>"><img src="./images/edit.png" alt="label Editável" id="editImg"></p>
+                        <p class="inputP"><input id="telefoneInput" class="inputText" type="tel" name="telefone" placeholder="(99)99999-9999" maxlength="15" onkeyup="handlePhone(event)" value="<?php echo $_SESSION['telefone'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
                     </div>
                     <script>
                         const handlePhone = (event) => {
@@ -72,7 +72,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                         <textarea id="descInput" class="inputText" rows="5" form="formInfos" name="descInput"><?php echo $_SESSION['desc'] ?></textarea>
                     </div>
                     <div id="divBtn">
-                        <input id="btnSalvar" class="btn" type="submit" name="btnSalvar" value="Salvar">
+                        <input id="btnSalvar" class="btn" type="submit" name="btnSalvar" onclick="return confirmEdit();" value="Salvar">
                         <button type="button" id="btnExcluir" class="btn">Excluir</button>
                     </div>
                 </section>
