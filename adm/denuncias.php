@@ -15,26 +15,43 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/estiloDenuncias.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
-    <title>Usuários</title>
+    <title>Denúncias</title>
 </head>
 
 <body>
-    <h1 id="title" hidden>Usuários</h1>
     <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <section>
             <h1 class="title">Denúncias</h1>
             <div id="container">
-                <h1 id="pesquisarTitulo">Pesquisar:</h1>
-                <input type="text" class="inputPesquisa" id="pesquisaAProfessores" name="pesquisa">
-            </div>
-            <ul class="users" id="usersProfessores">
-            </ul>
+                <div id="pesquisar">
+                    <h1 id="pesquisarTitulo">ID do professor:</h1>
+                    <input type="text" class="inputPesquisa" id="pesquisaAProfessores" name="pesquisa">
+                </div>
+                <h1><?php echo "nome"; ?></h1>
+                <table id="tabela">
+                <tr>
+                    <th class="denunciaTitle">Denunciador</th>
+                    <th class="denunciaTitle">Motivo</th>
+                    <th class="denunciaTitle">Descrição</th>
+                    <th class="denunciaTitle">Data</th>
+                    <th class="denunciaTitle"></th>
+                </tr>
+                <tr id="linha">
+                    <td class="valores">Maria</td>
+                    <td class="valores">Outro</td>
+                    <td class="valores">Me chamou de burra</td>
+                    <td class="valores">1/11/2023</td>
+                    <td class="excluir">Excluir</td>
+                </tr>
             </div>
         </section>
         </main>
+        
+
 </body>
 <script src="./js/searchUsers.js"></script>
+<script src="./js/getDenuncias.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>
 

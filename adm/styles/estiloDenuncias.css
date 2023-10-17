@@ -51,11 +51,90 @@ section {
 }
 
 .inputPesquisa {
-  width: 90%;
+  width: 10%;
   height: 2rem;
   border: 1px solid black;
   border-radius: 8px;
   margin: 1rem;
   padding: 0 1rem;
   font-size: 1.3rem;
+}
+
+#tabela {
+  border-collapse: collapse;
+  align-items: center;
+}
+#tabela #linha:hover {
+  background-color: var(--azulMakeasyHover);
+  cursor: pointer;
+}
+#denunciaTitle{
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.valores{
+  font-weight: normal;
+  font-size: 1rem;
+}
+th,
+td {
+  border: 3px solid black;
+  min-width: 16rem;
+  font-weight: 700;
+  height: 2rem;
+}
+.excluir{
+  background-color: var(--vermelhoMakeasy);
+}
+@media (max-width: 768px) {
+  main {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5rem;
+    height: calc(100% - 5rem);
+  }
+  section {
+    width: 100%;
+    height: calc(100% - 5rem);
+  }
+  #container {
+    margin-top: 0;
+    width: 100%;
+    height: calc(100vh - 5rem);
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #container > * {
+    margin: 0rem;
+    width: 100%;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  #tela {
+    margin: 5rem 0 0;
+  }
+  #container {
+    margin-top: 2rem;
+  }
+  #denunciasTitle {
+    width: 30%;
+  }
+  #valores {
+    display: table-cell;
+  }
+  td {
+    display: block;
+    text-align: justify;
+    border: #000 2px solid;
+    padding: 1rem;
+  }
+  td::before {
+    text-transform: uppercase;
+    margin-right: 1rem;
+    font-weight: 700;
+  }
+  td:nth-of-type(1)::before {
+    content: "Maria:";
+  }
 }
