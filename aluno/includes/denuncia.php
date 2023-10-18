@@ -23,8 +23,4 @@ $comando1 = "INSERT into alerta (id_aluno, id_professor, data_alerta, motivo_ale
              values ($id_aluno, $id_professor, $data, '$tipo', '$comentario')";
 $msquery1 = mysqli_query($sql, $comando1);
 
- 
-
- 
-
 ?>
