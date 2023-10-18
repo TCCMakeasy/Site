@@ -1,5 +1,7 @@
 @import '../styles/estiloPadrão.css';
-
+#tela {
+  margin: auto;
+}
 main {
   margin-left: calc((98% + 380px) / 2 - 40%);
   display: flex;
@@ -8,7 +10,7 @@ main {
   justify-content: center;
 }
 
-section {
+#denuncias {
   display: flex;
   width: 100%;
   height: 100vh;
@@ -68,9 +70,10 @@ section {
   background-color: var(--azulMakeasyHover);
   cursor: pointer;
 }
-#denunciaTitle{
+.denunciaTitle{
   font-weight: bold;
   font-size: 1.25rem;
+  background-color: var(--corPrimaria);
 }
 .valores{
   font-weight: normal;
@@ -117,11 +120,10 @@ td {
   #container {
     margin-top: 2rem;
   }
-  #denunciasTitle {
-    width: 30%;
-  }
-  #valores {
+  .denunciaTitle {
+    width: 10%;
     display: table-cell;
+
   }
   td {
     display: block;
@@ -135,6 +137,18 @@ td {
     font-weight: 700;
   }
   td:nth-of-type(1)::before {
-    content: "Maria:";
+    content: "Denunciador:";
+  }
+  td:nth-of-type(2)::before {
+    content: "Motivo:";
+  }
+  td:nth-of-type(3)::before {
+    content: "Descrição:";
+  }
+  td:nth-of-type(4)::before {
+    content: "Data:";
+  }
+  td:nth-of-type(5)::before {
+    content: "Excluir";
   }
 }

@@ -20,37 +20,39 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <body>
     <?php include_once "./includes/menuAdm.php"; ?>
-    <main>
-        <section>
-            <h1 class="title">Denúncias</h1>
-            <div id="container">
-                <div id="pesquisar">
-                    <h1 id="pesquisarTitulo">ID do professor:</h1>
-                    <input type="text" class="inputPesquisa" id="pesquisaAProfessores" name="pesquisa">
+    <section id="tela">
+        <main>
+            <section id="denuncias">
+                <h1 class="title">Denúncias</h1>
+                <div id="container">
+                    <div id="pesquisar">
+                        <h1 id="pesquisarTitulo">ID do professor:</h1>
+                        <input type="text" class="inputPesquisa" id="pesquisaProfessores" name="pesquisa">
+                    </div>
+                    <h1><?php echo "nome"; ?></h1>
+                    <table id="tabela">
+                        <tr>
+                            <th class="denunciaTitle">Denunciador</th>
+                            <th class="denunciaTitle">Motivo</th>
+                            <th class="denunciaTitle">Descrição</th>
+                            <th class="denunciaTitle">Data</th>
+                            <th class="denunciaTitle"></th>
+                        </tr>
+                        <tr id="linha">
+                            <td class="valores">Maria</td>
+                            <td class="valores">Outro</td>
+                            <td class="valores">Me chamou de burra</td>
+                            <td class="valores">1/11/2023</td>
+                            <td class="excluir">Excluir</td>
+                        </tr>
+                    </table>
                 </div>
-                <h1><?php echo "nome"; ?></h1>
-                <table id="tabela">
-                <tr>
-                    <th class="denunciaTitle">Denunciador</th>
-                    <th class="denunciaTitle">Motivo</th>
-                    <th class="denunciaTitle">Descrição</th>
-                    <th class="denunciaTitle">Data</th>
-                    <th class="denunciaTitle"></th>
-                </tr>
-                <tr id="linha">
-                    <td class="valores">Maria</td>
-                    <td class="valores">Outro</td>
-                    <td class="valores">Me chamou de burra</td>
-                    <td class="valores">1/11/2023</td>
-                    <td class="excluir">Excluir</td>
-                </tr>
-            </div>
-        </section>
+            </section>
         </main>
-        
+    </section>
+
 
 </body>
-<script src="./js/searchUsers.js"></script>
 <script src="./js/getDenuncias.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php"; ?>

@@ -4,6 +4,19 @@ const avaliacoes = document.getElementById('avaliacoes').getContext('2d');
 const lucroMensal = document.getElementById('lucroMensal').getContext('2d');
 const alunosMensal = document.getElementById('alunosMensal').getContext('2d');
 
+const getValues = async (id) =>{
+    {
+        fetch("./includes/getValuesGraphicAval.php",{
+            method: "POST",
+            body: id_professor,
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+            })
+            .catch((error) => console.log("Erro: " + error));
+    }
+};
 const graficoAlunosMensal = new Chart(alunosMensal, {
     type: 'bar',
     data: {
@@ -80,9 +93,6 @@ const graficoAlunosMensal = new Chart(alunosMensal, {
         }
     }
 });
-
-
-
 const graficoAvaliacoes = new Chart(avaliacoes, {
     type: 'bar',
     data: {
