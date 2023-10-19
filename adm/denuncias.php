@@ -29,7 +29,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                         <h1 id="pesquisarTitulo">ID do professor:</h1>
                         <input type="number" class="inputPesquisa" id="pesquisaProfessores" name="pesquisa">
                     </div>
-                    <h1>Nsei</h1>
+                    <h1 id="nomeProfessor"></h1>
                     <table id="tabela">
                         <tr id="titleTabela">
                             <th class="denunciaTitle">Denunciador</th>

@@ -7,8 +7,8 @@ const getDenuncias = async (id) => {
       body: id,
     })
       .then((response) => response.json())
-      .then((response) => {
-        showDenuncias(response);
+      .then(async (response) => {
+        showDenuncias(response, id);
       })
       .catch((error) => console.log("Erro: " + error));
   }
@@ -20,47 +20,55 @@ inputPesquisa.addEventListener("input", (e) => {
   searchtimer = setTimeout(() => {
     let text = e.target.value;
     if (text == "") {
-      showDenuncias([]);
+      showDenuncias([], 0);
     } else {
       getDenuncias(text);
     }
   }, 700);
 });
 
-const getName = async (id, tipo) => {
-  fetch("./includes/getName.php", {
-    method: "POST",
-    body: [id, tipo],
-  })
-    .then((response) => response.text())
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => console.log("Erro: " + error));
-}
-
-const showDenuncias = (professorDenuncias) => {
+const showDenuncias = async (professorDenuncias, idProfessor) => {
   const titleTabela = document.getElementById("titleTabela");
   excluiLinha = document.querySelectorAll("#linha");
+  const nomeProfessor = document.getElementById("nomeProfessor");
+  nomeProfessor.innerHTML = "";
   excluiLinha.forEach((element) => {
     element.remove();
   });
   if (professorDenuncias.length == 0) {
     //se quiser add algo quando não tiver denuncias
   } else {
-    professorDenuncias.forEach((element) => {
-      element.data_alerta = element.data_alerta.split("-");
-      element.data_alerta = element.data_alerta[2] + "/" + element.data_alerta[1] + "/" + element.data_alerta[0];
-      titleTabela.insertAdjacentHTML(
-        "afterend",
-        `<tr id="linha">
-    <td class="valores nomeDenuncia">${element.id_aluno}</td>
-    <td class="valores tipoDenuncia">${element.info_alerta}</td>
-    <td class="valores">${element.motivo_alerta}</td>
-    <td class="valores">${element.data_alerta}</td>
-    <td class="excluir">Excluir</td>
-</tr>`
-      );
-    });
+    nomeProfessor.innerHTML = await getName(idProfessor, "professor");
+    if (professorDenuncias.length > 0) {
+      professorDenuncias.forEach(async (element) => {
+        nome_aluno = await getName(element.id_aluno, "aluno");
+        element.data_alerta = element.data_alerta.split("-");
+        element.data_alerta =
+          element.data_alerta[2] +
+          "/" +
+          element.data_alerta[1] +
+          "/" +
+          element.data_alerta[0];
+        titleTabela.insertAdjacentHTML(
+          "afterend",
+          `<tr id="linha">
+          <td class="valores nomeDenuncia">${nome_aluno} [${element.id_aluno}]</td>
+          <td class="valores tipoDenuncia">${element.info_alerta}</td>
+          <td class="valores">${element.motivo_alerta}</td>
+          <td class="valores">${element.data_alerta}</td>
+          <td class="excluir">Excluir</td>
+          </tr>`
+        );
+      });
+    }
   }
+};
+
+const getName = async (id, tipo) => {
+  const response = await fetch("./includes/getName.php", {
+    method: "POST",
+    body: [id, tipo],
+  });
+  const name = await response.text();
+  return name;
 };
