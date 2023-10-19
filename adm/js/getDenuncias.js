@@ -1,36 +1,54 @@
+var searchtimer;
+
 const getDenuncias = async (id) => {
   {
-    await fetch("./includes/verificaDenuncia.php", {
+    fetch("./includes/verificaDenuncia.php", {
       method: "POST",
       body: id,
     })
       .then((response) => response.json())
       .then((response) => {
-        return response
+        showDenuncias(response);
       })
       .catch((error) => console.log("Erro: " + error));
   }
 };
 
-getDenuncias(3);
-
 const inputPesquisa = document.getElementById("pesquisaProfessores");
 inputPesquisa.addEventListener("input", (e) => {
-  let text = e.target.value;
-  showDenuncias(text);
-})
+  clearTimeout(searchtimer);
+  searchtimer = setTimeout(() => {
+    let text = e.target.value;
+    if (text == "") {
+      showDenuncias([]);
+    } else {
+      getDenuncias(text);
+    }
+  }, 700);
+});
 
-const showDenuncias = (idProfessor) => {
-  let resultPesquisa = getDenuncias(idProfessor);
-  const table = document.getElementById("table");
-  resultPesquisa.forEach(element => {
-    table.innerHTML += `<tr id="linha">
+const showDenuncias = (professorDenuncias) => {
+  const titleTabela = document.getElementById("titleTabela");
+  excluiLinha = document.querySelectorAll("#linha");
+  excluiLinha.forEach((element) => {
+    element.remove();
+  });
+  if (professorDenuncias.length == 0) {
+    //se quiser add algo quando não tiver denuncias
+  } else {
+    professorDenuncias.forEach((element) => {
+      element.data_alerta = element.data_alerta.split("-");
+      element.data_alerta = element.data_alerta[2] + "/" + element.data_alerta[1] + "/" + element.data_alerta[0];
+      titleTabela.insertAdjacentHTML(
+        "afterend",
+        `<tr id="linha">
     <td class="valores nomeDenuncia">${element.id_aluno}</td>
-    <td class="valores tipoDenuncia">Outro</td>
-    <td class="valores">Me chamou de burra</td>
-    <td class="valores">1/11/2023</td>
+    <td class="valores tipoDenuncia">${element.info_alerta}</td>
+    <td class="valores">${element.motivo_alerta}</td>
+    <td class="valores">${element.data_alerta}</td>
     <td class="excluir">Excluir</td>
 </tr>`
-  });
-
-}
+      );
+    });
+  }
+};
