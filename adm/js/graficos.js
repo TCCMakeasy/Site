@@ -1,22 +1,90 @@
 const mesesGraphic = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
 const estrelas = ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'];
-const avaliacoes = document.getElementById('avaliacoes').getContext('2d');
+const avaliacoesGraph = document.getElementById('avaliacoes').getContext('2d');
 const lucroMensal = document.getElementById('lucroMensal').getContext('2d');
 const alunosMensal = document.getElementById('alunosMensal').getContext('2d');
 
-const getValues = async (id) =>{
-    {
-        fetch("./includes/getValuesGraphicAval.php",{
+const graphAvaliaValues = async (text) => {
+    try {
+        const response = await fetch("./includes/getValuesGraphicAval.php", {
             method: "POST",
-            body: id_professor,
-        })
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
+            body: text,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (response.ok) {
+            const avaliacoes = await response.json();
+            console.log(avaliacoes);
+            const graficoAvaliacoes = new Chart(avaliacoesGraph, {
+                type: 'bar',
+                data: {
+                    labels: estrelas,
+                    datasets: [{
+                        label: 'Avaliações',
+                        data: [15, 14, 16, 17, 17],
+                        tension: 0.3,
+                        borderColor: '#fff',
+                        backgroundColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            grid: {
+                                color: '#fff',
+                            },
+                            ticks: {
+                                color: '#fff',
+                                padding: 15,
+                                font: {
+                                    size: 16,
+                                    family: 'Open Sans',
+                                }
+                            },
+                            border: {
+                                width: 0
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0)',
+                            },
+                            ticks: {
+                                color: '#fff',
+                                padding: 15,
+                                font: {
+                                    size: 16,
+                                    family: 'Open Sans',
+                                }
+                            },
+                        }
+                    },
+                }
             })
-            .catch((error) => console.log("Erro: " + error));
+        } else {
+            console.error("Erro na solicitação:", response.status, response.statusText);
+        }
     }
+    catch (error) {
+        console.error("Erro ao processar a solicitação:", error);
+    };
 };
+
+
 const graficoAlunosMensal = new Chart(alunosMensal, {
     type: 'bar',
     data: {
@@ -93,64 +161,7 @@ const graficoAlunosMensal = new Chart(alunosMensal, {
         }
     }
 });
-const graficoAvaliacoes = new Chart(avaliacoes, {
-    type: 'bar',
-    data: {
-        labels: estrelas,
-        datasets: [{
-            label: 'Avaliações',
-            data: [15, 14, 16, 17, 17],
-            tension: 0.3,
-            borderColor: '#fff',
-            backgroundColor: '#fff'
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        elements: {
-            point: {
-                radius: 0
-            }
-        },
-        plugins: {
-            legend: {
-                display: false
-            }
-        },
-        scales: {
-            y: {
-                grid: {
-                    color: '#fff',
-                },
-                ticks: {
-                    color: '#fff',
-                    padding: 15,
-                    font: {
-                        size: 16,
-                        family: 'Open Sans',
-                    }
-                },
-                border: {
-                    width: 0
-                }
-            },
-            x: {
-                grid: {
-                    color: 'rgba(255, 255, 255, 0)',
-                },
-                ticks: {
-                    color: '#fff',
-                    padding: 15,
-                    font: {
-                        size: 16,
-                        family: 'Open Sans',
-                    }
-                },
-            }
-        },
-    }
-});
+
 
 function disableInput(e) {
     const checkMensal = document.getElementsByClassName("inputMensal")[e];
@@ -163,7 +174,7 @@ function disableInput(e) {
     }
 };
 
-const pesquisa = async (text) => {
+const graphLucroValues = async (text) => {
     try {
         const response = await fetch("./includes/getValuesGraphic.php", {
             method: "POST",
