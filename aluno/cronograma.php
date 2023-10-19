@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
-    header("Location: ../professor/login.php");
+    header("Location: ../aluno/login.php");
 } else if (isset($_SESSION['id_professor'])) {
     require_once("../conexao.php");
     $horarios = array("10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");

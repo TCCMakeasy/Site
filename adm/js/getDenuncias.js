@@ -6,8 +6,9 @@ const getDenuncias = async (id) => {
       method: "POST",
       body: id,
     })
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((response) => {
+        console.log(response)
         showDenuncias(response);
       })
       .catch((error) => console.log("Erro: " + error));

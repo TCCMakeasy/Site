@@ -125,6 +125,9 @@ td {
     display: table-cell;
 
   }
+  #diasTitle {
+    display: table-cell;
+  }
   td {
     display: block;
     text-align: justify;
