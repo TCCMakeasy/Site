@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json; charset=utf-8');
 
 require_once "../../conexao.php";
 
@@ -9,7 +10,7 @@ $ato = mysqli_query($sql, $pesquisa);
 $array = array();
 
 while($dados = mysqli_fetch_array($ato)):
-        $array[] = utf8_encode($dados);
+        $array[] = $dados;
 endwhile;
 
 if (count($array) == 0) {

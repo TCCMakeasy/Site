@@ -18,7 +18,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <title>Denúncias</title>
 </head>
 
-<body>
+<body <?php echo 'onload="getDenuncias('.$_SESSION['id'].')"'?>>
     <?php include_once "./includes/menuAdm.php"; ?>
     <section id="tela">
         <main>

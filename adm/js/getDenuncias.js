@@ -6,9 +6,8 @@ const getDenuncias = async (id) => {
       method: "POST",
       body: id,
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((response) => {
-        console.log(response)
         showDenuncias(response);
       })
       .catch((error) => console.log("Erro: " + error));
@@ -27,6 +26,18 @@ inputPesquisa.addEventListener("input", (e) => {
     }
   }, 700);
 });
+
+const getName = async (id, tipo) => {
+  fetch("./includes/getName.php", {
+    method: "POST",
+    body: [id, tipo],
+  })
+    .then((response) => response.text())
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => console.log("Erro: " + error));
+}
 
 const showDenuncias = (professorDenuncias) => {
   const titleTabela = document.getElementById("titleTabela");
