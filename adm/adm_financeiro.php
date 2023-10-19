@@ -240,7 +240,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 <script src="./js/selectValor.js"></script>
 <script src="./js/graficos.js"></script>
-<?php echo "<script>pesquisa(" . $_SESSION['id'] . ")</script>"; ?>
+<?php echo "<script>graphLucroValues(" . $_SESSION['id'] . ");graphAvaliaValues(" . $_SESSION['id'] . ")</script>"; ?>
 <script src="./js/addGanhoOpenClose.js"></script>
 <script src="./js/addGastoOpenClose.js"></script>
 <script src="./js/edxValorOpenClose.js"></script>
