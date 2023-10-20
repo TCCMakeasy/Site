@@ -91,6 +91,7 @@ input[type="file"] {
 #descInput {
   height: 10rem;
   width: 40vw;
+  max-width: 35rem;
 }
 #senhaInput::-webkit-input-placeholder {
   color: #000;
@@ -149,5 +150,6 @@ input[type="file"] {
   #descInput {
     height: 10rem;
     width: 60vw;
+    max-width: 25rem;
   }
 }

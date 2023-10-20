@@ -95,6 +95,7 @@ input[type="file"] {
 #descInput {
   height: 10rem;
   width: 40vw;
+  max-width: 35rem;
 }
 .tituloForm {
   margin: 0.5rem 0;
@@ -159,5 +160,6 @@ input[type="file"] {
   #descInput {
     height: 10rem;
     width: 60vw;
+    max-width: 25rem;
   }
 }

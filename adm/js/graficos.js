@@ -25,25 +25,28 @@ const graphAvaliaValues = async (text) => {
       const avaliacoes = await response.json();
       let avaliacoesCount =
         { umaStar: 0, duasStar: 0, tresStar: 0, quatroStar: 0, cincoStar: 0 };
-      for (const obj of avaliacoes) {
-            switch (obj.nota_avalia) {
-                case "1":
-                    avaliacoesCount.umaStar += 1;
-                    break;
-                case "2":
-                    avaliacoesCount.duasStar += 1;
-                    break;
-                case "3":
-                    avaliacoesCount.tresStar += 1;
-                    break;
-                case "4":
-                    avaliacoesCount.quatroStar += 1;
-                    break;
-                case "5":
-                    avaliacoesCount.cincoStar += 1;
-                    break;
-            }
+      if (!avaliacoes.erro) {
+        for (const obj of avaliacoes) {
+          switch (obj.nota_avalia) {
+            case "1":
+              avaliacoesCount.umaStar += 1;
+              break;
+            case "2":
+              avaliacoesCount.duasStar += 1;
+              break;
+            case "3":
+              avaliacoesCount.tresStar += 1;
+              break;
+            case "4":
+              avaliacoesCount.quatroStar += 1;
+              break;
+            case "5":
+              avaliacoesCount.cincoStar += 1;
+              break;
+          }
+        }
       }
+
       const graficoAvaliacoes = new Chart(avaliacoesGraph, {
         type: "bar",
         data: {
@@ -79,6 +82,7 @@ const graphAvaliaValues = async (text) => {
               ticks: {
                 color: "#fff",
                 padding: 15,
+                precision: 0,
                 font: {
                   size: 16,
                   family: "Open Sans",
