@@ -103,14 +103,38 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <h1 style="font-size: 1.3rem;">Avaliações</h1>
                 <p>
                     <span><?php echo $infosProfessor['nota_professor'] ?>/5⭐</span>
-                    <span>2 Avaliações</span>
+                    <span><?php $conta = "SELECT COUNT(nota_avalia) FROM avalia WHERE id_professor = '" . $idProfessor . "'";
+                            $verifica_conta = mysqli_query($sql, $conta);
+                            if ($verifica_conta) {
+                                $conta2 = mysqli_fetch_assoc($verifica_conta);
+                                $conta2 = $conta2['COUNT(nota_avalia)'];
+                                echo $conta2;
+                            } ?> Avaliações</span>
                 </p>
-                <div id="avaliacao">
-                    <h3>Ana Paula</h3>
-                    <p><span>5/5⭐:</span>
-                        <span>Gostei bastante da aula, muito boa mesmo</span>
-                    </p>
-                </div>
+                <?php
+                $aval = "SELECT * FROM avalia WHERE id_professor = " . $idProfessor . "";
+                $veri_aval = mysqli_query($sql, $aval);
+                while ($row_aval = mysqli_fetch_assoc($veri_aval)) {
+                    $nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_nome = mysqli_query($sql, $nome);
+                    $nome2 = mysqli_fetch_assoc($verify_nome);
+                    $nome = $nome2['nome_aluno'];
+                    $nota = "SELECT nota_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_nota = mysqli_query($sql, $nota);
+                    $nota2 = mysqli_fetch_assoc($verify_nota);
+                    $nota = $nota2['nota_avalia'];
+                    $desc = "SELECT desc_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_desc = mysqli_query($sql, $desc);
+                    $desc2 = mysqli_fetch_assoc($verify_desc);
+                    $desc = $desc2['desc_avalia'];
+                    echo '<div id="avaliacao">';
+                    echo '<h3>' . $nome . '</h3>';
+                    echo '<p><span>' . $nota . '/5⭐: </span>';
+                    echo '<span>' . $desc . '</span>';
+                    echo '</p>';
+                    echo '</div>';
+                }
+                ?> 
             </div>
             <div id="divDesvincular">
                 <button id="desvincularProfessor"><a href="./includes/excluirProfessor.php?id=<?php echo $idProfessor ?>">Excluir Professor</a></button>
