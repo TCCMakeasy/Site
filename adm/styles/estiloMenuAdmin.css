@@ -177,4 +177,7 @@ footer {
   #title {
     display: none;
   }
+  #scroll{
+    margin-top: 0;
+  }
 }

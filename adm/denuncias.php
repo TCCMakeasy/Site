@@ -23,7 +23,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <section id="tela">
         <main>
             <section id="denuncias">
-                <h1 class="title">Denúncias</h1>
+                <h1 id="title" class="title">Denúncias</h1>
                 <div id="container">
                     <div id="pesquisar">
                         <h1 id="pesquisarTitulo">ID do professor:</h1>
@@ -32,7 +32,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <h1 id="nomeProfessor"></h1>
                     <table id="tabela">
                         <tr id="titleTabela">
-                            <th class="denunciaTitle">Denunciador</th>
+                            <th class="nomeDenunciadorTitle">Denunciador</th>
+                            <th class="infosTitle">Informações</th>
                             <th class="denunciaTitle">Motivo</th>
                             <th class="denunciaTitle">Descrição</th>
                             <th class="denunciaTitle">Data</th>

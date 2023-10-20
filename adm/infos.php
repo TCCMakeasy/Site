@@ -102,7 +102,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     
 }
 </script>
-<script src="./js/addAlunoOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php";
 if (isset($_SESSION['msg'])) {

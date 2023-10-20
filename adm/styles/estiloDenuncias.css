@@ -70,10 +70,13 @@ main {
   background-color: var(--azulMakeasyHover);
   cursor: pointer;
 }
-.denunciaTitle{
+.denunciaTitle, .nomeDenunciadorTitle, .infosTitle{
   font-weight: bold;
   font-size: 1.25rem;
   background-color: var(--corPrimaria);
+}
+#diasTitle {
+  display: none;
 }
 .valores{
   font-weight: normal;
@@ -120,13 +123,15 @@ td {
   #container {
     margin-top: 2rem;
   }
-  .denunciaTitle {
-    width: 10%;
-    display: table-cell;
-
+  .denunciaTitle{
+    display: none;
   }
-  #diasTitle {
+  .nomeDenunciadorTitle {
+    width: 30%;
+  }
+  #infosTitle {
     display: table-cell;
+    width: 1rem;
   }
   td {
     display: block;
@@ -140,18 +145,12 @@ td {
     font-weight: 700;
   }
   td:nth-of-type(1)::before {
-    content: "Denunciador:";
-  }
-  td:nth-of-type(2)::before {
     content: "Motivo:";
   }
-  td:nth-of-type(3)::before {
+  td:nth-of-type(2)::before {
     content: "Descrição:";
   }
-  td:nth-of-type(4)::before {
+  td:nth-of-type(3)::before {
     content: "Data:";
-  }
-  td:nth-of-type(5)::before {
-    content: "Excluir";
   }
 }

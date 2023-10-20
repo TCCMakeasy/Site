@@ -28,7 +28,7 @@ inputPesquisa.addEventListener("input", (e) => {
 });
 
 const showDenuncias = async (professorDenuncias, idProfessor) => {
-  const titleTabela = document.getElementById("titleTabela");
+  const tabela = document.getElementById("tabela");
   excluiLinha = document.querySelectorAll("#linha");
   const nomeProfessor = document.getElementById("nomeProfessor");
   nomeProfessor.innerHTML = "";
@@ -49,10 +49,10 @@ const showDenuncias = async (professorDenuncias, idProfessor) => {
           element.data_alerta[1] +
           "/" +
           element.data_alerta[0];
-        titleTabela.insertAdjacentHTML(
-          "afterend",
+        tabela.insertAdjacentHTML(
+          "beforeend",
           `<tr id="linha">
-          <td class="valores nomeDenuncia">${nome_aluno} [${element.id_aluno}]</td>
+          <th class="valores nomeDenuncia">${nome_aluno} [${element.id_aluno}]</th>
           <td class="valores tipoDenuncia">${element.info_alerta}</td>
           <td class="valores">${element.motivo_alerta}</td>
           <td class="valores">${element.data_alerta}</td>
