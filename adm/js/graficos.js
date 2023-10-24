@@ -23,8 +23,13 @@ const graphAvaliaValues = async (text) => {
 
     if (response.ok) {
       const avaliacoes = await response.json();
-      let avaliacoesCount =
-        { umaStar: 0, duasStar: 0, tresStar: 0, quatroStar: 0, cincoStar: 0 };
+      let avaliacoesCount = {
+        umaStar: 0,
+        duasStar: 0,
+        tresStar: 0,
+        quatroStar: 0,
+        cincoStar: 0,
+      };
       if (!avaliacoes.erro) {
         for (const obj of avaliacoes) {
           switch (obj.nota_avalia) {
@@ -54,7 +59,13 @@ const graphAvaliaValues = async (text) => {
           datasets: [
             {
               label: "Avaliações",
-              data: [avaliacoesCount.umaStar, avaliacoesCount.duasStar, avaliacoesCount.tresStar, avaliacoesCount.quatroStar, avaliacoesCount.cincoStar],
+              data: [
+                avaliacoesCount.umaStar,
+                avaliacoesCount.duasStar,
+                avaliacoesCount.tresStar,
+                avaliacoesCount.quatroStar,
+                avaliacoesCount.cincoStar,
+              ],
               tension: 0.3,
               borderColor: "#fff",
               backgroundColor: "#fff",
@@ -120,82 +131,106 @@ const graphAvaliaValues = async (text) => {
   }
 };
 
-const graficoAlunosMensal = new Chart(alunosMensal, {
-  type: "bar",
-  data: {
-    labels: mesesGraphic,
-    datasets: [
-      {
-        label: "Alunos novos",
-        data: [5, 4, 6, 7, 7, 8],
-        tension: 0.3,
-        borderColor: "#ef1dac",
-        backgroundColor: "#ef1dac",
+const graphAlunosValues = async (idProfessor) => {
+  try {
+    const response = await fetch("./includes/getValuesGraphicAlunos.php", {
+      method: "POST",
+      body: idProfessor,
+      headers: {
+        "Content-Type": "application/json",
       },
-      {
-        label: "Alunos perdidos",
-        data: [1, 1, 2, 3, 4, 5],
-        tension: 0.3,
-        borderColor: "#e02b20",
-        backgroundColor: "#e02b20",
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    elements: {
-      point: {
-        radius: 0,
-      },
-    },
-    scales: {
-      y: {
-        grid: {
-          color: "#fff",
+    });
+
+    if (response.ok) {
+      const alunos = await response.json();
+      console.log(alunos);
+      const graficoAlunosMensal = new Chart(alunosMensal, {
+        type: "bar",
+        data: {
+          labels: mesesGraphic,
+          datasets: [
+            {
+              label: "Alunos novos",
+              data: [5, 4, 6, 7, 7, 8],
+              tension: 0.3,
+              borderColor: "#ef1dac",
+              backgroundColor: "#ef1dac",
+            },
+            {
+              label: "Alunos perdidos",
+              data: [1, 1, 2, 3, 4, 5],
+              tension: 0.3,
+              borderColor: "#e02b20",
+              backgroundColor: "#e02b20",
+            },
+          ],
         },
-        ticks: {
-          color: "#fff",
-          callback: function (value, index, values) {
-            return value;
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          elements: {
+            point: {
+              radius: 0,
+            },
           },
-          padding: 15,
-          font: {
-            size: 16,
-            family: "Open Sans",
+          scales: {
+            y: {
+              grid: {
+                color: "#fff",
+              },
+              ticks: {
+                color: "#fff",
+                callback: function (value, index, values) {
+                  return value;
+                },
+                padding: 15,
+                font: {
+                  size: 16,
+                  family: "Open Sans",
+                },
+              },
+              border: {
+                width: 0,
+              },
+            },
+            x: {
+              grid: {
+                color: "rgba(255, 255, 255, 0)",
+              },
+              ticks: {
+                color: "#fff",
+                padding: 15,
+                font: {
+                  size: 16,
+                  family: "Open Sans",
+                },
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 20,
+                  family: "Open Sans",
+                },
+                color: "#fff",
+              },
+            },
           },
         },
-        border: {
-          width: 0,
-        },
-      },
-      x: {
-        grid: {
-          color: "rgba(255, 255, 255, 0)",
-        },
-        ticks: {
-          color: "#fff",
-          padding: 15,
-          font: {
-            size: 16,
-            family: "Open Sans",
-          },
-        },
-      },
-    },
-    plugins: {
-      legend: {
-        labels: {
-          font: {
-            size: 20,
-            family: "Open Sans",
-          },
-          color: "#fff",
-        },
-      },
-    },
-  },
-});
+      });
+    } else {
+      console.error(
+        "Erro na solicitação:",
+        response.status,
+        response.statusText
+      );
+    }
+  } catch (error) {
+    console.error("Erro ao processar a solicitação:", error);
+  }
+};
 
 function disableInput(e) {
   const checkMensal = document.getElementsByClassName("inputMensal")[e];
