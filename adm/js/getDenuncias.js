@@ -49,7 +49,6 @@ const showDenuncias = async (professorDenuncias, idProfessor) => {
           element.data_alerta[1] +
           "/" +
           element.data_alerta[0];
-        console.log(element)
         tabela.insertAdjacentHTML(
           "beforeend",
           `<tr id="linha">
@@ -65,12 +64,25 @@ const showDenuncias = async (professorDenuncias, idProfessor) => {
   }
 };
 
-const excluirDenuncia = async (idDenuncia) => {
-  const response = await fetch("./includes/deleteDenuncia.php",
-  {
-    method: "POST",
-    body: [idDenuncia],
-  })
+const excluirDenuncia = async (id) => {
+  if(confirm("Deseja excluir essa denuncia?")){
+    fetch("./includes/excluirDenuncia.php", {
+      method: "POST",
+      body: new URLSearchParams(`id=${id}`),
+    })
+      .then((response) => response.text())
+      .then(async (response) => {
+        if (response == "Denuncia deleted successfully.") {
+          alert("Denuncia excluida com sucesso!");
+          getDenuncias(document.getElementById("pesquisaProfessores").value ? document.getElementById("pesquisaProfessores").value : document.getElementById("pesquisaProfessores").placeholder);
+        } else {
+          alert("Erro ao excluir denuncia!");
+        }
+      })
+      .catch((error) => console.log("Erro: " + error));
+  };
+
+
 }
 
 const getName = async (id, tipo) => {

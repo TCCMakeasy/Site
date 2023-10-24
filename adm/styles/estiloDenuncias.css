@@ -1,6 +1,7 @@
 @import '../styles/estiloPadrão.css';
 #tela {
   margin: auto;
+  justify-content: center;
 }
 main {
   margin-left: calc((98% + 380px) / 2 - 40%);
@@ -70,7 +71,6 @@ main {
 }
 #tabela #linha:hover {
   background-color: var(--azulMakeasyHover);
-  cursor: pointer;
 }
 .denunciaTitle, .nomeDenunciadorTitle, .infosTitle{
   font-weight: bold;
@@ -93,23 +93,34 @@ td {
 }
 .excluir{
   background-color: var(--vermelhoMakeasy);
+  cursor: pointer;
+}
+#linha:hover .excluir{
+  background-color: var(--vermelhoMakeasyHover);
 }
 @media (max-width: 768px) {
+  body{
+    background-color: var(--corSecundaria);
+  }
   #tela {
     display: flex;
+    height: calc(98vh - 5rem);
+    width: 100%;
     margin: 5rem 0 0;
   }
+  th {
+    min-width: 0;
+  }
   main {
-    width: 100%;
     margin: 0;
-    display: block;
+    max-width: -webkit-fill-available;
   }
   #denuncias {
+    height: 100%;
     justify-content:flex-start;
   }
   #container {
-    width: 100%;
-    margin-top: 0;
+    height: 100%;
     border-radius: 0;
     box-shadow: none;
     overflow-y: hidden;
@@ -118,14 +129,17 @@ td {
     margin: 0rem;
     width: 100%;
   }
+  #nomeProfessor{
+    margin-bottom: 1rem;
+  }
+  .nomeDenuncia{
+    max-width: 2rem;
+  }
   *::-webkit-scrollbar {
     width: 10px;
   }
   .denunciaTitle{
     display: none;
-  }
-  .nomeDenunciadorTitle {
-    width: 10%;
   }
   .infosTitle {
     display: table-cell;
@@ -134,10 +148,12 @@ td {
     display: block;
     text-align: justify;
     border: #000 2px solid;
-    padding-bottom: 1rem;
+    padding: 1rem;
+    height: auto;
   }
   td::before {
     text-transform: uppercase;
+    inline-size: 100%;
     margin-right: 1rem;
     font-weight: 700;
   }

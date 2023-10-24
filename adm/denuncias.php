@@ -18,7 +18,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <title>Denúncias</title>
 </head>
 
-<body <?php echo 'onload="getDenuncias('.$_SESSION['id'].')"'?>>
+<body <?php echo 'onload="getDenuncias(' . $_SESSION['id'] . ')"' ?>>
     <?php include_once "./includes/menuAdm.php"; ?>
     <section id="tela">
         <main>
@@ -27,19 +27,21 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 <div id="container">
                     <div id="pesquisar">
                         <h1 id="pesquisarTitulo">ID do professor:</h1>
-                        <input type="number" class="inputPesquisa" id="pesquisaProfessores" name="pesquisa">
+                        <input type="number" class="inputPesquisa" id="pesquisaProfessores" name="pesquisa" placeholder="<?php echo $_SESSION['id'] ?>">
                     </div>
                     <h1 id="nomeProfessor"></h1>
-                    <table id="tabela">
-                        <tr id="titleTabela">
-                            <th class="nomeDenunciadorTitle">Denunciador</th>
-                            <th class="infosTitle">Informações</th>
-                            <th class="denunciaTitle">Motivo</th>
-                            <th class="denunciaTitle">Descrição</th>
-                            <th class="denunciaTitle">Data</th>
-                            <th class="denunciaTitle"></th>
-                        </tr>
-                    </table>
+                    <div id="divTable">
+                        <table id="tabela">
+                            <tr id="titleTabela">
+                                <th class="nomeDenunciadorTitle">Denunciador</th>
+                                <th class="infosTitle">Informações</th>
+                                <th class="denunciaTitle">Motivo</th>
+                                <th class="denunciaTitle">Descrição</th>
+                                <th class="denunciaTitle">Data</th>
+                                <th class="denunciaTitle"></th>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </section>
         </main>
