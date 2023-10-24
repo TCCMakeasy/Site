@@ -49,6 +49,7 @@ const showDenuncias = async (professorDenuncias, idProfessor) => {
           element.data_alerta[1] +
           "/" +
           element.data_alerta[0];
+        console.log(element)
         tabela.insertAdjacentHTML(
           "beforeend",
           `<tr id="linha">
@@ -56,13 +57,21 @@ const showDenuncias = async (professorDenuncias, idProfessor) => {
           <td class="valores tipoDenuncia">${element.info_alerta}</td>
           <td class="valores">${element.motivo_alerta}</td>
           <td class="valores">${element.data_alerta}</td>
-          <td class="excluir">Excluir</td>
+          <td class="excluir" onclick=excluirDenuncia(${element.id_alerta})>Excluir</td>
           </tr>`
         );
       });
     }
   }
 };
+
+const excluirDenuncia = async (idDenuncia) => {
+  const response = await fetch("./includes/deleteDenuncia.php",
+  {
+    method: "POST",
+    body: [idDenuncia],
+  })
+}
 
 const getName = async (id, tipo) => {
   const response = await fetch("./includes/getName.php", {

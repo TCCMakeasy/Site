@@ -45,21 +45,7 @@
 		$resultado_usario = mysqli_query($sql, $result_usuario);
 		echo "Cadastrado com sucesso! Redirecionando para a página de login...";
 
-		$data = date('m');
-
-		$select = "SELECT * from armazena where mensal_armazena = $data";
-		$selectComando = mysqli_query($sql, $select);
-
-		
-		if(mysqli_num_rows($selectComando) > 0){
-
-			$altera = "update armazena set novos_armazena = (novos_armazena + 1) where id_armazena = 3";
-			$alteraFinal = mysqli_query($sql, $altera);
-
-		}
-
-		$armazena = "INSERT into armazena(novos_armazena, mensal_armazena) values (novos_armazena + 1, $data)";
-		$armazenaFinal = mysqli_query($sql, $armazena);
+	
 
 	}
 	
