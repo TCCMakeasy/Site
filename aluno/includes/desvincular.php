@@ -15,6 +15,17 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
         $data = date('m');
 
+        $notificar = "INSERT INTO notifica (texto_notifica, id_professor, id_aluno, verifica_notifica) VALUES('O aluno ".$_SESSION['nome']." se desvinculou de você', '".$_SESSION['id_professor']."', '".$idAluno."', '1')";
+		$noti = mysqli_query($sql,$notificar);
+		if ($noti){
+			$_SESSION['msg'] = "Desvinculado com sucesso";
+			header("Location: ../professores.php");
+		}
+		else {
+			$_SESSION['msg'] = "Erro ao mandar a notificação";
+			header("Location: ../professor?=".$_SESSION['id_professor'].".php");
+		}
+
         $select = "SELECT * from armazena where mensal_armazena = $data";
         $selectComando = mysqli_query($sql, $select);
 
