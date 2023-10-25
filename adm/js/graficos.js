@@ -5,6 +5,12 @@ const mesesGraphic = [
   "Abril",
   "Maio",
   "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro"
 ];
 const estrelas = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
 const avaliacoesGraph = document.getElementById("avaliacoes").getContext("2d");
@@ -255,11 +261,13 @@ const graphLucroValues = async (text) => {
 
     if (response.ok) {
       const financeiro = await response.json();
+      const currentMonth = date.getMonth();
       const ganhos = {};
       const gastos = {};
       const gastosTotais = {};
       const ganhosTotais = {};
       const lucroTotal = {};
+      const mesesShow = []
       const meses = [
         "jan",
         "fev",
@@ -291,26 +299,40 @@ const graphLucroValues = async (text) => {
         );
         lucroTotal[mes] = ganhosTotais[mes] - gastosTotais[mes];
       }
+      if(currentMonth == 0 || currentMonth == 1){
+        mesesShow = [meses[0], meses[1],meses[2],meses[3],meses[4],meses[5]];
+      }else if(currentMonth == 11 || currentMonth == 10 || currentMonth == 9){
+        mesesShow = [meses[6],meses[7],meses[8],meses[9],meses[10], meses[11]];
+      }else{
+        mesesShow = [meses[currentMonth -2], meses[currentMonth -1],meses[currentMonth],meses[currentMonth + 1],meses[currentMonth + 2],meses[currentMonth +3]];
+      }
+      const mesesShowGraphic = () => {
+        let array = [];
+        for(let mes of mesesShow){
+          array.push(mes)
+        }
+        return array;
+      }
       const graficoLucroMensal = new Chart(lucroMensal, {
         type: "line",
         data: {
-          labels: mesesGraphic,
+          labels: mesesShowGraphic(),
           datasets: [
             {
               label: "Ganhos",
               data: [
-                ganhosTotais.jan,
-                ganhosTotais.fev,
-                ganhosTotais.mar,
-                ganhosTotais.abr,
-                ganhosTotais.mai,
-                ganhosTotais.jun,
-                ganhosTotais.jul,
-                ganhosTotais.ago,
-                ganhosTotais.set,
-                ganhosTotais.out,
-                ganhosTotais.nov,
-                ganhosTotais.dez,
+                gastosTotais.jan,
+                gastosTotais.fev,
+                gastosTotais.mar,
+                gastosTotais.abr,
+                gastosTotais.mai,
+                gastosTotais.jun,
+                gastosTotais.jul,
+                gastosTotais.ago,
+                gastosTotais.set,
+                gastosTotais.out,
+                gastosTotais.nov,
+                gastosTotais.dez,
               ],
               tension: 0,
               borderColor: "#ef1dac",
