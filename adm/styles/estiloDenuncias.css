@@ -167,3 +167,9 @@ td {
     content: "Data:";
   }
 }
+@media (max-width: 1500px) {
+  th,
+  td {
+    min-width: 10rem;
+  }
+}

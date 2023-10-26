@@ -12,10 +12,57 @@ const mesesGraphic = [
   "Novembro",
   "Dezembro"
 ];
+const meses = [
+  "jan",
+  "fev",
+  "mar",
+  "abr",
+  "mai",
+  "jun",
+  "jul",
+  "ago",
+  "set",
+  "out",
+  "nov",
+  "dez",
+];
 const estrelas = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
 const avaliacoesGraph = document.getElementById("avaliacoes").getContext("2d");
 const lucroMensal = document.getElementById("lucroMensal").getContext("2d");
 const alunosMensal = document.getElementById("alunosMensal").getContext("2d");
+const date = new Date();
+const currentMonth = date.getMonth();
+const mesesShowGraphic = (arrayMeses) => {
+  let array = [];
+  for (let mes of arrayMeses) {
+    array.push(mes)
+  }
+  return array;
+}
+const valoresShowGraphic = (obj) => {
+  if (currentMonth == 0 || currentMonth == 1) {
+    return [obj[meses[0]], obj[meses[1]], obj[meses[2]], obj[meses[3]], obj[meses[4]], obj[meses[5]]];
+  } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
+    return [obj[meses[6]], obj[meses[7]], obj[meses[8]], obj[meses[9]], obj[meses[10]], obj[meses[11]]];
+  } else {
+    return [obj[meses[currentMonth - 2]], obj[meses[currentMonth - 1]], obj[meses[currentMonth]], obj[meses[currentMonth + 1]], obj[meses[currentMonth + 2]], obj[meses[currentMonth + 2]]];
+  }
+}
+const alunosShowGraphic = (array) => {
+  objAtual = array.filter((obj) => {
+    return obj.mensal_armazena == currentMonth + 1;
+  })
+  objAtual = objAtual[0];
+  console.log(objAtual)
+  if (objAtual.mensal_armazena == 0 || objAtual.mensal_armazena == 1) {
+    return [obj[meses[0]], obj[meses[1]], obj[meses[2]], obj[meses[3]], obj[meses[4]], obj[meses[5]]];
+  } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
+    return [obj[meses[6]], obj[meses[7]], obj[meses[8]], obj[meses[9]], obj[meses[10]], obj[meses[11]]];
+  } else {
+    return [obj[meses[currentMonth - 2]], obj[meses[currentMonth - 1]], obj[meses[currentMonth]], obj[meses[currentMonth + 1]], obj[meses[currentMonth + 2]], obj[meses[currentMonth + 2]]];
+  }
+}
+
 
 const graphAvaliaValues = async (text) => {
   try {
@@ -149,11 +196,19 @@ const graphAlunosValues = async (idProfessor) => {
 
     if (response.ok) {
       const alunos = await response.json();
-      console.log(alunos);
+      let mesesShow = [];
+      if (currentMonth == 0 || currentMonth == 1) {
+        mesesShow = [mesesGraphic[0], mesesGraphic[1], mesesGraphic[2], mesesGraphic[3], mesesGraphic[4], mesesGraphic[5]];
+      } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
+        mesesShow = [mesesGraphic[6], mesesGraphic[7], mesesGraphic[8], mesesGraphic[9], mesesGraphic[10], mesesGraphic[11]];
+      } else {
+        mesesShow = [mesesGraphic[currentMonth - 2], mesesGraphic[currentMonth - 1], mesesGraphic[currentMonth], mesesGraphic[currentMonth + 1], mesesGraphic[currentMonth + 2], mesesGraphic[currentMonth + 3]];
+      }
+      alunosShowGraphic(alunos);
       const graficoAlunosMensal = new Chart(alunosMensal, {
         type: "bar",
         data: {
-          labels: mesesGraphic,
+          labels: mesesShowGraphic(mesesShow),
           datasets: [
             {
               label: "Alunos novos",
@@ -261,27 +316,12 @@ const graphLucroValues = async (text) => {
 
     if (response.ok) {
       const financeiro = await response.json();
-      const currentMonth = date.getMonth();
       const ganhos = {};
       const gastos = {};
       const gastosTotais = {};
       const ganhosTotais = {};
       const lucroTotal = {};
-      const mesesShow = []
-      const meses = [
-        "jan",
-        "fev",
-        "mar",
-        "abr",
-        "mai",
-        "jun",
-        "jul",
-        "ago",
-        "set",
-        "out",
-        "nov",
-        "dez",
-      ];
+      let mesesShow = [];
       for (const mes of meses) {
         gastos[mes] = financeiro.filter(
           (item) => item.tipo_financeiro == 2 && item.mes_financeiro == mes
@@ -299,81 +339,35 @@ const graphLucroValues = async (text) => {
         );
         lucroTotal[mes] = ganhosTotais[mes] - gastosTotais[mes];
       }
-      if(currentMonth == 0 || currentMonth == 1){
-        mesesShow = [meses[0], meses[1],meses[2],meses[3],meses[4],meses[5]];
-      }else if(currentMonth == 11 || currentMonth == 10 || currentMonth == 9){
-        mesesShow = [meses[6],meses[7],meses[8],meses[9],meses[10], meses[11]];
-      }else{
-        mesesShow = [meses[currentMonth -2], meses[currentMonth -1],meses[currentMonth],meses[currentMonth + 1],meses[currentMonth + 2],meses[currentMonth +3]];
-      }
-      const mesesShowGraphic = () => {
-        let array = [];
-        for(let mes of mesesShow){
-          array.push(mes)
-        }
-        return array;
+      if (currentMonth == 0 || currentMonth == 1) {
+        mesesShow = [mesesGraphic[0], mesesGraphic[1], mesesGraphic[2], mesesGraphic[3], mesesGraphic[4], mesesGraphic[5]];
+      } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
+        mesesShow = [mesesGraphic[6], mesesGraphic[7], mesesGraphic[8], mesesGraphic[9], mesesGraphic[10], mesesGraphic[11]];
+      } else {
+        mesesShow = [mesesGraphic[currentMonth - 2], mesesGraphic[currentMonth - 1], mesesGraphic[currentMonth], mesesGraphic[currentMonth + 1], mesesGraphic[currentMonth + 2], mesesGraphic[currentMonth + 3]];
       }
       const graficoLucroMensal = new Chart(lucroMensal, {
         type: "line",
         data: {
-          labels: mesesShowGraphic(),
+          labels: mesesShowGraphic(mesesShow),
           datasets: [
             {
               label: "Ganhos",
-              data: [
-                gastosTotais.jan,
-                gastosTotais.fev,
-                gastosTotais.mar,
-                gastosTotais.abr,
-                gastosTotais.mai,
-                gastosTotais.jun,
-                gastosTotais.jul,
-                gastosTotais.ago,
-                gastosTotais.set,
-                gastosTotais.out,
-                gastosTotais.nov,
-                gastosTotais.dez,
-              ],
+              data: valoresShowGraphic(ganhosTotais),
               tension: 0,
               borderColor: "#ef1dac",
               backgroundColor: "#ef1dac",
             },
             {
               label: "Gastos",
-              data: [
-                gastosTotais.jan,
-                gastosTotais.fev,
-                gastosTotais.mar,
-                gastosTotais.abr,
-                gastosTotais.mai,
-                gastosTotais.jun,
-                gastosTotais.jul,
-                gastosTotais.ago,
-                gastosTotais.set,
-                gastosTotais.out,
-                gastosTotais.nov,
-                gastosTotais.dez,
-              ],
+              data: valoresShowGraphic(gastosTotais),
               tension: 0,
               borderColor: "#e02b20",
               backgroundColor: "#e02b20",
             },
             {
               label: "Lucro",
-              data: [
-                lucroTotal.jan,
-                lucroTotal.fev,
-                lucroTotal.mar,
-                lucroTotal.abr,
-                lucroTotal.mai,
-                lucroTotal.jun,
-                lucroTotal.jul,
-                lucroTotal.ago,
-                lucroTotal.set,
-                lucroTotal.out,
-                lucroTotal.nov,
-                lucroTotal.dez,
-              ],
+              data: valoresShowGraphic(lucroTotal),
               tension: 0,
               borderColor: "#7cda24",
               backgroundColor: "#7cda24",
