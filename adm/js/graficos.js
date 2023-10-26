@@ -45,22 +45,30 @@ const valoresShowGraphic = (obj) => {
   } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
     return [obj[meses[6]], obj[meses[7]], obj[meses[8]], obj[meses[9]], obj[meses[10]], obj[meses[11]]];
   } else {
-    return [obj[meses[currentMonth - 2]], obj[meses[currentMonth - 1]], obj[meses[currentMonth]], obj[meses[currentMonth + 1]], obj[meses[currentMonth + 2]], obj[meses[currentMonth + 2]]];
+    return [obj[meses[currentMonth - 2]], obj[meses[currentMonth - 1]], obj[meses[currentMonth]], obj[meses[currentMonth + 1]], obj[meses[currentMonth + 2]], obj[meses[currentMonth + 3]]];
   }
 }
 const alunosShowGraphic = (array) => {
-  objAtual = array.filter((obj) => {
-    return obj.mensal_armazena == currentMonth + 1;
-  })
-  objAtual = objAtual[0];
-  console.log(objAtual)
-  if (objAtual.mensal_armazena == 0 || objAtual.mensal_armazena == 1) {
-    return [obj[meses[0]], obj[meses[1]], obj[meses[2]], obj[meses[3]], obj[meses[4]], obj[meses[5]]];
-  } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
-    return [obj[meses[6]], obj[meses[7]], obj[meses[8]], obj[meses[9]], obj[meses[10]], obj[meses[11]]];
-  } else {
-    return [obj[meses[currentMonth - 2]], obj[meses[currentMonth - 1]], obj[meses[currentMonth]], obj[meses[currentMonth + 1]], obj[meses[currentMonth + 2]], obj[meses[currentMonth + 2]]];
-  }
+  console.log(array);
+  const filteredArray = array.filter(obj => {
+    const objMonth = new Date(obj.mensal_armazena).getMonth();
+    if(currentMonth == 0 ){
+      return  objMonth == currentMonth || objMonth == currentMonth + 1 || objMonth == currentMonth + 2 || objMonth == currentMonth + 3 || objMonth == currentMonth + 4 || objMonth == currentMonth + 5;
+    }else if(currentMonth == 1){
+      return  objMonth == currentMonth - 1 || objMonth == currentMonth || objMonth == currentMonth + 1 || objMonth == currentMonth + 2 || objMonth == currentMonth + 3 || objMonth == currentMonth + 4;
+    }else if(currentMonth == 11){
+      return  objMonth == currentMonth - 5 || objMonth == currentMonth - 4 || objMonth == currentMonth - 3 || objMonth == currentMonth - 2 || objMonth == currentMonth - 1 || objMonth == currentMonth;
+    }else if(currentMonth == 10){
+      return objMonth == currentMonth - 4 || objMonth == currentMonth - 3 || objMonth == currentMonth - 2 || objMonth == currentMonth - 1 || objMonth == currentMonth || objMonth == currentMonth + 1;
+    }else{
+      return  objMonth == currentMonth - 3 || objMonth == currentMonth - 2 || objMonth == currentMonth - 1 || objMonth == currentMonth || objMonth == currentMonth + 1 || objMonth == currentMonth + 2;}
+    });
+  
+  filteredArray.sort((a, b) => {
+    return new Date(a.mensal_armazena) - new Date(b.mensal_armazena);
+  });
+  console.log(filteredArray);
+  return filteredArray;
 }
 
 
@@ -204,7 +212,7 @@ const graphAlunosValues = async (idProfessor) => {
       } else {
         mesesShow = [mesesGraphic[currentMonth - 2], mesesGraphic[currentMonth - 1], mesesGraphic[currentMonth], mesesGraphic[currentMonth + 1], mesesGraphic[currentMonth + 2], mesesGraphic[currentMonth + 3]];
       }
-      alunosShowGraphic(alunos);
+      const filteredArray = alunosShowGraphic(alunos);
       const graficoAlunosMensal = new Chart(alunosMensal, {
         type: "bar",
         data: {
@@ -212,14 +220,14 @@ const graphAlunosValues = async (idProfessor) => {
           datasets: [
             {
               label: "Alunos novos",
-              data: [5, 4, 6, 7, 7, 8],
+              data: filteredArray.map((obj) => obj.novos_armazena),
               tension: 0.3,
               borderColor: "#ef1dac",
               backgroundColor: "#ef1dac",
             },
             {
               label: "Alunos perdidos",
-              data: [1, 1, 2, 3, 4, 5],
+              data: filteredArray.map((obj) => obj.perdidos_armazena),
               tension: 0.3,
               borderColor: "#e02b20",
               backgroundColor: "#e02b20",
