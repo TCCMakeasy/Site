@@ -166,6 +166,12 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 <?php include_once "includes/modalNotificar.php";
 include_once "includes/modalAvalia.php";
 include_once "includes/modalDenuncia.php";
+if (isset($_SESSION['msg'])) {
+    echo '<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        alert("' . $_SESSION['msg'] . '");
+      })</script>';
+}
 unset($_SESSION['msg']);
 ?>
 
