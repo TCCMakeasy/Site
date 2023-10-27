@@ -265,3 +265,22 @@ select {
     content: "Domingo:";
   }
 }
+@media (max-width: 1500px) {
+  #title {
+    margin-bottom: 1rem;
+  }
+  #tabela{
+    height: 28rem;
+  }
+  th,
+  td {
+    min-width: 7rem;
+    font-weight: 600;
+    border: 2px solid black;
+    font-size: 1rem;
+  }
+  #botoes {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+}

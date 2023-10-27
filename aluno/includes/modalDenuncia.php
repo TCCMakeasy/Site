@@ -19,7 +19,7 @@
                         <option>Professor não foi profissional</option>
                         <option>Outro</option>
                     </select>
-                    <textarea name="comentario" id="comentario" placeholder="Descreva o problema (opcional)" cols="30" rows="1" maxlength="500"></textarea>
+                    <textarea name="comentario" id="comentario" placeholder="Descreva o problema (opcional)" cols="30" rows="1" maxlength="200"></textarea>
                 </div>
                 <div class="denuncia-submit">
                     <input type="hidden" name="id_professor" value="<?php echo $idProfessor ?>">
