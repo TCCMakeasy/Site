@@ -47,6 +47,24 @@ tabela.addEventListener("click", function (e) {
       case "Junho":
         inputMes.value = "jun";
         break;
+      case "Julho":
+        inputMes.value = "jul";
+        break;
+      case "Agosto":
+        inputMes.value = "ago";
+        break;
+      case "Setembro":
+        inputMes.value = "set";
+        break;
+      case "Outubro":
+        inputMes.value = "out";
+        break;
+      case "Novembro":
+        inputMes.value = "nov";
+        break;
+      case "Dezembro":
+        inputMes.value = "dez";
+        break;
     }
     if (tds[4].innerText == 0) {
       inputMensal.checked = false;

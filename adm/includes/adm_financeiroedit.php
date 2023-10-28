@@ -10,6 +10,8 @@ require_once '../../conexao.php';
 $id = $_POST['idValor'];
 $nome_edit = $_POST['nomeEdit'];
 $valor_edit = $_POST['valorEdit'];
+$valor_edit = str_replace(".", "", $valor_edit);
+$valor_edit = str_replace(",", ".", $valor_edit);
 $mensal_edit = isset($_POST['mensal']) ? 1 : 0;
 $mes_edit = isset($_POST['inputMes']) ? $_POST['inputMes'] : NULL;
 $tipoExec = $_POST['btnEdValor'];

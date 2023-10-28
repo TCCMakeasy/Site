@@ -66,7 +66,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="valorGanho">
                 <label for="inputvalorGanho"><b>Valor:</b></label>
-                <input type="text" name="valorGanho" id="inputvalorGanho">
+                <input type="text" name="valorGanho" id="inputvalorGanho" onKeyUp="mascaraMoeda(this, event)">
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
@@ -80,7 +80,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <option value="mar">Março</option>
                     <option value="abr">Abril</option>
                     <option value="mai">Maio</option>
-                    <option value="junho">Junho</option>
+                    <option value="jun">Junho</option>
+                    <option value="jul">Julho</option>
+                    <option value="ago">Agosto</option>
+                    <option value="set">Setembro</option>
+                    <option value="out">Outubro</option>
+                    <option value="nov">Novembro</option>
+                    <option value="dez">Dezembro</option>
                 </select>
             </div>
             <div id="submitAddGanho">
@@ -101,7 +107,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="valorGasto">
                 <label for="inputvalorGasto"><b>Valor:</b></label>
-                <input type="text" name="valorGasto" id="inputvalorGasto">
+                <input type="text" name="valorGasto" id="inputvalorGasto" onKeyUp="mascaraMoeda(this, event)">
             </div>
             <div id="mensal">
                 <label for="inputMensal"><b>Mensal:</b></label>
@@ -115,7 +121,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <option value="mar">Março</option>
                     <option value="abr">Abril</option>
                     <option value="mai">Maio</option>
-                    <option value="junho">Junho</option>
+                    <option value="jun">Junho</option>
+                    <option value="jul">Julho</option>
+                    <option value="ago">Agosto</option>
+                    <option value="set">Setembro</option>
+                    <option value="out">Outubro</option>
+                    <option value="nov">Novembro</option>
+                    <option value="dez">Dezembro</option>
                 </select>
             </div>
             <div id="submitAddGasto">
@@ -186,7 +198,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                 echo '<tr id="linha">';
                 echo '<td class="valores" id="id_financa">' . $row_edit['id_financeiro'] . '</td>';
                 echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
-                echo '<td class="valores" id="valor_financa">' . $row_edit['preco_financeiro'] . '</td>';
+                echo '<td class="valores" id="valor_financa">' . number_format($row_edit['preco_financeiro'],2,",",".") . '</td>';
                 echo '<td class="valores" id="mes_financa">' . $row_edit['mes_financeiro'] . '</td>';
                 echo '<td class="valores" id="mensal_financa" hidden>' . $row_edit['mensal_financeiro'] . '</td>';
                 if ($row_edit['tipo_financeiro'] == 1) {
@@ -210,7 +222,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             </div>
             <div id="valorValor">
                 <label for="inputValorEdit"><b>Valor:</b></label>
-                <input type="text" name="valorEdit" id="inputValorEdit">
+                <input type="text" name="valorEdit" id="inputValorEdit" onKeyUp="mascaraMoeda(this, event)">
             </div>
             <div id="mensal">
                 <label for="inputMensalEdit"><b>Mensal:</b></label>
@@ -226,6 +238,12 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     <option value="abr">Abril</option>
                     <option value="mai">Maio</option>
                     <option value="jun">Junho</option>
+                    <option value="jul">Julho</option>
+                    <option value="ago">Agosto</option>
+                    <option value="set">Setembro</option>
+                    <option value="out">Outubro</option>
+                    <option value="nov">Novembro</option>
+                    <option value="dez">Dezembro</option>
                 </select>
             </div>
             <div id="submitEdxValor">

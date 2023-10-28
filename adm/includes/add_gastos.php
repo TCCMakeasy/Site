@@ -12,6 +12,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 } 
 require_once "../../conexao.php";
 $gasto_preco = $_POST['valorGasto'];
+$gasto_preco = str_replace(".", "", $gasto_preco);
+$gasto_preco = str_replace(",", ".", $gasto_preco);
 $gasto_nome = $_POST['nomeGasto'];
 $gasto_mensal = isset($_POST['mensal']);
 if ($gasto_mensal == TRUE){
