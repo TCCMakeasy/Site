@@ -1,28 +1,62 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require '../../libs/PHPMailer/src/Exception.php';
+require '../../libs/PHPMailer/src/PHPMailer.php';
+require '../../libs/PHPMailer/src/SMTP.php';
+require_once '../../conexao.php';
+
 if (!isset($_POST['email']) || empty($_POST['email'])) {
-    $email = "matslife057@gmail.com";
+    //$email = "";            Email para envio de testes
+    $erro = true;
 } else {
     $email = $_POST['email'];
 }
-require_once '../../conexao.php';
 $token = md5(rand(0, 9999) . rand(0, 9999) . rand(0, 9999) . rand(0, 9999));
 $verifyEmail = $sql->query("SELECT * FROM aluno WHERE email_aluno = '$email'");
 $verifyEmail = $verifyEmail->fetch_assoc();
-if ($verifyEmail == null) {
+if ($verifyEmail == null || $erro == true) {
     echo "<script>alert('Email não cadastrado!');window.location.href='../cadastro.php';</script>";
     exit();
 } else {
 
     $subject = 'Recuperação de conta Makeasy!';
     $message = file_get_contents('http://localhost/aluno/includes/email.php?nome=' . $verifyEmail['nome_aluno'] . '&token=' . $token . '&email=' . $email . '');
-    $headers = "From: tccmakeasy@gmail.com\r\n";
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-type: text/html; charset=utf-8\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-    $mailSender = mail($email, $subject, $message, $headers);
+    $mail = new PHPMailer(true);
+
+    try {
+        //Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'tccmakeasy@gmail.com';                     //SMTP username
+        $mail->Password   = 'xlqg jlel unza ogig';                               //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+        $mail->Port       = 587;                            //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->CharSet    =  'UTF-8';                              
+
+        //Recipients
+        $mail->setFrom('tccmakeasy@gmail.com', 'Makeasy');
+        $mail->addAddress($email, $verifyEmail['nome_aluno']);     //Add a recipient
+
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body    = $message;
+
+        $mail->send();
+        $mailSender = true;
+    } catch (Exception $e) {
+        $mailSender = false;
+    }
+
     if ($mailSender) {
-        //echo "<script>alert('Email enviado com sucesso!');window.location.href='../login.php';</script>";
+        echo "<script>alert('Email enviado com sucesso!');window.location.href='../login.php';</script>";
     } else {
         echo "<script>alert('Erro ao enviar email!');window.location.href='../login.php';</script>";
     }
