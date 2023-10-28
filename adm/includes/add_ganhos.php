@@ -12,8 +12,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 }
 require_once "../../conexao.php";
 $ganho_preco = $_POST['valorGanho'];
+$ganho_preco = str_replace(".", "", $ganho_preco);
+$ganho_preco = str_replace(",", ".", $ganho_preco);
 $ganho_nome = $_POST['nomeGanho'];
-$gasto_mensal = isset($_POST['mensal']);
+$ganho_mensal = isset($_POST['mensal']);
 if ($ganho_mensal == TRUE){
     $ganho = "INSERT INTO financeiro (tipo_financeiro, nome_financeiro, preco_financeiro, mensal_financeiro, id_professor) Values('1', '".$ganho_nome."', '".$ganho_preco."', '1', '".$_SESSION['id']."')";
     $ganho_inseri = mysqli_query($sql, $ganho) or die (mysqli_error($sql));

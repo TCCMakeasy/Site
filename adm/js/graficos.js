@@ -49,7 +49,6 @@ const valoresShowGraphic = (obj) => {
   }
 }
 const alunosShowGraphic = (array) => {
-  console.log(array);
   const filteredArray = array.filter(obj => {
     const objMonth = new Date(obj.mensal_armazena).getMonth();
     if(currentMonth == 0 ){
@@ -67,7 +66,6 @@ const alunosShowGraphic = (array) => {
   filteredArray.sort((a, b) => {
     return new Date(a.mensal_armazena) - new Date(b.mensal_armazena);
   });
-  console.log(filteredArray);
   return filteredArray;
 }
 
@@ -249,9 +247,6 @@ const graphAlunosValues = async (idProfessor) => {
               },
               ticks: {
                 color: "#fff",
-                callback: function (value, index, values) {
-                  return value;
-                },
                 padding: 15,
                 font: {
                   size: 16,
@@ -403,7 +398,7 @@ const graphLucroValues = async (text) => {
               ticks: {
                 color: "#fff",
                 callback: function (value) {
-                  return "R$ " + value;
+                  return value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
                 },
                 padding: 15,
                 font: {
@@ -453,3 +448,25 @@ const graphLucroValues = async (text) => {
     console.error("Erro ao processar a solicitação:", error);
   }
 };
+
+String.prototype.reverse = function(){
+  return this.split('').reverse().join(''); 
+};
+
+function mascaraMoeda(campo,evento){
+  var tecla = (!evento) ? window.event.keyCode : evento.which;
+  var valor  =  campo.value.replace(/[^\d]+/gi,'').reverse();
+  var resultado  = "";
+  var mascara = "###.###.###,##".reverse();
+  for (var x=0, y=0; x<mascara.length && y<valor.length;) {
+    if (mascara.charAt(x) != '#') {
+      resultado += mascara.charAt(x);
+      x++;
+    } else {
+      resultado += valor.charAt(y);
+      y++;
+      x++;
+    }
+  }
+  campo.value = resultado.reverse();
+}
