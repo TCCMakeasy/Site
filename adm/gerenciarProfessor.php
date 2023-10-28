@@ -31,7 +31,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     </script>
     <?php include_once "./includes/menuAdm.php"; ?>
     <main>
-        <h1 id="title">Alunos</h1>
+        <h1 id="title">Professor</h1>
         <div id="container">
             <div class="mobileSeta">
                 <a onclick="goBack()" style="cursor:pointer;">
