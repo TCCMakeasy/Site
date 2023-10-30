@@ -36,7 +36,7 @@ session_start();
         <p id="loginHref">
           Não tem uma conta? <a href="cadastro.php">Registre-se</a>
           <br>
-          <a href="cadastro.php">Esqueceu sua senha?</a>
+          <a href="./includes/Recuperar_Senha.php">Esqueceu sua senha?</a>
         </p>
       </fieldset>
     </form>

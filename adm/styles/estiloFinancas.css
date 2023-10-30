@@ -321,6 +321,7 @@ input[type=checkbox] {
 #tabela {
   border-collapse: collapse;
   align-items: center;
+  max-height: 1rem;
 }
 #tabela #linha:hover {
   background-color: var(--azulMakeasyHover);

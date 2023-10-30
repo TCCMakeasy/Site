@@ -148,3 +148,11 @@ main {
     display: none;
   }
 }
+@media (max-width: 1500px) {
+  #logo {
+    width: 20rem;
+  }
+  #fieldsetLogin {
+    margin-top: 0.5rem;
+  }
+}
