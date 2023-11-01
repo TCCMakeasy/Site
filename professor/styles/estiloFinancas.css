@@ -7,15 +7,6 @@ main {
   justify-content: center;
   height: 100vh;
 }
-section {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-}
 #title {
   font-size: 2rem;
   font-weight: 700;
@@ -68,7 +59,7 @@ section {
   font-size: 1.25rem;
   font-weight: 600;
   color: rgb(255, 255, 255);
-  margin: auto 1rem;
+  margin: auto 0.75;
   cursor: pointer;
 }
 #abrirEdxValor {
@@ -86,8 +77,8 @@ section {
 }
 #AddGanho {
   display: none;
-  width: 40%;
-  height: 45%;
+  width: 50rem;
+  height: 28rem;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -98,8 +89,8 @@ section {
 }
 #AddGasto {
   display: none;
-  width: 40%;
-  height: 45%;
+  width: 50rem;
+  height: 28rem;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -110,8 +101,8 @@ section {
 }
 #EdxValor {
   display: none;
-  width: 40%;
-  height: 70%;
+  width: 55rem;
+  height: 39rem;
   background-color: var(--corPrimaria);
   border-radius: 8px;
   border: 3px solid #000;
@@ -165,7 +156,7 @@ section {
 #formAddGanho > h1 {
   margin: auto auto 1rem;
 }
-#nomeGanho, #valorGanho {
+#nomeGanho, #valorGanho, #mesGanho {
   display: flex;
   width: 90%;
   align-items: center;
@@ -180,7 +171,7 @@ section {
   align-items: center;
   justify-content: flex-end;
   text-align: center;
-  margin: 1rem 0 2.5rem;
+  margin: 2rem 0 2.5rem;
   font-size: 1.4rem;
 }
 #AddGasto[open] {
@@ -203,7 +194,7 @@ section {
 #formAddGasto > h1 {
   margin: auto auto 1rem;
 }
-#nomeGasto, #valorGasto {
+#nomeGasto, #valorGasto, #mesGasto {
   display: flex;
   width: 90%;
   align-items: center;
@@ -221,7 +212,9 @@ section {
 #EdxValor-content {
   width: 100%;
   height: 100%;
+  margin: 1rem;
   display: flex;
+  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -232,16 +225,15 @@ section {
 #formEdxValor > h1 {
   margin: auto auto 1rem;
 }
-#nomeValor, #valorValor {
+#nomeValor, #valorValor, #mesValor{
   display: flex;
-  width: 90%;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
   margin: 2rem 0 2.5rem;
   font-size: 1.4rem;
 }
-input[type=text] {
+input {
   width: 70%;
   border: 1px solid black;
   border-radius: 8px;
@@ -327,14 +319,22 @@ input[type=checkbox] {
   background-color: var(--vermelhoMakeasy);
 }
 #tabela {
-  margin: 0 auto;
   border-collapse: collapse;
+  align-items: center;
+  max-height: 1rem;
+}
+#tabela #linha:hover {
+  background-color: var(--azulMakeasyHover);
+  cursor: pointer;
+}
+#tabela tr.selecionado {
+  background-color: var(--azulMakeasy);
 }
 #valorTitle{
   font-weight: bold;
   font-size: 1.25rem;
 }
-#valores{
+.valores{
   font-weight: normal;
   font-size: 1rem;
 }
@@ -344,4 +344,125 @@ td {
   min-width: 10rem;
   font-weight: 700;
   height: 2rem;
+}
+#mensal:checked ~ #mesGanho{
+  visibility: hidden;/*aqui*/
+}
+#graficos{
+  height: 75%;
+  flex: 0 0 auto;
+  width: 95%;
+}
+select {
+  width: 74%;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+.alert{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+}
+.alert-danger{
+  background-color: var(--vermelhoMakeasy);
+  color: white;
+}
+.alert-success{
+  background-color: var(--verdeMakeasy);
+
+  color: white;
+}
+
+@media (max-width: 768px) {
+  main {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5rem;
+    height: calc(100% - 5rem);
+  }
+  section {
+    width: 100%;
+    height: calc(100% - 5rem);
+  }
+  #container {
+    margin-top: 0;
+    width: 100%;
+    height: calc(100vh - 5rem);
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #container > * {
+    margin: 0rem;
+    width: 100%;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  #botoes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #graficos{
+    height: 60%;
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 10%;
+  }
+  #AddGanho, #AddGasto {
+    height: 70%;
+    width: 80%;
+  }
+  #EdxValor {
+    height: 85%;
+    width: 90%;
+  }
+  #tabela {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  th, td {
+  min-width: 5rem;
+  height: 2rem;
+  }
+  #submitEdxValor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  #EdxValor-content {
+    display: block;
+    margin: 0;
+  }
+  #formEdxValor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #nomeValor{
+    margin: 1rem 0 1.5rem;
+  }
+  #valorValor, #mensal, #mesValor{
+    margin: 0rem 0 1.5rem;
+  }
+
+  #tela {
+    margin: 5rem 0 0;
+  }
+}
+@media (max-width: 1500px) {
+#nomeGanho, #valorGanho, #mesGanho {
+  margin: 1rem 0 1.5rem;
+}
 }
