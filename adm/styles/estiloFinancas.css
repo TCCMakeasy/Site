@@ -318,6 +318,9 @@ input[type=checkbox] {
 #closeEdxValor {
   background-color: var(--vermelhoMakeasy);
 }
+#tab{
+  overflow-y: scroll;
+}
 #tabela {
   border-collapse: collapse;
   align-items: center;
@@ -418,17 +421,24 @@ select {
     margin-top: 10%;
   }
   #AddGanho, #AddGasto {
-    height: 70%;
+    height: 50%;
     width: 80%;
+  }
+  #formAddGanho, #formAddGasto {
+    width: 100%;
   }
   #EdxValor {
     height: 85%;
-    width: 90%;
+    width: 80%;
+  }
+  #tab{
+    height: 45%;
   }
   #tabela {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    margin-left: 2rem;
   }
   th, td {
   min-width: 5rem;

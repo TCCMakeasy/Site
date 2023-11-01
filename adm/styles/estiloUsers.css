@@ -321,7 +321,16 @@ input {
     bottom: 1.5rem;
   }
 
-  #addProfessor {
+  #formAddProf {
+    width: 100%;
+  }
+
+  #addProf {
     width: 80%;
+    height: 60%;
+  }
+
+  #adicionarProf{
+    margin-bottom: 1rem;
   }
 }
