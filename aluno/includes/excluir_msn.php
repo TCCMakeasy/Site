@@ -15,3 +15,4 @@ if($result_apagar){
 else{
     echo 404;
 }
+?>

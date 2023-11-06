@@ -127,7 +127,7 @@ main {
   color: #001122;
   transition: 0.5s;
 }
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   #fieldsetLogin {
     width: 80%;
   }
@@ -135,24 +135,62 @@ main {
     width: 90%;
   }
   #logo {
-    width: 70%;
+    width: 15rem;
     margin-left: 0.2rem;
+    margin-right: 5.5rem;
+
   }
   header {
     margin-top: 0;
   }
   #voltar {
-    width: 70%;
+    width: 5rem;
   }
   #span {
     display: none;
   }
+  #cadastro {
+
+    align-items: center;
+    justify-content: center;
+  }
+
 }
 @media (max-width: 1500px) {
   #logo {
-    width: 20rem;
+    width: 25rem;
   }
   #fieldsetLogin {
     margin-top: 0.5rem;
   }
+}
+@media (max-width: 540px){
+
+  #fieldsetLogin {
+    width: 80%;
+  }
+  .inputLogin {
+    width: 90%;
+  }
+  #logo {
+    width: 14rem;
+    margin-left: 0.2rem;
+    margin-right: 5.5rem;
+
+  }
+  header {
+    margin-top: 0;
+  }
+  #voltar {
+    width: 4rem;
+  }
+  #span {
+    display: none;
+  }
+  #cadastro {
+
+    align-items: center;
+    justify-content: center;
+  }
+
 }

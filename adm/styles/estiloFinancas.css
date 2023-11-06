@@ -27,8 +27,9 @@ main {
   margin-top: 1.5rem;
 }
 .grafico {
-  width: 80%;
-  height: 100%;
+  height: 75%;
+  flex: 0 0 auto;
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -318,9 +319,6 @@ input[type=checkbox] {
 #closeEdxValor {
   background-color: var(--vermelhoMakeasy);
 }
-#tab{
-  overflow-y: scroll;
-}
 #tabela {
   border-collapse: collapse;
   align-items: center;
@@ -350,11 +348,6 @@ td {
 }
 #mensal:checked ~ #mesGanho{
   visibility: hidden;/*aqui*/
-}
-#graficos{
-  height: 75%;
-  flex: 0 0 auto;
-  width: 95%;
 }
 select {
   width: 74%;
@@ -414,31 +407,24 @@ select {
     justify-content: center;
     gap: 1rem;
   }
-  #graficos{
+  .grafico{
     height: 60%;
     flex: 0 0 auto;
     width: 100%;
     margin-top: 10%;
   }
   #AddGanho, #AddGasto {
-    height: 50%;
+    height: 70%;
     width: 80%;
-  }
-  #formAddGanho, #formAddGasto {
-    width: 100%;
   }
   #EdxValor {
     height: 85%;
-    width: 80%;
-  }
-  #tab{
-    height: 45%;
+    width: 90%;
   }
   #tabela {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
-    margin-left: 2rem;
   }
   th, td {
   min-width: 5rem;

@@ -2,7 +2,7 @@
 foreach ($_POST as $key => $value) {
     if (empty($value)) {
         $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Preencha todos os campos!</div>";
-        header("Location: ../adm_financeiro.php");
+        header("Location: ../financeiro.php");
     }
 }
 session_start();
@@ -21,10 +21,10 @@ if ($gasto_mensal == TRUE){
     $gasto_inseri = mysqli_query($sql, $gasto);
     if($gasto_inseri){
         $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Dados salvos com sucesso!</div>";
-        header("Location: ../adm_financeiro.php");
+        header("Location: ../financeiro.php");
     }else{
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao salvar dados, tente novamente mais tarde!</div>";
-    header("Location: ../adm_financeiro.php");
+    header("Location: ../financeiro.php");
     }
 }else{
     $gasto_mes = $_POST['mesGasto'];
@@ -32,10 +32,10 @@ if ($gasto_mensal == TRUE){
     $gasto_inseri2 = mysqli_query($sql, $gasto2);
     if($gasto_inseri2){
         $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Dados salvos com sucesso!</div>";
-        header("Location: ../adm_financeiro.php");
+        header("Location: ../financeiro.php");
     }else{      
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao salvar dados, tente novamente mais tarde!</div>";
-    header("Location: ../adm_financeiro.php");
+    header("Location: ../financeiro.php");
     }
 }
 ?>
