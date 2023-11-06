@@ -82,6 +82,9 @@ const graphAvaliaValues = async (text) => {
 
     if (response.ok) {
       const avaliacoes = await response.json();
+      if (avaliacoes.erro){
+        document.getElementById("avaliaDiv").innerHTML = '<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>';
+      }
       let avaliacoesCount = {
         umaStar: 0,
         duasStar: 0,
@@ -202,6 +205,9 @@ const graphAlunosValues = async (idProfessor) => {
 
     if (response.ok) {
       const alunos = await response.json();
+      if (alunos.erro){
+        document.getElementById("alunosDiv").innerHTML = '<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>';
+      }
       let mesesShow = [];
       if (currentMonth == 0 || currentMonth == 1) {
         mesesShow = [mesesGraphic[0], mesesGraphic[1], mesesGraphic[2], mesesGraphic[3], mesesGraphic[4], mesesGraphic[5]];
@@ -319,6 +325,9 @@ const graphLucroValues = async (text) => {
 
     if (response.ok) {
       const financeiro = await response.json();
+      if (financeiro.erro){
+        document.getElementById("lucroDiv").innerHTML = '<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>';
+      }
       const ganhos = {};
       const gastos = {};
       const gastosTotais = {};

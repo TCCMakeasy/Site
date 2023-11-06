@@ -112,29 +112,37 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                             } ?> Avaliações</span>
                 </p>
                 <?php
-                $aval = "SELECT * FROM avalia WHERE id_professor = " . $idProfessor . "";
+                $aval = "SELECT * FROM avalia WHERE id_professor = " . $_SESSION['id'] . "";
                 $veri_aval = mysqli_query($sql, $aval);
                 while ($row_aval = mysqli_fetch_assoc($veri_aval)) {
-                    $nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
-                    $verify_nome = mysqli_query($sql, $nome);
-                    $nome2 = mysqli_fetch_assoc($verify_nome);
-                    $nome = $nome2['nome_aluno'];
-                    $nota = "SELECT nota_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
-                    $verify_nota = mysqli_query($sql, $nota);
-                    $nota2 = mysqli_fetch_assoc($verify_nota);
-                    $nota = $nota2['nota_avalia'];
-                    $desc = "SELECT desc_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
-                    $verify_desc = mysqli_query($sql, $desc);
-                    $desc2 = mysqli_fetch_assoc($verify_desc);
-                    $desc = $desc2['desc_avalia'];
+                    $requisit_nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify_nome = mysqli_query($sql, $requisit_nome);
+                    $result_nome = mysqli_fetch_assoc($verify_nome);
+                    if (!isset($result_nome["nome_aluno"])) {
+                        $nome = "Conta deletada";
+                    } else {
+                        $nome = $result_nome['nome_aluno'];
+                    }
+                    $requisit = "SELECT nota_avalia, desc_avalia FROM avalia WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
+                    $verify = mysqli_query($sql, $requisit);
+                    $result = mysqli_fetch_assoc($verify);
+                    $nota = $result['nota_avalia'];
+                    $desc = $result['desc_avalia'];
                     echo '<div id="avaliacao">';
                     echo '<h3>' . $nome . '</h3>';
+                    echo '<div class="avaliaçãoDiv">';
                     echo '<p><span>' . $nota . '/5⭐: </span>';
                     echo '<span>' . $desc . '</span>';
                     echo '</p>';
+                    echo '<a id="apagarAvalia" href="./includes/apagarAval.php">';
+                    echo '<svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.39687 22.1562H10.3556V7.91293H7.39687V22.1562ZM13.3144 22.1562H16.2731V7.91293H13.3144V22.1562ZM1.47938 28.4866V4.74776H0V1.58259H7.39687V0H16.2731V1.58259H23.67V4.74776H22.1906V28.4866H1.47938Z" fill="black" />
+                        </svg>';
+                    echo '</a>';
+                    echo '</div>';
                     echo '</div>';
                 }
-                ?> 
+                ?>
             </div>
             <div id="divDesvincular">
                 <button id="desvincularProfessor"><a href="./includes/excluirProfessor.php?id=<?php echo $idProfessor ?>">Excluir Professor</a></button>

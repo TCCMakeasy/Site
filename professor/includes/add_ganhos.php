@@ -2,7 +2,7 @@
 foreach ($_POST as $key => $value) {
     if (empty($value)) {
         $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Preencha todos os campos!</div>";
-        header("Location: ../adm_financeiro.php");
+        header("Location: ../financeiro.php");
     }
 }
 session_start();
@@ -21,10 +21,10 @@ if ($ganho_mensal == TRUE){
     $ganho_inseri = mysqli_query($sql, $ganho) or die (mysqli_error($sql));
     if($ganho_inseri){
         $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Dados salvos com sucesso!</div>";
-        header("Location: ../adm_financeiro.php");
+        header("Location: ../financeiro.php");
     }else{
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao salvar dados, tente novamente mais tarde!</div>";
-    header("Location: ../adm_financeiro.php");
+    header("Location: ../financeiro.php");
     }
 }else{
     $ganho_mes = $_POST['mesGanho'];
@@ -32,10 +32,10 @@ if ($ganho_mensal == TRUE){
     $ganho_inseri2 = mysqli_query($sql, $ganho2) or die (mysqli_error($sql));
     if($ganho_inseri2){
         $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Dados salvos com sucesso!</div>";
-        header("Location: ../adm_financeiro.php");
+        header("Location: ../financeiro.php");
     }else{      
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao salvar dados, tente novamente mais tarde!</div>";
-    header("Location: ../adm_financeiro.php");
+    header("Location: ../financeiro.php");
     }
 }
 

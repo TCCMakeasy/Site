@@ -124,6 +124,32 @@ main {
     max-height: 20rem;
     min-height: 5rem;
   }
+  #apagarAvalia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1.5rem;
+    background-color: var(--vermelhoMakeasy);
+    border: 4px solid #000;
+    padding: 0.5rem 0.7rem;
+    border-radius: 10px;
+    margin-right: 1rem;
+  
+  }
+  
+  #apagarAvalia:hover {
+    transition: 0.3s;
+    background-color: var(--vermelhoMakeasyHover);
+    cursor: pointer;
+  }
+
+  .avaliaçãoDiv{
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-between;
+  }
+  
   #avaliacoes{
     border: 3px solid #000;
     border-radius: 8px;

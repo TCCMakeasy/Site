@@ -28,7 +28,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                 <?php if (isset($_SESSION['msg'])) {
                     echo $_SESSION['msg'];
                 } ?>
-                <div class="grafico" id="graficos"><canvas id="lucroMensal"></canvas></div>
+                <div class="grafico" id="lucroDiv"><canvas id="lucroMensal"></canvas></div>
 
                 <script>
 
@@ -39,13 +39,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     <button id="abrirEdxValor">Editar/Excluir valor</button>
                 </div><br>
                 <h1 id="title">Avaliações</h1>
-                <div class="grafico" id="graficos"><canvas id="avaliacoes"></canvas></div>
+                <div class="grafico" id="avaliaDiv"><canvas id="avaliacoes"></canvas></div>
 
                 <script>
 
                 </script><br>
                 <h1 id="title">Alunos</h1>
-                <div class="grafico" id="graficos">
+                <div class="grafico" id="alunosDiv">
                     <canvas id="alunosMensal"></canvas>
                 </div>
                 <script>
@@ -198,7 +198,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                 echo '<tr id="linha">';
                 echo '<td class="valores" id="id_financa">' . $row_edit['id_financeiro'] . '</td>';
                 echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
-                echo '<td class="valores" id="valor_financa">' . number_format($row_edit['preco_financeiro'],2,",",".") . '</td>';
+                echo '<td class="valores" id="valor_financa">' . number_format($row_edit['preco_financeiro'], 2, ",", ".") . '</td>';
                 echo '<td class="valores" id="mes_financa">' . $row_edit['mes_financeiro'] . '</td>';
                 echo '<td class="valores" id="mensal_financa" hidden>' . $row_edit['mensal_financeiro'] . '</td>';
                 if ($row_edit['tipo_financeiro'] == 1) {

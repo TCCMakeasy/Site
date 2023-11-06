@@ -27,8 +27,9 @@ main {
   margin-top: 1.5rem;
 }
 .grafico {
-  width: 80%;
-  height: 100%;
+  height: 75%;
+  flex: 0 0 auto;
+  width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -348,11 +349,6 @@ td {
 #mensal:checked ~ #mesGanho{
   visibility: hidden;/*aqui*/
 }
-#graficos{
-  height: 75%;
-  flex: 0 0 auto;
-  width: 95%;
-}
 select {
   width: 74%;
   border: 1px solid black;
@@ -411,7 +407,7 @@ select {
     justify-content: center;
     gap: 1rem;
   }
-  #graficos{
+  .grafico{
     height: 60%;
     flex: 0 0 auto;
     width: 100%;
