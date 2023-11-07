@@ -140,10 +140,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 
 <dialog id="EdxValor">
     <div id="EdxValor-content">
-
+    <div id="tab">
         <table id="tabela">
             <tr>
-                <th class="valorTitle">Id</th>
                 <th class="valorTitle">Nome</th>
                 <th class="valorTitle">Valor</th>
                 <th class="valorTitle">Mês</th>
@@ -196,7 +195,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                         break;
                 }
                 echo '<tr id="linha">';
-                echo '<td class="valores" id="id_financa">' . $row_edit['id_financeiro'] . '</td>';
+                echo '<td class="valores" id="id_financa" hidden>' . $row_edit['id_financeiro'] . '</td>';
                 echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
                 echo '<td class="valores" id="valor_financa">' . number_format($row_edit['preco_financeiro'], 2, ",", ".") . '</td>';
                 echo '<td class="valores" id="mes_financa">' . $row_edit['mes_financeiro'] . '</td>';
@@ -212,6 +211,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             ?>
 
         </table>
+        </div>
         <form id="formEdxValor" action="./includes/adm_financeiroEdit.php" method="POST">
             <div id="hideItens">
                 <input type="text" name="idValor" id="inputIdEdit" value="" hidden>

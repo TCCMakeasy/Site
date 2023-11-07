@@ -22,22 +22,14 @@ session_start();
     <a id="span"></a>
   </header>
   <main>
-    <form method="post" id="cadastro" action="../aluno/includes/logar_aluno.php">
+    <form method="post" id="cadastro" action="../aluno/includes/sendEmail.php">
       <fieldset id="fieldsetLogin">
-        <h1 id="tituloLogin">Aluno</h1>
+        <h2 id="tituloLogin">Recuperar Senha</h2>
 
-        <label for="email" class="tituloInputLogin">Email:</label>
-        <input type="email" name="email_login" id="email" class="inputLogin" placeholder="deanna.curtis@example.com" required />
-
-        <label for="senha" class="tituloInputLogin">Senha:</label>
-        <input type="password" name="senha_login" id="senha" class="inputLogin" placeholder="●●●●●●●●" required />
+        <label for="email" class="tituloInputLogin">Digite seu email:</label>
+        <input type="email" name="email" id="email" class="inputLogin" placeholder="deanna.curtis@example.com" required />
         <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></div>
-        <input type="submit" value="Entrar" id="botaoSubmit" name="entrar" />
-        <p id="loginHref">
-          Não tem uma conta? <a href="cadastro.php">Registre-se</a>
-          <br>
-          <a href="cadastro.php">Esqueceu sua senha?</a>
-        </p>
+        <input type="submit" value="Enviar email" id="botaoSubmit" name="entrar" />
       </fieldset>
     </form>
   </main>

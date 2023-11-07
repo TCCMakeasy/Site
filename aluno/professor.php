@@ -26,7 +26,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
-<body>
+<body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
     <script>
         function goBack() {
             window.history.back();
@@ -173,15 +173,12 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     </main>
 </body>
 <script src="./js/menuOpenClose.js"></script>
+<script> 
+    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
+</script>
 <?php include_once "includes/modalNotificar.php";
 include_once "includes/modalAvalia.php";
 include_once "includes/modalDenuncia.php";
-if (isset($_SESSION['msg'])) {
-    echo '<script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        alert("' . $_SESSION['msg'] . '");
-      })</script>';
-}
 unset($_SESSION['msg']);
 ?>
 
