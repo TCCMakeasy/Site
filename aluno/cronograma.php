@@ -25,7 +25,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
 </head>
 
-<body>
+<body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
     <?php
 
     include_once "./includes/menuAluno.php";
@@ -123,16 +123,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     </div>
 </dialog>
 <script src="./js/marcarAulaOpenClose.js"></script>
+<script> 
+    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
+</script>
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>
 <?php
 include_once "includes/modalNotificar.php";
-if (isset($_SESSION['msg'])) {
-    echo '<script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            alert("' . $_SESSION['msg'] . '");
-          })</script>';
-}
 unset($_SESSION['msg']); ?>
 
 </html>

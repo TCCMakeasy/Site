@@ -17,7 +17,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
-<body>
+<body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
     <?php include_once "./includes/menuAluno.php"; ?>
     <main>
         <section id="tela">
@@ -88,14 +88,11 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     });
 </script>
 <script src="./js/excluirConta.js"></script>
+<script> 
+    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
+</script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "./includes/modalNotificar.php";
-if (isset($_SESSION['msg'])) {
-    echo '<script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        alert("' . $_SESSION['msg'] . '");
-      })</script>';
-}
 unset($_SESSION['msg']); ?>
 
 </html>

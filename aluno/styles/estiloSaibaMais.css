@@ -304,4 +304,7 @@ main {
     font-size: 1.5rem;
     margin-top: -1.6rem;
   }
+  a#report{
+    font-size: 10px;
+  }
 }

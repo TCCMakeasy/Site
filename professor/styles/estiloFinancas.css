@@ -319,10 +319,13 @@ input[type=checkbox] {
 #closeEdxValor {
   background-color: var(--vermelhoMakeasy);
 }
+#tab{
+  overflow-y: auto;
+}
 #tabela {
   border-collapse: collapse;
   align-items: center;
-  max-height: 1rem;
+  overflow-y: auto;
 }
 #tabela #linha:hover {
   background-color: var(--azulMakeasyHover);
@@ -425,6 +428,7 @@ select {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    max-height: 20rem;
   }
   th, td {
   min-width: 5rem;
