@@ -68,10 +68,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                 <label for="inputvalorGanho"><b>Valor:</b></label>
                 <input type="text" name="valorGanho" id="inputvalorGanho" onKeyUp="mascaraMoeda(this, event)">
             </div>
-            <div id="mensal">
-                <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" class="inputMensal" onclick="disableInput(0)">
-            </div>
             <div id="mesGanho">
                 <label for="inputMes0"><b>Mês:</b></label>
                 <select name="mesGanho" id="inputMes0" class="inputMes">
@@ -108,10 +104,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <div id="valorGasto">
                 <label for="inputvalorGasto"><b>Valor:</b></label>
                 <input type="text" name="valorGasto" id="inputvalorGasto" onKeyUp="mascaraMoeda(this, event)">
-            </div>
-            <div id="mensal">
-                <label for="inputMensal"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" class="inputMensal" onclick="disableInput(1)">
             </div>
             <div id="mesGasto">
                 <label for="inputMes1"><b>Mês:</b></label>
@@ -190,16 +182,12 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     case "dez":
                         $row_edit['mes_financeiro'] = "Dezembro";
                         break;
-                    case "":
-                        $row_edit['mes_financeiro'] = "Mensal";
-                        break;
                 }
                 echo '<tr id="linha">';
                 echo '<td class="valores" id="id_financa" hidden>' . $row_edit['id_financeiro'] . '</td>';
                 echo '<td class="valores" id="nome_financa">' . $row_edit['nome_financeiro'] . '</td>';
                 echo '<td class="valores" id="valor_financa">' . number_format($row_edit['preco_financeiro'], 2, ",", ".") . '</td>';
                 echo '<td class="valores" id="mes_financa">' . $row_edit['mes_financeiro'] . '</td>';
-                echo '<td class="valores" id="mensal_financa" hidden>' . $row_edit['mensal_financeiro'] . '</td>';
                 if ($row_edit['tipo_financeiro'] == 1) {
                     echo '<td class="valores" id="tipo_financa">Ganho</td>';
                 } else {
@@ -223,10 +211,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <div id="valorValor">
                 <label for="inputValorEdit"><b>Valor:</b></label>
                 <input type="text" name="valorEdit" id="inputValorEdit" onKeyUp="mascaraMoeda(this, event)">
-            </div>
-            <div id="mensal">
-                <label for="inputMensalEdit"><b>Mensal:</b></label>
-                <input type="checkbox" name="mensal" id="inputMensalEdit">
             </div>
             <div id="mesValor">
                 <label for="inputMesEdit"><b>Mês:</b></label>

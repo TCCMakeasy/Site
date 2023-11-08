@@ -29,7 +29,7 @@ session_start();
         <label for="email" class="tituloInputLogin">Digite seu email:</label>
         <input type="email" name="email" id="email" class="inputLogin" placeholder="deanna.curtis@example.com" required />
         <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></div>
-        <input type="submit" value="Enviar email" id="botaoSubmit" name="entrar" />
+        <input type="submit" value="Enviar email" id="botaoSubmitRecuperar" name="entrar" />
       </fieldset>
     </form>
   </main>

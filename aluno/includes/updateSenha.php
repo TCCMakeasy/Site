@@ -14,6 +14,7 @@
     $update = "UPDATE aluno set senha_aluno = '$novaSenha' WHERE email_aluno = '$email'";
     $updateSQL = mysqli_query($sql, $update);
     
+    header("Location: ../login.php");
     
     }else{
 
