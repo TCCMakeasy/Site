@@ -26,7 +26,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 <body>
     <?php include_once "./includes/menuAluno.php"; ?>
     <main>
-        <h1 id="title">Alunos</h1>
+    <h1 id="title">Informações do professor</h1>
         <div id="container">
             <div class="mobileSeta">
                 <a href="professores.php">
