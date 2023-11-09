@@ -35,7 +35,7 @@ if ($verifyEmail == null || $erro == true) {
     }
 
     $subject = 'Recuperação de conta Makeasy!';
-    $url = 'http://localhost:8080/Site/aluno/includes/email.php?nome=' . $verifyEmail['nome_aluno'] . '&token=' . $token . '&email=' . $email . '';
+    $url = 'http://localhost/Site/aluno/includes/email.php?nome=' . $verifyEmail['nome_aluno'] . '&token=' . $token . '&email=' . $email . '';
    /* $registraToken = "INSERT into recupera(id_token, id_aluno, email_aluno) values ($token, ".$verifyEmail['id_aluno'].", '$email')";
     $registra = mysqli_query($sql, $registraToken);*/
     $url = str_replace(' ','+', $url);
@@ -71,7 +71,13 @@ if ($verifyEmail == null || $erro == true) {
     }
 
     if ($mailSender) {
-       echo "<script>alert('Email enviado com sucesso!');window.location.href='../login.php';</script>";
+        $sendBD = $sql->query("INSERT INTO recupera (token_recupera, email_recupera) VALUES ('$token', '$email')");
+        if($sendBD){
+            echo "<script>alert('Email enviado com sucesso!');window.location.href='../login.php';</script>";
+        }else {
+            echo "<script>alert('Erro. Tente novamente mais tarde');window.location.href='../login.php';</script>";
+        }
+       
     } else {
         echo "<script>alert('Erro ao enviar email!');window.location.href='../login.php';</script>";
     }

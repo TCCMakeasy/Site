@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once '../../conexao.php';
 
     $email = $_GET['email'];
@@ -13,13 +13,19 @@
     $novaSenha = password_hash($novaSenha, PASSWORD_DEFAULT);
     $update = "UPDATE aluno set senha_aluno = '$novaSenha' WHERE email_aluno = '$email'";
     $updateSQL = mysqli_query($sql, $update);
-    
-    header("Location: ../login.php");
+    if($updateSQL){
+        $excludeRequest = $sql->query("DELETE FROM recupera WHERE token_recupera = '$token' AND email_recupera = '$email'");
+        if($excludeRequest){
+            header("Location: ../login.php");
+        }
+    }else{
+        $_SESSION['msg'] = "Erro ao atualizar a senha";
+        header("Location: ../login.php");
+    }
     
     }else{
-
-        echo "Senha não é igual";
-
+        $_SESSION['msg'] = "As senhas não coincidem";
+        header("Location: ./Recuperar_Senha.php?email=".$email."&token=".$token."");
     }
 
 
