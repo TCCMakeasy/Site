@@ -157,7 +157,8 @@ main {
 }
 @media (max-width: 768px) {
   #fieldsetLogin {
-    width: 20rem;
+    width: 130%;
+    margin-left: -29%;
   }
   .inputLogin {
     width: 90%;
@@ -167,26 +168,27 @@ main {
   }
   #fieldsetCad {
     width: 130%;
-    margin-left: -20%;
+    margin-left: -29%;
   }
   #logo {
-    width: 70%;
-    margin-left: 0.2rem;
+    width: 80%;
+    margin-left: 0.1rem;
   }
   header {
     margin-top: 0;
   }
   #voltar {
-    width: 70%;
+    width: 100%;
+    margin-left: 0%;
   }
   #span {
     display: none;
   }
+  .seta{
+    width: 17%;
+  }
 }
 @media (max-width: 1500px) {
-  #logo {
-    width: 20rem;
-  }
   #fieldsetLogin {
     margin-top: 0.5rem;
   }

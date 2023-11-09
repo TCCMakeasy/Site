@@ -27,25 +27,86 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 				$noti = mysqli_query($sql,$notificar);
 				if ($noti){
 					$_SESSION['msg'] = "Aluno cadastrado com sucesso!";
-					header("Location: ../adm_alunos.php");
+					//header("Location: ../adm_alunos.php");
 			
-					$data = date('m');
+						$data = date('m');
 
-					$select = "SELECT * from armazena where mensal_armazena = $data";
-					$selectComando = mysqli_query($sql, $select);
+						$select = "SELECT * from armazena where mensal_armazena = $data";
+						$selectComando = mysqli_query($sql, $select);
 
-					$select1 = "SELECT * from armazena where id_professor = ".$_SESSION['id']."";
-					$selectComando1 = mysqli_query($sql, $select1);	
-					
-					if(mysqli_num_rows($selectComando1) > 0 && (mysqli_num_rows($selectComando) > 0)){
+						$select1 = "SELECT * from armazena where id_professor = ".$_SESSION['id']."";
+						$selectComando1 = mysqli_query($sql, $select1);	
+						
+						if(mysqli_num_rows($selectComando1) > 0 && (mysqli_num_rows($selectComando) > 0)){
 
-						$altera = "update armazena set novos_armazena = (novos_armazena + 1) where id_professor = ".$_SESSION['id']." AND mensal_armazena = $data";
-						$alteraFinal = mysqli_query($sql, $altera);
-			
-					}else{
-			
-					$armazena = "INSERT into armazena(id_professor, novos_armazena, mensal_armazena) values ( ".$_SESSION['id']." ,novos_armazena + 1, $data)";
-					$armazenaFinal = mysqli_query($sql, $armazena);
+							$altera = "update armazena set novos_armazena = (novos_armazena + 1) where id_professor = ".$_SESSION['id']." AND mensal_armazena = $data";
+							$alteraFinal = mysqli_query($sql, $altera);
+				
+						}else{
+				
+						$armazena = "INSERT into armazena(id_professor, novos_armazena, mensal_armazena) values ( ".$_SESSION['id']." ,novos_armazena + 1, $data)";
+						$armazenaFinal = mysqli_query($sql, $armazena);
+
+						}
+
+						//Inserção no Financeiro
+						while($cont <= 6){
+						$cont = 1;
+
+						if(date('m') <= 6)
+						{
+
+						switch($cont){
+							
+							case 1:
+								$mensal= "jan";
+								break;
+							case 2:
+								$mensal = "fev";
+								break;
+							case 3:
+								$mensal = "mar";
+								break;
+							case 4:
+								$mensal = "abr";
+								break;
+							case 5:
+								$mensal = "mai";
+								break;
+							case 6:
+								$mensal = "jun";
+								break;				
+							
+							}
+						}else if(date('m') > 6){
+
+						switch($cont){
+							case 1:
+								$mensal= "jul";
+								break;
+							case 2:
+								$mensal = "ago";
+								break;
+							case 3:
+								$mensal = "set";
+								break;
+							case 4:
+								$mensal = "out";
+								break;
+							case 5:
+								$mensal = "nov";
+								break;
+							case 6:
+								$mensal = "dez";
+								break;				
+							
+							}
+						}
+
+							$cod_Inser = "INSERT into financeiro(tipo_financeiro, nome_financeiro, preco_financeiro, mes_financeiro, id_professor) values (1, 'Pagamento de Alunos', ".$_SESSION['valor'].", '$mensal', ".$_SESSION['id'].")";
+							$Inser = mysqli_query($sql, $cod_Inser);
+
+						$cont = $cont + 1;
 
 					}
 

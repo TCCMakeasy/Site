@@ -1,5 +1,16 @@
 <?php
 session_start();
+if(isset($_GET['email']) && isset($_GET['token'])){
+  $email = $_GET['email'];
+  $token = $_GET['token'];
+}else{
+  echo "<script>alert('Você não tem permissão para entrar nessa página');window.location.href='../login.php';</script>";
+}
+require_once '../../conexao.php';
+$verifyToken = $sql->query("SELECT * FROM recupera where token_recupera = '$token' AND email_recupera = '$email'");
+if(mysqli_num_rows($verifyToken) == 0){
+  echo "<script>alert('Você não tem permissão para entrar nessa página');window.location.href='../login.php';</script>";
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -22,7 +33,7 @@ session_start();
     <a id="span"></a>
   </header>
   <main>
-    <form method="post" id="cadastro" action="updateSenha.php?email=<?php echo $_GET['email'];?>&token=<?php echo $_GET['token'];?>">
+    <form method="post" id="cadastro" action="updateSenha.php?email=<?php echo $email;?>&token=<?php echo $token;?>">
       <fieldset id="fieldsetLogin">
         <h1 id="tituloLogin">Recuperar Senha</h1>
 
@@ -33,7 +44,7 @@ session_start();
         <input type="password" name="novaSenha" id="senha" class="inputLogin" placeholder="●●●●●●●●" required />
         <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?></div>
 
-        <input type="submit" value="Mudar Senha" id="botaoSubmit" name="SenhaN"/>
+        <input type="submit" value="Mudar Senha" id="botaoSubmitRecuperar" name="SenhaN"/>
 
       </fieldset>
     </form>
@@ -45,8 +56,8 @@ session_start();
     alert.style.display = "block";
   }
 </script>
+</html>
 <?php
+}
 unset($_SESSION['msg']);
 ?>
-
-</html>
