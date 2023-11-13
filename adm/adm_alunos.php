@@ -26,7 +26,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="container">
                 <div id="alert" class="avisos"><?php if (isset($_SESSION['msg'])) {
                                                     echo $_SESSION['msg'];
-                                                } ?></div>
+                                                }
+                                                ?></div>
                 <ul id="alunos">
                     <?php
                     include_once("../conexao.php");

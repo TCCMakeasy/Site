@@ -44,6 +44,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
         }
 
+        $exclui = "DELETE from financeiro where nome_financeiro like '%$idAluno%'";
+        $excluiFinal = mysqli_query($sql, $exclui);
+
     } else {
         $_SESSION['msg'] = "Erro ao desvincular aluno";
         header("Location: ../adm_alunos.php");

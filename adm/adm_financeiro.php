@@ -19,7 +19,7 @@
  </head>
 
  <body>
-     <?php include_once "includes/menuAdm.php"; ?>
+     <?php include_once "includes/menuAdm.php";?>
      <section id="tela">
          <main>
              <h1 id="title">Financeiro</h1>
