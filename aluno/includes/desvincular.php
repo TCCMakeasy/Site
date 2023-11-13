@@ -44,6 +44,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
         }
 
+        $exclui = "DELETE from financeiro where nome_financeiro like '%$idAluno%'";
+        $excluiFinal = mysqli_query($sql, $exclui);
+
         $_SESSION['id_professor'] = NULL;
 
     } else {

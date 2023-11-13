@@ -27,7 +27,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 				$noti = mysqli_query($sql,$notificar);
 				if ($noti){
 					$_SESSION['msg'] = "Aluno cadastrado com sucesso!";
-					//header("Location: ../adm_alunos.php");
+					header("Location: ../adm_alunos.php");
 			
 						$data = date('m');
 
@@ -49,12 +49,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 
 						}
 
-						//Inserção no Financeiro
-						while($cont <= 6){
 						$cont = 1;
 
-						if(date('m') <= 6)
-						{
+						//Inserção no Financeiro
+						while($cont <= 12){
 
 						switch($cont){
 							
@@ -76,34 +74,29 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
 							case 6:
 								$mensal = "jun";
 								break;				
-							
-							}
-						}else if(date('m') > 6){
-
-						switch($cont){
-							case 1:
+							case 7:
 								$mensal= "jul";
 								break;
-							case 2:
+							case 8:
 								$mensal = "ago";
 								break;
-							case 3:
+							case 9:
 								$mensal = "set";
 								break;
-							case 4:
+							case 10:
 								$mensal = "out";
 								break;
-							case 5:
+							case 11:
 								$mensal = "nov";
 								break;
-							case 6:
+							case 12:
 								$mensal = "dez";
 								break;				
 							
 							}
-						}
+		
 
-							$cod_Inser = "INSERT into financeiro(tipo_financeiro, nome_financeiro, preco_financeiro, mes_financeiro, id_professor) values (1, 'Pagamento de Alunos', ".$_SESSION['valor'].", '$mensal', ".$_SESSION['id'].")";
+									$cod_Inser = "INSERT into financeiro(tipo_financeiro, nome_financeiro, preco_financeiro, mes_financeiro, id_professor) values (1, 'Pagamento [".$id."]', ".$_SESSION['valor'].", '$mensal', ".$_SESSION['id'].")";
 							$Inser = mysqli_query($sql, $cod_Inser);
 
 						$cont = $cont + 1;

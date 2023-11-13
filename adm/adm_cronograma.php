@@ -113,8 +113,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     $sqlAlunos = mysqli_query($sql, $sqlSelect);
                     while ($aluno = mysqli_fetch_assoc($sqlAlunos)) {
                         echo '<option value="' . $aluno['id_aluno'] . '">' . $aluno['nome_aluno'] . '  ID:' . $aluno['id_aluno'] . '</option>';
-                    }
-                    ?>
+                    }?>
                 </select>
             </div>
             <div id="aulaDia">

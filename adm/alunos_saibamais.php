@@ -1,12 +1,13 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
 } else {
     require_once("../conexao.php");
-    $idAluno = $_GET['id'];
+    $idAluno = $_GET['id']; 
     $checkProfessor = "SELECT id_professor FROM aluno WHERE id_aluno = '$idAluno'";
     $resultCheckProfessor = mysqli_query($sql, $checkProfessor);
     $resultProfessor = mysqli_fetch_assoc($resultCheckProfessor);

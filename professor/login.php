@@ -36,7 +36,8 @@ session_start();
                                         } ?></div>
         <input type="submit" value="Entrar" id="botaoSubmit" name="entrar" /><br />
         <p id="loginHref">
-          Não tem uma conta? <a href="https://makeasyenglish.com.br/#toggle-section">Compre um dos nossos cursos</a>
+          Não tem uma conta? <a href="https://makeasyenglish.com.br/#toggle-section">Compre um dos nossos cursos</a><br><br>
+          <a href="nova_senha.php">Esqueceu sua senha?</a>
         </p>
       </fieldset>
     </form>
