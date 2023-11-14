@@ -2,7 +2,7 @@
 <dialog id="notificações">
     <div class="notificações-content">
         <div class="notificações-header">
-            <button id="closeNotify"><img src="./images/voltarseta.png" alt="Botão para voltar"></button>
+            <button id="closeNotify" onclick="atualizarNotificacoes(<?php echo $_SESSION['id'] ?>)"><img src="./images/voltarseta.png" alt="Botão para voltar"></button>
         </div>
         <div class="notificações-body">
         </div>

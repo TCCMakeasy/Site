@@ -200,7 +200,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 
         </table>
         </div>
-        <form id="formEdxValor" action="./includes/adm_financeiroEdit.php" method="POST">
+        <form id="formEdxValor" action="./includes/financeiroEdit.php" method="POST">
             <div id="hideItens">
                 <input type="text" name="idValor" id="inputIdEdit" value="" hidden>
             </div>

@@ -28,7 +28,7 @@ $contaMensagem = mysqli_fetch_assoc($fazAcao);
                     <a href="./financeiro.php" class="navButton">Financeiro</a>
                 </li>
                 <li>
-                    <a id="openNotify" class="navButton" onclick="abrirNotify(<?php echo $_SESSION['id'] ?>)">Mensagens [<?php echo $contaMensagem['COUNT(id_notifica)']?>]</a>
+                    <a id="openNotify" class="navButton" onclick="abrirNotify(<?php echo $_SESSION['id'] ?>)">Mensagens [<span id="quantNotify"><?php echo $contaMensagem['COUNT(id_notifica)']?></span>]</a>
                 </li>
                 <li>
                     <a href="./includes/fim_session.php" class="navButton" id="sair">Sair</a>
