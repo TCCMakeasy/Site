@@ -34,7 +34,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     }
     $request = "UPDATE cronograma SET `" . $dia . "_cronograma` = NULL WHERE id_professor = '" . $_SESSION['id'] . "' AND tempo_cronograma = '" . $horario . ":00:00'";
     if (mysqli_query($sql, $request)) {
-        echo "Aula desmarcada com sucesso!";
+        echo "Horário desmarcado com sucesso!";
     } else {
         echo "Erro ao desmarcar aula, tente novamente mais tarde!";
     }

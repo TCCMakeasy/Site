@@ -292,6 +292,7 @@ main {
   }
   #questions{
     margin-top: 1rem;
+    max-width: 8rem;
   }
   #questions a{
     font-size: 1rem;
@@ -306,5 +307,9 @@ main {
   }
   a#report{
     font-size: 10px;
+  }
+  #reportimg{
+    width: 1rem;
+    align-items: center;
   }
 }

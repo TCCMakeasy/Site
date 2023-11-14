@@ -1,10 +1,17 @@
+<?php
+require_once "../conexao.php";
+$contaMensagem = "SELECT COUNT(id_notifica) FROM notifica WHERE id_professor = '" . $_SESSION['id'] . "' AND verifica_notifica = 1";
+$fazAcao = mysqli_query($sql, $contaMensagem);
+$contaMensagem = mysqli_fetch_assoc($fazAcao);
+?>
 <link rel="stylesheet" type="text/css" href="./styles/estiloMenuAdmin.css">
 <aside id="menu">
     <img src="./images/logo.png" alt="Logo da empresa" id="logo">
     <div id="fotoMenu">
         <img src="../fotosPerfil/<?php echo $_SESSION['foto'] ?>" alt="Imagem de usuário" id="imgUsuario">
         <p class="nomeAdm" id="nomeMenuAdm"><?php $nome = explode(' ', $_SESSION['nome']);
-        echo $nome[0];?></p>    </div>
+                                            echo $nome[0]; ?></p>
+    </div>
     <div id="scroll">
         <nav>
             <ul>
@@ -21,7 +28,7 @@
                     <a href="./users.php" class="navButton">Usuários</a>
                 </li>
                 <li>
-                    <a id="openNotify" class="navButton" onclick="abrirNotify(<?php echo $_SESSION['id'] ?>)">Mensagens</a>
+                    <a id="openNotify" class="navButton" onclick="abrirNotify(<?php echo $_SESSION['id'] ?>)">Mensagens [<?php echo $contaMensagem['COUNT(id_notifica)']?>]</a>
                 </li>
                 <li>
                     <a href="./adm_financeiro.php" class="navButton">Financeiro</a>

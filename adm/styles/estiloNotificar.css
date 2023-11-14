@@ -115,7 +115,8 @@
   border-radius: 10px;
   cursor: pointer;
   margin-right: 1rem;
-
+  position: fixed;
+  bottom: 3rem;
 }
 
 @media (max-width: 768px) {

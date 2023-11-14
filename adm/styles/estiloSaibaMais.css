@@ -99,7 +99,7 @@ main {
   border-radius: 8px;
   width: 70%;
   height: 12rem;
-
+  max-width: 100%;
 }
 #divDesvincularAluno{
   display: flex;

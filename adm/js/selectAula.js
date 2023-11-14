@@ -24,9 +24,9 @@ btnDesmarcar.addEventListener("click", function (e) {
     return;
   }
   if (target.innerHTML == "Disponível") {
-    alert("Aula vazia não pode ser desmarcada");
+    alert("Horário vazio não pode ser desmarcado");
     return;
-  } else if (confirm("Deseja desmarcar a aula?")) {
+  } else if (confirm("Deseja desmarcar o horário?")) {
     desmarcarAula(aula);
   }
 });
@@ -55,12 +55,12 @@ const desmarcarAula = async (aula) => {
   })
     .then((response) => response.text())
     .then((response) => {
-      if (response == "Aula desmarcada com sucesso!") {
+      if (response == "Horário desmarcado com sucesso!") {
         document.getElementById(aula).innerHTML = "Disponível";
         document.getElementById(aula).classList.add("disponivel");
         alert(response);
       } else {
-        alert("Erro ao desmarcar aula, tente novamente mais tarde");
+        alert("Erro ao desmarcar horário, tente novamente mais tarde");
       }
     })
     .catch((error) => console.log("Erro: " + error));

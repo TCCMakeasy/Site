@@ -34,7 +34,7 @@ if (!isset($_SESSION['id'])) {
 
         if(mysqli_num_rows($verificaFinal) > 0){
 
-        $data = data('m');
+        $data = date('m');
         
         $select = "SELECT * from armazena where mensal_armazena = $data";
         $selectComando = mysqli_query($sql, $select);
