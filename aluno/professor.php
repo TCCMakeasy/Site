@@ -174,7 +174,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 </body>
 <script src="./js/menuOpenClose.js"></script>
 <script> 
-    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
+    const alerta = () => alert("<?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];}?>");
 </script>
 <?php include_once "includes/modalNotificar.php";
 include_once "includes/modalAvalia.php";

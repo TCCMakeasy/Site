@@ -10,7 +10,7 @@ const mesesGraphic = [
   "Setembro",
   "Outubro",
   "Novembro",
-  "Dezembro"
+  "Dezembro",
 ];
 const meses = [
   "jan",
@@ -35,40 +35,96 @@ const currentMonth = date.getMonth();
 const mesesShowGraphic = (arrayMeses) => {
   let array = [];
   for (let mes of arrayMeses) {
-    array.push(mes)
+    array.push(mes);
   }
   return array;
-}
+};
 const valoresShowGraphic = (obj) => {
   if (currentMonth == 0 || currentMonth == 1) {
-    return [obj[meses[0]], obj[meses[1]], obj[meses[2]], obj[meses[3]], obj[meses[4]], obj[meses[5]]];
+    return [
+      obj[meses[0]],
+      obj[meses[1]],
+      obj[meses[2]],
+      obj[meses[3]],
+      obj[meses[4]],
+      obj[meses[5]],
+    ];
   } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
-    return [obj[meses[6]], obj[meses[7]], obj[meses[8]], obj[meses[9]], obj[meses[10]], obj[meses[11]]];
+    return [
+      obj[meses[6]],
+      obj[meses[7]],
+      obj[meses[8]],
+      obj[meses[9]],
+      obj[meses[10]],
+      obj[meses[11]],
+    ];
   } else {
-    return [obj[meses[currentMonth - 2]], obj[meses[currentMonth - 1]], obj[meses[currentMonth]], obj[meses[currentMonth + 1]], obj[meses[currentMonth + 2]], obj[meses[currentMonth + 3]]];
+    return [
+      obj[meses[currentMonth - 2]],
+      obj[meses[currentMonth - 1]],
+      obj[meses[currentMonth]],
+      obj[meses[currentMonth + 1]],
+      obj[meses[currentMonth + 2]],
+      obj[meses[currentMonth + 3]],
+    ];
   }
-}
+};
 const alunosShowGraphic = (array) => {
-  const filteredArray = array.filter(obj => {
+  const filteredArray = array.filter((obj) => {
     const objMonth = new Date(obj.mensal_armazena).getMonth();
-    if(currentMonth == 0 ){
-      return  objMonth == currentMonth || objMonth == currentMonth + 1 || objMonth == currentMonth + 2 || objMonth == currentMonth + 3 || objMonth == currentMonth + 4 || objMonth == currentMonth + 5;
-    }else if(currentMonth == 1){
-      return  objMonth == currentMonth - 1 || objMonth == currentMonth || objMonth == currentMonth + 1 || objMonth == currentMonth + 2 || objMonth == currentMonth + 3 || objMonth == currentMonth + 4;
-    }else if(currentMonth == 11){
-      return  objMonth == currentMonth - 5 || objMonth == currentMonth - 4 || objMonth == currentMonth - 3 || objMonth == currentMonth - 2 || objMonth == currentMonth - 1 || objMonth == currentMonth;
-    }else if(currentMonth == 10){
-      return objMonth == currentMonth - 4 || objMonth == currentMonth - 3 || objMonth == currentMonth - 2 || objMonth == currentMonth - 1 || objMonth == currentMonth || objMonth == currentMonth + 1;
-    }else{
-      return  objMonth == currentMonth - 3 || objMonth == currentMonth - 2 || objMonth == currentMonth - 1 || objMonth == currentMonth || objMonth == currentMonth + 1 || objMonth == currentMonth + 2;}
-    });
-  
+    if (currentMonth == 0) {
+      return (
+        objMonth == currentMonth ||
+        objMonth == currentMonth + 1 ||
+        objMonth == currentMonth + 2 ||
+        objMonth == currentMonth + 3 ||
+        objMonth == currentMonth + 4 ||
+        objMonth == currentMonth + 5
+      );
+    } else if (currentMonth == 1) {
+      return (
+        objMonth == currentMonth - 1 ||
+        objMonth == currentMonth ||
+        objMonth == currentMonth + 1 ||
+        objMonth == currentMonth + 2 ||
+        objMonth == currentMonth + 3 ||
+        objMonth == currentMonth + 4
+      );
+    } else if (currentMonth == 11) {
+      return (
+        objMonth == currentMonth - 5 ||
+        objMonth == currentMonth - 4 ||
+        objMonth == currentMonth - 3 ||
+        objMonth == currentMonth - 2 ||
+        objMonth == currentMonth - 1 ||
+        objMonth == currentMonth
+      );
+    } else if (currentMonth == 10) {
+      return (
+        objMonth == currentMonth - 4 ||
+        objMonth == currentMonth - 3 ||
+        objMonth == currentMonth - 2 ||
+        objMonth == currentMonth - 1 ||
+        objMonth == currentMonth ||
+        objMonth == currentMonth + 1
+      );
+    } else {
+      return (
+        objMonth == currentMonth - 3 ||
+        objMonth == currentMonth - 2 ||
+        objMonth == currentMonth - 1 ||
+        objMonth == currentMonth ||
+        objMonth == currentMonth + 1 ||
+        objMonth == currentMonth + 2
+      );
+    }
+  });
+
   filteredArray.sort((a, b) => {
     return new Date(a.mensal_armazena) - new Date(b.mensal_armazena);
   });
   return filteredArray;
-}
-
+};
 
 const graphAvaliaValues = async (text) => {
   try {
@@ -82,8 +138,9 @@ const graphAvaliaValues = async (text) => {
 
     if (response.ok) {
       const avaliacoes = await response.json();
-      if (avaliacoes.erro){
-        document.getElementById("avaliaDiv").innerHTML = '<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>';
+      if (avaliacoes.erro) {
+        document.getElementById("avaliaDiv").innerHTML =
+          "<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>";
       }
       let avaliacoesCount = {
         umaStar: 0,
@@ -205,16 +262,42 @@ const graphAlunosValues = async (idProfessor) => {
 
     if (response.ok) {
       const alunos = await response.json();
-      if (alunos.erro){
-        document.getElementById("alunosDiv").innerHTML = '<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>';
+      if (alunos.erro) {
+        document.getElementById("alunosDiv").innerHTML =
+          "<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>";
       }
       let mesesShow = [];
       if (currentMonth == 0 || currentMonth == 1) {
-        mesesShow = [mesesGraphic[0], mesesGraphic[1], mesesGraphic[2], mesesGraphic[3], mesesGraphic[4], mesesGraphic[5]];
-      } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
-        mesesShow = [mesesGraphic[6], mesesGraphic[7], mesesGraphic[8], mesesGraphic[9], mesesGraphic[10], mesesGraphic[11]];
+        mesesShow = [
+          mesesGraphic[0],
+          mesesGraphic[1],
+          mesesGraphic[2],
+          mesesGraphic[3],
+          mesesGraphic[4],
+          mesesGraphic[5],
+        ];
+      } else if (
+        currentMonth == 11 ||
+        currentMonth == 10 ||
+        currentMonth == 9
+      ) {
+        mesesShow = [
+          mesesGraphic[6],
+          mesesGraphic[7],
+          mesesGraphic[8],
+          mesesGraphic[9],
+          mesesGraphic[10],
+          mesesGraphic[11],
+        ];
       } else {
-        mesesShow = [mesesGraphic[currentMonth - 2], mesesGraphic[currentMonth - 1], mesesGraphic[currentMonth], mesesGraphic[currentMonth + 1], mesesGraphic[currentMonth + 2], mesesGraphic[currentMonth + 3]];
+        mesesShow = [
+          mesesGraphic[currentMonth - 2],
+          mesesGraphic[currentMonth - 1],
+          mesesGraphic[currentMonth],
+          mesesGraphic[currentMonth + 1],
+          mesesGraphic[currentMonth + 2],
+          mesesGraphic[currentMonth + 3],
+        ];
       }
       const filteredArray = alunosShowGraphic(alunos);
       const graficoAlunosMensal = new Chart(alunosMensal, {
@@ -325,127 +408,163 @@ const graphLucroValues = async (text) => {
 
     if (response.ok) {
       const financeiro = await response.json();
-      if (financeiro.erro){
-        document.getElementById("lucroDiv").innerHTML = '<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>';
-      }
-      const ganhos = {};
-      const gastos = {};
-      const gastosTotais = {};
-      const ganhosTotais = {};
-      const lucroTotal = {};
-      let mesesShow = [];
-      for (const mes of meses) {
-        gastos[mes] = financeiro.filter(
-          (item) => item.tipo_financeiro == 2 && item.mes_financeiro == mes
-        );
-        ganhos[mes] = financeiro.filter(
-          (item) => item.tipo_financeiro == 1 && item.mes_financeiro == mes
-        );
-        gastosTotais[mes] = gastos[mes].reduce(
-          (acc, item) => acc + parseFloat(item.preco_financeiro),
-          0
-        );
-        ganhosTotais[mes] = ganhos[mes].reduce(
-          (acc, item) => acc + parseFloat(item.preco_financeiro),
-          0
-        );
-        lucroTotal[mes] = ganhosTotais[mes] - gastosTotais[mes];
-      }
-      if (currentMonth == 0 || currentMonth == 1) {
-        mesesShow = [mesesGraphic[0], mesesGraphic[1], mesesGraphic[2], mesesGraphic[3], mesesGraphic[4], mesesGraphic[5]];
-      } else if (currentMonth == 11 || currentMonth == 10 || currentMonth == 9) {
-        mesesShow = [mesesGraphic[6], mesesGraphic[7], mesesGraphic[8], mesesGraphic[9], mesesGraphic[10], mesesGraphic[11]];
+      console.log(financeiro);
+      if (financeiro.erro) {
+        if (financeiro.erro == "404") {
+          document.getElementById("lucroDiv").innerHTML =
+            "<div><h1>Adicione um valor abaixo e tente novamente!</h1></div>";
+        } else {
+          document.getElementById("lucroDiv").innerHTML =
+            "<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>";
+        }
       } else {
-        mesesShow = [mesesGraphic[currentMonth - 2], mesesGraphic[currentMonth - 1], mesesGraphic[currentMonth], mesesGraphic[currentMonth + 1], mesesGraphic[currentMonth + 2], mesesGraphic[currentMonth + 3]];
+        const ganhos = {};
+        const gastos = {};
+        const gastosTotais = {};
+        const ganhosTotais = {};
+        const lucroTotal = {};
+        let mesesShow = [];
+        for (const mes of meses) {
+          gastos[mes] = financeiro.filter(
+            (item) => item.tipo_financeiro == 2 && item.mes_financeiro == mes
+          );
+          ganhos[mes] = financeiro.filter(
+            (item) => item.tipo_financeiro == 1 && item.mes_financeiro == mes
+          );
+          gastosTotais[mes] = gastos[mes].reduce(
+            (acc, item) => acc + parseFloat(item.preco_financeiro),
+            0
+          );
+          ganhosTotais[mes] = ganhos[mes].reduce(
+            (acc, item) => acc + parseFloat(item.preco_financeiro),
+            0
+          );
+          lucroTotal[mes] = ganhosTotais[mes] - gastosTotais[mes];
+        }
+        if (currentMonth == 0 || currentMonth == 1) {
+          mesesShow = [
+            mesesGraphic[0],
+            mesesGraphic[1],
+            mesesGraphic[2],
+            mesesGraphic[3],
+            mesesGraphic[4],
+            mesesGraphic[5],
+          ];
+        } else if (
+          currentMonth == 11 ||
+          currentMonth == 10 ||
+          currentMonth == 9
+        ) {
+          mesesShow = [
+            mesesGraphic[6],
+            mesesGraphic[7],
+            mesesGraphic[8],
+            mesesGraphic[9],
+            mesesGraphic[10],
+            mesesGraphic[11],
+          ];
+        } else {
+          mesesShow = [
+            mesesGraphic[currentMonth - 2],
+            mesesGraphic[currentMonth - 1],
+            mesesGraphic[currentMonth],
+            mesesGraphic[currentMonth + 1],
+            mesesGraphic[currentMonth + 2],
+            mesesGraphic[currentMonth + 3],
+          ];
+        }
+        const graficoLucroMensal = new Chart(lucroMensal, {
+          type: "line",
+          data: {
+            labels: mesesShowGraphic(mesesShow),
+            datasets: [
+              {
+                label: "Ganhos",
+                data: valoresShowGraphic(ganhosTotais),
+                tension: 0,
+                borderColor: "#ef1dac",
+                backgroundColor: "#ef1dac",
+              },
+              {
+                label: "Gastos",
+                data: valoresShowGraphic(gastosTotais),
+                tension: 0,
+                borderColor: "#e02b20",
+                backgroundColor: "#e02b20",
+              },
+              {
+                label: "Lucro",
+                data: valoresShowGraphic(lucroTotal),
+                tension: 0,
+                borderColor: "#7cda24",
+                backgroundColor: "#7cda24",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            elements: {
+              point: {
+                radius: 1,
+              },
+              line: {
+                borderWidth: 4,
+                fill: false,
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: false,
+                grid: {
+                  color: "#fff",
+                },
+                ticks: {
+                  color: "#fff",
+                  callback: function (value) {
+                    return value.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    });
+                  },
+                  padding: 15,
+                  font: {
+                    size: 16,
+                    family: "Open Sans",
+                  },
+                },
+                border: {
+                  width: 0,
+                },
+              },
+              x: {
+                grid: {
+                  color: "rgba(255, 255, 255, 0)",
+                },
+                ticks: {
+                  color: "#fff",
+                  padding: 15,
+                  font: {
+                    size: 16,
+                    family: "Open Sans",
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 20,
+                    family: "Open Sans",
+                  },
+                  color: "#fff",
+                },
+              },
+            },
+          },
+        });
       }
-      const graficoLucroMensal = new Chart(lucroMensal, {
-        type: "line",
-        data: {
-          labels: mesesShowGraphic(mesesShow),
-          datasets: [
-            {
-              label: "Ganhos",
-              data: valoresShowGraphic(ganhosTotais),
-              tension: 0,
-              borderColor: "#ef1dac",
-              backgroundColor: "#ef1dac",
-            },
-            {
-              label: "Gastos",
-              data: valoresShowGraphic(gastosTotais),
-              tension: 0,
-              borderColor: "#e02b20",
-              backgroundColor: "#e02b20",
-            },
-            {
-              label: "Lucro",
-              data: valoresShowGraphic(lucroTotal),
-              tension: 0,
-              borderColor: "#7cda24",
-              backgroundColor: "#7cda24",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          elements: {
-            point: {
-              radius: 1,
-            },
-            line: {
-              borderWidth: 4,
-              fill: false,
-            },
-          },
-          scales: {
-            y: {
-              beginAtZero: false,
-              grid: {
-                color: "#fff",
-              },
-              ticks: {
-                color: "#fff",
-                callback: function (value) {
-                  return value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-                },
-                padding: 15,
-                font: {
-                  size: 16,
-                  family: "Open Sans",
-                },
-              },
-              border: {
-                width: 0,
-              },
-            },
-            x: {
-              grid: {
-                color: "rgba(255, 255, 255, 0)",
-              },
-              ticks: {
-                color: "#fff",
-                padding: 15,
-                font: {
-                  size: 16,
-                  family: "Open Sans",
-                },
-              },
-            },
-          },
-          plugins: {
-            legend: {
-              labels: {
-                font: {
-                  size: 20,
-                  family: "Open Sans",
-                },
-                color: "#fff",
-              },
-            },
-          },
-        },
-      });
     } else {
       console.error(
         "Erro na solicitação:",
@@ -458,17 +577,17 @@ const graphLucroValues = async (text) => {
   }
 };
 
-String.prototype.reverse = function(){
-  return this.split('').reverse().join(''); 
+String.prototype.reverse = function () {
+  return this.split("").reverse().join("");
 };
 
-function mascaraMoeda(campo,evento){
-  var tecla = (!evento) ? window.event.keyCode : evento.which;
-  var valor  =  campo.value.replace(/[^\d]+/gi,'').reverse();
-  var resultado  = "";
+function mascaraMoeda(campo, evento) {
+  var tecla = !evento ? window.event.keyCode : evento.which;
+  var valor = campo.value.replace(/[^\d]+/gi, "").reverse();
+  var resultado = "";
   var mascara = "###.###.###,##".reverse();
-  for (var x=0, y=0; x<mascara.length && y<valor.length;) {
-    if (mascara.charAt(x) != '#') {
+  for (var x = 0, y = 0; x < mascara.length && y < valor.length; ) {
+    if (mascara.charAt(x) != "#") {
       resultado += mascara.charAt(x);
       x++;
     } else {

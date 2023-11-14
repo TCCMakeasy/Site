@@ -12,12 +12,11 @@ $nome_edit = $_POST['nomeEdit'];
 $valor_edit = $_POST['valorEdit'];
 $valor_edit = str_replace(".", "", $valor_edit);
 $valor_edit = str_replace(",", ".", $valor_edit);
-$mensal_edit = isset($_POST['mensal']) ? 1 : 0;
 $mes_edit = isset($_POST['inputMes']) ? $_POST['inputMes'] : NULL;
 $tipoExec = $_POST['btnEdValor'];
 
 if ($tipoExec == 'Editar valor') {
-    $exec = "UPDATE `financeiro` SET `nome_financeiro` = '$nome_edit', `preco_financeiro` = '$valor_edit', `mensal_financeiro` = '$mensal_edit', `mes_financeiro` = '$mes_edit' WHERE `id_financeiro` = $id";
+    $exec = "UPDATE `financeiro` SET `nome_financeiro` = '$nome_edit', `preco_financeiro` = '$valor_edit', `mes_financeiro` = '$mes_edit' WHERE `id_financeiro` = $id";
     $query = mysqli_query($sql, $exec);
     if ($query) {
         $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Valor editado com sucesso!</div>";

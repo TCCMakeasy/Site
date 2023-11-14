@@ -1,5 +1,6 @@
 const tabela = document.getElementById("tabela");
 const btnDesmarcar = document.getElementById("desmarcarAula");
+const btnMarcar = document.getElementById("marcarAula");
 let tds = Array.from(tabela.getElementsByTagName("td"));
 let ths = Array.from(tabela.getElementsByTagName("th"));
 
@@ -34,6 +35,24 @@ btnDesmarcar.addEventListener("click", function (e) {
   }
 });
 
+btnMarcar.addEventListener("click", function (e) {
+  try {
+    var target = tabela.getElementsByClassName("selecionado")[0];
+    var aula = target.id;
+  } catch (error) {
+    alert("Selecione uma aula");
+    console.log(error);
+    return;
+  }
+  if (target.innerHTML == "Disponível") {
+    if (confirm("Deseja marcar a aula?")) {
+      marcarAula(aula);
+    }
+  } else {
+    alert("Aula ocupada não pode ser marcada");
+  }
+});
+
 const desmarcarAula = async (aula) => {
   fetch("./includes/desmarcarAula.php", {
     method: "POST",
@@ -49,3 +68,19 @@ const desmarcarAula = async (aula) => {
     })
     .catch((error) => console.log("Erro: " + error));
 };
+
+const marcarAula = async (aula) => {
+  fetch("./includes/marcar-aula.php", {
+    method: "POST",
+    body: aula,
+  })
+    .then((response) => response.text())
+    .then((response) => {
+      if (response == "1") {
+        alert("Professor notificado sobre a marcação da aula");
+      } else {
+        alert(response);
+      }
+    })
+    .catch((error) => console.log("Erro: " + error));
+}

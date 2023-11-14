@@ -85,7 +85,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
             </div>
 
             <div id="botoes">
-                <button id="abrirMarcarAula" class="btnHorario">Marcar aula</button>
+                <button id="marcarAula" class="btnHorario">Marcar aula</button>
                 <button id="desmarcarAula" class="btnHorario">Desmarcar aula</button>
 
             </div>
@@ -94,37 +94,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     </section>
 
 </body>
-<dialog id="marAula">
-    <div id="marAula-content">
-        <form action="./includes/marcar-aula.php" method="post" id="formMarcarAula">
-            <h1>Marcar aula</h1>
-            <div id="aulaDia">
-                <label for="inputDia"><b>Dia da semana:</b></label>
-                <select name="aulaDia" id="inputDia">
-                    <option value="seg">Segunda-Feira</option>
-                    <option value="ter">Terça-Feira</option>
-                    <option value="qua">Quarta-Feira</option>
-                    <option value="qui">Quinta-Feira</option>
-                    <option value="sex">Sexta-Feira</option>
-                    <option value="sab">Sábado</option>
-                    <option value="dom">Domingo</option>
-
-                </select>
-            </div>
-            <div id="aulaHora">
-                <label for="inputHora"><b>Horário:</b></label>
-                <input type="time" name="aulaHora" id="inputHora" min="10:00" max="20:00" step="3600" required>
-            </div>
-            <div id="submitMarcarAula">
-                <input type="submit" id="btnMarcarAula" name="btnMarcarAula" value="Marcar Aula">
-                <button id="closeMarcarAula">Cancelar</button>
-            </div>
-        </form>
-    </div>
-</dialog>
-<script src="./js/marcarAulaOpenClose.js"></script>
 <script> 
-    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
+    const alerta = () => alert("<?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];}?>");
 </script>
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>

@@ -68,7 +68,7 @@ td {
   margin: auto 1rem;
   cursor: pointer;
 }
-#abrirMarcarAula {
+#marcarAula {
   background-color: var(--corPrimaria);
 }
 #desmarcarAula {

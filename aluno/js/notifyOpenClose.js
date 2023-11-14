@@ -1,5 +1,6 @@
 const closeNotify = document.querySelector("#closeNotify");
 const notify = document.querySelector("#notificações");
+const quantNotify = document.querySelector("#quantNotify");
 
 const abrirNotify = (id_aluno) => {
   notify.showModal();
@@ -32,6 +33,7 @@ const atualizarNotificacoes = async (id_aluno) => {
   const data = await response.json();
   const notificacoes = document.querySelector(".notificações-body");
   notificacoes.innerHTML = "";
+  quantNotify.innerHTML = data.length;
   data.forEach((element) => {
     notificacoes.innerHTML += `
     <div class="notificação" id="notify${element.id_notifica}">
