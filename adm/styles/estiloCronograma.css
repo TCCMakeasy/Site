@@ -73,6 +73,7 @@ td {
 }
 #desmarcarAula {
   background-color: var(--corSecundaria);
+  width: 13rem;
 }
 #privarAula {
   background-color: var(--azulMakeasy);

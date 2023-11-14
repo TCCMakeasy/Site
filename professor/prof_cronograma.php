@@ -93,7 +93,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             <div id="botoes">
                 <button id="privarAula" class="btnHorario">Privar horário</button>
                 <button id="abrirMarcarAula" class="btnHorario">Marcar aula</button>
-                <button id="desmarcarAula" class="btnHorario">Desmarcar aula</button>
+                <button id="desmarcarAula" class="btnHorario">Desmarcar horário</button>
 
             </div>
         </main>

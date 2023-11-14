@@ -112,7 +112,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                             } ?> Avaliações</span>
                 </p>
                 <?php
-                $aval = "SELECT * FROM avalia WHERE id_professor = " . $_SESSION['id'] . "";
+                $aval = "SELECT * FROM avalia WHERE id_professor = " . $idProfessor . "";
                 $veri_aval = mysqli_query($sql, $aval);
                 while ($row_aval = mysqli_fetch_assoc($veri_aval)) {
                     $requisit_nome = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $row_aval['id_aluno'] . "'";
