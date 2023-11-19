@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
+if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
 }
@@ -72,6 +72,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             <div id="emailProf">
                 <label for="inputemailProf"><b>Data de nasc.:</b></label>
                 <input type="date" name="dataProf" id="inputDateProf" placeholder="9/99/9999">
+            </div>
+            <div id="emailProf">
+                <label for="inputemailProf"><b>Adm:</b></label>
+                <input type="checkbox" id="scales" name="adm">
             </div>
             <div id="submitAddProf">
                 <input type="submit" id="adicionarProf" name="btnAddProf" value="Adicionar Professor">
