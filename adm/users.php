@@ -17,8 +17,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <title>Usuários</title>
 </head>
-
-<body>
+<body onload="dateMax()">
     <h1 id="title" hidden>Usuários</h1>
     <?php include_once "./includes/menuAdm.php"; ?>
     <main>
@@ -53,7 +52,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
         </section>
     </main>
 </body>
-<dialog id="addProf">
+<dialog id="addProf" >
     <div id="addProf-content">
         <form action="./includes/add_prof.php" method="post" id="formAddProf">
             <h1>Adicionar Professor</h1>
@@ -73,9 +72,11 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
                 <label for="inputemailProf"><b>Data de nasc.:</b></label>
                 <input type="date" name="dataProf" id="inputDateProf" placeholder="9/99/9999">
             </div>
-            <div id="emailProf">
-                <label for="inputemailProf"><b>Adm:</b></label>
-                <input type="checkbox" id="scales" name="adm">
+            <div id="admProf">
+                <label for="inputAdmProf"><b>Privilégios de Administrador:
+                    <input type="checkbox" id="checkAdm" name="adm">
+                </label>
+
             </div>
             <div id="submitAddProf">
                 <input type="submit" id="adicionarProf" name="btnAddProf" value="Adicionar Professor">
@@ -84,6 +85,26 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
         </form>
     </div>
 </dialog>
+<script>
+    const dateMax = () => {
+    let dataAtual = new Date();
+    let dia = dataAtual.getDate();
+    let mes = dataAtual.getMonth() + 1;
+    let ano = dataAtual.getFullYear();
+    if (dia < 10) {
+      dia = "0" + dia;
+    }
+    if (mes < 10) {
+      mes = "0" + mes;
+    }
+    let dataMax = (ano - 14) + "-" + mes + "-" + dia;
+    let dataMin = (ano - 100) + "-" + mes + "-" + dia;
+    let dataInput = document.getElementById("inputDateProf");
+    dataInput.setAttribute("max", dataMax);
+    dataInput.setAttribute("min", dataMin);
+
+}
+</script>
 <script src="./js/searchUsers.js"></script>
 <script src="./js/addProfOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
