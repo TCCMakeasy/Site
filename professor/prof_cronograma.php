@@ -21,8 +21,10 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     <title>Horário</title>
 
 </head>
-
-<body>
+<script> 
+    const alerta = () => alert("<?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];}?>");
+</script>
+<body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
     <?php
 
     include_once "./includes/menuProfessor.php";
@@ -145,12 +147,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>
 <?php include_once "includes/modalNotificar.php";
-if (isset($_SESSION['msg'])) {
-    echo '<script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-            alert("' . $_SESSION['msg'] . '");
-          })</script>';
-}
 unset($_SESSION['msg']); ?>
 
 </html>

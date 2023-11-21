@@ -156,9 +156,12 @@ main {
   transition: 0.5s;
 }
 @media (max-width: 768px) {
+  #cadastro{
+    width: 100%;
+  }
   #fieldsetLogin {
-    width: 130%;
-    margin-left: -29%;
+    min-width: 60%;
+    max-width: 90%;
   }
   .inputLogin {
     width: 90%;
@@ -167,8 +170,8 @@ main {
     width: 90%;
   }
   #fieldsetCad {
-    width: 130%;
-    margin-left: -29%;
+    min-width: 60%;
+    max-width: 90%;
   }
   #logo {
     width: 80%;

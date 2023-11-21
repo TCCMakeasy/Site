@@ -25,7 +25,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <link rel="stylesheet" type="text/css" href="./styles/estiloSaibaMais.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
-
+<script> 
+    const alerta = () => alert("<?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];}?>");
+</script>
 <body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
     <script>
         function goBack() {
@@ -173,9 +175,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     </main>
 </body>
 <script src="./js/menuOpenClose.js"></script>
-<script> 
-    const alerta = () => alert("<?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];}?>");
-</script>
 <?php include_once "includes/modalNotificar.php";
 include_once "includes/modalAvalia.php";
 include_once "includes/modalDenuncia.php";

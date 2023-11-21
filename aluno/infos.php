@@ -16,7 +16,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     <link rel="stylesheet" type="text/css" href="./styles/estiloEditInfos.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
-
+<script> 
+    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
+</script>
 <body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
     <?php include_once "./includes/menuAluno.php"; ?>
     <main>
@@ -88,9 +90,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     });
 </script>
 <script src="./js/excluirConta.js"></script>
-<script> 
-    const alerta = () => alert("<?php echo $_SESSION['msg'];?>");
-</script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "./includes/modalNotificar.php";
 unset($_SESSION['msg']); ?>
