@@ -26,8 +26,9 @@ if (isset($dados)) {
                     $_SESSION['telefone'] = $row_login['telefone_professor'];
                     $_SESSION['valor'] = $row_login['valor_professor'];
                     $_SESSION['bio'] = $row_login['bio_professor'];
+                    $_SESSION['verify'] = $row_login['verifica_adm'];
                     unset($_SESSION['msg']);
-                    if ($_SESSION['email'] == "adm@gmail.com") {
+                    if ($_SESSION['verify'] == 1) {
                         $_SESSION['tipo'] = 3;
                         header("Location: ../../adm/infos.php");
                     }else{

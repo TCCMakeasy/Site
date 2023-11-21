@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
+if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
     $_SESSION['msg'] = "Faça login para acessar o sistema";
     header("Location: ../professor/login.php");
 } else {
@@ -18,7 +18,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
         if ($img['foto_professor'] != "usuario.png"){
             unlink("../../fotosPerfil/" . $img['foto_professor']);
         }
-        $_SESSION['msg'] = "Aluno excluído com sucesso!";
+        $_SESSION['msg'] = "Professor excluído com sucesso!";
         header("Location: ../users.php");
     } else {
         $_SESSION['msg'] = "Erro ao excluir professor";

@@ -408,7 +408,6 @@ const graphLucroValues = async (text) => {
 
     if (response.ok) {
       const financeiro = await response.json();
-      console.log(financeiro);
       if (financeiro.erro) {
         if (financeiro.erro == "404") {
           document.getElementById("lucroDiv").innerHTML =
