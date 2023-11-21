@@ -17,26 +17,60 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 <script>
-  const dateMax = () => {
-    let dataAtual = new Date();
-    let dia = dataAtual.getDate();
-    let mes = dataAtual.getMonth() + 1;
-    let ano = dataAtual.getFullYear();
-    if (dia < 10) {
-      dia = "0" + dia;
-    }
-    if (mes < 10) {
-      mes = "0" + mes;
-    }
-    let dataMax = (ano - 12) + "-" + mes + "-" + dia;
-    let dataMin = (ano - 100) + "-" + mes + "-" + dia;
-    let dataInput = document.getElementById("dataNascInput");
-    dataInput.setAttribute("max", dataMax);
-    dataInput.setAttribute("min", dataMin);
+    const dateMax = () => {
+        let dataAtual = new Date();
+        let dia = dataAtual.getDate();
+        let mes = dataAtual.getMonth() + 1;
+        let ano = dataAtual.getFullYear();
+        if (dia < 10) {
+            dia = "0" + dia;
+        }
+        if (mes < 10) {
+            mes = "0" + mes;
+        }
+        let dataMax = (ano - 12) + "-" + mes + "-" + dia;
+        let dataMin = (ano - 100) + "-" + mes + "-" + dia;
+        let dataInput = document.getElementById("dataNascInput");
+        dataInput.setAttribute("max", dataMax);
+        dataInput.setAttribute("min", dataMin);
 
-  }
+    }
+
+    const alerta = () => alert("<?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?>");
+
+    const loaded = () => {
+        alerta();
+        dateMax();
+    }
+
+    String.prototype.reverse = function() {
+        return this.split("").reverse().join("");
+    };
+
+    function mascaraMoeda(campo, evento) {
+        var tecla = !evento ? window.event.keyCode : evento.which;
+        var valor = campo.value.replace(/[^\d]+/gi, "").reverse();
+        var resultado = "";
+        var mascara = "###.###.###,##".reverse();
+        for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
+            if (mascara.charAt(x) != "#") {
+                resultado += mascara.charAt(x);
+                x++;
+            } else {
+                resultado += valor.charAt(y);
+                y++;
+                x++;
+            }
+        }
+        campo.value = resultado.reverse();
+    }
 </script>
-<body onload="dateMax()">
+
+<body onload="<?php if (isset($_SESSION['msg'])) {
+                    echo 'loaded()';
+                } else {
+                    echo 'dateMax()';
+                } ?>">
     <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <section id="tela">
@@ -88,7 +122,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
                     </div>
                     <div id="divValor" class="divInputText">
                         <p id="valorTitulo" class="tituloForm">Preço (R$):</p>
-                        <p class="inputP"><input id="valorInput" class="inputText" type="number" name="valor" value="<?php echo $_SESSION['valor'] ?>"><img src="./images/edit.png" class="editImg"></p>
+                        <p class="inputP"><input id="valorInput" class="inputText" name="valor" value="<?php echo $_SESSION['valor'] ?>" onKeyUp="mascaraMoeda(this, event)"><img src="./images/edit.png" class="editImg"></p>
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Biografia:</p>
@@ -114,21 +148,15 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
     }
 
     const showHidePassword = () => {
-    if(document.querySelector('#senhaInput').value != '') {
-        document.querySelector('#senhaInput').type = document.querySelector('#senhaInput').type === 'password' ? 'text' : 'password';
-    document.querySelector('#show-hide').src = document.querySelector('#senhaInput').type === 'password' ? './images/hide.png' : './images/show.png';
+        if (document.querySelector('#senhaInput').value != '') {
+            document.querySelector('#senhaInput').type = document.querySelector('#senhaInput').type === 'password' ? 'text' : 'password';
+            document.querySelector('#show-hide').src = document.querySelector('#senhaInput').type === 'password' ? './images/hide.png' : './images/show.png';
+        }
+
     }
-    
-}
 </script>
 <script src="./js/menuOpenClose.js"></script>
 <?php include_once "includes/modalNotificar.php";
-if (isset($_SESSION['msg'])) {
-    echo '<script>
-    document.addEventListener("DOMContentLoaded", function(event) {
-        alert("' . $_SESSION['msg'] . '");
-      })</script>';
-}
 unset($_SESSION['msg']) ?>
 
 </html>

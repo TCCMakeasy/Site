@@ -24,15 +24,15 @@ if($verifica_aluno != 0){
                 echo $media;
                 $inseri = "UPDATE professor SET nota_professor = '".$media."' WHERE id_professor = '".$_SESSION['id_professor']."'";
                 $inseri2 = mysqli_query($sql, $inseri);
-                $_SESSION['msg'] = 'Nota editada com sucesso';
+                $_SESSION['msg'] = 'Avaliação editada com sucesso';
                 header("Location: ../professor.php?id=".$_SESSION['id_professor']);
             }
         }else{
-            $_SESSION['msg'] = 'Erro ao editar a nota';
+            $_SESSION['msg'] = 'Erro ao editar a avaliação';
             header("Location: ../professor.php?id=".$_SESSION['id_professor']);
         }    
     }else{
-        $_SESSION['msg'] = 'Erro ao editar a nota';
+        $_SESSION['msg'] = 'Erro ao editar a avaliação';
         header("Location: ../professor.php?id=".$_SESSION['id_professor']);
     }
 }else{
@@ -47,7 +47,7 @@ if($verifica_aluno != 0){
             echo $media;
             $inseri = "UPDATE professor SET nota_professor = '".$media."' WHERE id_professor = '".$_SESSION['id_professor']."'";
             $inseri2 = mysqli_query($sql, $inseri);
-            $_SESSION['msg'] = 'Nota colocada com sucesso';
+            $_SESSION['msg'] = 'Avaliação enviada com sucesso!';
             header("Location: ../professor.php?id=".$_SESSION['id_professor']);
         }else{
             $_SESSION['msg'] = 'Erro ao dar nota';

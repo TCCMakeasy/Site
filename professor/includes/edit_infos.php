@@ -38,8 +38,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             exit();
         }
     }
-    if ($dados['valor'] == "") {
-        $dados['valor'] = $_SESSION['valor'];
+    if ($dados['valor'] != $_SESSION['valor']) {
+        $dados['valor'] = str_replace(".", "", $dados['valor']);
+        $dados['valor'] = str_replace(",", ".", $dados['valor']);
     }
     if ($dados['data'] == ""){
         $dados['data'] = $_SESSION['data'];

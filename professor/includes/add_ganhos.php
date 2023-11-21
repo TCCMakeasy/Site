@@ -20,8 +20,8 @@ $ganho2 = "INSERT INTO financeiro (tipo_financeiro, nome_financeiro, preco_finan
 $ganho_inseri2 = mysqli_query($sql, $ganho2) or die(mysqli_error($sql));
 if ($ganho_inseri2) {
     $_SESSION['msg'] = "<div class='alert alert-success' role='alert'>Dados salvos com sucesso!</div>";
-    header("Location: ../adm_financeiro.php");
+    header("Location: ../financeiro.php");
 } else {
     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao salvar dados, tente novamente mais tarde!</div>";
-    header("Location: ../adm_financeiro.php");
+    header("Location: ../financeiro.php");
 }
