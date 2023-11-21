@@ -39,6 +39,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     if ($dados['valor'] == "") {
         $dados['valor'] = $_SESSION['valor'];
     }
+    if ($dados['data'] == ""){
+        $dados['data'] = $_SESSION['data'];
+    }
     if ($dados['senha'] == "") {
         $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
@@ -60,7 +63,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
             $_SESSION['bio'] = $dados['bio'];
             $_SESSION['valor'] = $dados['valor'];
             $_SESSION['telefone'] = $dados['telefone'];
-
+            $_SESSION['data'] = $dados['data'];
             header("Location: ../infos.php");
         } else {
             $_SESSION['msg'] = "Erro ao atualizar informações";

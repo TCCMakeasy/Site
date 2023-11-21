@@ -16,8 +16,27 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
     <link rel="stylesheet" type="text/css" href="./styles/estiloEditInfos.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
+<script>
+  const dateMax = () => {
+    let dataAtual = new Date();
+    let dia = dataAtual.getDate();
+    let mes = dataAtual.getMonth() + 1;
+    let ano = dataAtual.getFullYear();
+    if (dia < 10) {
+      dia = "0" + dia;
+    }
+    if (mes < 10) {
+      mes = "0" + mes;
+    }
+    let dataMax = (ano - 12) + "-" + mes + "-" + dia;
+    let dataMin = (ano - 100) + "-" + mes + "-" + dia;
+    let dataInput = document.getElementById("dataNascInput");
+    dataInput.setAttribute("max", dataMax);
+    dataInput.setAttribute("min", dataMin);
 
-<body>
+  }
+</script>
+<body onload="dateMax()">
     <?php include_once "./includes/menuAdm.php"; ?>
     <main>
         <section id="tela">
@@ -65,7 +84,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 3) {
                     </script>
                     <div id="divDataNasc" class="divInputText">
                         <p id="dataNascTitulo" class="tituloForm">Data de Nascimento:</p>
-                        <input id="dataNascInput" class="inputLock" type="text" name="data" value="<?php echo date('d/m/Y',  strtotime($_SESSION['data'])); ?>" disabled>
+                        <p class="inputP"><input id="dataNascInput" class="inputText" type="date" name="data" value="<?php echo date('Y-m-d',  strtotime($_SESSION['data'])); ?>"><img src="./images/edit.png" class="editImg"></p>
                     </div>
                     <div id="divValor" class="divInputText">
                         <p id="valorTitulo" class="tituloForm">Preço (R$):</p>
