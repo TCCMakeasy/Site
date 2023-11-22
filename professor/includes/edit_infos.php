@@ -10,6 +10,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     $dados = array_map('trim', $dados_st);
     $erro = false;
     $fotoPerfil = $_FILES['fotoPerfil'];
+    echo $dados['valor'];
     if ($fotoPerfil['error'] == 4) {
         $dados['fotoPerfil'] = $_SESSION['foto'];
     } elseif ($fotoPerfil['size'] > 5242880) {
@@ -38,9 +39,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             exit();
         }
     }
-    if ($dados['valor'] != $_SESSION['valor']) {
-        $dados['valor'] = str_replace(".", "", $dados['valor']);
-        $dados['valor'] = str_replace(",", ".", $dados['valor']);
+    //Arrumar valor vazio
+    if($dados['valor'] = ""){
+        $dados['valor'] = 0;
+    }
+    else if ($dados['valor'] != $_SESSION['valor']) {
+            $dados['valor'] = str_replace(".", "", $dados['valor']);
+            $dados['valor'] = str_replace(",", ".", $dados['valor']);
     }
     if ($dados['data'] == ""){
         $dados['data'] = $_SESSION['data'];
