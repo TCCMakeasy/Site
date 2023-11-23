@@ -164,27 +164,41 @@ main {
   }
   #divDesvincular{
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
   #desvincularProfessor{
     background-color: var(--vermelhoMakeasy);
     border: 2px solid black;
+    color: #000;
     border-radius: 16px;
     padding: 0.7rem;
     font-weight: 600;
     font-size: 1.5rem;
     margin-top: 1rem;
     cursor: pointer;
-    margin-bottom: 2rem;
+    text-decoration: none;
+  }
+  #privilegioProfessor{
+    background-color: var(--verdeMakeasy);
+    border: 2px solid black;
+    color: #000;
+    border-radius: 16px;
+    padding: 0.7rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    text-decoration: none;
   }
   #desvincularProfessor:hover{
     background-color: var(--vermelhoMakeasyHover);
     transition: 0.3s;
   }
-  #desvincularProfessor > a{
-    text-decoration: none;
-    color: black;
+  #privilegiorProfessor:hover{
+    background-color: var(--verdeMakeasyHover);
+    transition: 0.3s;
   }
   #whatsappAluno {
     background-color: #25d366;

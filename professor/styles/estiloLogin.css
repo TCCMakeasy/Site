@@ -139,7 +139,18 @@ main {
   color: #001122;
   transition: 0.5s;
 }
+@media (max-width: 1500px) {
+  #logo {
+    width: 25rem;
+  }
+  #fieldsetLogin {
+    margin-top: 0.5rem;
+  }
+}
 @media (max-width: 640px) {
+  #cadastro{
+    width: 100%;
+  }
   #fieldsetLogin {
     max-width: 90%;
   }
@@ -167,12 +178,4 @@ main {
     width: 17%;
   }
 
-}
-@media (max-width: 1500px) {
-  #logo {
-    width: 25rem;
-  }
-  #fieldsetLogin {
-    margin-top: 0.5rem;
-  }
 }

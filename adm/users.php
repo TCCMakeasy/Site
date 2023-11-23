@@ -58,19 +58,19 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
             <h1>Adicionar Professor</h1>
             <div id="nomeProf">
                 <label for="inputNomeProf"><b>Nome:</b></label>
-                <input type="text" name="nomeProf" id="inputNomeProf" placeholder="Nome do Professor">
+                <input type="text" name="nomeProf" id="inputNomeProf" placeholder="Nome do Professor" required>
             </div>
             <div id="senhaProf">
                 <label for="inputsenhaProf"><b>Senha:</b></label>
-                <input type="password" name="senhaProf" id="inputSenhaProf" placeholder="•••••••••••••">
+                <input type="password" name="senhaProf" id="inputSenhaProf" placeholder="•••••••••••••" required>
             </div>
             <div id="emailProf">
                 <label for="inputemailProf"><b>Email:</b></label>
-                <input type="email" name="emailProf" id="inputEmailProf" placeholder="Professor@gmail.com">
+                <input type="email" name="emailProf" id="inputEmailProf" placeholder="Professor@gmail.com" required>
             </div>
             <div id="emailProf">
                 <label for="inputemailProf"><b>Data de nasc.:</b></label>
-                <input type="date" name="dataProf" id="inputDateProf" placeholder="9/99/9999">
+                <input type="date" name="dataProf" id="inputDateProf" placeholder="9/99/9999" required>
             </div>
             <div id="admProf">
                 <label for="inputAdmProf"><b>Privilégios de Administrador:

@@ -62,7 +62,9 @@ main {
   padding: 0 1rem;
   font-size: 1.3rem;
 }
-
+#divTable{
+  max-width: 100%;
+}
 #tabela {
   max-width: 70%;
   margin: 0 auto;
@@ -97,6 +99,12 @@ td {
 }
 #linha:hover .excluir{
   background-color: var(--vermelhoMakeasyHover);
+}
+@media (max-width: 1500px) {
+  th,
+  td {
+    min-width: 10rem;
+  }
 }
 @media (max-width: 768px) {
   body{
@@ -165,11 +173,5 @@ td {
   }
   td:nth-of-type(3)::before {
     content: "Data:";
-  }
-}
-@media (max-width: 1500px) {
-  th,
-  td {
-    min-width: 10rem;
   }
 }
