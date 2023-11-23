@@ -39,15 +39,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
             exit();
         }
     }
-    //Arrumar valor vazio
-    if($dados['valor'] = ""){
-        $dados['valor'] = 0;
+    if (empty($dados['valor'])) {
+        $dados['valor'] = '0';
+    } else if ($dados['valor'] != $_SESSION['valor']) {
+        $dados['valor'] = str_replace(".", "", $dados['valor']);
+        $dados['valor'] = str_replace(",", ".", $dados['valor']);
+        $dados['valor'] = ltrim($dados['valor'], '0');
     }
-    else if ($dados['valor'] != $_SESSION['valor']) {
-            $dados['valor'] = str_replace(".", "", $dados['valor']);
-            $dados['valor'] = str_replace(",", ".", $dados['valor']);
-    }
-    if ($dados['data'] == ""){
+    if ($dados['data'] == "") {
         $dados['data'] = $_SESSION['data'];
     }
     if ($dados['senha'] == "") {

@@ -7,31 +7,29 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 } else {
     require_once("../../conexao.php");
     $idAluno = $_GET['id'];
+
+
+    $data = date('m');
+    $select = "SELECT * from armazena where mensal_armazena = $data";
+    $selectComando = mysqli_query($sql, $select);
+
+    $select1 = "SELECT * from armazena where id_professor = '".$_SESSION['id_professor']."'";
+    $selectComando1 = mysqli_query($sql, $select1);	
+    
+    if(mysqli_num_rows($selectComando1) > 0 && (mysqli_num_rows($selectComando) > 0)){
+
+        $altera = "update armazena set perdidos_armazena = (perdidos_armazena + 1) where id_professor = '".$_SESSION['id_professor']."' AND mensal_armazena = $data";
+        $alteraFinal = mysqli_query($sql, $altera);
+
+    }else{
+        ECHO $_SESSION['id_professor'];
+    $armazena = "INSERT into armazena(id_professor, perdidos_armazena, mensal_armazena) values ( '".$_SESSION['id_professor']."' ,perdidos_armazena + 1, $data)";
+    $armazenaFinal = mysqli_query($sql, $armazena);
+
+    }
     $desvincularProfessor = "UPDATE aluno SET id_professor = NULL WHERE id_aluno = '$idAluno'";
     $resultDesvincularProfessor = mysqli_query($sql, $desvincularProfessor);
     if ($resultDesvincularProfessor) {
-        
-
-        $data = date('m');
-
-        $select = "SELECT * from armazena where mensal_armazena = $data";
-        $selectComando = mysqli_query($sql, $select);
-
-        $select1 = "SELECT * from armazena where id_professor = '".$_SESSION['id_professor']."'";
-        $selectComando1 = mysqli_query($sql, $select1);	
-        
-        if(mysqli_num_rows($selectComando1) > 0 && (mysqli_num_rows($selectComando) > 0)){
-
-            $altera = "update armazena set perdidos_armazena = (perdidos_armazena + 1) where id_professor = '".$_SESSION['id_professor']."' AND mensal_armazena = $data";
-            $alteraFinal = mysqli_query($sql, $altera);
-
-        }else{
-            ECHO $_SESSION['id_professor'];
-        $armazena = "INSERT into armazena(id_professor, perdidos_armazena, mensal_armazena) values ( '".$_SESSION['id_professor']."' ,perdidos_armazena + 1, $data)";
-        $armazenaFinal = mysqli_query($sql, $armazena);
-
-        }
-
         $exclui = "DELETE from financeiro where nome_financeiro like '%$idAluno%'";
         $exclui_hora = "DELETE from cronograma where ter_cronograma = '".$idAluno."' AND qua_cronograma = '".$idAluno."' AND seg_cronograma = '".$idAluno."' AND sex_cronograma = '".$idAluno."' AND dom_cronograma = '".$idAluno."' AND qui_cronograma = '".$idAluno."' AND sab_cronograma = '".$idAluno."'";
         $excluiFinal = mysqli_query($sql, $exclui);
@@ -54,7 +52,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
     } else {
         $_SESSION['msg'] = "Erro ao desvincular professor";
-        //header("Location: ../professor.php?id=".$_SESSION['id_professor']."");
+        header("Location: ../professor.php?id=".$_SESSION['id_professor']."");
     }
 }
 ?>
