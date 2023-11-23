@@ -12,6 +12,8 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
 
     $sqlDelete = "DELETE FROM aluno WHERE id_aluno = '$idAluno'";
     $imgDelete = "SELECT foto_aluno FROM aluno WHERE id_aluno = '$idAluno'";
+    $exclui = "DELETE from financeiro where nome_financeiro like '%$idAluno%'";
+    $excluiFinal = mysqli_query($sql, $exclui);
     $img = mysqli_fetch_assoc(mysqli_query($sql, $imgDelete));
     $deleteAluno = mysqli_query($sql, $sqlDelete);
     if ($deleteAluno) {

@@ -249,6 +249,10 @@ section {
     margin: 0rem;
     width: 100%;
   }
+
+  #container > .avisos {
+    width: auto;
+  }
   *::-webkit-scrollbar {
     width: 10px;
   }

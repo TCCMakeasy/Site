@@ -36,12 +36,13 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
             exit();
         }
     }
-    if ($dados['valor'] != $_SESSION['valor']) {
+    if (empty($dados['valor'])){
+        $dados['valor'] = '0';
+    }
+    else if ($dados['valor'] != $_SESSION['valor']) {
         $dados['valor'] = str_replace(".", "", $dados['valor']);
         $dados['valor'] = str_replace(",", ".", $dados['valor']);
-    }
-    if ($dados['data'] == ""){
-        $dados['data'] = $_SESSION['data'];
+        $dados['valor'] = ltrim($dados['valor'], '0');
     }
     if ($dados['senha'] == "") {
         $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";

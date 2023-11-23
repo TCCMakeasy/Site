@@ -33,36 +33,34 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         let dataInput = document.getElementById("dataNascInput");
         dataInput.setAttribute("max", dataMax);
         dataInput.setAttribute("min", dataMin);
+    }
+    const alerta = () => alert("<?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?>");
 
-        const alerta = () => alert("<?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?>");
+    const loaded = () => {
+        alerta();
+        dateMax();
+    }
 
-        const loaded = () => {
-            alerta();
-            dateMax();
-        }
+    String.prototype.reverse = function() {
+        return this.split("").reverse().join("");
+    };
 
-        String.prototype.reverse = function() {
-            return this.split("").reverse().join("");
-        };
-
-        function mascaraMoeda(campo, evento) {
-            var tecla = !evento ? window.event.keyCode : evento.which;
-            var valor = campo.value.replace(/[^\d]+/gi, "").reverse();
-            var resultado = "";
-            var mascara = "###.###.###,##".reverse();
-            for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
-                if (mascara.charAt(x) != "#") {
-                    resultado += mascara.charAt(x);
-                    x++;
-                } else {
-                    resultado += valor.charAt(y);
-                    y++;
-                    x++;
-                }
+    function mascaraMoeda(campo, evento) {
+        var tecla = !evento ? window.event.keyCode : evento.which;
+        var valor = campo.value.replace(/[^\d]+/gi, "").reverse();
+        var resultado = "";
+        var mascara = "###.###.###,##".reverse();
+        for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
+            if (mascara.charAt(x) != "#") {
+                resultado += mascara.charAt(x);
+                x++;
+            } else {
+                resultado += valor.charAt(y);
+                y++;
+                x++;
             }
-            campo.value = resultado.reverse();
         }
-
+        campo.value = resultado.reverse();
     }
 </script>
 

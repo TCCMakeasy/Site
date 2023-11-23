@@ -141,8 +141,7 @@ main {
 }
 @media (max-width: 640px) {
   #fieldsetLogin {
-    width: 140%;
-    margin-left: -26%;
+    max-width: 90%;
   }
   .inputLogin {
     width: 90%;
