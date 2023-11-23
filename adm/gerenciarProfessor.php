@@ -40,7 +40,6 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
                 <div id="questions">
                     <a><?php echo $infosProfessor['nota_professor'] ?>/5⭐</a>
                     <a>Preço:R$<?php echo $infosProfessor['valor_professor'] ?></a>
-                    <a href="./denuncias.php" id="report"><img src="./images/denuncia.svg" style="vertical-align: bottom;" alt="denunciar">Denúncias</a>
                 </div>
                 <div id="foto">
                     <img src="../fotosPerfil/<?php echo $infosProfessor['foto_professor'] ?>" id="fotoPerfil" accept="./images/*">
@@ -145,13 +144,21 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
                 ?>
             </div>
             <div id="divDesvincular">
-                <button id="desvincularProfessor"><a href="./includes/excluirProfessor.php?id=<?php echo $idProfessor ?>">Excluir Professor</a></button>
+                <a id="desvincularProfessor" href="./includes/excluirProfessor.php?id=<?php echo $idProfessor ?>">Excluir Professor</a>
+                <?php 
+            if($infosProfessor['verifica_adm'] == 0){
+                echo '<a id="privilegioProfessor" href="./includes/add_adm.php?id_professor='.$idProfessor.'&adm='.$infosProfessor['verifica_adm'].'">Tornar Adm</a>';
+            }else{
+                echo '<a id="privilegioProfessor" href="./includes/add_adm.php?id_professor='.$idProfessor.'&adm='.$infosProfessor['verifica_adm'].'">Remover Adm</a>';
+            }
+            ?>
             </div>
         </div>
 
     </main>
 </body>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php";
+unset($_SESSION['msg']); ?>
 
 </html>
