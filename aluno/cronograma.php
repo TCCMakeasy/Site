@@ -25,7 +25,9 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
 
 </head>
 
-<body <?php if(isset($_SESSION['msg'])) { echo 'onload="alerta()"';} ?>>
+<body <?php if (isset($_SESSION['msg'])) {
+            echo 'onload="alerta()"';
+        } ?>>
     <?php
 
     include_once "./includes/menuAluno.php";
@@ -66,10 +68,17 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                                     $alunoSelect = "SELECT nome_aluno FROM aluno WHERE id_aluno = '" . $sqlHorarios[$day . '_cronograma'] . "' AND id_professor = '" . $_SESSION['id_professor'] . "'";
                                     $alunoRequest = mysqli_query($sql, $alunoSelect);
                                     $aluno = mysqli_fetch_assoc($alunoRequest);
-                                    if ($aluno['nome_aluno'] == $_SESSION['nome']) {
-                                        echo "Você";
+                                    if (isset($aluno['nome_aluno'])) {
+                                        if ($aluno['nome_aluno'] == $_SESSION['nome']) {
+                                            echo "Você";
+                                        } else {
+                                            echo "Ocupado";
+                                        }
                                     } else {
-                                        echo "Ocupado";
+                                        $sqlUpdate = "UPDATE cronograma SET " . $day . "_cronograma = NULL WHERE tempo_cronograma = '" . $horario . ":00:00' AND id_professor = '" . $_SESSION['id'] . "'";
+                                        mysqli_query($sql, $sqlUpdate);
+                                        echo "<script>document.getElementById('" . $day . ':' . $horario . "').classList.add('disponivel');</script>";
+                                        echo "Disponível";
                                     }
                                 }
                             } else {
@@ -94,8 +103,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     </section>
 
 </body>
-<script> 
-    const alerta = () => alert("<?php if(isset($_SESSION['msg'])) {echo $_SESSION['msg'];}?>");
+<script>
+    const alerta = () => alert("<?php if (isset($_SESSION['msg'])) {echo $_SESSION['msg'];} ?>");
 </script>
 <script src="./js/menuOpenClose.js"></script>
 <script src="./js/selectAula.js"></script>

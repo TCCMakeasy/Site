@@ -22,7 +22,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         $alteraFinal = mysqli_query($sql, $altera);
 
     }else{
-        ECHO $_SESSION['id_professor'];
     $armazena = "INSERT into armazena(id_professor, perdidos_armazena, mensal_armazena) values ( '".$_SESSION['id_professor']."' ,perdidos_armazena + 1, $data)";
     $armazenaFinal = mysqli_query($sql, $armazena);
 
@@ -30,6 +29,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
     $desvincularProfessor = "UPDATE aluno SET id_professor = NULL WHERE id_aluno = '$idAluno'";
     $resultDesvincularProfessor = mysqli_query($sql, $desvincularProfessor);
     if ($resultDesvincularProfessor) {
+        
         $exclui = "DELETE from financeiro where nome_financeiro like '%$idAluno%'";
         $exclui_hora = "DELETE from cronograma where ter_cronograma = '".$idAluno."' AND qua_cronograma = '".$idAluno."' AND seg_cronograma = '".$idAluno."' AND sex_cronograma = '".$idAluno."' AND dom_cronograma = '".$idAluno."' AND qui_cronograma = '".$idAluno."' AND sab_cronograma = '".$idAluno."'";
         $excluiFinal = mysqli_query($sql, $exclui);
