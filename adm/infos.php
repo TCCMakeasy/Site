@@ -51,7 +51,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
         var tecla = !evento ? window.event.keyCode : evento.which;
         var valor = campo.value.replace(/[^\d]+/gi, "").reverse();
         var resultado = "";
-        var mascara = "###.###.###,##".reverse();
+        var mascara = "###.###,##".reverse();
         for (var x = 0, y = 0; x < mascara.length && y < valor.length;) {
             if (mascara.charAt(x) != "#") {
                 resultado += mascara.charAt(x);
@@ -122,7 +122,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
                     </div>
                     <div id="divValor" class="divInputText">
                         <p id="valorTitulo" class="tituloForm">Preço (R$):</p>
-                        <p class="inputP"><input id="valorInput" class="inputText" name="valor" value="<?php echo $_SESSION['valor'] ?>" onKeyUp="mascaraMoeda(this, event)"><img src="./images/edit.png" class="editImg"></p>
+                        <p class="inputP"><input id="valorInput" class="inputText" name="valor" value="<?php if(!empty($_SESSION['valor'])){echo number_format($_SESSION['valor'],2,",",".");} ?>" onKeyUp="mascaraMoeda(this, event)" maxlength="10"><img src="./images/edit.png" class="editImg"></p>
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Biografia:</p>

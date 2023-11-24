@@ -7,6 +7,9 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
 } else {
     require_once("../conexao.php");
     $idProfessor = $_GET['id'];
+    if($idProfessor == $_SESSION['id']){
+        header("Location: ./infos.php");
+    }
     $infosProfessor = "SELECT * FROM professor WHERE id_professor = '$idProfessor'";
     $resultInfosProfessor = mysqli_query($sql, $infosProfessor);
     $infosProfessor = mysqli_fetch_assoc($resultInfosProfessor);

@@ -50,7 +50,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         $dados['data'] = $_SESSION['data'];
     }
     if ($dados['senha'] == "") {
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "',nascimento_professor = '" . $dados['data'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
         $erro = true;
         echo "A senha deve ter no minímo 6 caracteres";
@@ -64,7 +64,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
         exit();
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['senha'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['senha'] . "',nascimento_professor = '" . $dados['data'] . "' , foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     }
     if ($erro == false) {
         $result = mysqli_query($sql, $update);
