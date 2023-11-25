@@ -35,7 +35,7 @@ $token = md5(rand(0, 9999) . rand(0, 9999) . rand(0, 9999) . rand(0, 9999));
     }
 
     $subject = 'Sua nova conta Makeasy foi criado';
-    $url = 'http://localhost:8080/Site/professor/includes/email_cad.php?nome=' . $email . '&token=' . $token . '&email=' . $email . '';
+    $url = 'https://sistema.makeasyenglish.com.br/professor/includes/email_cad.php?nome=' . $nome . '&token=' . $token . '&email=' . $email . '';
     $url = str_replace(' ','+', $url);
     $message = curl_get_contents($url);
     $mail = new PHPMailer(true);

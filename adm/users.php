@@ -108,6 +108,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
 <script src="./js/searchUsers.js"></script>
 <script src="./js/addProfOpenClose.js"></script>
 <script src="./js/menuOpenClose.js"></script>
-<?php include_once "includes/modalNotificar.php"; ?>
+<?php include_once "includes/modalNotificar.php"; 
+unset($_SESSION['msg']);?>
 
 </html>

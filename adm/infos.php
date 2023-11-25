@@ -126,7 +126,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Biografia:</p>
-                        <textarea id="descInput" class="inputText" rows="5" name="bio"><?php echo $_SESSION['bio'] ?></textarea>
+                        <textarea id="descInput" class="inputText" rows="5" maxlength="500" name="bio"><?php echo $_SESSION['bio'] ?></textarea>
                     </div>
                     <div id="divBtn">
                         <input id="btnSalvar" class="btn" type="submit" value="Salvar" onclick="return confirmEdit();">
