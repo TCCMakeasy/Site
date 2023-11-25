@@ -71,7 +71,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     </div>
                     <div id="divDesc">
                         <p id="descTitulo" class="tituloForm">Descrição:</p>
-                        <textarea id="descInput" class="inputText" rows="5" form="formInfos" name="descInput"><?php echo $_SESSION['desc'] ?></textarea>
+                        <textarea id="descInput" class="inputText" rows="5" form="formInfos" maxlength="500" name="descInput"><?php echo $_SESSION['desc'] ?></textarea>
                     </div>
                     <div id="divBtn">
                         <input id="btnSalvar" class="btn" type="submit" name="btnSalvar" onclick="return confirmEdit();" value="Salvar">

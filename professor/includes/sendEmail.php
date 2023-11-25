@@ -33,7 +33,7 @@ if ($verifyEmail == null || $erro == true) {
         return $data;
     }
     $subject = 'Recuperação de conta Makeasy!';
-    $url = 'http://localhost:8080/Site/professor/includes/email.php?nome=' . $verifyEmail['nome_professor'] . '&token=' . $token . '&email=' . $email . '';
+    $url = 'https://sistema.makeasyenglish.com.br/professor/includes/email.php?nome=' . $verifyEmail['nome_professor'] . '&token=' . $token . '&email=' . $email . '';
    /* $registraToken = "INSERT into recupera(id_token, id_aluno, email_aluno) values ($token, ".$verifyEmail['id_aluno'].", '$email')";
     $registra = mysqli_query($sql, $registraToken);*/
     $url = str_replace(' ','+', $url);
