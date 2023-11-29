@@ -1,0 +1,59 @@
+@import './aluno/styles/estiloPadrão.css';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--corPrimaria);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    height: 100svh;
+}
+main > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100svw;
+    height: 100%;
+}
+
+main > div > a{
+    width: 100svw;
+    height: 100%;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#selectProfessor{
+    border-top: 1px solid white;
+}
+#selectAluno{
+    border-bottom: 1px solid white;
+}
+#selectProfessor:hover, #selectAluno:hover{
+    background-color: var(--corSecundaria);
+    transition: 0.5s;
+    font-size: 2.5rem;
+    background: radial-gradient(circle, rgba(52,56,136,1) 0%, rgba(91,109,208,1) 0%, rgba(52,56,136,1) 100%);
+}
+
+#selectProfessor:hover > img, #selectAluno:hover > img{
+    max-width: 6rem;
+    transition: 0.5s;
+}
+#selectProfessor > img, #selectAluno > img{
+    max-width: 5rem;
+}
