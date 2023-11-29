@@ -15,7 +15,7 @@ session_start();
 
 <body>
   <header>
-    <a href="" class="seta">
+    <a href="../index.html" class="seta">
       <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
     </a>
     <img src="./images/logo.png" alt="Logo da empresa" id="logo" />
