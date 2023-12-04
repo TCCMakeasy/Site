@@ -31,6 +31,7 @@ main {
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     position: absolute;
     margin-top: calc(48px + (80 - 48) * ((100vw - 400px) / (1920 - 400)));;
     max-width: 20%;
@@ -196,7 +197,7 @@ main {
     background-color: var(--vermelhoMakeasyHover);
     transition: 0.3s;
   }
-  #privilegiorProfessor:hover{
+  #privilegioProfessor:hover{
     background-color: var(--verdeMakeasyHover);
     transition: 0.3s;
   }
@@ -243,6 +244,10 @@ main {
     }
     #foto{
       margin-left: -2rem;
+    }
+    #privilegioProfessor, #desvincularProfessor{
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
     }
   }
   

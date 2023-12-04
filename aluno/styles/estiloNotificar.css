@@ -124,7 +124,7 @@
     height: 100%;
   }
   #notificações .notificação {
-    height: 3rem;
+    height: fit-content;
     font-size: 15px;
   }
   .separaItens {
