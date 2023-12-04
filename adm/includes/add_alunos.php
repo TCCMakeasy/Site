@@ -48,9 +48,8 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
 						$armazenaFinal = mysqli_query($sql, $armazena);
 
 						}
-						$mes = date('m');
-
-						$cont = $mes;
+						
+						$cont = 1;
 						//Inserção no Financeiro
 						while($cont <= 12){
 
