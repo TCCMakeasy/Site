@@ -26,7 +26,7 @@ if(mysqli_num_rows($verifyToken) == 0){
 
 <body>
   <header>
-    <a>
+    <a href="../login.php">
       <img id="voltar" src="../images/voltarseta.png" alt="Seta para voltar" />
     </a>
     <img src="../images/logo.png" alt="Logo da empresa" id="logo" />

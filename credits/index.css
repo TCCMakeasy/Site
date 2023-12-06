@@ -1,0 +1,107 @@
+@import '../aluno/styles/estiloPadrão.css';
+body {
+  background-color: var(--corSecundaria);
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  height: 100svh;
+}
+#title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem auto 1rem;
+}
+#developers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+}
+.developer {
+  background-color: var(--corPrimaria);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% / 5 + 2rem);
+  min-width: 10rem;
+  height: 25rem;
+  margin: 1rem 2rem;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.imgDeveloper {
+  width: 10rem;
+  height: 10rem;
+  margin: 2rem auto 1rem;
+  border-radius: 50%;
+  border: 1px solid black;
+  object-fit: cover;
+}
+.nomeDeveloper {
+  font-size: calc(1.8rem + 20%);
+  font-weight: 700;
+  margin: 0.7rem;
+}
+
+.LinkedIn, .GitHub {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+}
+.LinkedIn:hover, .GitHub:hover {
+  color: var(--corSecundaria);
+  transition: 0.3s;
+}
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    margin-top: 5rem;
+    height: calc(100% - 5rem);
+  }
+  .developer {
+    width: 45%;
+    min-width: 8rem;
+    height: 16rem;
+    margin: 0.5rem;
+  }
+  #developers {
+    margin: 0.5rem auto;
+  }
+  #nomeDeveloper {
+    font-size: 1.3rem;
+    margin: 0.4rem;
+  }
+  #saibaMais {
+    font-size: 1.1rem;
+    margin: 0.5rem;
+  }
+  .imgDeveloper {
+    width: 7rem;
+    height: 7rem;
+    margin: 1.2rem 1rem 0.6rem;
+    border-radius: 50%;
+  }
+}
