@@ -125,7 +125,14 @@ footer {
 .bi {
   margin-top: 25%;
 }
-
+#credits{
+  text-decoration: none;
+  color:white;
+}
+#credits:hover{
+  color: var(--corSecundaria);
+  transition: 0.3s;
+}
 @media (max-width: 768px) {
   #mobile-menu {
     display: block;
