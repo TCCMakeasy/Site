@@ -42,7 +42,7 @@ $contaMensagem = mysqli_fetch_assoc($fazAcao);
             </ul>
         </nav>
         <footer>
-            <p>Makeasy 2023 | Desenvolvido por TDE</p>
+            <p>Makeasy 2023 | Desenvolvido por <a href="../../credits/" id="credits">TDE</a></p>
             <div class="redesSociais">
                 <a href="https://www.facebook.com/makeasy.ingles" target="_blank" id="facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
