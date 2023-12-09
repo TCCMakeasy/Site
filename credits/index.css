@@ -51,7 +51,7 @@ main {
   object-fit: cover;
 }
 .nomeDeveloper {
-  font-size: calc(1.8rem + 20%);
+  font-size: calc(22px + (22 - 14) * ((100vw - 400px) / (1920 - 400)));;
   font-weight: 700;
   margin: 0.7rem;
 }
