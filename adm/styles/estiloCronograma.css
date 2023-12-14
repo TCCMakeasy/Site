@@ -16,13 +16,13 @@ main {
 #title {
   font-size: 2rem;
   font-weight: 700;
-  margin: 1rem auto 3rem;
+  margin: 1rem auto 2rem;
 }
 
 #tabela {
   width: 70%;
   margin: 0 auto;
-  height: 36rem;
+  height: 46rem;
   border-collapse: collapse;
 }
 
@@ -187,7 +187,7 @@ select {
     margin-bottom: 1rem;
   }
   #tabela{
-    height: 28rem;
+    height: 38rem;
   }
   th,
   td {

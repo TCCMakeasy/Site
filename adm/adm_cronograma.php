@@ -6,7 +6,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
     header("Location: ../professor/login.php");
 } else {
     require_once("../conexao.php");
-    $horarios = array("10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20");
+    $horarios = array("06","07","08","09","10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22","23");
     $days = array("seg", "ter", "qua", "qui", "sex", "sab", "dom");
 }
 ?>
@@ -132,7 +132,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
             </div>
             <div id="aulaHora">
                 <label for="inputHora"><b>Horário:</b></label>
-                <input type="time" name="aulaHora" id="inputHora" min="10:00" max="20:00" step="3600" required>
+                <input type="time" name="aulaHora" id="inputHora" min="06:00" max="23:00" step="3600" required>
             </div>
             <div id="submitMarcarAula">
                 <input type="submit" id="btnMarcarAula" name="btnMarcarAula" value="Marcar Aula">
