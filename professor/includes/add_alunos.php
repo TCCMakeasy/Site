@@ -49,60 +49,6 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 
 					}
 
-					$cont = 1;
-
-					//Inserção no Financeiro
-					while($cont <= 12){
-
-					switch($cont){
-						
-						case 1:
-							$mensal= "jan";
-							break;
-						case 2:
-							$mensal = "fev";
-							break;
-						case 3:
-							$mensal = "mar";
-							break;
-						case 4:
-							$mensal = "abr";
-							break;
-						case 5:
-							$mensal = "mai";
-							break;
-						case 6:
-							$mensal = "jun";
-							break;				
-						case 7:
-							$mensal= "jul";
-							break;
-						case 8:
-							$mensal = "ago";
-							break;
-						case 9:
-							$mensal = "set";
-							break;
-						case 10:
-							$mensal = "out";
-							break;
-						case 11:
-							$mensal = "nov";
-							break;
-						case 12:
-							$mensal = "dez";
-							break;				
-						
-						}
-	
-
-								$cod_Inser = "INSERT into financeiro(tipo_financeiro, nome_financeiro, preco_financeiro, mes_financeiro, id_professor) values (1, 'Pagamento [".$id."]', ".$_SESSION['valor'].", '$mensal', ".$_SESSION['id'].")";
-						$Inser = mysqli_query($sql, $cod_Inser);
-
-					$cont = $cont + 1;
-
-				}
-
 				}
 				else {
 					$_SESSION['msg'] = "Erro ao conectar o aluno";
