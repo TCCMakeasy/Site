@@ -22,7 +22,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     <?php include_once "./includes/menuProfessor.php"; ?>
     <section id="tela">
         <main>
-            <h1 id="title">Financeiro</h1>
+            <h1 id="title">KPIs</h1>
             <div id="container">
                 <h1 id="title">Lucro Mensal</h1>
                 <?php if (isset($_SESSION['msg'])) {
