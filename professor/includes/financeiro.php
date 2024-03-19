@@ -12,7 +12,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanKPIsceiro</title>
+    <title>Financeiro</title>
     <link rel="stylesheet" type="text/css" href="./styles/estiloFinancas.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -22,7 +22,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
     <?php include_once "./includes/menuProfessor.php"; ?>
     <section id="tela">
         <main>
-            <h1 id="title">KPIs</h1>
+            <h1 id="title">Financeiro</h1>
             <div id="container">
                 <h1 id="title">Lucro Mensal</h1>
                 <?php if (isset($_SESSION['msg'])) {
