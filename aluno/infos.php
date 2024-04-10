@@ -31,17 +31,17 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
                     <input type="file" id="inputFoto" name="fotoPerfil">
                 </section>
                 <section id="editInfos">
-                    <div id="divNome" class="divInputText">
-                        <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <input id="nomeInput" class="inputLock" type="text" name="nome" disabled value="<?php echo $_SESSION['nome'] ?>">
-                    </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
                         <input id="idInput" class="inputLock" type="text" name="ID" value="<?php echo $_SESSION['id'] ?>" disabled>
                     </div>
+                    <div id="divNome" class="divInputText">
+                        <p id="nomeTitulo" class="tituloForm">Nome:</p>
+                        <p class="inputP"><input id="nomeInput" class="inputText" type="text" maxlength="50" name="nome" value="<?php echo $_SESSION['nome'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
+                    </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
-                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
+                        <p class="inputP"><input id="emailInput" class="inputText" type="email" name="email" maxlength="50" value="<?php echo $_SESSION['email'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
                     </div>
                     <div id="divSenha" class="divInputText">
                         <p id="senhaTitulo" class="tituloForm">Senha:</p>

@@ -80,13 +80,13 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 2) {
                     <input type="file" id="inputFoto" name="fotoPerfil">
                 </section>
                 <section id="editInfos">
-                    <div id="divNome" class="divInputText">
-                        <p id="nomeTitulo" class="tituloForm">Nome:</p>
-                        <input id="nomeInput" class="inputLock" type="text" name="nome" value="<?php echo $_SESSION['nome'] ?>" disabled>
-                    </div>
                     <div id="divId" class="divInputText">
                         <p id="idTitulo" class="tituloForm">ID:</p>
                         <input id="idInput" class="inputLock" type="text" name="id" value="<?php echo $_SESSION['id'] ?>" value="" disabled>
+                    </div>
+                    <div id="divNome" class="divInputText">
+                        <p id="nomeTitulo" class="tituloForm">Nome:</p>
+                        <p class="inputP"><input id="nomeInput" class="inputText" type="text" maxlength="50" name="nome" value="<?php echo $_SESSION['nome'] ?>"><img src="./images/edit.png" alt="label Editável" class="editImg"></p>
                     </div>
                     <div id="divEmail" class="divInputText">
                         <p id="emailTitulo" class="tituloForm">Email:</p>
