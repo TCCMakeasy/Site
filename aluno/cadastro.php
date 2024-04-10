@@ -33,7 +33,7 @@
 
 <body onload="dateMax()">
   <header>
-    <a href="" class="seta">
+    <a href="../index.html" class="seta">
       <img id="voltar" src="./images/voltarseta.png" alt="Seta para voltar" />
     </a>
     <img src="./images/logo.png" alt="Logo da empresa" id="logo" />
@@ -44,10 +44,10 @@
       <fieldset id="fieldsetCad">
         <h1 id="tituloCad">Cadastro</h1>
         <label for="nome" class="tituloInputCad">Nome Completo:</label>
-        <input type="text" name="nome" id="nome" class="inputCad" placeholder="Albert Flores" required />
+        <input type="text" name="nome" id="nome" maxlength="50" class="inputCad" placeholder="Albert Flores" required />
 
         <label for="email" class="tituloInputCad">Email:</label>
-        <input type="email" name="email" id="email" class="inputCad" placeholder="deanna.curtis@example.com" required />
+        <input type="email" name="email" id="email" maxlength="50" class="inputCad" placeholder="deanna.curtis@example.com" required />
 
         <label for="senha" class="tituloInputCad">Senha:</label>
         <input type="password" name="senha" id="senha" class="inputCad" placeholder="●●●●●●●●" required />

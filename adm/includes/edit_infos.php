@@ -23,8 +23,8 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
         move_uploaded_file($fotoPerfil['tmp_name'], $diretorio . $novo_nome);
         $dados['fotoPerfil'] = $novo_nome;
     }
-    if ($dados['bio'] == "") {
-        $dados['bio'] = $_SESSION['bio'];
+    if ($dados['nome'] == "") {
+        $dados['nome'] = $_SESSION['nome'];
     }
     if (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
         if ($dados['email'] == "") {
@@ -45,7 +45,7 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
         $dados['valor'] = ltrim($dados['valor'], '0');
     }
     if ($dados['senha'] == "") {
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "',nascimento_professor = '" . $dados['data'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', nome_professor = '" . $dados['nome'] . "', nascimento_professor = '" . $dados['data'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "', valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
         $erro = true;
         echo "A senha deve ter no minímo 6 caracteres";
@@ -54,13 +54,14 @@ if (!isset($_SESSION['id']) || $_SESSION['verify'] != 1) {
         echo "Carácter ( & ) utilizado na senha é inválido";
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', senha_professor = '" . $dados['senha'] . "',nascimento_professor = '" . $dados['data'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE professor SET email_professor = '" . $dados['email'] . "', nome_professor = '" . $dados['nome'] . "', senha_professor = '" . $dados['senha'] . "',nascimento_professor = '" . $dados['data'] . "', foto_professor = '" . $dados['fotoPerfil'] . "', bio_professor = '" . $dados['bio'] . "',  valor_professor = '" . $dados['valor'] . "', telefone_professor = '" . $dados['telefone'] . "' WHERE id_professor = '" . $_SESSION['id'] . "'";
     }
     if ($erro == false) {
         $result = mysqli_query($sql, $update);
         if ($result) {
             $_SESSION['msg'] = "Informações atualizadas com sucesso";
             $_SESSION['email'] = $dados['email'];
+            $_SESSION['nome'] = $dados['nome'];
             $_SESSION['foto'] = $dados['fotoPerfil'];
             $_SESSION['bio'] = $dados['bio'];
             $_SESSION['valor'] = $dados['valor'];

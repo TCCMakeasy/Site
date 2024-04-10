@@ -27,8 +27,8 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         move_uploaded_file($fotoPerfil['tmp_name'], $diretorio . $novo_nome);
         $dados['fotoPerfil'] = $novo_nome;
     }
-    if ($dados['descInput'] == "") {
-        $dados['descInput'] = $_SESSION['desc'];
+    if ($dados['nome'] == "") {
+        $dados['nome'] = $_SESSION['nome'];
     }
     if (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
         if ($dados['email'] == "") {
@@ -41,7 +41,7 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         }
     }
     if ($dados['senha'] == "") {
-        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', telefone_aluno = '" . $dados['telefone'] . "', bio_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', nome_aluno = '" . $dados['nome'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', telefone_aluno = '" . $dados['telefone'] . "', bio_aluno = '" . $dados['descInput'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
     } elseif ((strlen($dados['senha'])) < 6) {
         $erro = true;
         $_SESSION['msg'] = "A senha deve conter no mínimo 6 caracteres";
@@ -54,13 +54,14 @@ if (!isset($_SESSION['id']) || $_SESSION['tipo'] != 1) {
         exit();
     } else {
         $dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
-        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', senha_aluno = '" . $dados['senha'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', bio_aluno = '" . $dados['descInput'] . "', telefone_aluno = '" . $dados['telefone'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
+        $update = "UPDATE aluno SET email_aluno = '" . $dados['email'] . "', nome_aluno = '" . $dados['nome'] . "', senha_aluno = '" . $dados['senha'] . "', foto_aluno = '" .  $dados['fotoPerfil'] . "', bio_aluno = '" . $dados['descInput'] . "', telefone_aluno = '" . $dados['telefone'] . "' WHERE id_aluno = '" . $_SESSION['id'] . "'";
     }
     if ($erro == false) {
         $result = mysqli_query($sql, $update);
         if ($result) {
             $_SESSION['msg'] = "Informações atualizadas com sucesso";
             $_SESSION['email'] = $dados['email'];
+            $_SESSION['nome'] = $dados['nome'];
             $_SESSION['foto'] = $dados['fotoPerfil'];
             $_SESSION['desc'] = $dados['descInput'];
             $_SESSION['telefone'] = $dados['telefone'];
