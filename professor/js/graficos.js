@@ -101,25 +101,7 @@ const valoresShowGraphic = (obj) => {
 const alunosShowGraphic = (array) => {
   const filteredArray = array.filter((obj) => {
     const objMonth = new Date(obj.mensal_armazena).getMonth();
-    if (currentMonth == 0) {
-      return (
-        objMonth == currentMonth ||
-        objMonth == currentMonth + 1 ||
-        objMonth == currentMonth + 2 ||
-        objMonth == currentMonth + 3 ||
-        objMonth == currentMonth + 4 ||
-        objMonth == currentMonth + 5
-      );
-    } else if (currentMonth == 1) {
-      return (
-        objMonth == currentMonth - 1 ||
-        objMonth == currentMonth ||
-        objMonth == currentMonth + 1 ||
-        objMonth == currentMonth + 2 ||
-        objMonth == currentMonth + 3 ||
-        objMonth == currentMonth + 4
-      );
-    } else if (currentMonth == 11) {
+    if (currentMonth <= 5) {
       return (
         objMonth == currentMonth - 5 ||
         objMonth == currentMonth - 4 ||
@@ -128,23 +110,54 @@ const alunosShowGraphic = (array) => {
         objMonth == currentMonth - 1 ||
         objMonth == currentMonth
       );
-    } else if (currentMonth == 10) {
+    }else if(currentMonth == 4){
       return (
+        objMonth == 11 ||
         objMonth == currentMonth - 4 ||
         objMonth == currentMonth - 3 ||
         objMonth == currentMonth - 2 ||
         objMonth == currentMonth - 1 ||
-        objMonth == currentMonth ||
-        objMonth == currentMonth + 1
+        objMonth == currentMonth
       );
-    } else {
+    }
+    else if(currentMonth == 3){
       return (
+        objMonth == 10 ||
+        objMonth == 11 ||
         objMonth == currentMonth - 3 ||
         objMonth == currentMonth - 2 ||
         objMonth == currentMonth - 1 ||
-        objMonth == currentMonth ||
-        objMonth == currentMonth + 1 ||
-        objMonth == currentMonth + 2
+        objMonth == currentMonth
+      );
+    }
+    else if(currentMonth == 2){
+      return (
+        objMonth == 9 ||
+        objMonth == 10 ||
+        objMonth == 11 ||
+        objMonth == currentMonth - 2 ||
+        objMonth == currentMonth - 1 ||
+        objMonth == currentMonth
+      );
+    }
+    else if(currentMonth == 1){
+      return (
+        objMonth == 8 ||
+        objMonth == 9 ||
+        objMonth == 10 ||
+        objMonth == 11 ||
+        objMonth == currentMonth - 1 ||
+        objMonth == currentMonth
+      );
+    }
+    else if(currentMonth == 0){
+      return (
+        objMonth == 7 ||
+        objMonth == 8 ||
+        objMonth == 9 ||
+        objMonth == 10 ||
+        objMonth == 11 ||
+        objMonth == currentMonth
       );
     }
   });
@@ -296,36 +309,59 @@ const graphAlunosValues = async (idProfessor) => {
           "<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>";
       }
       let mesesShow = [];
-      if (currentMonth == 0 || currentMonth == 1) {
+      if (currentMonth >= 5) {
         mesesShow = [
-          mesesGraphic[0],
-          mesesGraphic[1],
-          mesesGraphic[2],
-          mesesGraphic[3],
-          mesesGraphic[4],
-          mesesGraphic[5],
+          mesesGraphic[currentMonth - 5],
+          mesesGraphic[currentMonth - 4],
+          mesesGraphic[currentMonth - 3],
+          mesesGraphic[currentMonth - 2],
+          mesesGraphic[currentMonth - 1],
+          mesesGraphic[currentMonth],
         ];
-      } else if (
-        currentMonth == 11 ||
-        currentMonth == 10 ||
-        currentMonth == 9
-      ) {
+      } else if (currentMonth == 4) {
         mesesShow = [
-          mesesGraphic[6],
+          mesesGraphic[11],
+          mesesGraphic[currentMonth - 4],
+          mesesGraphic[currentMonth - 3],
+          mesesGraphic[currentMonth - 2],
+          mesesGraphic[currentMonth - 1],
+          mesesGraphic[currentMonth],
+        ];
+      } else if (currentMonth == 3) {
+        mesesShow = [
+          mesesGraphic[10],
+          mesesGraphic[11],
+          mesesGraphic[currentMonth - 3],
+          mesesGraphic[currentMonth - 2],
+          mesesGraphic[currentMonth - 1],
+          mesesGraphic[currentMonth],
+        ];
+      } else if (currentMonth == 2) {
+        mesesShow = [
+          mesesGraphic[9],
+          mesesGraphic[10],
+          mesesGraphic[11],
+          mesesGraphic[currentMonth - 2],
+          mesesGraphic[currentMonth - 1],
+          mesesGraphic[currentMonth],
+        ];
+      } else if (currentMonth == 1) {
+        mesesShow = [
+          mesesGraphic[8],
+          mesesGraphic[9],
+          mesesGraphic[10],
+          mesesGraphic[11],
+          mesesGraphic[currentMonth - 1],
+          mesesGraphic[currentMonth],
+        ];
+      } else if (currentMonth == 0) {
+        mesesShow = [
           mesesGraphic[7],
           mesesGraphic[8],
           mesesGraphic[9],
           mesesGraphic[10],
           mesesGraphic[11],
-        ];
-      } else {
-        mesesShow = [
-          mesesGraphic[currentMonth - 2],
-          mesesGraphic[currentMonth - 1],
           mesesGraphic[currentMonth],
-          mesesGraphic[currentMonth + 1],
-          mesesGraphic[currentMonth + 2],
-          mesesGraphic[currentMonth + 3],
         ];
       }
       const filteredArray = alunosShowGraphic(alunos);
