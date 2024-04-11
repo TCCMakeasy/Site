@@ -40,124 +40,46 @@ const mesesShowGraphic = (arrayMeses) => {
   return array;
 };
 const valoresShowGraphic = (obj) => {
-  if (currentMonth >= 5) {
+  if (currentMonth >= 6) {
     return [
-      obj[meses[currentMonth - 5]],
-      obj[meses[currentMonth - 4]],
-      obj[meses[currentMonth - 3]],
-      obj[meses[currentMonth - 2]],
-      obj[meses[currentMonth - 1]],
-      obj[meses[currentMonth]],
-    ];
-  } else if(currentMonth == 4) {
-    return [
-      obj[meses[11]],
-      obj[meses[currentMonth - 4]],
-      obj[meses[currentMonth - 3]],
-      obj[meses[currentMonth - 2]],
-      obj[meses[currentMonth - 1]],
-      obj[meses[currentMonth]],
-    ];
-  } else if(currentMonth == 3) {
-    return [
-      obj[meses[10]],
-      obj[meses[11]],
-      obj[meses[currentMonth - 3]],
-      obj[meses[currentMonth - 2]],
-      obj[meses[currentMonth - 1]],
-      obj[meses[currentMonth]],
-    ];
-  } else if(currentMonth == 2) {
-    return [
-      obj[meses[9]],
-      obj[meses[10]],
-      obj[meses[11]],
-      obj[meses[currentMonth - 2]],
-      obj[meses[currentMonth - 1]],
-      obj[meses[currentMonth]],
-    ];
-  }
-  else if(currentMonth == 1) {
-    return [
-      obj[meses[8]],
-      obj[meses[9]],
-      obj[meses[10]],
-      obj[meses[11]],
-      obj[meses[currentMonth - 1]],
-      obj[meses[currentMonth]],
-    ];
-  }
-  else if(currentMonth == 0) {
-    return [
+      obj[meses[6]],
       obj[meses[7]],
       obj[meses[8]],
       obj[meses[9]],
       obj[meses[10]],
-      obj[meses[11]],
-      obj[meses[currentMonth]],
+      obj[meses[11]]
+    ];
+  } else {
+    return [
+      obj[meses[0]],
+      obj[meses[1]],
+      obj[meses[2]],
+      obj[meses[3]],
+      obj[meses[4]],
+      obj[meses[5]]
     ];
   }
 };
 const alunosShowGraphic = (array) => {
   const filteredArray = array.filter((obj) => {
     const objMonth = new Date(obj.mensal_armazena).getMonth();
-    if (currentMonth <= 5) {
+    if (currentMonth >= 6) {
       return (
-        objMonth == currentMonth - 5 ||
-        objMonth == currentMonth - 4 ||
-        objMonth == currentMonth - 3 ||
-        objMonth == currentMonth - 2 ||
-        objMonth == currentMonth - 1 ||
-        objMonth == currentMonth
-      );
-    }else if(currentMonth == 4){
-      return (
-        objMonth == 11 ||
-        objMonth == currentMonth - 4 ||
-        objMonth == currentMonth - 3 ||
-        objMonth == currentMonth - 2 ||
-        objMonth == currentMonth - 1 ||
-        objMonth == currentMonth
-      );
-    }
-    else if(currentMonth == 3){
-      return (
-        objMonth == 10 ||
-        objMonth == 11 ||
-        objMonth == currentMonth - 3 ||
-        objMonth == currentMonth - 2 ||
-        objMonth == currentMonth - 1 ||
-        objMonth == currentMonth
-      );
-    }
-    else if(currentMonth == 2){
-      return (
-        objMonth == 9 ||
-        objMonth == 10 ||
-        objMonth == 11 ||
-        objMonth == currentMonth - 2 ||
-        objMonth == currentMonth - 1 ||
-        objMonth == currentMonth
-      );
-    }
-    else if(currentMonth == 1){
-      return (
-        objMonth == 8 ||
-        objMonth == 9 ||
-        objMonth == 10 ||
-        objMonth == 11 ||
-        objMonth == currentMonth - 1 ||
-        objMonth == currentMonth
-      );
-    }
-    else if(currentMonth == 0){
-      return (
+        objMonth == 6 ||
         objMonth == 7 ||
         objMonth == 8 ||
         objMonth == 9 ||
         objMonth == 10 ||
-        objMonth == 11 ||
-        objMonth == currentMonth
+        objMonth == 11
+      );
+    }else {
+      return (
+        objMonth == 0 ||
+        objMonth == 1 ||
+        objMonth == 2 ||
+        objMonth == 3 ||
+        objMonth == 4 ||
+        objMonth == 5
       );
     }
   });
@@ -309,59 +231,23 @@ const graphAlunosValues = async (idProfessor) => {
           "<div><h1>Erro ao carregar o gráfico. Tente novamente mais tarde</h1></div>";
       }
       let mesesShow = [];
-      if (currentMonth >= 5) {
+      if (currentMonth >= 6) {
         mesesShow = [
-          mesesGraphic[currentMonth - 5],
-          mesesGraphic[currentMonth - 4],
-          mesesGraphic[currentMonth - 3],
-          mesesGraphic[currentMonth - 2],
-          mesesGraphic[currentMonth - 1],
-          mesesGraphic[currentMonth],
-        ];
-      } else if (currentMonth == 4) {
-        mesesShow = [
-          mesesGraphic[11],
-          mesesGraphic[currentMonth - 4],
-          mesesGraphic[currentMonth - 3],
-          mesesGraphic[currentMonth - 2],
-          mesesGraphic[currentMonth - 1],
-          mesesGraphic[currentMonth],
-        ];
-      } else if (currentMonth == 3) {
-        mesesShow = [
-          mesesGraphic[10],
-          mesesGraphic[11],
-          mesesGraphic[currentMonth - 3],
-          mesesGraphic[currentMonth - 2],
-          mesesGraphic[currentMonth - 1],
-          mesesGraphic[currentMonth],
-        ];
-      } else if (currentMonth == 2) {
-        mesesShow = [
-          mesesGraphic[9],
-          mesesGraphic[10],
-          mesesGraphic[11],
-          mesesGraphic[currentMonth - 2],
-          mesesGraphic[currentMonth - 1],
-          mesesGraphic[currentMonth],
-        ];
-      } else if (currentMonth == 1) {
-        mesesShow = [
-          mesesGraphic[8],
-          mesesGraphic[9],
-          mesesGraphic[10],
-          mesesGraphic[11],
-          mesesGraphic[currentMonth - 1],
-          mesesGraphic[currentMonth],
-        ];
-      } else if (currentMonth == 0) {
-        mesesShow = [
+          mesesGraphic[6],
           mesesGraphic[7],
           mesesGraphic[8],
           mesesGraphic[9],
           mesesGraphic[10],
           mesesGraphic[11],
-          mesesGraphic[currentMonth],
+        ];
+      } else {
+        mesesShow = [
+          mesesGraphic[0],
+          mesesGraphic[1],
+          mesesGraphic[2],
+          mesesGraphic[3],
+          mesesGraphic[4],
+          mesesGraphic[5],
         ];
       }
       const filteredArray = alunosShowGraphic(alunos);
@@ -505,59 +391,23 @@ const graphLucroValues = async (text) => {
           );
           lucroTotal[mes] = ganhosTotais[mes] - gastosTotais[mes];
         }
-        if (currentMonth >= 5) {
+        if (currentMonth >= 6) {
           mesesShow = [
-            mesesGraphic[currentMonth - 5],
-            mesesGraphic[currentMonth - 4],
-            mesesGraphic[currentMonth - 3],
-            mesesGraphic[currentMonth - 2],
-            mesesGraphic[currentMonth - 1],
-            mesesGraphic[currentMonth],
-          ];
-        } else if (currentMonth == 4) {
-          mesesShow = [
-            mesesGraphic[11],
-            mesesGraphic[currentMonth - 4],
-            mesesGraphic[currentMonth - 3],
-            mesesGraphic[currentMonth - 2],
-            mesesGraphic[currentMonth - 1],
-            mesesGraphic[currentMonth],
-          ];
-        } else if (currentMonth == 3) {
-          mesesShow = [
-            mesesGraphic[10],
-            mesesGraphic[11],
-            mesesGraphic[currentMonth - 3],
-            mesesGraphic[currentMonth - 2],
-            mesesGraphic[currentMonth - 1],
-            mesesGraphic[currentMonth],
-          ];
-        } else if (currentMonth == 2) {
-          mesesShow = [
-            mesesGraphic[9],
-            mesesGraphic[10],
-            mesesGraphic[11],
-            mesesGraphic[currentMonth - 2],
-            mesesGraphic[currentMonth - 1],
-            mesesGraphic[currentMonth],
-          ];
-        } else if (currentMonth == 1) {
-          mesesShow = [
-            mesesGraphic[8],
-            mesesGraphic[9],
-            mesesGraphic[10],
-            mesesGraphic[11],
-            mesesGraphic[currentMonth - 1],
-            mesesGraphic[currentMonth],
-          ];
-        } else if (currentMonth == 0) {
-          mesesShow = [
+            mesesGraphic[6],
             mesesGraphic[7],
             mesesGraphic[8],
             mesesGraphic[9],
             mesesGraphic[10],
             mesesGraphic[11],
-            mesesGraphic[currentMonth],
+          ];
+        } else {
+          mesesShow = [
+            mesesGraphic[0],
+            mesesGraphic[1],
+            mesesGraphic[2],
+            mesesGraphic[3],
+            mesesGraphic[4],
+            mesesGraphic[5],
           ];
         }
         const graficoLucroMensal = new Chart(lucroMensal, {
