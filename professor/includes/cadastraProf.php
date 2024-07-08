@@ -18,7 +18,7 @@ $nome = $customer->full_name;
 $email = $customer->email;
 $senha = bin2hex(random_bytes(3));
 $senhaBD = password_hash($senha, PASSWORD_DEFAULT);
-$inseri = "INSERT INTO professor(email_professor, nome_professor, senha_professor) VALUES ('".$email."', '".$nome."', '".$senhaBD."')";
+$inseri = "INSERT INTO aluno(senha_aluno, email_aluno, nome_aluno) VALUES ('".$senhaBD."', '".$email."', '".$nome."')";
 $verify = mysqli_query($sql, $inseri) or die($sql);
 if($verify){
 $token = md5(rand(0, 9999) . rand(0, 9999) . rand(0, 9999) . rand(0, 9999));
